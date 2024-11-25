@@ -4,7 +4,7 @@
 
 class MSG_Manager
 {
-	static MSG_Manager* MSGM;
+	static MSG_Manager* MSGM_;
 
 	std::vector<MSG*> msges,buff;
 
@@ -18,6 +18,6 @@ public:
 
 	const std::vector<MSG*>& get_msges() { return msges; };
 
-	static MSG_Manager* get_mger() { return MSGM ? MSGM : MSGM = new MSG_Manager; }
-	static void deinit_mger() { MSGM ? delete MSGM : void(); }
+	static MSG_Manager* get_mger() { return MSGM_ ? MSGM_ : MSGM_ = new MSG_Manager; }
+	static void deinit_mger() { MSGM_ ? delete MSGM_ : void(); }
 };

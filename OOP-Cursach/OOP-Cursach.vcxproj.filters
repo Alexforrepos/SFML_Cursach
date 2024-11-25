@@ -51,6 +51,9 @@
     <ClCompile Include="O_Manager.cpp">
       <Filter>Исходные файлы\Engine\O_Manager</Filter>
     </ClCompile>
+    <ClCompile Include="DEBUG_CLASS.cpp">
+      <Filter>Исходные файлы\GameClasses</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="openal32.dll">
@@ -99,6 +102,9 @@
     </ClInclude>
     <ClInclude Include="O_Manager.h">
       <Filter>Исходные файлы\Engine\O_Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="DEBUG_CLASS.h">
+      <Filter>Исходные файлы\GameClasses</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
