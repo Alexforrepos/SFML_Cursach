@@ -16,10 +16,40 @@
     <Filter Include="Файлы ресурсов\dll">
       <UniqueIdentifier>{60fad61c-f024-44d3-8998-3452a6dd2cac}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\Engine">
+      <UniqueIdentifier>{a1451c27-9585-4d23-a90d-27505311f308}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Engine\O_Manager">
+      <UniqueIdentifier>{6c0fd8a9-130b-4704-a185-f8523eb98db8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Engine\MSG_Manager">
+      <UniqueIdentifier>{2783867a-de01-4678-87d1-248a874c1f61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Engine\MSG_Manager\MSG">
+      <UniqueIdentifier>{182bd1b2-a27d-4050-ba7f-3a95ce360298}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Engine\O_Manager\Object">
+      <UniqueIdentifier>{776257fb-7f01-4a39-af90-23ab9b82c81d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses">
+      <UniqueIdentifier>{627afcbf-562c-463a-9a1c-1e19f020e824}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
       <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="MSG_Manager.cpp">
+      <Filter>Исходные файлы\Engine\MSG_Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="MSG.cpp">
+      <Filter>Исходные файлы\Engine\MSG_Manager\MSG</Filter>
+    </ClCompile>
+    <ClCompile Include="I_Object.cpp">
+      <Filter>Исходные файлы\Engine\O_Manager\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="O_Manager.cpp">
+      <Filter>Исходные файлы\Engine\O_Manager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -56,5 +86,19 @@
     <None Include="sfml-window-d-2.dll">
       <Filter>Файлы ресурсов\dll</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MSG_Manager.h">
+      <Filter>Исходные файлы\Engine\MSG_Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="MSG.h">
+      <Filter>Исходные файлы\Engine\MSG_Manager\MSG</Filter>
+    </ClInclude>
+    <ClInclude Include="I_Object.h">
+      <Filter>Исходные файлы\Engine\O_Manager\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="O_Manager.h">
+      <Filter>Исходные файлы\Engine\O_Manager</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -137,6 +137,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="I_Object.cpp" />
+    <ClCompile Include="MSG.cpp" />
+    <ClCompile Include="MSG_Manager.cpp" />
+    <ClCompile Include="O_Manager.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -151,6 +155,12 @@
     <None Include="sfml-system-d-2.dll" />
     <None Include="sfml-window-2.dll" />
     <None Include="sfml-window-d-2.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="I_Object.h" />
+    <ClInclude Include="MSG.h" />
+    <ClInclude Include="MSG_Manager.h" />
+    <ClInclude Include="O_Manager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
