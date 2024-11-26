@@ -8,7 +8,6 @@ class I_Object
 public:
 	I_Object() = default;
 
-	virtual ~I_Object() { std::cout << "delete \n"; };
 	virtual void Update() = 0;
 	virtual void SendMSG(MSG* msg) = 0;
 	virtual void Draw(sf::RenderWindow& win) = 0;

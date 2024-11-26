@@ -1,4 +1,5 @@
 #include "O_Manager.h"
+#include "DEBUG_CLASS.h"
 using namespace std;
 
 O_Manager* O_Manager::OMGR = nullptr;
@@ -6,9 +7,7 @@ O_Manager* O_Manager::OMGR = nullptr;
 void O_Manager::update()
 {
 	for (auto obj : objects) obj->Update();
-	this->MSGM->unique(); // realize to exept double deleting
-	
-	
+	this->MSGM->unique(); 
 	for (auto msg : MSGM->get_msges())
 	{
 		for (auto obj : objects)
@@ -23,10 +22,13 @@ void O_Manager::update()
 			break;
 		case (int)MSG_TYPE::MSG_TYPE_KILL:
 			cout << "killing object\n";
-			auto it = find_if(objects.begin(), objects.end(), [&](auto arg)
-				{return arg == get<MSG_TYPE_KILL>(msg->MSG_TYPE).victim; });
-			delete (*it);
-			objects.erase(it);
+			auto it = find_if(objects.begin(), objects.end(), [&](I_Object* arg)
+				{ return arg == get<MSG_TYPE_KILL>(msg->MSG_TYPE).victim; });
+			if (it != objects.end())
+			{
+				delete* it;
+				objects.erase(it);
+			}
 			break;
 		}
 

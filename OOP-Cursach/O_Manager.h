@@ -21,7 +21,9 @@ public:
 		objects.clear();
 	}
 
-	void add_obj(I_Object* obj) { objects.push_back(obj); };
+	void add_obj(I_Object* obj) {
+		objects.push_back(obj); 
+	};
 	void clear() { MSGM->clear(); for (auto obj : objects) delete obj; objects.clear(); };
 	void draw(sf::RenderWindow& win) { for (auto obj : objects)obj->Draw(win); };
 	void update();

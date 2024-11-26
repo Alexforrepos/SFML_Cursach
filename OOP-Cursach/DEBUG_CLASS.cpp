@@ -5,7 +5,7 @@ using namespace std;
 void DEBUG_CLASS::Update()
 {
 	cout << "updating debug class\n";
-	MSG_Manager::get_mger()->add(new MSG(MSG_TYPE_KILL(this, this)));
+	MSG_Manager::get_mger()->add(new MSG(MSG_TYPE_KILL((this), (this))));
 }
 
 void DEBUG_CLASS::SendMSG(MSG* msg)

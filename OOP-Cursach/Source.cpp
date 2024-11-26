@@ -10,13 +10,13 @@ int main()
 {
 	RenderWindow win(VideoMode::VideoMode(VideoMode::getDesktopMode()), "Plants vs Zombies",Style::Fullscreen);
 	auto om = O_Manager::getmger();
-	DEBUG_CLASS d;
-	om->add_obj(&d);
+	DEBUG_CLASS* d = new DEBUG_CLASS;
+	om->add_obj(d);
 	auto rm = ResourceManager::getmger();
 	Event ev;
 	auto mm = MSG_Manager::get_mger();
-	mm->add(new MSG(MSG_TYPE_KILL(&d, &d)));
-	mm->add(new MSG(MSG_TYPE_KILL(&d, &d)));
+	mm->add(new MSG(MSG_TYPE_KILL(d, d)));
+	mm->add(new MSG(MSG_TYPE_KILL(d, d)));
 	
 	while (win.isOpen())
 	{

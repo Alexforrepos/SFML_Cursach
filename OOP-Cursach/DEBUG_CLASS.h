@@ -10,7 +10,7 @@ public:
     {
         std::cout << "DEBUG CLASS CREATED\n";
     }
-    ~DEBUG_CLASS() override
+    ~DEBUG_CLASS() 
     {
         std::cout << "DEBUG CLASS DESTRUCT" << std::endl;
     }

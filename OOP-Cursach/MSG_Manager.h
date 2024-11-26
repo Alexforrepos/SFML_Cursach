@@ -19,7 +19,9 @@ public:
 		}
 	}
 
-	void add(MSG* msg) { msges.at(msg->MSG_TYPE.index()).push_back(msg); }
+	void add(MSG* msg) { 
+		msges.at(msg->MSG_TYPE.index()).push_back(msg);
+	}
 	void add_buff(MSG* msg) { buff.push_back(msg); }
 	void unique();
 	void konk_buff() { for (auto msg : buff) msges.at(msg->MSG_TYPE.index()).push_back(msg); };
@@ -30,15 +32,15 @@ public:
 	};
 	void clear()
 	{
-		for (auto [key, msg_] : msges)
+		for (auto &[key, msg_] : msges)
 		{
-			for (auto v : msg_)
+			for (auto &v : msg_)
 				delete v;
 			msg_.clear();
 		}
 	};
 
-	const std::vector<MSG*>& get_msges() 
+	std::vector<MSG*> get_msges() 
 	{
 		std::vector<MSG*> all;
 		for (auto [key, msg_t] : msges)

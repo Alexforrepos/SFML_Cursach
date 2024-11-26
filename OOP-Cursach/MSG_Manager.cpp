@@ -16,16 +16,16 @@ void MSG_Manager::unique()
                 [&](MSG* arg) { return get<MSG_TYPE_KILL>(arg->MSG_TYPE) == get<MSG_TYPE_KILL>(msg->MSG_TYPE); });
 
             if (count > 1) {
-                // Удаляем дубликаты
+               
                 auto it = msg_list.begin();
                 while (it != msg_list.end()) {
                     if (get<MSG_TYPE_KILL>((*it)->MSG_TYPE) == get<MSG_TYPE_KILL>(msg->MSG_TYPE) && (*it) != msg) {
                         cout << "delete not uniq msg with kill = " << get<MSG_TYPE_KILL>((*it)->MSG_TYPE).victim << endl;
-                        delete* it; // Освобождаем память
-                        it = msg_list.erase(it); // Удаляем и обновляем итератор
+                        delete* it; 
+                        it = msg_list.erase(it); 
                     }
                     else {
-                        ++it; // Переходим к следующему элементу
+                        ++it; 
                     }
                 }
             }
