@@ -33,6 +33,11 @@ struct MSG_TYPE_MOVE
 		dir.y *= -1;
 	}
 
+
+	bool operator==(const MSG_TYPE_MOVE& other) const
+	{
+		return false;
+	}
 };
 
 struct MSG_TYPE_KILL
@@ -45,18 +50,31 @@ struct MSG_TYPE_KILL
 		: victim(victim), killer(killer)
 	{
 	}
+
+	
+
+	bool operator==(const MSG_TYPE_KILL& other) const
+	{
+		return victim == other.victim;
+	}
 };
 
 struct MSG_TYPE_CREATE
 {
 	I_Object* creature = nullptr, * creator = nullptr;
+
+	bool operator==(const MSG_TYPE_CREATE& other) const
+	{
+		return creature == other.creature && creator == other.creator;
+	}
 };
 
 struct MSG
 {
 	std::variant<MSG_TYPE_MOVE, MSG_TYPE_KILL, MSG_TYPE_CREATE> MSG_TYPE = MSG_TYPE_MOVE();
-	MSG() = default;
 
+	MSG() = default;
+	
 	MSG(const std::variant<MSG_TYPE_MOVE, MSG_TYPE_KILL, MSG_TYPE_CREATE>& MSG_TYPE)
 		: MSG_TYPE(MSG_TYPE)
 	{

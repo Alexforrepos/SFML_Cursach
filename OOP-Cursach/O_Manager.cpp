@@ -6,10 +6,10 @@ O_Manager* O_Manager::OMGR = nullptr;
 void O_Manager::update()
 {
 	for (auto obj : objects) obj->Update();
-	//this->MSGM->unique(); // realize to exept double deleting
-	auto tmpmsges = MSGM->get_msges();
+	this->MSGM->unique(); // realize to exept double deleting
 	
-	for (auto msg : tmpmsges)
+	
+	for (auto msg : MSGM->get_msges())
 	{
 		for (auto obj : objects)
 		{
@@ -32,5 +32,4 @@ void O_Manager::update()
 
 	}
 	MSGM->clear();
-	MSGM->add_buff();
 }
