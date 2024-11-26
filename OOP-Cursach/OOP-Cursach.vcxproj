@@ -137,8 +137,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="DEBUG_CLASS.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="I_Object.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MSG.cpp" />
     <ClCompile Include="MSG_Manager.cpp" />
     <ClCompile Include="O_Manager.cpp" />
@@ -159,8 +160,9 @@
     <None Include="sfml-window-d-2.dll" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DEBUG_CLASS.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="I_Object.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="MSG.h" />
     <ClInclude Include="MSG_Manager.h" />
     <ClInclude Include="O_Manager.h" />

@@ -40,6 +40,12 @@
     <Filter Include="Файлы ресурсов\resource">
       <UniqueIdentifier>{13900cf5-e8d8-4cdd-b1b2-e3401998527d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\GameClasses\game">
+      <UniqueIdentifier>{8427be4d-cf7c-4f4b-a3aa-a598c8e260c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\game\Menu">
+      <UniqueIdentifier>{8995088f-0e8d-4bf5-99b7-0c16833a16c5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -57,11 +63,14 @@
     <ClCompile Include="O_Manager.cpp">
       <Filter>Исходные файлы\Engine\O_Manager</Filter>
     </ClCompile>
-    <ClCompile Include="DEBUG_CLASS.cpp">
-      <Filter>Исходные файлы\GameClasses</Filter>
-    </ClCompile>
     <ClCompile Include="ResourceManager.cpp">
       <Filter>Исходные файлы\Engine\ResourceManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Исходные файлы\GameClasses\game</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Исходные файлы\GameClasses\game\Menu</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -112,11 +121,14 @@
     <ClInclude Include="O_Manager.h">
       <Filter>Исходные файлы\Engine\O_Manager</Filter>
     </ClInclude>
-    <ClInclude Include="DEBUG_CLASS.h">
-      <Filter>Исходные файлы\GameClasses</Filter>
-    </ClInclude>
     <ClInclude Include="ResourceManager.h">
       <Filter>Исходные файлы\Engine\ResourceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Исходные файлы\GameClasses\game</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Исходные файлы\GameClasses\game\Menu</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

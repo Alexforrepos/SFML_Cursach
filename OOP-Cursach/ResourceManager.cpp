@@ -4,7 +4,7 @@ using namespace filesystem;
 
 ResourceManager* ResourceManager::RM = nullptr;
 
-void ResourceManager::load_from_file(const std::string& filename)
+int ResourceManager::load_from_file(const std::string& filename)
 {
 	fstream file(filename, ios::in | ios::out);
 	if (!file.is_open())
@@ -51,4 +51,5 @@ void ResourceManager::load_from_file(const std::string& filename)
 		}
 	}
 	file.close();
+	return 0;
 }
