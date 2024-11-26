@@ -32,7 +32,7 @@ public:
 	}
 
 
-void load_from_file(const std::string& filename);
+int load_from_file(const std::string& filename);
 
 #pragma region load<>
 template<typename T>
