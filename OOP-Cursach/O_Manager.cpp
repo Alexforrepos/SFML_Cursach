@@ -6,7 +6,7 @@ O_Manager* O_Manager::OMGR = nullptr;
 void O_Manager::update()
 {
 	for (auto obj : objects) obj->Update();
-	//this->MSGM->unique();
+	//this->MSGM->unique(); // realize to exept double deleting
 	auto tmpmsges = MSGM->get_msges();
 	
 	for (auto msg : tmpmsges)

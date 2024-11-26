@@ -34,6 +34,12 @@
     <Filter Include="Исходные файлы\GameClasses">
       <UniqueIdentifier>{627afcbf-562c-463a-9a1c-1e19f020e824}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\Engine\ResourceManager">
+      <UniqueIdentifier>{1ec77652-5b09-4463-9cde-790b48fd7a3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\resource">
+      <UniqueIdentifier>{13900cf5-e8d8-4cdd-b1b2-e3401998527d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -53,6 +59,9 @@
     </ClCompile>
     <ClCompile Include="DEBUG_CLASS.cpp">
       <Filter>Исходные файлы\GameClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceManager.cpp">
+      <Filter>Исходные файлы\Engine\ResourceManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -106,5 +115,13 @@
     <ClInclude Include="DEBUG_CLASS.h">
       <Filter>Исходные файлы\GameClasses</Filter>
     </ClInclude>
+    <ClInclude Include="ResourceManager.h">
+      <Filter>Исходные файлы\Engine\ResourceManager</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="resources\res_list.txt">
+      <Filter>Файлы ресурсов\resource</Filter>
+    </Text>
   </ItemGroup>
 </Project>

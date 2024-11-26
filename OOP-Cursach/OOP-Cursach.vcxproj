@@ -142,6 +142,7 @@
     <ClCompile Include="MSG.cpp" />
     <ClCompile Include="MSG_Manager.cpp" />
     <ClCompile Include="O_Manager.cpp" />
+    <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -163,6 +164,10 @@
     <ClInclude Include="MSG.h" />
     <ClInclude Include="MSG_Manager.h" />
     <ClInclude Include="O_Manager.h" />
+    <ClInclude Include="ResourceManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="resources\res_list.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

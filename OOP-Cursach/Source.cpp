@@ -1,14 +1,20 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Network.hpp>
 #include "O_Manager.h"
-#include "DEBUG_CLASS.h"
+#include "ResourceManager.h"
 using namespace std;
 using namespace sf;
 
 int main()
 {
+	RenderWindow win(VideoMode::VideoMode(VideoMode::getDesktopMode()), "Plants vs Zombies",Style::Fullscreen);
 	auto om = O_Manager::getmger();
-	RenderWindow win(VideoMode::VideoMode(1200, 1200), "Tempale");
+	auto rm = ResourceManager::getmger();
+	rm->load_from_file("./resources/res_list.txt");
+	auto r = rm->get_access<sf::Texture*>("00_0.png");
+	sf::RectangleShape rect({ 300, 300 });
+	rect.setTexture(r);
+	rect.setPosition(30, 30);
 	Event ev;
 	while (win.isOpen())
 	{
@@ -24,11 +30,7 @@ int main()
 				break;
 			}
 		}
-		
-		if (Keyboard::isKeyPressed(Keyboard::D))
-		{
-			om->add_obj(new DEBUG_CLASS());
-		}
+		win.draw(rect);
 		om->update(); om->draw(win);
 		win.display();
 	}
