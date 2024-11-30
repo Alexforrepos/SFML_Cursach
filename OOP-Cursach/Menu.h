@@ -2,7 +2,6 @@
 #include <SFML/Graphics.hpp>
 class Menu
 {
-	
 
 public:
 	

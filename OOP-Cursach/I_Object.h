@@ -11,5 +11,8 @@ public:
 	virtual void Update() = 0;
 	virtual void SendMSG(MSG* msg) = 0;
 	virtual void Draw(sf::RenderWindow& win) = 0;
+
+	sf::Vector2f getPos() { return Position; }
+	void SetPos(const sf::Vector2f& p) { Position += p; }
 };
 

@@ -1,5 +1,6 @@
 #include "O_Manager.h"
-#include "DEBUG_CLASS.h"
+
+
 using namespace std;
 
 O_Manager* O_Manager::OMGR = nullptr;

@@ -3,6 +3,7 @@
 #include "ResourceManager.h"
 #include "O_Manager.h"
 #include <string>
+#include "Menu.h"
 
 class Game
 {
@@ -11,11 +12,14 @@ class Game
 		RUNMODE_MENU,
 	};
 
-	RUNMODE rm;
+	static Menu m;
+	static RUNMODE rm;
 
 	void main_beh_tree(sf::RenderWindow& win);
 
 	void change_mode(const RUNMODE& rm) { this->rm = rm; };
+
+
 public:
 	Game(std::string res_filename);
 

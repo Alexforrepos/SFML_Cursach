@@ -28,9 +28,6 @@
     <Filter Include="Исходные файлы\Engine\MSG_Manager\MSG">
       <UniqueIdentifier>{182bd1b2-a27d-4050-ba7f-3a95ce360298}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\Engine\O_Manager\Object">
-      <UniqueIdentifier>{776257fb-7f01-4a39-af90-23ab9b82c81d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Исходные файлы\GameClasses">
       <UniqueIdentifier>{627afcbf-562c-463a-9a1c-1e19f020e824}</UniqueIdentifier>
     </Filter>
@@ -40,11 +37,26 @@
     <Filter Include="Файлы ресурсов\resource">
       <UniqueIdentifier>{13900cf5-e8d8-4cdd-b1b2-e3401998527d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\GameClasses\game">
+    <Filter Include="Исходные файлы\GameClasses\Game">
       <UniqueIdentifier>{8427be4d-cf7c-4f4b-a3aa-a598c8e260c4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\GameClasses\game\Menu">
+    <Filter Include="Исходные файлы\GameClasses\Game\Menu">
       <UniqueIdentifier>{8995088f-0e8d-4bf5-99b7-0c16833a16c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Engine\O_Manager\I_Object">
+      <UniqueIdentifier>{776257fb-7f01-4a39-af90-23ab9b82c81d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Engine\Utils">
+      <UniqueIdentifier>{405296ca-c1e7-4d3b-8307-abd66e280254}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Engine\Utils\Button">
+      <UniqueIdentifier>{c4eb877c-91c8-4499-b8a8-4ffc342342e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Engine\Utils\Button\Button_with_Text">
+      <UniqueIdentifier>{d6d0eeb3-75c0-4ea9-a924-fd411d9923d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Engine\Utils\Animator">
+      <UniqueIdentifier>{6ebf0868-7aaa-402a-9f61-8a900c384f35}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -58,7 +70,7 @@
       <Filter>Исходные файлы\Engine\MSG_Manager\MSG</Filter>
     </ClCompile>
     <ClCompile Include="I_Object.cpp">
-      <Filter>Исходные файлы\Engine\O_Manager\Object</Filter>
+      <Filter>Исходные файлы\Engine\O_Manager\I_Object</Filter>
     </ClCompile>
     <ClCompile Include="O_Manager.cpp">
       <Filter>Исходные файлы\Engine\O_Manager</Filter>
@@ -67,10 +79,19 @@
       <Filter>Исходные файлы\Engine\ResourceManager</Filter>
     </ClCompile>
     <ClCompile Include="Game.cpp">
-      <Filter>Исходные файлы\GameClasses\game</Filter>
+      <Filter>Исходные файлы\GameClasses\Game</Filter>
     </ClCompile>
     <ClCompile Include="Menu.cpp">
-      <Filter>Исходные файлы\GameClasses\game\Menu</Filter>
+      <Filter>Исходные файлы\GameClasses\Game\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Исходные файлы\Engine\Utils\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="Text_Button.cpp">
+      <Filter>Исходные файлы\Engine\Utils\Button\Button_with_Text</Filter>
+    </ClCompile>
+    <ClCompile Include="Animator.cpp">
+      <Filter>Исходные файлы\Engine\Utils\Animator</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -116,7 +137,7 @@
       <Filter>Исходные файлы\Engine\MSG_Manager\MSG</Filter>
     </ClInclude>
     <ClInclude Include="I_Object.h">
-      <Filter>Исходные файлы\Engine\O_Manager\Object</Filter>
+      <Filter>Исходные файлы\Engine\O_Manager\I_Object</Filter>
     </ClInclude>
     <ClInclude Include="O_Manager.h">
       <Filter>Исходные файлы\Engine\O_Manager</Filter>
@@ -125,10 +146,19 @@
       <Filter>Исходные файлы\Engine\ResourceManager</Filter>
     </ClInclude>
     <ClInclude Include="Game.h">
-      <Filter>Исходные файлы\GameClasses\game</Filter>
+      <Filter>Исходные файлы\GameClasses\Game</Filter>
     </ClInclude>
     <ClInclude Include="Menu.h">
-      <Filter>Исходные файлы\GameClasses\game\Menu</Filter>
+      <Filter>Исходные файлы\GameClasses\Game\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Исходные файлы\Engine\Utils\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="Text_Button.h">
+      <Filter>Исходные файлы\Engine\Utils\Button\Button_with_Text</Filter>
+    </ClInclude>
+    <ClInclude Include="Animator.h">
+      <Filter>Исходные файлы\Engine\Utils\Animator</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

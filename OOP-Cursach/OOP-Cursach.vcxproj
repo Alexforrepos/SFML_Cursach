@@ -137,6 +137,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Animator.cpp" />
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="I_Object.cpp" />
     <ClCompile Include="Menu.cpp" />
@@ -145,6 +147,7 @@
     <ClCompile Include="O_Manager.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Text_Button.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="openal32.dll" />
@@ -160,6 +163,8 @@
     <None Include="sfml-window-d-2.dll" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Animator.h" />
+    <ClInclude Include="Button.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="I_Object.h" />
     <ClInclude Include="Menu.h" />
@@ -167,6 +172,7 @@
     <ClInclude Include="MSG_Manager.h" />
     <ClInclude Include="O_Manager.h" />
     <ClInclude Include="ResourceManager.h" />
+    <ClInclude Include="Text_Button.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="resources\res_list.txt" />
