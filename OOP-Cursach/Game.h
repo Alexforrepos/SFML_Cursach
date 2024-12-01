@@ -5,6 +5,8 @@
 #include <string>
 #include "Menu.h"
 
+
+
 class Game
 {
 	enum class RUNMODE
@@ -18,7 +20,6 @@ class Game
 	void main_beh_tree(sf::RenderWindow& win);
 
 	void change_mode(const RUNMODE& rm) { this->rm = rm; };
-
 
 public:
 	Game(std::string res_filename);
