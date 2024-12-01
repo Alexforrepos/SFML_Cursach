@@ -139,6 +139,7 @@
   <ItemGroup>
     <ClCompile Include="Animator.cpp" />
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Client.cpp" />
     <ClCompile Include="I_Object.cpp" />
     <ClCompile Include="MSG.cpp" />
     <ClCompile Include="MSG_Manager.cpp" />
@@ -163,6 +164,7 @@
   <ItemGroup>
     <ClInclude Include="Animator.h" />
     <ClInclude Include="Button.h" />
+    <ClInclude Include="Client.h" />
     <ClInclude Include="I_Object.h" />
     <ClInclude Include="MSG.h" />
     <ClInclude Include="MSG_Manager.h" />

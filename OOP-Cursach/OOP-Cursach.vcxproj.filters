@@ -52,6 +52,9 @@
     <Filter Include="Исходные файлы\Engine\Utils\Animator">
       <UniqueIdentifier>{6ebf0868-7aaa-402a-9f61-8a900c384f35}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\Engine\ClientModule">
+      <UniqueIdentifier>{1ea791aa-2e9f-4f93-ba15-0a799b58666c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -80,6 +83,9 @@
     </ClCompile>
     <ClCompile Include="Animator.cpp">
       <Filter>Исходные файлы\Engine\Utils\Animator</Filter>
+    </ClCompile>
+    <ClCompile Include="Client.cpp">
+      <Filter>Исходные файлы\Engine\ClientModule</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -141,6 +147,9 @@
     </ClInclude>
     <ClInclude Include="Animator.h">
       <Filter>Исходные файлы\Engine\Utils\Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="Client.h">
+      <Filter>Исходные файлы\Engine\ClientModule</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

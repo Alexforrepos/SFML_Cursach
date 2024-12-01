@@ -16,10 +16,16 @@
     <Filter Include="Файлы ресурсов\dll">
       <UniqueIdentifier>{831da318-0ea5-4087-bc06-6d95f3ab6ac5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\ServerModule">
+      <UniqueIdentifier>{6168a567-6bcd-4f9b-8b99-6ed8371d2bf4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Server.cpp">
+      <Filter>Исходные файлы\ServerModule</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -56,5 +62,10 @@
     <None Include="sfml-window-d-2.dll">
       <Filter>Файлы ресурсов\dll</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Server.h">
+      <Filter>Исходные файлы\ServerModule</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
