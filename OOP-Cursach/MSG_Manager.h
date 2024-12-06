@@ -50,6 +50,6 @@ public:
 		return all; 
 	};
 
-	static MSG_Manager* get_mger() { return MSGM_ ? MSGM_ : MSGM_ = new MSG_Manager; }
+	static MSG_Manager* getmger() { return MSGM_ ? MSGM_ : MSGM_ = new MSG_Manager; }
 	static void deinit_mger() { MSGM_ ? delete MSGM_ : void(); }
 };

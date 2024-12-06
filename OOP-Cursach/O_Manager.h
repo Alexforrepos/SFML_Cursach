@@ -9,7 +9,7 @@ class O_Manager
 	static O_Manager* OMGR;
 
 	std::vector<I_Object*> objects;
-	MSG_Manager* MSGM = MSG_Manager::get_mger();
+	MSG_Manager* MSGM = MSG_Manager::getmger();
 
 public:
 	O_Manager() = default;
