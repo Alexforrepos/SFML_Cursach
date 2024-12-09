@@ -2,17 +2,16 @@
 #include <SFML/Network.hpp>
 #include <thread>
 #include <vector>
-#include <atomic>
 #include "O_Manager.h"
 #include "MSG.h"
 
+
+extern sf::Mutex M_1;
 
 class Server
 {
 
 	std::thread t;
-	
-	std::atomic<std::vector<MSG*>>  togain;
 	unsigned short port;
 
 	void Handle(std::unique_ptr<sf::TcpSocket> clientSocket);
@@ -28,7 +27,6 @@ public:
 	{
 		end();
 	}
-
 
 	void run();
 

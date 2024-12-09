@@ -29,8 +29,8 @@ public:
 
 	~Client()
 	{
-		mys.disconnect();
 		isconnected = false;
+		mys.disconnect();
 	}
 
 	void MSG_Send(MSG* msg)
@@ -38,7 +38,10 @@ public:
 		if (!isconnected) throw "Client is not connected";
 		sf::Packet p;
 		p.append(msg, sizeof(msg));
-		mys.send(p);
+		if (mys.send(p) != sf::Socket::Done)
+		{
+			throw "err sending msg";
+		};
 	}
 
 	static Client& GetClient()
@@ -47,4 +50,3 @@ public:
 		return d;
 	}
 };
-

@@ -61,6 +61,9 @@
     <Filter Include="Исходные файлы\Engine\NetworkModule\Client">
       <UniqueIdentifier>{4d60bf86-4d09-4538-93ce-ebb9b351e83f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\Engine\O_Manager\I_Serializable">
+      <UniqueIdentifier>{a0f402fb-5ffa-4cdf-bec1-6bba6befe8fc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -95,6 +98,9 @@
     </ClCompile>
     <ClCompile Include="Client.cpp">
       <Filter>Исходные файлы\Engine\NetworkModule\Client</Filter>
+    </ClCompile>
+    <ClCompile Include="I_Serializable.cpp">
+      <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -162,6 +168,9 @@
     </ClInclude>
     <ClInclude Include="Client.h">
       <Filter>Исходные файлы\Engine\NetworkModule\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="I_Serializable.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

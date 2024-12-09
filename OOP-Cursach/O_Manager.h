@@ -4,6 +4,9 @@
 #include "MSG_Manager.h"
 #include <vector>
 
+class Server;
+class Client;
+
 class O_Manager
 {
 	static O_Manager* OMGR;
@@ -12,6 +15,9 @@ class O_Manager
 	MSG_Manager* MSGM = MSG_Manager::getmger();
 
 public:
+	friend class Server;
+	friend class Client;
+
 	O_Manager() = default;
 	~O_Manager()
 	{
@@ -27,6 +33,8 @@ public:
 	void clear() { MSGM->clear(); for (auto obj : objects) delete obj; objects.clear(); };
 	void draw(sf::RenderWindow& win) { for (auto obj : objects)obj->Draw(win); };
 	void update();
+
+	std::vector<I_Object*>& getobj() { return objects; }
 
 	static O_Manager* getmger() { return OMGR ? OMGR : OMGR = new O_Manager; }
 	static void deinit() { OMGR ? delete OMGR : void(); };

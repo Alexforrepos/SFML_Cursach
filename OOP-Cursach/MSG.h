@@ -1,4 +1,5 @@
 #pragma once
+#include "I_Serializable.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <variant>
@@ -69,8 +70,11 @@ struct MSG_TYPE_CREATE
 	}
 };
 
-struct MSG
+class MSG
+	:public I_Serializable
 {
+
+public:
 	std::variant<MSG_TYPE_MOVE, MSG_TYPE_KILL, MSG_TYPE_CREATE> MSG_TYPE = MSG_TYPE_MOVE();
 
 	MSG() = default;
@@ -79,5 +83,10 @@ struct MSG
 		: MSG_TYPE(MSG_TYPE)
 	{
 	}
+
+
+
+	// Унаследовано через I_Serializable
+	std::pair<void*, size_t> serialize() override;
 
 };
