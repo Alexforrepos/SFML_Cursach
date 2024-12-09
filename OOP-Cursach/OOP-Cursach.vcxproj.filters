@@ -52,18 +52,6 @@
     <Filter Include="Исходные файлы\Engine\Utils\Animator">
       <UniqueIdentifier>{6ebf0868-7aaa-402a-9f61-8a900c384f35}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\Engine\NetworkModule">
-      <UniqueIdentifier>{1ea791aa-2e9f-4f93-ba15-0a799b58666c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\Engine\NetworkModule\Server">
-      <UniqueIdentifier>{85909c98-213c-437e-b667-be9e8adbf04d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\Engine\NetworkModule\Client">
-      <UniqueIdentifier>{4d60bf86-4d09-4538-93ce-ebb9b351e83f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\Engine\O_Manager\I_Serializable">
-      <UniqueIdentifier>{a0f402fb-5ffa-4cdf-bec1-6bba6befe8fc}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -92,15 +80,6 @@
     </ClCompile>
     <ClCompile Include="Animator.cpp">
       <Filter>Исходные файлы\Engine\Utils\Animator</Filter>
-    </ClCompile>
-    <ClCompile Include="Server.cpp">
-      <Filter>Исходные файлы\Engine\NetworkModule\Server</Filter>
-    </ClCompile>
-    <ClCompile Include="Client.cpp">
-      <Filter>Исходные файлы\Engine\NetworkModule\Client</Filter>
-    </ClCompile>
-    <ClCompile Include="I_Serializable.cpp">
-      <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -162,15 +141,6 @@
     </ClInclude>
     <ClInclude Include="Animator.h">
       <Filter>Исходные файлы\Engine\Utils\Animator</Filter>
-    </ClInclude>
-    <ClInclude Include="Server.h">
-      <Filter>Исходные файлы\Engine\NetworkModule\Server</Filter>
-    </ClInclude>
-    <ClInclude Include="Client.h">
-      <Filter>Исходные файлы\Engine\NetworkModule\Client</Filter>
-    </ClInclude>
-    <ClInclude Include="I_Serializable.h">
-      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

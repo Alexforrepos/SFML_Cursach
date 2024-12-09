@@ -1,11 +1,8 @@
 #pragma once
+#include "MSG_Manager.h"
 #include "I_Object.h"
 #include <algorithm>
-#include "MSG_Manager.h"
 #include <vector>
-
-class Server;
-class Client;
 
 class O_Manager
 {
@@ -15,9 +12,6 @@ class O_Manager
 	MSG_Manager* MSGM = MSG_Manager::getmger();
 
 public:
-	friend class Server;
-	friend class Client;
-
 	O_Manager() = default;
 	~O_Manager()
 	{
@@ -39,4 +33,3 @@ public:
 	static O_Manager* getmger() { return OMGR ? OMGR : OMGR = new O_Manager; }
 	static void deinit() { OMGR ? delete OMGR : void(); };
 };
-

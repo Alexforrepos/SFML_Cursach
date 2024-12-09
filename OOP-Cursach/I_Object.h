@@ -1,10 +1,8 @@
 #pragma once
-#include "I_Serializable.h"
 #include <SFML/Graphics.hpp>
 #include "MSG_Manager.h"
 
 class I_Object
-	:public I_Serializable
 {
 	sf::Vector2f Position;
 public:
@@ -16,4 +14,3 @@ public:
 	sf::Vector2f getPos() { return Position; }
 	void SetPos(const sf::Vector2f& p) { Position += p; }
 };
-

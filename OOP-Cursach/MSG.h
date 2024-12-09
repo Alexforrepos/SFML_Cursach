@@ -1,14 +1,14 @@
 #pragma once
-#include "I_Serializable.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <variant>
 
 class I_Object;
+class O_Manager;
 
 enum class MSG_TYPE
 {
-	MSG_TYPE_MOVE, MSG_TYPE_KILL, MSG_TYPE_CREATE
+	MSG_TYPE_MOVE, MSG_TYPE_KILL, MSG_TYPE_CREATE,MSG_TYPE_DEAL_DAMAGE
 };
 
 struct MSG_TYPE_MOVE
@@ -70,23 +70,25 @@ struct MSG_TYPE_CREATE
 	}
 };
 
-class MSG
-	:public I_Serializable
+struct MSG_TYPE_DEAL_DAMAGE
 {
+	I_Object* target, * from;
+	short damage;
+};
 
+class MSG	
+{
+	std::variant<MSG_TYPE_MOVE, MSG_TYPE_KILL, MSG_TYPE_CREATE,MSG_TYPE_DEAL_DAMAGE> MSG_TYPE = MSG_TYPE_MOVE();
 public:
-	std::variant<MSG_TYPE_MOVE, MSG_TYPE_KILL, MSG_TYPE_CREATE> MSG_TYPE = MSG_TYPE_MOVE();
+	friend class O_Manager;
 
 	MSG() = default;
-	
-	MSG(const std::variant<MSG_TYPE_MOVE, MSG_TYPE_KILL, MSG_TYPE_CREATE>& MSG_TYPE)
-		: MSG_TYPE(MSG_TYPE)
-	{
-	}
+	MSG(const std::variant<MSG_TYPE_MOVE, MSG_TYPE_KILL, MSG_TYPE_CREATE, MSG_TYPE_DEAL_DAMAGE>& MSG_TYPE): MSG_TYPE(MSG_TYPE) {};
 
+	operator MSG_TYPE_MOVE&() { return std::get<MSG_TYPE_MOVE>(this->MSG_TYPE); }
+	operator MSG_TYPE_KILL&() { return std::get<MSG_TYPE_KILL>(this->MSG_TYPE); }
+	operator MSG_TYPE_CREATE&() { return std::get<MSG_TYPE_CREATE>(this->MSG_TYPE); }
+	operator MSG_TYPE_DEAL_DAMAGE&() { return std::get<MSG_TYPE_DEAL_DAMAGE>(this->MSG_TYPE); }
 
-
-	// Унаследовано через I_Serializable
-	std::pair<void*, size_t> serialize() override;
 
 };
