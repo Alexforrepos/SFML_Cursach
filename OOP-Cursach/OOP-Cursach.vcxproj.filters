@@ -139,6 +139,18 @@
     <Filter Include="Исходные файлы\GameClasses\Instrument\Card\PlantCard">
       <UniqueIdentifier>{f52f7967-ad10-4350-94c4-27591a72de08}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Zombie\Normal_Zombie">
+      <UniqueIdentifier>{a589c5c0-4f87-442c-a235-74b79bfb03a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Zombie\Normal_Zombie\Zombie_Cone">
+      <UniqueIdentifier>{39063946-b658-4f5d-b4dc-d4c3322907a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Zombie\Normal_Zombie\Zombie_Bucket">
+      <UniqueIdentifier>{8794f79b-e748-43aa-ab14-cac57e0d0ab0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Zombie\Normal_Zombie\Zombie_Gymnast">
+      <UniqueIdentifier>{2564a64f-aa45-47fd-8f78-ec5a60c2a03d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
