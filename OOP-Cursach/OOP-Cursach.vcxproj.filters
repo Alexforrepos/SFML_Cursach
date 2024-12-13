@@ -112,14 +112,32 @@
     <Filter Include="Исходные файлы\GameClasses\Effect\Sun">
       <UniqueIdentifier>{c765c125-7496-4812-a319-730ca1b1a69a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Projectile\AP_Proj">
-      <UniqueIdentifier>{3bcf7589-f2c0-4b8e-b99f-12342fec2c27}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Projectile\AIM_Proj">
-      <UniqueIdentifier>{9fbab203-daa3-48bd-bef8-8164ede74451}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Исходные файлы\GameClasses\Effect\timeless">
       <UniqueIdentifier>{b0edaee4-ad17-4a4d-9bd9-3bbc7fd41448}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Plants\Shoot\pea_shooter">
+      <UniqueIdentifier>{bb7659cf-0767-4d01-bfe0-803b390825c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Plants\Shoot\pea_shooter\repeater">
+      <UniqueIdentifier>{5f7e57df-bb7f-4bee-8e07-349beb0189aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Plants\Shoot\pea_shooter\minigun">
+      <UniqueIdentifier>{5086cceb-bec9-4f15-8f5d-614312eb39d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Projectile\pea">
+      <UniqueIdentifier>{74d69482-1809-4788-aee1-97ef1dcf0ba7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Projectile\pea\fire_pea">
+      <UniqueIdentifier>{eb6463ce-214d-4765-9032-8a11e3556541}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Projectile\pea\AP_pea">
+      <UniqueIdentifier>{3bcf7589-f2c0-4b8e-b99f-12342fec2c27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Projectile\pea\AIM_pea">
+      <UniqueIdentifier>{9fbab203-daa3-48bd-bef8-8164ede74451}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Instrument\Card\PlantCard">
+      <UniqueIdentifier>{f52f7967-ad10-4350-94c4-27591a72de08}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -177,11 +195,17 @@
     <ClCompile Include="Support_Plant.cpp">
       <Filter>Исходные файлы\GameClasses\Plants\Support</Filter>
     </ClCompile>
-    <ClCompile Include="Effect.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="Sun.cpp">
       <Filter>Исходные файлы\GameClasses\Effect\Sun</Filter>
+    </ClCompile>
+    <ClCompile Include="Zombie.cpp">
+      <Filter>Исходные файлы\GameClasses\Zombie</Filter>
+    </ClCompile>
+    <ClCompile Include="Effect.cpp">
+      <Filter>Исходные файлы\GameClasses\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyManager.cpp">
+      <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -276,6 +300,12 @@
     </ClInclude>
     <ClInclude Include="Sun.h">
       <Filter>Исходные файлы\GameClasses\Effect\Sun</Filter>
+    </ClInclude>
+    <ClInclude Include="Zombie.h">
+      <Filter>Исходные файлы\GameClasses\Zombie</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyManager.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

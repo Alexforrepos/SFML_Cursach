@@ -7,7 +7,6 @@ class Sun :
     int Score = 50;
     sf::Sprite spr;
 
-    
 public:
     Sun()
     {
