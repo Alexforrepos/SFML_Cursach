@@ -72,14 +72,14 @@ struct MSG_TYPE_CREATE
 
 struct MSG_TYPE_DEAL_DAMAGE
 {
-	I_Object* target, * from;
+	I_Object* target, *killer;
 	short damage;
 };
 
 class MSG	
 {
-	std::variant<MSG_TYPE_MOVE, MSG_TYPE_KILL, MSG_TYPE_CREATE,MSG_TYPE_DEAL_DAMAGE> MSG_TYPE = MSG_TYPE_MOVE();
 public:
+	std::variant<MSG_TYPE_MOVE, MSG_TYPE_KILL, MSG_TYPE_CREATE,MSG_TYPE_DEAL_DAMAGE> MSG_TYPE = MSG_TYPE_MOVE();
 	friend class O_Manager;
 
 	MSG() = default;

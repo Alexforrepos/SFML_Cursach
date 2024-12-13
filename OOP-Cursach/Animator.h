@@ -25,7 +25,7 @@ public:
 		{
 		}
 
-	
+
 		void AddFrames(sf::Vector2i const& startFrom,
 			sf::Vector2i const& frameSize, unsigned int frames, unsigned int traccia)
 		{
@@ -35,9 +35,9 @@ public:
 
 				for (unsigned int i = 0; i < frames; i++)
 				{
-					
+
 					m_Frames.push_back(sf::IntRect(current.x, current.y, frameSize.x, frameSize.y));
-					
+
 					current.x += frameSize.x;
 				}
 				current.y += frameSize.y;
@@ -79,5 +79,3 @@ private:
 	Animator::Animation* m_CurrentAnimation;
 	bool endAnim = false;
 };
-
-

@@ -12,5 +12,5 @@ public:
 	virtual void Draw(sf::RenderWindow& win) = 0;
 
 	sf::Vector2f getPos() { return Position; }
-	void SetPos(const sf::Vector2f& p) { Position += p; }
+	void SetPos(const sf::Vector2f& p) { Position = p; }
 };

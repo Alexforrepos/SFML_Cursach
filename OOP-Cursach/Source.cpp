@@ -1,16 +1,16 @@
 #include <SFML/Graphics.hpp>
 #include "O_Manager.h"
 #include "ResourceManager.h"
+#include "Primer.h"
 using namespace std;
 using namespace sf;
 
 int main()
 {
+	system("chcp 1251 > 0");
 	RenderWindow win(VideoMode::VideoMode(VideoMode::getDesktopMode()), "Plants vs Zombies",Style::Fullscreen);
 	Event ev;
-	ResourceManager::getmger()->load_from_file("./resources/res_list.txt");
-
-	auto p = ResourceManager::getmger()->get_access<sf::Texture*>("00_0.png");
+	auto p = O_Manager::getmger();
 	while (win.isOpen())
 	{
 		win.clear();
@@ -25,6 +25,11 @@ int main()
 				break;
 			}
 		}
+		if (Keyboard::isKeyPressed(Keyboard::W))
+			p->add_obj(new Primer());
+
+		p->update();
+		p->draw(win);
 		win.display();
 	}
 }

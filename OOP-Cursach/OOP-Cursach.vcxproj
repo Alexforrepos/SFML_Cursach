@@ -139,12 +139,23 @@
   <ItemGroup>
     <ClCompile Include="Animator.cpp" />
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Effect.cpp" />
     <ClCompile Include="I_Object.cpp" />
+    <ClCompile Include="Level.cpp" />
+    <ClCompile Include="Line.cpp" />
     <ClCompile Include="MSG.cpp" />
     <ClCompile Include="MSG_Manager.cpp" />
     <ClCompile Include="O_Manager.cpp" />
+    <ClCompile Include="PlaceToPlant.cpp" />
+    <ClCompile Include="Plant.cpp" />
+    <ClCompile Include="Primer.cpp" />
+    <ClCompile Include="Projectile.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
+    <ClCompile Include="Shoot_Plant.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Sun.cpp" />
+    <ClCompile Include="Support_Plant.cpp" />
+    <ClCompile Include="Surface.cpp" />
     <ClCompile Include="Text_Button.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -163,11 +174,22 @@
   <ItemGroup>
     <ClInclude Include="Animator.h" />
     <ClInclude Include="Button.h" />
+    <ClInclude Include="Effect.h" />
     <ClInclude Include="I_Object.h" />
+    <ClInclude Include="Level.h" />
+    <ClInclude Include="Line.h" />
     <ClInclude Include="MSG.h" />
     <ClInclude Include="MSG_Manager.h" />
     <ClInclude Include="O_Manager.h" />
+    <ClInclude Include="PlaceToPlant.h" />
+    <ClInclude Include="Plant.h" />
+    <ClInclude Include="Primer.h" />
+    <ClInclude Include="Projectile.h" />
     <ClInclude Include="ResourceManager.h" />
+    <ClInclude Include="Shoot_Plant.h" />
+    <ClInclude Include="Sun.h" />
+    <ClInclude Include="Support_Plant.h" />
+    <ClInclude Include="Surface.h" />
     <ClInclude Include="Text_Button.h" />
   </ItemGroup>
   <ItemGroup>

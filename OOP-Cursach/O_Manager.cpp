@@ -9,14 +9,16 @@ void O_Manager::update()
 	this->MSGM->unique(); 
 	for (auto msg : MSGM->get_msges())
 	{
+		for (auto obj : objects) obj->SendMSG(msg);
 		switch (msg->MSG_TYPE.index())
 		{
 		case (int)MSG_TYPE::MSG_TYPE_MOVE:
 			break;
 		case (int)MSG_TYPE::MSG_TYPE_CREATE:
+			this->objects.push_back(MSG_TYPE_CREATE(*msg).creature);
 			break;
 		case (int)MSG_TYPE::MSG_TYPE_KILL:
-			//cout << "killing object\n";
+			cout << "killing object\n";
 			it = find_if(objects.begin(), objects.end(), [&](I_Object* arg)
 				{ return arg == MSG_TYPE_KILL(*msg).victim; });
 			if (it != objects.end())
@@ -28,7 +30,6 @@ void O_Manager::update()
 		case (int)MSG_TYPE::MSG_TYPE_DEAL_DAMAGE:
 			break;
 		}
-		for (auto obj : objects) obj->SendMSG(msg);
 		
 	}
 	MSGM->clear();

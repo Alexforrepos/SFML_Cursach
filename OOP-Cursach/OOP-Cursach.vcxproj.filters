@@ -52,6 +52,75 @@
     <Filter Include="Исходные файлы\Engine\Utils\Animator">
       <UniqueIdentifier>{6ebf0868-7aaa-402a-9f61-8a900c384f35}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Surface">
+      <UniqueIdentifier>{edf7d9ac-f5dd-4dd4-974e-483e5588bfd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Instrument">
+      <UniqueIdentifier>{46681443-edba-43f0-8aa2-8f4caf5de6d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Plants">
+      <UniqueIdentifier>{831f7136-09ec-4192-b96a-eb612be4f324}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Zombie">
+      <UniqueIdentifier>{cf1250f5-f20d-4567-b76c-a75ba2c3e2f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Projectile">
+      <UniqueIdentifier>{8e4b2b88-cf85-4f3f-9495-92314ff89d81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Instrument\Card">
+      <UniqueIdentifier>{6c5f95dd-f44e-492b-9753-9662b0a9931e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Instrument\Showel">
+      <UniqueIdentifier>{a697fc2d-c905-420f-a04e-92e8f5ff0068}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Surface\Line">
+      <UniqueIdentifier>{969209f2-40db-4093-b745-de8e73f1e6e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Surface\Line\PlaceToPlant">
+      <UniqueIdentifier>{5e469b39-4827-4bbc-8dfe-473a2b20f78e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Instrument\Magic">
+      <UniqueIdentifier>{a2d01439-3c11-4a04-8e6e-6d3f588ca84a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Engine\O_Manager\I_Object\Primer">
+      <UniqueIdentifier>{4397ec95-39a0-41b3-8beb-ddd39cf4ec01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Surface\Line\WaterLine">
+      <UniqueIdentifier>{37a98b10-11d9-4388-938b-af5668d32c0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Surface\Line\EarthLine">
+      <UniqueIdentifier>{e62d2e74-79d9-459a-8886-00d1cbe873a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Surface\Line\AirLine">
+      <UniqueIdentifier>{10b156cc-dce4-419a-86ff-da1484a0478e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Level">
+      <UniqueIdentifier>{ec747f93-f93e-4e89-bf92-a053c4575208}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Zombie\EnemyManager">
+      <UniqueIdentifier>{7374232c-1498-4a68-8363-1d45d07f38f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Plants\Support">
+      <UniqueIdentifier>{c95c860b-9c3b-4de7-af8c-4ad24b02b9e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Plants\Shoot">
+      <UniqueIdentifier>{2d0f4073-7fc9-43a9-ab0f-7aa7fe81d5f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Effect">
+      <UniqueIdentifier>{b608daab-533e-4d87-89ea-09eb2528cce5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Effect\Sun">
+      <UniqueIdentifier>{c765c125-7496-4812-a319-730ca1b1a69a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Projectile\AP_Proj">
+      <UniqueIdentifier>{3bcf7589-f2c0-4b8e-b99f-12342fec2c27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Projectile\AIM_Proj">
+      <UniqueIdentifier>{9fbab203-daa3-48bd-bef8-8164ede74451}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Effect\timeless">
+      <UniqueIdentifier>{b0edaee4-ad17-4a4d-9bd9-3bbc7fd41448}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -80,6 +149,39 @@
     </ClCompile>
     <ClCompile Include="Animator.cpp">
       <Filter>Исходные файлы\Engine\Utils\Animator</Filter>
+    </ClCompile>
+    <ClCompile Include="Primer.cpp">
+      <Filter>Исходные файлы\Engine\O_Manager\I_Object\Primer</Filter>
+    </ClCompile>
+    <ClCompile Include="Surface.cpp">
+      <Filter>Исходные файлы\GameClasses\Surface</Filter>
+    </ClCompile>
+    <ClCompile Include="Line.cpp">
+      <Filter>Исходные файлы\GameClasses\Surface\Line</Filter>
+    </ClCompile>
+    <ClCompile Include="Level.cpp">
+      <Filter>Исходные файлы\GameClasses\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="PlaceToPlant.cpp">
+      <Filter>Исходные файлы\GameClasses\Surface\Line\PlaceToPlant</Filter>
+    </ClCompile>
+    <ClCompile Include="Plant.cpp">
+      <Filter>Исходные файлы\GameClasses\Plants</Filter>
+    </ClCompile>
+    <ClCompile Include="Projectile.cpp">
+      <Filter>Исходные файлы\GameClasses\Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="Shoot_Plant.cpp">
+      <Filter>Исходные файлы\GameClasses\Plants\Shoot</Filter>
+    </ClCompile>
+    <ClCompile Include="Support_Plant.cpp">
+      <Filter>Исходные файлы\GameClasses\Plants\Support</Filter>
+    </ClCompile>
+    <ClCompile Include="Effect.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Sun.cpp">
+      <Filter>Исходные файлы\GameClasses\Effect\Sun</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -141,6 +243,39 @@
     </ClInclude>
     <ClInclude Include="Animator.h">
       <Filter>Исходные файлы\Engine\Utils\Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="Primer.h">
+      <Filter>Исходные файлы\Engine\O_Manager\I_Object\Primer</Filter>
+    </ClInclude>
+    <ClInclude Include="Surface.h">
+      <Filter>Исходные файлы\GameClasses\Surface</Filter>
+    </ClInclude>
+    <ClInclude Include="Line.h">
+      <Filter>Исходные файлы\GameClasses\Surface\Line</Filter>
+    </ClInclude>
+    <ClInclude Include="Level.h">
+      <Filter>Исходные файлы\GameClasses\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="PlaceToPlant.h">
+      <Filter>Исходные файлы\GameClasses\Surface\Line\PlaceToPlant</Filter>
+    </ClInclude>
+    <ClInclude Include="Plant.h">
+      <Filter>Исходные файлы\GameClasses\Plants</Filter>
+    </ClInclude>
+    <ClInclude Include="Shoot_Plant.h">
+      <Filter>Исходные файлы\GameClasses\Plants\Shoot</Filter>
+    </ClInclude>
+    <ClInclude Include="Support_Plant.h">
+      <Filter>Исходные файлы\GameClasses\Plants\Support</Filter>
+    </ClInclude>
+    <ClInclude Include="Projectile.h">
+      <Filter>Исходные файлы\GameClasses\Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="Effect.h">
+      <Filter>Исходные файлы\GameClasses\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="Sun.h">
+      <Filter>Исходные файлы\GameClasses\Effect\Sun</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
