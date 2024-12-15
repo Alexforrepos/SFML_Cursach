@@ -7,8 +7,14 @@ class Primer
 	: public I_Object
 {
 	// Унаследовано через I_Object
+	
+	sf::Clock timeofdying;
+	// Унаследовано через I_Object
 	void Update() override;
+
 	void SendMSG(MSG* msg) override;
+
 	void Draw(sf::RenderWindow& win) override;
+
 };
 

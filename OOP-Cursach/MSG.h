@@ -16,7 +16,7 @@ struct MSG_TYPE_MOVE
 	sf::Vector2f dir;
 	I_Object* obj;
 
-	MSG_TYPE_MOVE(const sf::Vector2f& dir, I_Object* obj)
+	MSG_TYPE_MOVE(sf::Vector2f dir, I_Object* obj)
 		: dir(dir), obj(obj)
 	{
 	}

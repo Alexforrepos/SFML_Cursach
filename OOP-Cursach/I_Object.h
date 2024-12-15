@@ -4,7 +4,10 @@
 
 class I_Object
 {
+protected:
+
 	sf::Vector2f Position;
+
 public:
 	I_Object() = default;
 	virtual void Update() = 0;

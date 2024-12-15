@@ -27,7 +27,8 @@ int main()
 		}
 		if (Keyboard::isKeyPressed(Keyboard::W))
 			p->add_obj(new Primer());
-
+		if (Keyboard::isKeyPressed(Keyboard::E))
+			p->clear();
 		p->update();
 		p->draw(win);
 		win.display();

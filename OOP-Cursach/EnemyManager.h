@@ -1,5 +1,4 @@
 #pragma once
-
 enum ZOMBE_TO_SPAWN_SCORES
 {
 	NORMAL_ZOMBIE_POINT = 100,
