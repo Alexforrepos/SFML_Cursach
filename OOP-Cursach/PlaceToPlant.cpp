@@ -1,4 +1,11 @@
 #include "PlaceToPlant.h"
+#include "Plant.h"
+
+
+void PlaceToPlant::GetPower(int& power)
+{
+	power += plant->prize;
+}
 
 void PlaceToPlant::Update()
 {

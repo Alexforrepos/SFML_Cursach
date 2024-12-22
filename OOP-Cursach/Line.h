@@ -1,26 +1,28 @@
 #pragma once
-#include "I_Object.h"
 #include "PlaceToPlant.h"
-class Line :
-    public I_Object
-{
-    sf::Shape* s;
 
-    std::vector<PlaceToPlant*> places;
+
+class Line :
+	public I_Object
+{
+
+protected:
+	sf::Rect<float> intershape;
+
+	std::vector<PlaceToPlant*> places;
 
 public:
-    Line() = default;
-    
-    Line(sf::Shape* s, const std::vector<PlaceToPlant*>& places)
-        : s(s), places(places)
-    {
-    }
+	Line() = default;
 
-    // Унаследовано через I_Object
-    void Update() override;
+	Line(int nomer, int size)
+	{
+		this->Position.x = BEGIN_OF_LINE_X + WIDTH_OF_PLACE;
+		this->Position.y = BEGIN_OF_LINE_Y + nomer * WIDTH_OF_PLACE;
 
-    void SendMSG(MSG* msg) override;
+		for (int i = 0; i < size; i++)
+		{
+			this->places.push_back(new PlaceToPlant());
+		}
+	}
 
-    void Draw(sf::RenderWindow& win) override;
-
-};
+}

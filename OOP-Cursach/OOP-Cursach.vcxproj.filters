@@ -88,12 +88,6 @@
     <Filter Include="Исходные файлы\GameClasses\Surface\Line\WaterLine">
       <UniqueIdentifier>{37a98b10-11d9-4388-938b-af5668d32c0f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Surface\Line\EarthLine">
-      <UniqueIdentifier>{e62d2e74-79d9-459a-8886-00d1cbe873a3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Surface\Line\AirLine">
-      <UniqueIdentifier>{10b156cc-dce4-419a-86ff-da1484a0478e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Исходные файлы\GameClasses\Level">
       <UniqueIdentifier>{ec747f93-f93e-4e89-bf92-a053c4575208}</UniqueIdentifier>
     </Filter>
@@ -181,6 +175,9 @@
     <Filter Include="Исходные файлы\GameClasses\Zombie\Normal_Zombie\Baloon_zombie">
       <UniqueIdentifier>{7a024382-0ee9-42b5-a453-4b16b6e46d7c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Zombie\Normal_Zombie\Gargantua">
+      <UniqueIdentifier>{ed3c7ef2-25ca-4927-a7c9-668fcc99537b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -255,8 +252,11 @@
     <ClCompile Include="pea.cpp">
       <Filter>Исходные файлы\GameClasses\Projectile\pea</Filter>
     </ClCompile>
+    <ClCompile Include="WaterLine.cpp">
+      <Filter>Исходные файлы\GameClasses\Surface\Line\WaterLine</Filter>
+    </ClCompile>
     <ClCompile Include="Gargantua.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\GameClasses\Zombie\Normal_Zombie\Gargantua</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -364,8 +364,11 @@
     <ClInclude Include="pea.h">
       <Filter>Исходные файлы\GameClasses\Projectile\pea</Filter>
     </ClInclude>
+    <ClInclude Include="WaterLine.h">
+      <Filter>Исходные файлы\GameClasses\Surface\Line\WaterLine</Filter>
+    </ClInclude>
     <ClInclude Include="Gargantua.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Исходные файлы\GameClasses\Zombie\Normal_Zombie\Gargantua</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

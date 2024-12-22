@@ -2,7 +2,7 @@
 #include "Line.h"
 
 class Zombie
-	:I_Object
+	:public I_Object
 {
 protected:
 	int surface_level = 0;

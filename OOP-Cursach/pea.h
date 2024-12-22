@@ -1,16 +1,18 @@
 #pragma once
-#include
 #include "Line.h"
 class pea
-	:
+	: I_Object
 {
+public:
+	sf::Sprite spr;
 	sf::Vector2f direction;
 	Line* line;
-	sf::Sprite spr;
 	
 	int damage;
 	int velocity;
 
-	//
-};
-
+	// Унаследовано через I_Object
+	void Update() override;
+	void SendMSG(MSG* msg) override;
+	void Draw(sf::RenderWindow& win) override;
+};	

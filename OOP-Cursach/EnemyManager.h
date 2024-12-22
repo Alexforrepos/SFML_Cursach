@@ -1,4 +1,5 @@
 #pragma once
+#include "I_Object.h"
 enum ZOMBE_TO_SPAWN_SCORES
 {
 	NORMAL_ZOMBIE_POINT = 100,
@@ -8,9 +9,15 @@ enum ZOMBE_TO_SPAWN_SCORES
 };
 
 class EnemyManager
+	:public I_Object
 {
 	int points;
 public:
 	void Spawn();
-	void GetPoints();
+	void GetPoints(int GetPoint) { this->points += points; };
+
+	// Унаследовано через I_Object
+	void Update() override;
+	void SendMSG(MSG* msg) override;
+	void Draw(sf::RenderWindow& win) override;
 };
