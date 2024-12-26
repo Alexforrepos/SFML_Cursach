@@ -10,6 +10,10 @@ private:
 	sf::Sprite spr;
 public:
 	LOOSE_VIRGIN(sf::Vector2f position);
+	~LOOSE_VIRGIN()
+	{
+
+	}
 	
 	// Унаследовано через Object
 	void Update() override;// отправка инфы

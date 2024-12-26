@@ -68,6 +68,11 @@ struct MSG_TYPE_CREATE
 	{
 		return creature == other.creature && creator == other.creator;
 	}
+
+	MSG_TYPE_CREATE(Object* creature, Object* creator)
+		: creature(creature), creator(creator)
+	{
+	}
 };
 
 struct MSG_TYPE_DEAL_DAMAGE

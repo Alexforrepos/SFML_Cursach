@@ -14,6 +14,10 @@ private:
 public:
 
 	FOREVER_VIRGIN();
+	~FOREVER_VIRGIN()
+	{
+
+	}
 
 	// Унаследовано через Object
 	void Update() override;

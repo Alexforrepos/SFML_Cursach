@@ -12,7 +12,7 @@ class MSG_Manager
 public:
 	MSG_Manager()
 	{
-		for (int i = 0; i < int(MSG_TYPE::MSG_TYPE_CREATE); i++)
+		for (int i = 0; i <= int(MSG_TYPE::MSG_TYPE_CREATE); i++)
 		{
 			msges.emplace(i,std::vector<MSG*>());
 		}
@@ -35,7 +35,7 @@ public:
 			msg_.clear();
 		}
 	};
-	std::vector<MSG*>& get_msges() 
+	std::vector<MSG*> get_msges() 
 	{
 		std::vector<MSG*> all;
 		for (auto &[key, msg_t] : msges)

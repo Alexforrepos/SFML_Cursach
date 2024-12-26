@@ -6,6 +6,7 @@ FOREVER_VIRGIN::FOREVER_VIRGIN()
 	NEVER = nullptr;
 	spr.setTexture(*Res_Manager::getmger()->get_access<sf::Texture*>("sunflower.png"));//вставка текстуры
 	spr.setPosition(this->Position);//позиция картинки
+	spr.setScale(0.1,0.1);
 }
 
 void FOREVER_VIRGIN::Update()
@@ -13,7 +14,7 @@ void FOREVER_VIRGIN::Update()
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && NEVER == nullptr)
 	{
 		NEVER = new LOOSE_VIRGIN(Position);
-		O_Manager::getmger()->add_obj(NEVER);
+		MSG_Manager::getmger()->add(new MSG(MSG_TYPE_CREATE(NEVER, this)));
 	}
 	if (NEVER != nullptr)
 	{

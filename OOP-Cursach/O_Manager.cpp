@@ -6,8 +6,9 @@ void O_Manager::update()
 {
 	vector<Object*>::iterator it;
 	for (auto obj : objects) obj->Update();
-	this->MSGM->unique(); 
-	for (auto msg : MSGM->get_msges())
+	/*this->MSGM->unique(); */
+	auto msg_v = MSGM->get_msges();
+	for (auto &msg : msg_v)
 	{
 		for (auto obj : objects) obj->SendMSG(msg);
 		switch (msg->MSG_TYPE.index())
