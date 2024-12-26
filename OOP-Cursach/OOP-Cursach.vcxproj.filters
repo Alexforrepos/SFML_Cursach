@@ -249,6 +249,12 @@
     <ClCompile Include="Attack_Plants.cpp">
       <Filter>Исходные файлы\GameClasses\Plants\Attack_Plants</Filter>
     </ClCompile>
+    <ClCompile Include="FOREVER_VIRGIN.cpp">
+      <Filter>Исходные файлы\PRIMER\FIN</Filter>
+    </ClCompile>
+    <ClCompile Include="LOOSE_VIRGIN.cpp">
+      <Filter>Исходные файлы\PRIMER\MAKS</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="openal32.dll">
@@ -357,6 +363,12 @@
     </ClInclude>
     <ClInclude Include="Attack_Plants.h">
       <Filter>Исходные файлы\GameClasses\Plants\Attack_Plants</Filter>
+    </ClInclude>
+    <ClInclude Include="FOREVER_VIRGIN.h">
+      <Filter>Исходные файлы\PRIMER\FIN</Filter>
+    </ClInclude>
+    <ClInclude Include="LOOSE_VIRGIN.h">
+      <Filter>Исходные файлы\PRIMER\MAKS</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

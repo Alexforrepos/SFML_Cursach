@@ -2,6 +2,7 @@
 #include "O_Manager.h"
 #include "ResourceManager.h"
 #include "Primer.h"
+#include "FOREVER_VIRGIN.h"
 using namespace std;
 using namespace sf;
 
@@ -12,6 +13,7 @@ int main()
 	Event ev;
 	auto p = O_Manager::getmger();
 	Res_Manager::getmger()->load_from_file("./resources/res_list.txt");
+	p->add_obj(new FOREVER_VIRGIN);
 	while (win.isOpen())
 	{
 		win.clear();
@@ -26,12 +28,10 @@ int main()
 				break;
 			}
 		}
-		if (Keyboard::isKeyPressed(Keyboard::W))
-			p->add_obj(new Primer());
-		if (Keyboard::isKeyPressed(Keyboard::E))
-			p->clear();
+		
 		p->update();
 		p->draw(win);
 		win.display();
 	}
+	O_Manager::deinit();
 }
