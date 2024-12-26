@@ -12,7 +12,7 @@ void FOREVER_VIRGIN::Update()
 {
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && NEVER == nullptr)
 	{
-		NEVER = new LOOSE_VIRGIN();
+		NEVER = new LOOSE_VIRGIN(Position);
 		O_Manager::getmger()->add_obj(NEVER);
 	}
 	if (NEVER != nullptr)
@@ -38,5 +38,6 @@ void FOREVER_VIRGIN::SendMSG(MSG* msg)
 
 void FOREVER_VIRGIN::Draw(sf::RenderWindow& win)
 {
-
+	spr.setPosition(this->Position);
+	win.draw(spr);
 }
