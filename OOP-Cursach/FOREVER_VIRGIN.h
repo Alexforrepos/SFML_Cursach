@@ -2,18 +2,17 @@
 #include "I_Object.h"
 #include "MSG_Manager.h"
 #include "ResourceManager.h"
+#include "LOOSE_VIRGIN.h"
 
 class FOREVER_VIRGIN
 	:public Object
 {
+private:
+	LOOSE_VIRGIN* NEVER;
 public:
 
 	FOREVER_VIRGIN();
 
-	// Унаследовано через I_Object
-	sf::Sprite spr;
-
-	sf::Clock timeofdying;
 	// Унаследовано через Object
 	void Update() override;
 

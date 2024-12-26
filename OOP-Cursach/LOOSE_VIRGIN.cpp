@@ -25,7 +25,7 @@ void LOOSE_VIRGIN::SendMSG(MSG* msg)
 		if (MSG_TYPE_MOVE(*msg).obj==this)//трогают ли нас(пж троньте меня)
 		{
 			Position += MSG_TYPE_MOVE(*msg).dir;//меняем расположение
-			std::cout << "ТРОГАЙ МЕНЯ СЕМПАЙ" << std::endl;
+			std::cout << "ТРОГАЙ МЕНЯ" << std::endl;
 		}
 		break;
 	default:
@@ -38,5 +38,3 @@ void LOOSE_VIRGIN::Draw(sf::RenderWindow& win)
 	spr.setPosition(this->Position);
 	win.draw(spr);//отпечатывание спрайта
 }
-
-
