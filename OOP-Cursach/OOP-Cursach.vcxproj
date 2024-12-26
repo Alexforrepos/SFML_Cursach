@@ -146,6 +146,7 @@
     <ClCompile Include="I_Object.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="Line.cpp" />
+    <ClCompile Include="LOOSE_VIRGIN.cpp" />
     <ClCompile Include="MSG.cpp" />
     <ClCompile Include="MSG_Manager.cpp" />
     <ClCompile Include="O_Manager.cpp" />
@@ -186,6 +187,7 @@
     <ClInclude Include="I_Object.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="Line.h" />
+    <ClInclude Include="LOOSE_VIRGIN.h" />
     <ClInclude Include="MSG.h" />
     <ClInclude Include="MSG_Manager.h" />
     <ClInclude Include="O_Manager.h" />
