@@ -97,23 +97,8 @@
     <Filter Include="Исходные файлы\GameClasses\Plants\Support">
       <UniqueIdentifier>{c95c860b-9c3b-4de7-af8c-4ad24b02b9e3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Plants\Shoot">
-      <UniqueIdentifier>{2d0f4073-7fc9-43a9-ab0f-7aa7fe81d5f3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Исходные файлы\GameClasses\Effect">
       <UniqueIdentifier>{b608daab-533e-4d87-89ea-09eb2528cce5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Effect\Sun">
-      <UniqueIdentifier>{c765c125-7496-4812-a319-730ca1b1a69a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Plants\Shoot\pea_shooter">
-      <UniqueIdentifier>{bb7659cf-0767-4d01-bfe0-803b390825c3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Plants\Shoot\pea_shooter\repeater">
-      <UniqueIdentifier>{5f7e57df-bb7f-4bee-8e07-349beb0189aa}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Plants\Shoot\pea_shooter\minigun">
-      <UniqueIdentifier>{5086cceb-bec9-4f15-8f5d-614312eb39d1}</UniqueIdentifier>
     </Filter>
     <Filter Include="Исходные файлы\GameClasses\Projectile\pea">
       <UniqueIdentifier>{74d69482-1809-4788-aee1-97ef1dcf0ba7}</UniqueIdentifier>
@@ -130,26 +115,8 @@
     <Filter Include="Исходные файлы\GameClasses\Instrument\Card\PlantCard">
       <UniqueIdentifier>{f52f7967-ad10-4350-94c4-27591a72de08}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Zombie\Normal_Zombie">
-      <UniqueIdentifier>{a589c5c0-4f87-442c-a235-74b79bfb03a5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Zombie\Normal_Zombie\Zombie_Cone">
-      <UniqueIdentifier>{39063946-b658-4f5d-b4dc-d4c3322907a9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Zombie\Normal_Zombie\Zombie_Bucket">
-      <UniqueIdentifier>{8794f79b-e748-43aa-ab14-cac57e0d0ab0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Zombie\Normal_Zombie\Zombie_Gymnast">
-      <UniqueIdentifier>{2564a64f-aa45-47fd-8f78-ec5a60c2a03d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Исходные файлы\GameClasses\Plants\Support\sunflower">
       <UniqueIdentifier>{dca2e970-c9f2-4b5c-90f9-877c43e64800}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Plants\Shoot\pea_shooter\icepeashooter">
-      <UniqueIdentifier>{311faaf1-135d-48ae-85c2-b170b62c157c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Plants\Shoot\mine">
-      <UniqueIdentifier>{397acc99-81a7-42fd-b5b4-92462e4f70aa}</UniqueIdentifier>
     </Filter>
     <Filter Include="Исходные файлы\GameClasses\Plants\Support\nut">
       <UniqueIdentifier>{8821f120-5d5d-4d31-b02f-efccfd15b444}</UniqueIdentifier>
@@ -157,23 +124,53 @@
     <Filter Include="Исходные файлы\GameClasses\Plants\Support\pumpkin">
       <UniqueIdentifier>{ff25afcc-5b3a-48b7-bf6d-fc7b600d9fbf}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Plants\Shoot\pea_shooter\kaktus">
-      <UniqueIdentifier>{118b79ce-5847-49f1-9ca4-ada2591c6ff7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Plants\Shoot\pea_shooter\catapult">
-      <UniqueIdentifier>{213b90ea-422d-46f0-b59f-5393d4db90a4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Plants\Shoot\pea_shooter\firepeashooter">
-      <UniqueIdentifier>{2f427dee-adb9-4e44-aee9-bc54fc48aa7c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Исходные файлы\GameClasses\Plants\Support\fire log">
       <UniqueIdentifier>{88413842-bd62-4cee-9723-82118414adc5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Zombie\Normal_Zombie\Baloon_zombie">
+    <Filter Include="Исходные файлы\GameClasses\Instrument\Sun">
+      <UniqueIdentifier>{c765c125-7496-4812-a319-730ca1b1a69a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Plants\Attack_Plants">
+      <UniqueIdentifier>{2d0f4073-7fc9-43a9-ab0f-7aa7fe81d5f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Plants\Attack_Plants\Repeater">
+      <UniqueIdentifier>{79ce2c27-e260-4e02-a0c6-ba9893e4e1b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Plants\Attack_Plants\Ice_Shooter">
+      <UniqueIdentifier>{9b03a49d-f8d5-46ad-992c-e5c4faf45327}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Plants\Attack_Plants\Fire_Shooter">
+      <UniqueIdentifier>{9b4d0c45-1876-4905-850e-e7a1dd088a96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Plants\Attack_Plants\Spike_Shooter">
+      <UniqueIdentifier>{1718f2b1-4d04-493e-a570-2ab01b2d8061}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Zombie\Armored_Zombie">
+      <UniqueIdentifier>{a589c5c0-4f87-442c-a235-74b79bfb03a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Zombie\Baloon_zombie">
       <UniqueIdentifier>{7a024382-0ee9-42b5-a453-4b16b6e46d7c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Zombie\Normal_Zombie\Gargantua">
+    <Filter Include="Исходные файлы\GameClasses\Zombie\Gargantua">
       <UniqueIdentifier>{ed3c7ef2-25ca-4927-a7c9-668fcc99537b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Zombie\Zombie_Gymnast">
+      <UniqueIdentifier>{2564a64f-aa45-47fd-8f78-ec5a60c2a03d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Zombie\Armored_Zombie\Zombie_Bucket">
+      <UniqueIdentifier>{8794f79b-e748-43aa-ab14-cac57e0d0ab0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Zombie\Armored_Zombie\Newspaper_Zombie">
+      <UniqueIdentifier>{39063946-b658-4f5d-b4dc-d4c3322907a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\PRIMER">
+      <UniqueIdentifier>{ddf3f831-187c-4238-a132-4320ade90945}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\PRIMER\MAKS">
+      <UniqueIdentifier>{c452810f-1f4a-409b-a3e0-c47354a13d51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\PRIMER\FIN">
+      <UniqueIdentifier>{1b546d2e-28f2-48f4-afd2-5327b93b7928}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -225,14 +222,11 @@
     <ClCompile Include="Projectile.cpp">
       <Filter>Исходные файлы\GameClasses\Projectile</Filter>
     </ClCompile>
-    <ClCompile Include="Shoot_Plant.cpp">
-      <Filter>Исходные файлы\GameClasses\Plants\Shoot</Filter>
-    </ClCompile>
     <ClCompile Include="Support_Plant.cpp">
       <Filter>Исходные файлы\GameClasses\Plants\Support</Filter>
     </ClCompile>
     <ClCompile Include="Sun.cpp">
-      <Filter>Исходные файлы\GameClasses\Effect\Sun</Filter>
+      <Filter>Исходные файлы\GameClasses\Instrument\Sun</Filter>
     </ClCompile>
     <ClCompile Include="Zombie.cpp">
       <Filter>Исходные файлы\GameClasses\Zombie</Filter>
@@ -243,9 +237,6 @@
     <ClCompile Include="EnemyManager.cpp">
       <Filter>Исходные файлы\GameClasses\Zombie\EnemyManager</Filter>
     </ClCompile>
-    <ClCompile Include="Normal_Zombie.cpp">
-      <Filter>Исходные файлы\GameClasses\Zombie\Normal_Zombie</Filter>
-    </ClCompile>
     <ClCompile Include="pea.cpp">
       <Filter>Исходные файлы\GameClasses\Projectile\pea</Filter>
     </ClCompile>
@@ -253,7 +244,10 @@
       <Filter>Исходные файлы\GameClasses\Surface\Line\WaterLine</Filter>
     </ClCompile>
     <ClCompile Include="Gargantua.cpp">
-      <Filter>Исходные файлы\GameClasses\Zombie\Normal_Zombie\Gargantua</Filter>
+      <Filter>Исходные файлы\GameClasses\Zombie\Gargantua</Filter>
+    </ClCompile>
+    <ClCompile Include="Attack_Plants.cpp">
+      <Filter>Исходные файлы\GameClasses\Plants\Attack_Plants</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -334,9 +328,6 @@
     <ClInclude Include="Plant.h">
       <Filter>Исходные файлы\GameClasses\Plants</Filter>
     </ClInclude>
-    <ClInclude Include="Shoot_Plant.h">
-      <Filter>Исходные файлы\GameClasses\Plants\Shoot</Filter>
-    </ClInclude>
     <ClInclude Include="Support_Plant.h">
       <Filter>Исходные файлы\GameClasses\Plants\Support</Filter>
     </ClInclude>
@@ -347,16 +338,13 @@
       <Filter>Исходные файлы\GameClasses\Effect</Filter>
     </ClInclude>
     <ClInclude Include="Sun.h">
-      <Filter>Исходные файлы\GameClasses\Effect\Sun</Filter>
+      <Filter>Исходные файлы\GameClasses\Instrument\Sun</Filter>
     </ClInclude>
     <ClInclude Include="Zombie.h">
       <Filter>Исходные файлы\GameClasses\Zombie</Filter>
     </ClInclude>
     <ClInclude Include="EnemyManager.h">
       <Filter>Исходные файлы\GameClasses\Zombie\EnemyManager</Filter>
-    </ClInclude>
-    <ClInclude Include="Normal_Zombie.h">
-      <Filter>Исходные файлы\GameClasses\Zombie\Normal_Zombie</Filter>
     </ClInclude>
     <ClInclude Include="pea.h">
       <Filter>Исходные файлы\GameClasses\Projectile\pea</Filter>
@@ -365,7 +353,10 @@
       <Filter>Исходные файлы\GameClasses\Surface\Line\WaterLine</Filter>
     </ClInclude>
     <ClInclude Include="Gargantua.h">
-      <Filter>Исходные файлы\GameClasses\Zombie\Normal_Zombie\Gargantua</Filter>
+      <Filter>Исходные файлы\GameClasses\Zombie\Gargantua</Filter>
+    </ClInclude>
+    <ClInclude Include="Attack_Plants.h">
+      <Filter>Исходные файлы\GameClasses\Plants\Attack_Plants</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

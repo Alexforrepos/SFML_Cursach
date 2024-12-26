@@ -1,14 +1,16 @@
 #pragma once
 #include "Line.h"
 
-class Zombie
+class Zombie // обычный зомби
 	:public Object
 {
 protected:
-	int surface_level = 0;
 	Line* line;
-	int HP;
+	int HP,cd_time_mc,height;
+	sf::Sprite sprite;
+	sf::Clock cd_time;
+	sf::Vector2f damage_area_size;
 
+public:
 
 };
-

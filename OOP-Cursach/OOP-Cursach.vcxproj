@@ -138,6 +138,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Animator.cpp" />
+    <ClCompile Include="Attack_Plants.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Effect.cpp" />
     <ClCompile Include="EnemyManager.cpp" />
@@ -147,7 +148,6 @@
     <ClCompile Include="Line.cpp" />
     <ClCompile Include="MSG.cpp" />
     <ClCompile Include="MSG_Manager.cpp" />
-    <ClCompile Include="Normal_Zombie.cpp" />
     <ClCompile Include="O_Manager.cpp" />
     <ClCompile Include="pea.cpp" />
     <ClCompile Include="PlaceToPlant.cpp" />
@@ -155,7 +155,6 @@
     <ClCompile Include="Primer.cpp" />
     <ClCompile Include="Projectile.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
-    <ClCompile Include="Shoot_Plant.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Sun.cpp" />
     <ClCompile Include="Support_Plant.cpp" />
@@ -179,6 +178,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animator.h" />
+    <ClInclude Include="Attack_Plants.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="Effect.h" />
     <ClInclude Include="EnemyManager.h" />
@@ -188,7 +188,6 @@
     <ClInclude Include="Line.h" />
     <ClInclude Include="MSG.h" />
     <ClInclude Include="MSG_Manager.h" />
-    <ClInclude Include="Normal_Zombie.h" />
     <ClInclude Include="O_Manager.h" />
     <ClInclude Include="pea.h" />
     <ClInclude Include="PlaceToPlant.h" />
@@ -196,7 +195,6 @@
     <ClInclude Include="Primer.h" />
     <ClInclude Include="Projectile.h" />
     <ClInclude Include="ResourceManager.h" />
-    <ClInclude Include="Shoot_Plant.h" />
     <ClInclude Include="Sun.h" />
     <ClInclude Include="Support_Plant.h" />
     <ClInclude Include="Surface.h" />

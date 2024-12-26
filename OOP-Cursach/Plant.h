@@ -4,12 +4,14 @@
 class Plant :
     public Object
 {
-    int price;
-
+protected:
     bool iswater = false;
-    int HP;
-
-    Line* visible;
+    unsigned HP,price;
+    Landing_place* l_pl;
+    sf::Sprite sprite;
 public:
-    friend class PlaceToPlant;
+    friend class Landing_place;
+
+    // Унаследовано через Object
+
 };

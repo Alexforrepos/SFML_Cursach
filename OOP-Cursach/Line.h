@@ -9,7 +9,7 @@ class Line :
 protected:
 	sf::Rect<float> intershape;
 
-	std::vector<PlaceToPlant*> places;
+	std::vector<Landing_place*> places;
 
 public:
 	Line() = default;
@@ -21,7 +21,7 @@ public:
 
 		for (int i = 0; i < size; i++)
 		{
-			this->places.push_back(new PlaceToPlant());
+			this->places.push_back(new Landing_place());
 		}
 	}
 

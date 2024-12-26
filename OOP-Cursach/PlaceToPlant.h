@@ -7,7 +7,7 @@
 
 class Plant;
 
-class PlaceToPlant
+class Landing_place
 	:public Object
 {
 	bool isplacable = true, iswater = false;
@@ -15,14 +15,14 @@ class PlaceToPlant
 	sf::Vector2f Size = { WIDTH_OF_PLACE,WIDTH_OF_PLACE };
 	Plant* plant = nullptr;
 public:
-	PlaceToPlant(bool isplacable, const sf::Vector2f& position, Plant* plant)
+	Landing_place(bool isplacable, const sf::Vector2f& position, Plant* plant)
 		: isplacable(isplacable), position(position), plant(plant)
 	{
 	}
 
-	PlaceToPlant() = default;
+	Landing_place() = default;
 
-	PlaceToPlant(int nomer, sf::Vector2f position)
+	Landing_place(int nomer, sf::Vector2f position)
 	{
 		this->Size.x = WIDTH_OF_PLACE;
 		this->Size.y = WIDTH_OF_PLACE;

@@ -2,17 +2,17 @@
 #include "Plant.h"
 
 
-void PlaceToPlant::GetPower(int& power)
+void Landing_place::GetPower(int& power)
 {
 	power += plant->price;
 }
 
-void PlaceToPlant::Update()
+void Landing_place::Update()
 {
 	
 }
 
-void PlaceToPlant::SendMSG(MSG* msg)
+void Landing_place::SendMSG(MSG* msg)
 {
 	switch (msg->MSG_TYPE.index())
 	{
@@ -25,7 +25,7 @@ void PlaceToPlant::SendMSG(MSG* msg)
 	}
 }
 
-void PlaceToPlant::Draw(sf::RenderWindow& win)
+void Landing_place::Draw(sf::RenderWindow& win)
 {
 	
 }
