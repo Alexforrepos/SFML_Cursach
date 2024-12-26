@@ -2,9 +2,9 @@
 
 
 
-LOOSE_VIRGIN::LOOSE_VIRGIN()
+LOOSE_VIRGIN::LOOSE_VIRGIN(sf::Vector2f position)
 {
-	this->Position = { 500,500 };
+	this->Position = position;
 	spr.setTexture(*Res_Manager::getmger()->get_access<sf::Texture*>("loose.jfif"));//вставка текстуры
 	spr.setPosition(this->Position);//позиция картинки
 }
