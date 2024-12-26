@@ -6,6 +6,8 @@
 class LOOSE_VIRGIN
 	:public Object
 {
+private:
+	sf::Sprite spr;
 public:
 	LOOSE_VIRGIN();
 	
