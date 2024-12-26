@@ -12,6 +12,4 @@ protected:
 public:
     friend class Landing_place;
 
-    // Унаследовано через Object
-
 };
