@@ -106,9 +106,6 @@
     <Filter Include="Исходные файлы\GameClasses\Effect\Sun">
       <UniqueIdentifier>{c765c125-7496-4812-a319-730ca1b1a69a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Effect\timeless">
-      <UniqueIdentifier>{b0edaee4-ad17-4a4d-9bd9-3bbc7fd41448}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Исходные файлы\GameClasses\Plants\Shoot\pea_shooter">
       <UniqueIdentifier>{bb7659cf-0767-4d01-bfe0-803b390825c3}</UniqueIdentifier>
     </Filter>

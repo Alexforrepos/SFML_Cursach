@@ -4,7 +4,7 @@
 
 void PlaceToPlant::GetPower(int& power)
 {
-	power += plant->prize;
+	power += plant->price;
 }
 
 void PlaceToPlant::Update()

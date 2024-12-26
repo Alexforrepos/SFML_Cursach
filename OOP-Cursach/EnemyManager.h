@@ -9,7 +9,7 @@ enum ZOMBE_TO_SPAWN_SCORES
 };
 
 class EnemyManager
-	:public I_Object
+	:public Object
 {
 	int points;
 public:

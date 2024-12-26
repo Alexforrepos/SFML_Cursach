@@ -8,14 +8,13 @@
 #include <string>
 #include <map>
 
-class ResourceManager
+class Res_Manager
 {
-	static ResourceManager* RM;
+	static Res_Manager* RM;
 
 	std::map<std::string, std::variant<sf::Texture*, sf::Music*, sf::Font*>> resources;
-public:
-	ResourceManager() = default;
-	~ResourceManager()
+	Res_Manager() = default;
+	~Res_Manager()
 	{
 		for (auto& [key, resource] : resources)
 		{
@@ -30,8 +29,7 @@ public:
 		}
 		resources.clear();
 	}
-
-
+public:
 	int load_from_file(const std::string& filename);
 
 #pragma region load<>
@@ -109,6 +107,6 @@ public:
 	}
 #pragma endregion
 
-	static ResourceManager* getmger() { return RM ? RM : RM = new ResourceManager; }
+	static Res_Manager* getmger() { return RM ? RM : RM = new Res_Manager; }
 
 };

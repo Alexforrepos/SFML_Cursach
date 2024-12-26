@@ -8,7 +8,7 @@ class O_Manager
 {
 	static O_Manager* OMGR;
 
-	std::vector<I_Object*> objects;
+	std::vector<Object*> objects;
 	MSG_Manager* MSGM = MSG_Manager::getmger();
 
 public:
@@ -21,14 +21,14 @@ public:
 		objects.clear();
 	}
 
-	void add_obj(I_Object* obj) {
+	void add_obj(Object* obj) {
 		objects.push_back(obj); 
 	};
 	void clear() { MSGM->clear(); for (auto obj : objects) delete obj; objects.clear(); };
 	void draw(sf::RenderWindow& win) { for (auto obj : objects)obj->Draw(win); };
 	void update();
 
-	std::vector<I_Object*>& getobj() { return objects; }
+	std::vector<Object*>& getobj() { return objects; }
 
 	static O_Manager* getmger() { return OMGR ? OMGR : OMGR = new O_Manager; }
 	static void deinit() { OMGR ? delete OMGR : void(); };

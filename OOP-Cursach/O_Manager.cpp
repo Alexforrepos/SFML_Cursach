@@ -4,7 +4,7 @@ O_Manager* O_Manager::OMGR = nullptr;
 
 void O_Manager::update()
 {
-	vector<I_Object*>::iterator it;
+	vector<Object*>::iterator it;
 	for (auto obj : objects) obj->Update();
 	this->MSGM->unique(); 
 	for (auto msg : MSGM->get_msges())
@@ -19,7 +19,7 @@ void O_Manager::update()
 			break;
 		case (int)MSG_TYPE::MSG_TYPE_KILL:
 			cout << "killing object\n";
-			it = find_if(objects.begin(), objects.end(), [&](I_Object* arg)
+			it = find_if(objects.begin(), objects.end(), [&](Object* arg)
 				{ return arg == MSG_TYPE_KILL(*msg).victim; });
 			if (it != objects.end())
 			{

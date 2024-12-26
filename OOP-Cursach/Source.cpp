@@ -11,6 +11,7 @@ int main()
 	RenderWindow win(VideoMode::VideoMode(VideoMode::getDesktopMode()), "Plants vs Zombies",Style::Fullscreen);
 	Event ev;
 	auto p = O_Manager::getmger();
+	Res_Manager::getmger()->load_from_file("./resources/res_list.txt");
 	while (win.isOpen())
 	{
 		win.clear();

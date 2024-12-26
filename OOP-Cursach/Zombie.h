@@ -2,13 +2,13 @@
 #include "Line.h"
 
 class Zombie
-	:public I_Object
+	:public Object
 {
 protected:
 	int surface_level = 0;
 	Line* line;
 	int HP;
-public:
+
 
 };
 

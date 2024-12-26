@@ -8,7 +8,7 @@
 class Plant;
 
 class PlaceToPlant
-	:public I_Object
+	:public Object
 {
 	bool isplacable = true, iswater = false;
 	sf::Vector2f position = { 0,0 };
@@ -28,7 +28,7 @@ public:
 		this->Size.y = WIDTH_OF_PLACE;
 		this->position.x = position.x + WIDTH_OF_PLACE * nomer;
 		this->position.y = position.y;
-		I_Object* plant = nullptr;
+		Object* plant = nullptr;
 		bool isplacable = true, iswater = false;
 	}
 

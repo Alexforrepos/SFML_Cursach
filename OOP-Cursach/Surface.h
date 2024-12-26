@@ -10,11 +10,11 @@
 
 
 class Surface
-	:I_Object
+	:Object
 {
 
 	sf::Shape* s;
-	sf::Sprite s;
+	sf::Sprite* spr;
 	std::vector<Line*> Lines;
 
 
@@ -29,11 +29,11 @@ public:
 			
 			if (mask)
 			{
-				Lines.push_back(new WaterLine());
+				//Lines.push_back(new WaterLine());
 			}
 			else
 			{
-				Lines.push_back(new Line(i,8));
+				//Lines.push_back(new Line(i,8));
 			}
 			i++;
 		}
@@ -47,7 +47,7 @@ public:
 
 	int GetPower() 
 	{
-		int power;
+		int power = 0;
 		for (auto l:Lines)
 		return power;
 	}

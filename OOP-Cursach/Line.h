@@ -3,7 +3,7 @@
 
 
 class Line :
-	public I_Object
+	public Object
 {
 
 protected:
@@ -25,4 +25,12 @@ public:
 		}
 	}
 
-}
+
+	// Унаследовано через I_Object
+	void Update() override;
+
+	void SendMSG(MSG* msg) override;
+
+	void Draw(sf::RenderWindow& win) override;
+
+};

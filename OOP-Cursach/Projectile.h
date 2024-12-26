@@ -4,10 +4,7 @@ class Projectile
 {
 	sf::Vector2f direction;
 	int dmg;
-
-
-
-	I_Object* creator;
+	Object* creator;
 public:
 		
 };

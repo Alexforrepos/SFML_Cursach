@@ -3,7 +3,7 @@
 #include <iostream>
 #include <variant>
 
-class I_Object;
+class Object;
 class O_Manager;
 
 enum class MSG_TYPE
@@ -14,9 +14,9 @@ enum class MSG_TYPE
 struct MSG_TYPE_MOVE
 {
 	sf::Vector2f dir;
-	I_Object* obj;
+	Object* obj;
 
-	MSG_TYPE_MOVE(sf::Vector2f dir, I_Object* obj)
+	MSG_TYPE_MOVE(sf::Vector2f dir, Object* obj)
 		: dir(dir), obj(obj)
 	{
 	}
@@ -43,11 +43,11 @@ struct MSG_TYPE_MOVE
 
 struct MSG_TYPE_KILL
 {
-	I_Object* victim = nullptr,*killer= nullptr;
+	Object* victim = nullptr,*killer= nullptr;
 
 	MSG_TYPE_KILL() = default;
 
-	MSG_TYPE_KILL(I_Object* victim, I_Object* killer)
+	MSG_TYPE_KILL(Object* victim, Object* killer)
 		: victim(victim), killer(killer)
 	{
 	}
@@ -62,7 +62,7 @@ struct MSG_TYPE_KILL
 
 struct MSG_TYPE_CREATE
 {
-	I_Object* creature = nullptr, * creator = nullptr;
+	Object* creature = nullptr, * creator = nullptr;
 
 	bool operator==(const MSG_TYPE_CREATE& other) const
 	{
@@ -72,7 +72,7 @@ struct MSG_TYPE_CREATE
 
 struct MSG_TYPE_DEAL_DAMAGE
 {
-	I_Object* target, *killer;
+	Object* target, *killer;
 	short damage;
 };
 

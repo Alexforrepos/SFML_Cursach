@@ -1,7 +1,7 @@
 #pragma once
 #include "Line.h"
 class pea
-	: I_Object
+	: Object
 {
 public:
 	sf::Sprite spr;

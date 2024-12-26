@@ -2,9 +2,9 @@
 using namespace std;
 using namespace filesystem;
 
-ResourceManager* ResourceManager::RM = nullptr;
+Res_Manager* Res_Manager::RM = nullptr;
 
-int ResourceManager::load_from_file(const std::string& filename)
+int Res_Manager::load_from_file(const std::string& filename)
 {
 	fstream file(filename, ios::in | ios::out);
 	if (!file.is_open())

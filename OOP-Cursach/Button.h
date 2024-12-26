@@ -3,7 +3,7 @@
 #include <functional>
 
 class Button :
-    public I_Object 
+    public Object 
 {
     bool is_active;
 

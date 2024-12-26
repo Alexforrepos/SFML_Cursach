@@ -7,17 +7,14 @@
 
 class Client
 {
-	sf::TcpSocket mys;
+	sf::TcpSocket socket;
 	unsigned short serverport;
-
 	bool isconnected = true;
-
 	std::thread t;
-
 	Client(unsigned short serverport,const std::string& adres)
-		:mys(), serverport(serverport)
+		:socket(), serverport(serverport)
 	{
-		if (mys.connect(adres, serverport) != sf::Socket::Done)
+		if (socket.connect(adres, serverport) != sf::Socket::Done)
 		{
 			throw "conection err";
 		}
@@ -30,7 +27,7 @@ public:
 	~Client()
 	{
 		isconnected = false;
-		mys.disconnect();
+		socket.disconnect();
 	}
 
 	void MSG_Send(MSG* msg)
@@ -38,7 +35,7 @@ public:
 		if (!isconnected) throw "Client is not connected";
 		sf::Packet p;
 		p.append(msg, sizeof(msg));
-		if (mys.send(p) != sf::Socket::Done)
+		if (socket.send(p) != sf::Socket::Done)
 		{
 			throw "err sending msg";
 		};

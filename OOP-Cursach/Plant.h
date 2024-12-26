@@ -2,9 +2,9 @@
 #include "Line.h"
 
 class Plant :
-    public I_Object
+    public Object
 {
-    int prize;
+    int price;
 
     bool iswater = false;
     int HP;
