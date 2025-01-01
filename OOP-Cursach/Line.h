@@ -30,4 +30,4 @@ public:
 		for (auto pl : places)
 			delete pl;
 	}
-};
+}
