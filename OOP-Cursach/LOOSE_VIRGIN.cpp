@@ -11,7 +11,7 @@ LOOSE_VIRGIN::LOOSE_VIRGIN(sf::Vector2f position)
 
 void LOOSE_VIRGIN::Update()
 {		
-	spr.setPosition(this->Position);//обновляем позицию спрайта
+	
 }
 
 void LOOSE_VIRGIN::SendMSG(MSG* msg)

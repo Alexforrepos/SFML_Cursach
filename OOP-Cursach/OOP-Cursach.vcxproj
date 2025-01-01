@@ -162,7 +162,6 @@
     <ClCompile Include="Support_Plant.cpp" />
     <ClCompile Include="Surface.cpp" />
     <ClCompile Include="Text_Button.cpp" />
-    <ClCompile Include="WaterLine.cpp" />
     <ClCompile Include="Zombie.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -203,7 +202,6 @@
     <ClInclude Include="Support_Plant.h" />
     <ClInclude Include="Surface.h" />
     <ClInclude Include="Text_Button.h" />
-    <ClInclude Include="WaterLine.h" />
     <ClInclude Include="Zombie.h" />
   </ItemGroup>
   <ItemGroup>

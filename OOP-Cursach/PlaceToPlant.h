@@ -1,5 +1,4 @@
 #pragma once
-#include "I_Object.h"
 #define WIDTH_OF_PLACE 40.
 #define BEGIN_OF_LINE_X 400.
 #define BEGIN_OF_LINE_Y 400.0
@@ -8,42 +7,40 @@
 class Plant;
 
 class Landing_place
-	:public Object
 {
+
 	bool isplacable = true, iswater = false;
 	sf::Vector2f position = { 0,0 };
 	sf::Vector2f Size = { WIDTH_OF_PLACE,WIDTH_OF_PLACE };
 	Plant* plant = nullptr;
+
 public:
-	Landing_place(bool isplacable, const sf::Vector2f& position, Plant* plant)
-		: isplacable(isplacable), position(position), plant(plant)
-	{
-	}
 
-	Landing_place() = default;
-
-	Landing_place(int nomer, sf::Vector2f position)
+	Landing_place(unsigned index, sf::Vector2f startpos,bool iswater)
 	{
-		this->Size.x = WIDTH_OF_PLACE;
-		this->Size.y = WIDTH_OF_PLACE;
-		this->position.x = position.x + WIDTH_OF_PLACE * nomer;
-		this->position.y = position.y;
-		Object* plant = nullptr;
-		bool isplacable = true, iswater = false;
+		Size = { WIDTH_OF_PLACE,WIDTH_OF_PLACE };
+		this->position = startpos + sf::Vector2f{index* Size.x, index * Size.y};
+		this->iswater = iswater;
+		isplacable = true;
 	}
 
 	void SetPosition(sf::Vector2f position) { this->position = position; };
 	void Move(sf::Vector2f move_vector) { this->position += move_vector; };
 	void Plant(Plant* plant) { if (isplacable)this->plant = plant; };
 
-	bool changeplacemode() { return isplacable = !isplacable; }
-	bool changewawtermode() { return this->iswater = !iswater; }
-	bool IsPlanted() { return !(plant == nullptr); }
+	bool ChangePlacMode(bool mode = false) { return isplacable = mode; }
+	bool ChangeWaterMode(bool mode = false) { return this->iswater = mode; }
+
+	bool IsPlanted() { return plant != nullptr; }
 
 	void GetPower(int& power);
 
-	// Унаследовано через I_Object
-	virtual void Update();
-	virtual void SendMSG(MSG* msg);
-	virtual void Draw(sf::RenderWindow& win);
+	void Draw(sf::RenderWindow& win)
+	{
+
+		sf::RectangleShape shape(Size);
+		shape.setPosition(position);
+		shape.setFillColor(isplacable ? sf::Color::Green : sf::Color::Red);
+		win.draw(shape);
+	}
 };

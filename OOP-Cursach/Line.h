@@ -1,36 +1,33 @@
 #pragma once
 #include "PlaceToPlant.h"
+#define MAX_LINE_WIDTH_X 1500
 
 
-class Line :
-	public Object
+template<int size>
+class Line 
 {
-
-protected:
-	sf::Rect<float> intershape;
-
-	std::vector<Landing_place*> places;
-
+	sf::Vector2f position;
+	std::array<sf::Vector2f, 2> begin_end_points;
+	sf::RectangleShape shape;
+	std::vector<Landing_place*> places;	
 public:
-	Line() = default;
-
-	Line(int nomer, int size)
+	Line(unsigned index,std::array<bool,size> flag)
 	{
-		this->Position.x = BEGIN_OF_LINE_X + WIDTH_OF_PLACE;
-		this->Position.y = BEGIN_OF_LINE_Y + nomer * WIDTH_OF_PLACE;
+		this->position(BEGIN_OF_LINE_X, BEGIN_OF_LINE_Y + index * WIDTH_OF_PLACE);
+		this->shape.setPosition(position);
+		shape.setSize(WIDTH_OF_PLACE * size, WIDTH_OF_PLACE);
+		shape.setFillColor(sf::Color::Yellow);
 
-		for (int i = 0; i < size; i++)
-		{
-			this->places.push_back(new Landing_place());
-		}
+		this->begin_end_points[0] = { BEGIN_OF_LINE_X , BEGIN_OF_LINE_Y + index * WIDTH_OF_PLACE - WIDTH_OF_PLACE / 2 };
+		this->begin_end_points[1] = { BEGIN_OF_LINE_X + size * WIDTH_OF_PLACE, BEGIN_OF_LINE_Y + index * WIDTH_OF_PLACE - WIDTH_OF_PLACE / 2 };
+
+		for (int index = 0; i < size; i++)
+			places[index] = new Landing_place(index, position, flag[index]);
 	}
 
-
-	// Унаследовано через I_Object
-	void Update() override;
-
-	void SendMSG(MSG* msg) override;
-
-	void Draw(sf::RenderWindow& win) override;
-
+	~Line()
+	{
+		for (auto pl : places)
+			delete pl;
+	}
 };

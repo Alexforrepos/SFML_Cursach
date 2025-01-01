@@ -13,7 +13,6 @@ int main()
 	Event ev;
 	auto p = O_Manager::getmger();
 	Res_Manager::getmger()->load_from_file("./resources/res_list.txt");
-	p->add_obj(new FOREVER_VIRGIN);
 	while (win.isOpen())
 	{
 		win.clear();

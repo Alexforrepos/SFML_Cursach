@@ -10,6 +10,9 @@ protected:
     Landing_place* l_pl;
     sf::Sprite sprite;
 public:
+
+
     friend class Landing_place;
+    unsigned getPrice() const { return price; };
 
 };

@@ -4,39 +4,25 @@
 #include <vector>
 #include <array>
 #include "Line.h"
-#include "WaterLine.h"
 #define NORMAL_QUANT_LINE 8
 
 
 
+template<int place_size>
 class Surface
-	:Object
 {
 
-	sf::Shape* s;
-	sf::Sprite* spr;
-	std::vector<Line*> Lines;
+	sf::RectangleShape s;
+	std::vector<Line<place_size>*> Lines;
 
 
 public:
 	Surface() = default;
 
-	Surface(std::array<bool, 6> boolwaterlevelmask,int size)
+	Surface(unsigned Line_size = 1)
 	{
-		int i = 0;
-		for (auto mask : boolwaterlevelmask)
-		{
-			
-			if (mask)
-			{
-				//Lines.push_back(new WaterLine());
-			}
-			else
-			{
-				//Lines.push_back(new Line(i,8));
-			}
-			i++;
-		}
+		for (int i = 0; i < Line_size; i++)
+			Lines[i] = new Line<place_size>(i, { 0 });
 	}
 
 	Surface(sf::Shape* s, const std::vector<Line*>& Lines)
@@ -52,8 +38,11 @@ public:
 		return power;
 	}
 	
-	// Унаследовано через I_Object
-	void Update() override;
-	void SendMSG(MSG* msg) override;
-	void Draw(sf::RenderWindow& win) override;
+	void Draw(sf::RenderWindow& win)
+	{
+		win.draw(s);
+		for (auto line : Lines)
+			line->Draw(win);
+
+	}
 };
