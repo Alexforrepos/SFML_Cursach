@@ -1,35 +1,27 @@
 #pragma once
-#include <SFML/Graphics.hpp>
 #include <iostream>
 #include <vector>
 #include <array>
 #include "Line.h"
-#define NORMAL_QUANT_LINE 8
+#include "I_Object.h"
+#include "gologram.h"
 
 
-
-template<int place_size>
+template<int place_size,int line_count>
 class Surface
 {
 
-	sf::RectangleShape s;
-	std::vector<Line<place_size>*> Lines;
+	sf::RectangleShape s;	
+	std::array<Line<place_size>*,line_count> Lines;
 
 
 public:
-	Surface() = default;
-
-	Surface(unsigned Line_size = 1)
+	Surface()
 	{
-		for (int i = 0; i < Line_size; i++)
+		for (int i = 0; i < line_count; i++)
 			Lines[i] = new Line<place_size>(i, { 0 });
 	}
 
-	Surface(sf::Shape* s, const std::vector<Line*>& Lines)
-		: s(s), Lines(Lines)
-	{
-
-	}
 
 	int GetPower() 
 	{
@@ -45,4 +37,14 @@ public:
 			line->Draw(win);
 
 	}
+
+	void Plant(Object* obj);
 };
+
+template<int place_size, int line_count>
+inline void Surface<place_size, line_count>::Plant(Object* obj)
+{
+	Gologram* g = (Gologram*)obj;
+	for (auto line : Lines)
+		line->Plant(g);
+}

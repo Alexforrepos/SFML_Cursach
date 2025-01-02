@@ -1,8 +1,8 @@
 #include <SFML/Graphics.hpp>
 #include "O_Manager.h"
 #include "ResourceManager.h"
-#include "Primer.h"
-#include "FOREVER_VIRGIN.h"
+#include "Level.h"
+#include "Card_T.h"
 using namespace std;
 using namespace sf;
 
@@ -13,6 +13,8 @@ int main()
 	Event ev;
 	auto p = O_Manager::getmger();
 	Res_Manager::getmger()->load_from_file("./resources/res_list.txt");
+	p->add_obj(new Level<9,1>);
+	p->add_obj(new Card_T);
 	while (win.isOpen())
 	{
 		win.clear();

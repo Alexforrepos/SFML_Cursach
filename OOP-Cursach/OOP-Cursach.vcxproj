@@ -140,10 +140,12 @@
     <ClCompile Include="Animator.cpp" />
     <ClCompile Include="Attack_Plants.cpp" />
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Card_T.cpp" />
     <ClCompile Include="Effect.cpp" />
     <ClCompile Include="EnemyManager.cpp" />
     <ClCompile Include="FOREVER_VIRGIN.cpp" />
     <ClCompile Include="Gargantua.cpp" />
+    <ClCompile Include="gologram.cpp" />
     <ClCompile Include="I_Object.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="Line.cpp" />
@@ -181,10 +183,12 @@
     <ClInclude Include="Animator.h" />
     <ClInclude Include="Attack_Plants.h" />
     <ClInclude Include="Button.h" />
+    <ClInclude Include="Card_T.h" />
     <ClInclude Include="Effect.h" />
     <ClInclude Include="EnemyManager.h" />
     <ClInclude Include="FOREVER_VIRGIN.h" />
     <ClInclude Include="Gargantua.h" />
+    <ClInclude Include="gologram.h" />
     <ClInclude Include="I_Object.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="Line.h" />

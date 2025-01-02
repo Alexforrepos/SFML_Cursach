@@ -1,4 +1,5 @@
 #pragma once
+#include "I_Object.h"
 #include "Line.h"
 
 class Plant :

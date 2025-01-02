@@ -1,12 +1,13 @@
 #pragma once
-#include "Line.h"
+
+#include "I_Object.h"
 class pea
 	: Object
 {
 public:
 	sf::Sprite spr;
 	sf::Vector2f direction;
-	Line* line;
+
 	
 	int damage;
 	int velocity;

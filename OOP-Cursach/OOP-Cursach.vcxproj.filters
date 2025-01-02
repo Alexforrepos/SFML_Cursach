@@ -169,6 +169,9 @@
     <Filter Include="Файлы заголовков\PRIMER\FIN">
       <UniqueIdentifier>{1b546d2e-28f2-48f4-afd2-5327b93b7928}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Instrument\Card\Gologram">
+      <UniqueIdentifier>{c703a836-6bbb-4eb9-bfd2-f9391afcce42}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -248,6 +251,12 @@
     </ClCompile>
     <ClCompile Include="LOOSE_VIRGIN.cpp">
       <Filter>Файлы заголовков\PRIMER\MAKS</Filter>
+    </ClCompile>
+    <ClCompile Include="Card_T.cpp">
+      <Filter>Исходные файлы\GameClasses\Instrument\Card\PlantCard</Filter>
+    </ClCompile>
+    <ClCompile Include="gologram.cpp">
+      <Filter>Исходные файлы\GameClasses\Instrument\Card\Gologram</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -360,6 +369,12 @@
     </ClInclude>
     <ClInclude Include="LOOSE_VIRGIN.h">
       <Filter>Файлы заголовков\PRIMER\MAKS</Filter>
+    </ClInclude>
+    <ClInclude Include="Card_T.h">
+      <Filter>Исходные файлы\GameClasses\Instrument\Card\PlantCard</Filter>
+    </ClInclude>
+    <ClInclude Include="gologram.h">
+      <Filter>Исходные файлы\GameClasses\Instrument\Card\Gologram</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
