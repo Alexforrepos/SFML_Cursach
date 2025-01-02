@@ -1,5 +1,6 @@
 #pragma once
 #include "I_Object.h"
+#include "Timer.h"
 #include "gologram.h"
 class Card_T
 	: public Object
@@ -7,6 +8,7 @@ class Card_T
 	sf::RectangleShape shape;
 	bool isactive;
 	Gologram* g;
+	Timer timer;
 public:
 	
 
@@ -19,6 +21,7 @@ public:
 
 
 	Card_T()
+		:timer(200)
 	{
 		g = nullptr;
 		shape.setPosition(200, 200);

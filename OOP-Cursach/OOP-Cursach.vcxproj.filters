@@ -172,6 +172,9 @@
     <Filter Include="Исходные файлы\GameClasses\Instrument\Card\Gologram">
       <UniqueIdentifier>{c703a836-6bbb-4eb9-bfd2-f9391afcce42}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\Engine\Utils\Timer">
+      <UniqueIdentifier>{340bc0e5-9331-44bd-bec5-54df4f69eb39}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -257,6 +260,9 @@
     </ClCompile>
     <ClCompile Include="gologram.cpp">
       <Filter>Исходные файлы\GameClasses\Instrument\Card\Gologram</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -375,6 +381,9 @@
     </ClInclude>
     <ClInclude Include="gologram.h">
       <Filter>Исходные файлы\GameClasses\Instrument\Card\Gologram</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

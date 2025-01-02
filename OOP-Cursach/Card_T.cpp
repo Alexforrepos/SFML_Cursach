@@ -2,13 +2,14 @@
 
 void Card_T::Update()
 {
-	if (shape.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition())) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && !isactive)
+	if (shape.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition())) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && !isactive
+		&& timer())
 	{
 		isactive = true;
-		this->g = new Gologram(Position);
+		this->g = new Gologram(sf::Vector2f( sf::Mouse::getPosition()));
 		MSG_Manager::getmger()->add(new MSG(MSG_TYPE_CREATE(g,this)));
 		shape.setFillColor(sf::Color::Cyan);
-
+		timer.restart();
 	}
 
 	if (isactive)

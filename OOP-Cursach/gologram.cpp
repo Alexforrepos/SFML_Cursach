@@ -7,9 +7,10 @@ void Gologram::Update()
 	SetPos(tmpdata);
 	shape.setPosition(Position);
 
-	if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Left)  && timer())
 	{
 		MSG_Manager::getmger()->add(new MSG(MSG_TYPE_KILL(this, this)));
+		timer.restart();
 	}
 }
 

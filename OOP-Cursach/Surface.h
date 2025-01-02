@@ -22,7 +22,6 @@ public:
 			Lines[i] = new Line<place_size>(i, { 0 });
 	}
 
-
 	int GetPower() 
 	{
 		int power = 0;
