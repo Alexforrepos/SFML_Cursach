@@ -2,7 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "MSG_Manager.h"
 
-enum class Serialize_Enum{Object,Plant,Zombie,Gologram};
+enum class Serialize_Enum{Object,Plant,Zombie,Gologram,Level};
 
 class Object
 {
