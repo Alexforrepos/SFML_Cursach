@@ -4,6 +4,7 @@
 #include "Level.h"
 #include "Card_T.h"
 #include "Attack_Plants.h"
+#include "Zombie.h"
 using namespace std;
 using namespace sf;
 
@@ -16,6 +17,7 @@ int main()
 	Res_Manager::getmger()->load_from_file("./resources/res_list.txt");
 	p->add_obj(new Level<9, 1>);
 	p->add_obj(new Card_T);
+	p->add_obj(new Zombie);
 	p->add_obj(new Attack_Plants ({400, 400}));
 	while (win.isOpen())
 	{
