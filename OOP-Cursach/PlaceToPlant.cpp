@@ -4,5 +4,5 @@
 
 void Landing_place::GetPower(int& power)
 {
-	power += plant->price;
+	power += plant->getPrice();
 }
