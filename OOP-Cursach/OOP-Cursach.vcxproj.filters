@@ -222,9 +222,6 @@
     <ClCompile Include="Plant.cpp">
       <Filter>Исходные файлы\GameClasses\Plants</Filter>
     </ClCompile>
-    <ClCompile Include="Projectile.cpp">
-      <Filter>Исходные файлы\GameClasses\Projectile</Filter>
-    </ClCompile>
     <ClCompile Include="Support_Plant.cpp">
       <Filter>Исходные файлы\GameClasses\Plants\Support</Filter>
     </ClCompile>
@@ -345,9 +342,6 @@
     </ClInclude>
     <ClInclude Include="Support_Plant.h">
       <Filter>Исходные файлы\GameClasses\Plants\Support</Filter>
-    </ClInclude>
-    <ClInclude Include="Projectile.h">
-      <Filter>Исходные файлы\GameClasses\Projectile</Filter>
     </ClInclude>
     <ClInclude Include="Effect.h">
       <Filter>Исходные файлы\GameClasses\Effect</Filter>
