@@ -3,18 +3,20 @@
 #include "ResourceManager.h"
 #include "Level.h"
 #include "Card_T.h"
+#include "Attack_Plants.h"
 using namespace std;
 using namespace sf;
 
 int main()
 {
 	system("chcp 1251 > 0");
-	RenderWindow win(VideoMode::VideoMode(VideoMode::getDesktopMode()), "Plants vs Zombies",Style::Fullscreen);
+	RenderWindow win(VideoMode::VideoMode(VideoMode::getDesktopMode()), "Plants vs Zombies", Style::Fullscreen);
 	Event ev;
 	auto p = O_Manager::getmger();
 	Res_Manager::getmger()->load_from_file("./resources/res_list.txt");
-	p->add_obj(new Level<9,1>);
+	p->add_obj(new Level<9, 1>);
 	p->add_obj(new Card_T);
+	p->add_obj(new Attack_Plants ({400, 400}));
 	while (win.isOpen())
 	{
 		win.clear();

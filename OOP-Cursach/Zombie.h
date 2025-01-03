@@ -27,4 +27,5 @@ public:
 
 	virtual void Draw(sf::RenderWindow& win);
 
+	
 };

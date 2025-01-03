@@ -24,8 +24,13 @@ public:
 
 	void Draw(sf::RenderWindow& win) override;
 
-	int Serialize() override { return (int)Serialize_Enum::Gologram; }
+	int Serialize() override 
+	{ 
+		return (int)Serialize_Enum::Gologram;
+	}
 
-	sf::Rect<float> getbound() { return shape.getGlobalBounds(); }
+	sf::Rect<float> getbound() 
+	{ 
+		return shape.getGlobalBounds(); 
+	}
 };
-

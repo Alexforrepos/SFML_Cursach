@@ -1,6 +1,7 @@
 #pragma once
 #include "I_Object.h"
 #include "Line.h"
+#include "ResourceManager.h"
 
 class Plant :
     public Object

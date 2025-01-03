@@ -39,7 +39,4 @@ public:
 	{
 		this->s.Draw(win);
 	}
-
-	int Serialize() { return int(Serialize_Enum::Level); }
-
 };
