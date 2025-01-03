@@ -1,4 +1,6 @@
 #pragma once
+#include <SFML/Graphics.hpp>
+#include "Plant.h"
 #define PLACE_SEC_Y 10
 #define PLACE_SEC_X 50
 #define WIDTH_OF_PLACE 120.
@@ -6,9 +8,7 @@
 #define BEGIN_OF_LINE_Y 400.0
 #define LINE_WIDTH 1500
 #define LINE_LENGTH 1500
-#include <SFML/Graphics.hpp>
 
-class Plant;
 
 class Landing_place
 {
@@ -31,7 +31,7 @@ public:
 	};
 	void Plant(Plant* plant) 
 	{
-		if (isplacable)this->plant = plant;
+		if (isplacable && (this->plant->IsWater() == this->iswater )) this->plant = plant;
 	};
 
 	bool ChangePlacMode(bool mode = false) 
@@ -42,7 +42,7 @@ public:
 	{ 
 		return this->iswater = mode;
 	}
-
+	bool Isplacable() { return this->isplacable; }
 	bool IsPlanted() 
 	{ 
 		return plant != nullptr;

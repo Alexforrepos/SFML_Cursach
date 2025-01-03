@@ -13,8 +13,7 @@ protected:
     sf::Sprite sprite;
 public:
 
-
-    friend class Landing_place;
     unsigned getPrice() const { return price; };
 
+    bool IsWater();
 };

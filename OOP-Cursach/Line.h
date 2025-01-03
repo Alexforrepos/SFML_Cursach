@@ -35,8 +35,10 @@ public:
 	void Plant(Gologram* g)
 	{
 		for (Landing_place* P_l : places)
-			if (g->getbound().intersects(P_l->getBounds()))
-				P_l->ChangePlacMode();
+			if (g->getbound().intersects(P_l->getBounds()) && !P_L->IsPlanted() && P_L->Isplacable())
+			{
+				break;
+			}
 	}
 
 	void Draw(sf::RenderWindow& win);
