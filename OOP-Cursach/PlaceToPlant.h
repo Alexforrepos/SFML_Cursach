@@ -21,14 +21,32 @@ protected:
 
 public:
 
-	void SetPosition(sf::Vector2f position) { this->position = position; };
-	void Move(sf::Vector2f move_vector) { this->position += move_vector; };
-	void Plant(Plant* plant) { if (isplacable)this->plant = plant; };
+	void SetPosition(sf::Vector2f position) 
+	{
+		this->position = position; 
+	};
+	void Move(sf::Vector2f move_vector) 
+	{ 
+		this->position += move_vector;
+	};
+	void Plant(Plant* plant) 
+	{
+		if (isplacable)this->plant = plant;
+	};
 
-	bool ChangePlacMode(bool mode = false) { return isplacable = mode; }
-	bool ChangeWaterMode(bool mode = false) { return this->iswater = mode; }
+	bool ChangePlacMode(bool mode = false) 
+	{ 
+		return isplacable = mode; 
+	}
+	bool ChangeWaterMode(bool mode = false) 
+	{ 
+		return this->iswater = mode;
+	}
 
-	bool IsPlanted() { return plant != nullptr; }
+	bool IsPlanted() 
+	{ 
+		return plant != nullptr;
+	}
 
 	void GetPower(int& power);
 
