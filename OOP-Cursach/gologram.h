@@ -28,4 +28,3 @@ public:
 
 	sf::Rect<float> getbound() { return shape.getGlobalBounds(); }
 };
-

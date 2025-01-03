@@ -12,7 +12,7 @@ class Surface
 {
 
 	sf::RectangleShape s;	
-	std::array<Line<place_size>*,line_count> Lines;
+	std::array<Line<place_size>*,line_count> Lines; 
 
 
 public:
