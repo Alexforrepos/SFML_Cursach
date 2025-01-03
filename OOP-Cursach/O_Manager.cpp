@@ -20,7 +20,7 @@ void O_Manager::update()
 			this->objects.push_back(MSG_TYPE_CREATE(*msg).creature);
 			break;
 		case (int)MSG_TYPE::MSG_TYPE_KILL:
-			cout << "killing object\n";
+			//cout << "killing object\n";
 			it = find_if(objects.begin(), objects.end(), [&](Object* arg)
 				{ return arg == MSG_TYPE_KILL(*msg).victim; });
 			if (it != objects.end())
