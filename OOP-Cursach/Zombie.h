@@ -25,7 +25,8 @@ public:
 		sprite.setPosition({ 1500,400 });
 		
 	}
-
+	void StartAttack();   
+	void StopAttack();
 	// Унаследовано через Object
 	virtual void Update();
 	 

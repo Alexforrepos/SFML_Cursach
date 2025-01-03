@@ -4,7 +4,11 @@
 
 void Zombie::Update()
 {
-	
+    if (is_attack)
+    {
+        return;
+    }
+
     if (timer())
     {
         timer.restart();
@@ -17,6 +21,18 @@ void Zombie::Update()
 void Zombie::SendMSG(MSG* msg)
 {
   
+}
+
+void Zombie::StartAttack()
+{
+    is_attack = true;
+   
+}
+
+void Zombie::StopAttack()
+{
+    is_attack = false;
+
 }
 
 void Zombie::Draw(sf::RenderWindow& win)
