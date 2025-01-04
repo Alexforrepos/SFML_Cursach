@@ -13,6 +13,8 @@ protected:
 public:
     Attack_Plants(sf::Vector2f pos)
     {
+        cd_time_ms = 1000;
+        damage = 1;
         HP = 5;
         this->SetPos(pos);
         sprite.setPosition(pos);

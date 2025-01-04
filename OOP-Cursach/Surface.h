@@ -5,6 +5,7 @@
 #include "Line.h"
 #include "I_Object.h"
 #include "gologram.h"
+#include "Zombie.h"
 
 //коллизия зомби
 template<int place_size,int line_count>
@@ -49,12 +50,12 @@ public:
 			}
 		}
 	}
-	void deactivateLines(Zombie *zondbe)
+	void deactivateLines(Zombie * zombie)
 	{
 		for (auto line : Lines)
 		{
 			line->CheckCollision(zombie);
-			if (line->getbound().intersects(zombie->getBounds())
+			if (line->getbound().intersects(zombie->getBounds()))
 			{
 				line->Deactivate();
 			}
