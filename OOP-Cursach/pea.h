@@ -9,7 +9,10 @@ class pea
 	sf::Vector2f direction;
 	sf::Vector2f size;
 
+	int damage;
+	int velocity;
 
+public:
 	pea(sf::Vector2f pos)
 	{
 		this->SetPos(pos);
@@ -17,10 +20,8 @@ class pea
 		shape.setSize({ 40,40 });
 		shape.setFillColor(sf::Color::White);
 	}
-	int damage;
-	int velocity;
 
-public:
+
 
 	// Унаследовано через I_Object
 	void Update() override;
