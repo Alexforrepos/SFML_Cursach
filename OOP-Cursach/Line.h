@@ -49,7 +49,7 @@ public:
 		{
 			if (P_l->IsPlanted() && P_l->getBounds().intersects(zombie.getBounds()))
 			{
-				zombie.StartAttack(P_l->ge)
+				zombie.StartAttack(P_l->GetPlant());
 			}
 		}
 	}
