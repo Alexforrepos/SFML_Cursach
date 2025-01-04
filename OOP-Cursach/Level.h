@@ -30,7 +30,8 @@ public:
 		case (int)MSG_TYPE::MSG_TYPE_KILL:
 			if (MSG_TYPE_KILL(*msg).victim->Serialize() == (int)Serialize_Enum::Hologram && MSG_TYPE_KILL(*msg).victim == MSG_TYPE_KILL(*msg).killer)
 				this->s.Plant(MSG_TYPE_KILL(*msg).victim);
-			if (MSG_TYPE_KILL(*msg).victim->Serialize() == (int)Serialize_Enum::Zombie && MSG_TYPE_KILL(*msg).victim == MSG_TYPE_KILL(*msg).killer)
+			if (MSG_TYPE_KILL(*msg).victim->Serialize() == (int)Serialize_Enum::Zombie)
+				s.deactivateLines();
 			break;
 		case (int)MSG_TYPE::MSG_TYPE_MOVE:
 			if (MSG_TYPE_MOVE(*msg).obj->Serialize() == (int)Serialize_Enum::Zombie)

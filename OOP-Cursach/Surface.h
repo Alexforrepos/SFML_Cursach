@@ -49,9 +49,16 @@ public:
 			}
 		}
 	}
-	void iKilledFiveChildrenInAPizzeria()
+	void deactivateLines(Zombie *zondbe)
 	{
-
+		for (auto line : Lines)
+		{
+			line->CheckCollision(zombie);
+			if (line->getbound().intersects(zombie->getBounds())
+			{
+				line->Deactivate();
+			}
+		}
 	}
 };
 
