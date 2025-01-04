@@ -2,6 +2,7 @@
 #include "PlaceToPlant.h"
 #include "gologram.h"
 #include "Zombie.h"
+#include "Attack_Plants.h"
 #define MAX_LINE_WIDTH_X 1500
 
 template<int size>
@@ -39,7 +40,7 @@ public:
 			if (g->getbound().intersects(P_l->getBounds()) && !P_l->IsPlanted() && P_l->Isplacable())
 			{
 				P_l->Plant_(PlacedPlant = new Attack_Plants(P_l->getBounds().getPosition()));
-				MSG_Manager::getmger()->add(new MSG(MSG_TYPE_CREATE(PlacedPlant, this)));
+				MSG_Manager::getmger()->add(new MSG(MSG_TYPE_CREATE(PlacedPlant,g)));
 				break;
 			}
 	}

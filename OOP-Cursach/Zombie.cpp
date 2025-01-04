@@ -19,6 +19,8 @@ void Zombie::Update()
         timer.restart();
 
         sf::Vector2f Move(-5.0, 0.0);
+        MSG_Manager::getmger()->add(new MSG(MSG_TYPE_MOVE(Move, this)));
+        this->Position += Move;
         sprite.move(Move);
     }
 }
@@ -43,4 +45,8 @@ void Zombie::StopAttack()
 void Zombie::Draw(sf::RenderWindow& win)
 {
     win.draw(sprite);
+    sf::RectangleShape r(Size);
+    r.setPosition(Position);
+    r.setFillColor(sf::Color::Red);
+    win.draw(r);
 }

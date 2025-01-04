@@ -9,17 +9,29 @@ class MSG_Manager
 	static MSG_Manager* MSGM_;
 
 	std::map<int, std::vector<MSG*>> msges;
+	std::vector<MSG*> buff;
+
+	bool isvis;
 public:
 	MSG_Manager()
 	{
-		for (int i = 0; i <= int(MSG_TYPE::MSG_TYPE_CREATE); i++)
+		for (int i = 0; i <= int(MSG_TYPE::MSG_TYPE_DEAL_DAMAGE); i++)
 		{
 			msges.emplace(i,std::vector<MSG*>());
 		}
+		isvis = false;
 	}
-	void add(MSG* msg) { 
-		msges.at(msg->MSG_TYPE.index()).push_back(msg);
+	void add(MSG* msg) 
+	{ 
+		if (!isvis)
+		{
+			msges.at(msg->MSG_TYPE.index()).push_back(msg);
+			return;
+		}
+		add_buff(msg);
 	}
+	void isvischange() { isvis = true; }
+	void add_buff(MSG* msg) { buff.push_back(msg); };
 	void unique();
 	void exclude(MSG* msg) 
 	{
@@ -33,7 +45,12 @@ public:
 			for (auto &v : msg_)
 				delete v;
 			msg_.clear();
+			
 		}
+		isvis = false;
+		for (auto msg : buff)
+			add(msg);
+		buff.clear();
 	};
 	std::vector<MSG*> get_msges() 
 	{

@@ -8,6 +8,7 @@ void O_Manager::update()
 	vector<Object*> gulag;
 	for (auto obj : objects) obj->Update();
 	/*this->MSGM->unique(); */
+	MSGM->isvischange();
 	auto msg_v = MSGM->get_msges();
 	for (auto& msg : msg_v)
 	{

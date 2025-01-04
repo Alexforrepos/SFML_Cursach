@@ -16,35 +16,39 @@ class Landing_place
 protected:
 	bool isplacable = true, iswater = false;
 	sf::Vector2f position = { 0,0 };
-	sf::Vector2f Size = { WIDTH_OF_PLACE,WIDTH_OF_PLACE};
+	sf::Vector2f Size = { WIDTH_OF_PLACE,WIDTH_OF_PLACE };
 	Plant* plant = nullptr;
 
 public:
 
-	void SetPosition(sf::Vector2f position) 
+	void SetPosition(sf::Vector2f position)
 	{
-		this->position = position; 
+		this->position = position;
 	};
-	void Move(sf::Vector2f move_vector) 
-	{ 
+	void Move(sf::Vector2f move_vector)
+	{
 		this->position += move_vector;
 	};
-	void Plant_(Plant* plant) 
+	void Plant_(Plant* plant)
 	{
-		if (isplacable && (this->plant->IsWater() == this->iswater )) this->plant = plant;
+		if (isplacable && plant->IsWater() == iswater )
+		{
+			this->plant = plant;
+			ChangePlacMode();
+		}
 	};
 
-	bool ChangePlacMode(bool mode = false) 
-	{ 
-		return isplacable = mode; 
+	bool ChangePlacMode(bool mode = false)
+	{
+		return isplacable = mode;
 	}
-	bool ChangeWaterMode(bool mode = false) 
-	{ 
+	bool ChangeWaterMode(bool mode = false)
+	{
 		return this->iswater = mode;
 	}
 	bool Isplacable() { return this->isplacable; }
-	bool IsPlanted() 
-	{ 
+	bool IsPlanted()
+	{
 		return plant != nullptr;
 	}
 
@@ -62,7 +66,7 @@ public:
 	Landing_place(unsigned index, sf::Vector2f startpos, bool iswater)
 	{
 		Size = sf::Vector2f{ WIDTH_OF_PLACE,WIDTH_OF_PLACE };
-		this->position = sf::Vector2f{ 10 + startpos.x + index * (Size.x  + PLACE_SEC_X), startpos.y + PLACE_SEC_Y };
+		this->position = sf::Vector2f{ 10 + startpos.x + index * (Size.x + PLACE_SEC_X), startpos.y + PLACE_SEC_Y };
 		isplacable = true;
 	}
 
