@@ -57,6 +57,15 @@ public:
 			}
 		}
 	}
+
+	void Wrest(Plant* pl)
+	{
+		for (auto P_l : places)
+		{
+			if (P_l->GetPlant() == pl)
+				P_l.Wrest();
+		}
+	}
 	
 	sf::Rect<float> getbound()
 	{
@@ -76,7 +85,6 @@ void Line<size>::Draw(sf::RenderWindow& win)
 }
 
 template<int size>
-
 inline void Line<size>::Activate()
 {
 	for (auto pl : places)

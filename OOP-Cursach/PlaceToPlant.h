@@ -25,10 +25,12 @@ public:
 	{
 		this->position = position;
 	};
+
 	void Move(sf::Vector2f move_vector)
 	{
 		this->position += move_vector;
 	};
+
 	void Plant_(Plant* plant)
 	{
 		if (isplacable && plant->IsWater() == iswater )
@@ -37,7 +39,11 @@ public:
 			ChangePlacMode();
 		}
 	};
-
+	void Wrest()
+	{
+		this->plant = nullptr;
+		this->isplacable = true;
+	}
 	bool ChangePlacMode(bool mode = false)
 	{
 		return isplacable = mode;

@@ -37,6 +37,13 @@ public:
 			line->Draw(win);
 
 	}
+	void Wrest(Plant* pl)
+	{
+		for (auto line : Lines)
+		{
+
+		}
+	}
 
 	void Plant(Object* obj);
 	void CheckCollision(Zombie *zombie)
