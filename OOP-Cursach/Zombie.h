@@ -10,7 +10,7 @@ class Zombie // обычный зомби
 {
 	Timer timer;
 protected:
-	int HP=100,cd_time_mc,height;
+	int HP,cd_time_mc,height;
 	sf::Sprite sprite;
 	sf::Clock cd_time;
 	sf::Vector2f damage_area_size;

@@ -2,7 +2,7 @@
 #include "PlaceToPlant.h"
 #include "gologram.h"
 #define MAX_LINE_WIDTH_X 1500
-
+#include "Zombie.h"
 
 template<int size>
 class Line
@@ -47,9 +47,9 @@ public:
 	{
 		for (Landing_place* P_l : places)
 		{
-			if (P_l->IsPlanted())
+			if (P_l->IsPlanted() && P_l->getBounds().intersects(zombie.getBounds()))
 			{
-				if (FloatRect.GetBounds().contains())
+				zombie.StartAttack(P_l->ge)
 			}
 		}
 	}
