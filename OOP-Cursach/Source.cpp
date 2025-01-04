@@ -18,7 +18,6 @@ int main()
 	p->add_obj(new Level<9, 1>);
 	p->add_obj(new Card_T);
 	p->add_obj(new Zombie);
-	p->add_obj(new Attack_Plants ({400, 400}));
 	while (win.isOpen())
 	{
 		win.clear();
