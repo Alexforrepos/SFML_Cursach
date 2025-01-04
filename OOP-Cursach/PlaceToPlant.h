@@ -46,7 +46,10 @@ public:
 	{
 		return this->iswater = mode;
 	}
-	bool Isplacable() { return this->isplacable; }
+	bool Isplacable() 
+	{ 
+		return this->isplacable; 
+	}
 	bool IsPlanted()
 	{
 		return plant != nullptr;
@@ -76,7 +79,10 @@ public:
 		return r.contains(pos);
 	}
 
-	sf::FloatRect getBounds() { return { position.x,position.y,Size.x,Size.y }; }
+	sf::FloatRect getBounds() 
+	{
+		return { position.x,position.y,Size.x,Size.y }; 
+	}
 
 	Plant* GetPlant() { return plant; }
 };

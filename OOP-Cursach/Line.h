@@ -57,6 +57,14 @@ public:
 			}
 		}
 	}
+	
+	sf::Rect<float> getbound()
+	{
+		return shape.getGlobalBounds();
+	}
+
+	void Activate();
+	void Deactivate();
 };
 
 template<int size>
@@ -65,4 +73,26 @@ void Line<size>::Draw(sf::RenderWindow& win)
 	win.draw(shape);
 	for (auto pl : places)
 		pl->Draw(win);
+}
+
+template<int size>
+
+inline void Line<size>::Activate()
+{
+	for (auto pl : places)
+	{
+		if (pl->isPlanted())
+			pl->GetPlant()->setActivity(true);
+	}
+}
+
+template<int size>
+
+inline void Line<size>::Deactivate()
+{
+	for (auto pl : places)
+	{
+		if (pl->isPlanted())
+			pl->GetPlant()->setActivity(false);
+	}
 }

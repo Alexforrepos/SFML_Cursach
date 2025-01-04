@@ -43,7 +43,15 @@ public:
 		for (auto line : Lines)
 		{
 			line->CheckCollision(zombie);
+			if (line->getbound().intersects(zombie->getBounds())
+			{
+				line->Activate();
+			}
 		}
+	}
+	void iKilledFiveChildrenInAPizzeria()
+	{
+
 	}
 };
 

@@ -6,6 +6,7 @@ class Attack_Plants : // так же обычный горохострел
     public Plant
 {
 protected:
+
     int HP;
     int damage,cd_time_ms;
     sf::Clock time_to_shoot;
@@ -24,6 +25,5 @@ public:
     virtual void SendMSG(MSG* msg) override;
 
     virtual void Draw(sf::RenderWindow& win) override;
-
 };
 
