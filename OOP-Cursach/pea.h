@@ -27,9 +27,11 @@ public:
 	}
 
 
-
+	int Serialize() override { return int(Serialize_Enum::Pea); }
+	sf::FloatRect GetBound() { return shape.getGlobalBounds(); }
 	// Унаследовано через I_Object
 	void Update() override;
 	void SendMSG(MSG* msg) override;
 	void Draw(sf::RenderWindow& win) override;
+	
 };
