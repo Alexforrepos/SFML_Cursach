@@ -81,7 +81,7 @@ inline void Line<size>::Activate()
 {
 	for (auto pl : places)
 	{
-		if (pl->isPlanted())
+		if (pl->IsPlanted())
 			pl->GetPlant()->setActivity(true);
 	}
 }
@@ -92,7 +92,7 @@ inline void Line<size>::Deactivate()
 {
 	for (auto pl : places)
 	{
-		if (pl->isPlanted())
+		if (pl->IsPlanted())
 			pl->GetPlant()->setActivity(false);
 	}
 }
