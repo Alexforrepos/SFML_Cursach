@@ -2,6 +2,7 @@
 
 void Attack_Plants::Update()
 {
+	
 }
 
 void Attack_Plants::SendMSG(MSG* msg)

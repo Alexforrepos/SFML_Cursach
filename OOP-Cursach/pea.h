@@ -1,10 +1,13 @@
 #pragma once
-
+#include "ResourceManager.h"
 #include "I_Object.h"
+#include "Timer.h"
+#include "Zombie.h"
 class pea
 	: Object
 {
-	sf::Sprite spr;
+	Timer timer;
+	sf::Sprite sprite;
 	sf::RectangleShape shape;
 	sf::Vector2f direction;
 	sf::Vector2f size;
@@ -14,11 +17,13 @@ class pea
 
 public:
 	pea(sf::Vector2f pos)
+		:timer (50)
 	{
+
 		this->SetPos(pos);
 		shape.setPosition(pos);
-		shape.setSize({ 40,40 });
-		shape.setFillColor(sf::Color::White);
+		sprite.setTexture(*Res_Manager::getmger()->get_access<sf::Texture*>("bullet.png"));
+		sprite.setScale(0.2, 0.2);
 	}
 
 
