@@ -32,7 +32,7 @@ public:
 			delete pl;
 	}
 
-	void Plant(Gologram* g)
+	void Plant_(Gologram* g)
 	{
 		for (Landing_place* P_l : places)
 			if (g->getbound().intersects(P_l->getBounds()) && !P_l->IsPlanted() && P_l->Isplacable())
