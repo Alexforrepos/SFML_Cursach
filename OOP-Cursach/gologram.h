@@ -1,15 +1,24 @@
 #pragma once
 #include "I_Object.h"
 #include "Timer.h"
+
+enum PlantTypes
+{
+	Peashooter, Sunflower, MrBigPenis
+};
+
+
 class Gologram
 	: public Object
 {
 	sf::RectangleShape shape;
+	PlantTypes PlntTp;
 	Timer timer;
 public:
 	Gologram(sf::Vector2f pos)
 		:timer(200)
 	{
+		PlntTp = Peashooter;
 		this->SetPos(pos);
 		shape.setPosition(pos);
 		shape.setSize({ 40,40 });
