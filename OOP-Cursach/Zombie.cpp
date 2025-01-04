@@ -42,9 +42,11 @@ void Zombie::SendMSG(MSG* msg)//проверка на движенме гороха
     
     if (msg->MSG_TYPE.index() == (int)MSG_TYPE::MSG_TYPE_MOVE)
     {
-        if (MSG_TYPE_MOVE(*msg).obj->Serialize() == Serialize_Enum::Pea)
+        
+        if (MSG_TYPE_MOVE(*msg).obj->Serialize() == (int)Serialize_Enum::Pea)
         {
-            
+         if ((MSG_TYPE_MOVE(*msg).obj.)
+            MSG_Manager::getmger()->add(new MSG(MSG_TYPE_KILL(this, this)));
         }
     }
 
