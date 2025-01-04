@@ -6,7 +6,7 @@
 #include "I_Object.h"
 #include "gologram.h"
 
-
+//коллизия зомби
 template<int place_size,int line_count>
 class Surface
 {
@@ -38,6 +38,13 @@ public:
 	}
 
 	void Plant(Object* obj);
+	void CheckCollision(Zombie *zombie)
+	{
+		for (auto line : Lines)
+		{
+			if ()
+		}
+	}
 };
 
 template<int place_size, int line_count>

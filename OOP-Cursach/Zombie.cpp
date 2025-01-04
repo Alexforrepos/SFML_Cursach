@@ -23,10 +23,10 @@ void Zombie::SendMSG(MSG* msg)
   
 }
 
-void Zombie::StartAttack()
+void Zombie::StartAttack(Plant& plant)
 {
+    target = &plant;
     is_attack = true;
-   
 }
 
 void Zombie::StopAttack()

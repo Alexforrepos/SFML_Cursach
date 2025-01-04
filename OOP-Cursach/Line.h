@@ -2,7 +2,7 @@
 #include "PlaceToPlant.h"
 #include "gologram.h"
 #define MAX_LINE_WIDTH_X 1500
-
+#include "Zombie.h"
 
 template<int size>
 class Line
@@ -43,6 +43,16 @@ public:
 	}
 
 	void Draw(sf::RenderWindow& win);
+	void CheckCollision(Zombie* zombie)
+	{
+		for (Landing_place* P_l : places)
+		{
+			if (P_l->IsPlanted() && P_l->getBounds().intersects(zombie.getBounds()))
+			{
+				zombie.StartAttack(P_l->ge)
+			}
+		}
+	}
 };
 
 template<int size>
