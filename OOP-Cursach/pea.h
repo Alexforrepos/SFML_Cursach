@@ -4,20 +4,21 @@
 #include "Timer.h"
 #include "Zombie.h"
 class pea
-	: Object
+	: public Object
 {
 	Timer timer;
 	sf::Sprite sprite;
 	sf::RectangleShape shape;
 	sf::Vector2f direction;
 	sf::Vector2f size;
+	sf::Clock time_to_die;
 
 	int damage;
 	int velocity;
 
 public:
 	pea(sf::Vector2f pos)
-		:timer (50)
+		:timer (50),time_to_die()
 	{
 
 		this->SetPos(pos);

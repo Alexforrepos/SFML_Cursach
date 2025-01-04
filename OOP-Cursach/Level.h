@@ -33,7 +33,7 @@ public:
 			if (MSG_TYPE_KILL(*msg).victim->Serialize() == (int)Serialize_Enum::Zombie)
 				s.deactivateLines((Zombie*)MSG_TYPE_KILL(*msg).victim);
 			if (MSG_TYPE_KILL(*msg).victim->Serialize() == int(Serialize_Enum::Plant))
-				s
+				s.Wrest((Plant*)MSG_TYPE_KILL(*msg).victim);
 			break;
 		case (int)MSG_TYPE::MSG_TYPE_MOVE:
 			if ((MSG_TYPE_MOVE(*msg).obj)->Serialize() == (int)Serialize_Enum::Zombie)
