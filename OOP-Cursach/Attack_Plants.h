@@ -13,7 +13,7 @@ public:
         this->SetPos(pos);
         sprite.setPosition(pos);
         sprite.setTexture(*Res_Manager::getmger()->get_access<sf::Texture*>("pps.jpg"));
-        sprite.setScale(0.3, 0.25);
+        sprite.setScale(0.25, 0.2);
     }
     // Унаследовано через Plant
     virtual void Update() override;
