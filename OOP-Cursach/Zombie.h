@@ -4,16 +4,20 @@
 #include "MSG_Manager.h"
 #include "ResourceManager.h"
 #include "Timer.h"
+class Plant;
 class Zombie // обычный зомби
 	:public Object
 {
 	Timer timer;
 protected:
-	int HP,cd_time_mc,height;
+	int HP=100,cd_time_mc,height;
 	sf::Sprite sprite;
 	sf::Clock cd_time;
 	sf::Vector2f damage_area_size;
+	sf::Vector2f position = { 1500,400 };
+	sf::Vector2f Size = { 0.18,0.18};
 	std::pair<sf::Vector2f, sf::Vector2f> traectory;
+	Plant* target;
 	bool is_attack;
 
 public:
@@ -31,14 +35,16 @@ public:
 	{
 		this->traectory = traectory;
 	}
-	void StartAttack();   
+	void StartAttack(Plant &plant);   
 	void StopAttack();
 	// ”наследовано через Object
 	virtual void Update();
-	 
 	virtual void SendMSG(MSG* msg);
-
+	int Serialize() override
+	{
+		return (int)Serialize_Enum::Zombie;
+	}
 	virtual void Draw(sf::RenderWindow& win);
 
-	
+	sf::FloatRect getBounds() { return { position.x,position.y,Size.x,Size.y }; }
 };

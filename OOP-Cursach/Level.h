@@ -31,6 +31,10 @@ public:
 			if (MSG_TYPE_KILL(*msg).victim->Serialize() == (int)Serialize_Enum::Gologram && MSG_TYPE_KILL(*msg).victim == MSG_TYPE_KILL(*msg).killer)
 				this->s.Plant(MSG_TYPE_KILL(*msg).victim);
 			break;
+		case (int)MSG_TYPE::MSG_TYPE_MOVE:
+			if (MSG_TYPE_MOVE(*msg).victim->Serialize() == (int)Serialize_Enum::Zombie)
+				this->s.Zombie(MSG_TYPE_MOVE(*msg).dir);
+			break;
 		default:
 			break;
 		}

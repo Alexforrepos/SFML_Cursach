@@ -43,6 +43,16 @@ public:
 	}
 
 	void Draw(sf::RenderWindow& win);
+	void CheckCollision(Zombie* zombie)
+	{
+		for (Landing_place* P_l : places)
+		{
+			if (P_l->IsPlanted())
+			{
+				if (FloatRect.GetBounds().contains())
+			}
+		}
+	}
 };
 
 template<int size>
