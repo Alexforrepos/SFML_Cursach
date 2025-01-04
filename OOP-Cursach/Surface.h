@@ -42,7 +42,7 @@ public:
 	{
 		for (auto line : Lines)
 		{
-			if ()
+			line->CheckCollision(zombie);
 		}
 	}
 };

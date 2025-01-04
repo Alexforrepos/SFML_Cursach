@@ -79,6 +79,11 @@ struct MSG_TYPE_DEAL_DAMAGE
 {
 	Object* target, *killer;
 	short damage;
+
+	MSG_TYPE_DEAL_DAMAGE(Object* target, Object* killer, short damage)
+		: target(target), killer(killer), damage(damage)
+	{
+	}
 };
 
 class MSG	

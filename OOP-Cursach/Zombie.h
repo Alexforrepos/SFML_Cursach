@@ -1,9 +1,9 @@
 #pragma once
 #include "I_Object.h"
-#include "Line.h"
 #include "MSG_Manager.h"
 #include "ResourceManager.h"
 #include "Timer.h"
+
 class Plant;
 class Zombie // обычный зомби
 	:public Object
@@ -35,7 +35,7 @@ public:
 	{
 		this->traectory = traectory;
 	}
-	void StartAttack(Plant &plant);   
+	void StartAttack(Plant * plant);   
 	void StopAttack();
 	// ”наследовано через Object
 	virtual void Update();

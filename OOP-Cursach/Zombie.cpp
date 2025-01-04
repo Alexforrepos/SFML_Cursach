@@ -1,11 +1,16 @@
 #include "Zombie.h"
-
+#include "Plant.h"
 
 
 void Zombie::Update()
 {
     if (is_attack)
     {
+        if (this->timer())
+        {
+            MSG_Manager::getmger()->add(new MSG(MSG_TYPE_DEAL_DAMAGE(target, this, 10)));
+            timer.restart();
+        }
         return;
     }
 
@@ -23,9 +28,9 @@ void Zombie::SendMSG(MSG* msg)
   
 }
 
-void Zombie::StartAttack(Plant& plant)
+void Zombie::StartAttack(Plant * plant)
 {
-    target = &plant;
+    target = plant;
     is_attack = true;
 }
 
