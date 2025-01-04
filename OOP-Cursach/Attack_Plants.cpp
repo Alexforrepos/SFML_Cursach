@@ -7,7 +7,18 @@ void Attack_Plants::Update()
 
 void Attack_Plants::SendMSG(MSG* msg)
 {
-	
+    if (msg->MSG_TYPE.index() == (int)MSG_TYPE::MSG_TYPE_DEAL_DAMAGE)
+    {
+        if (MSG_TYPE_DEAL_DAMAGE(*msg).target == this)
+        {
+            HP -= MSG_TYPE_DEAL_DAMAGE(*msg).damage;
+            if (HP <= 0)
+            {
+                HP = 0;
+                MSG_Manager::getmger()->add(new MSG(MSG_TYPE_KILL(this, this)));
+            }
+        }
+    }
 }
 
 void Attack_Plants::Draw(sf::RenderWindow& win)
