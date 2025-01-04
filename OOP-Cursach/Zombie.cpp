@@ -50,6 +50,14 @@ void Zombie::SendMSG(MSG* msg)//проверка на движенме гороха
         }
     }
 
+    if (msg->MSG_TYPE.index() == (int)MSG_TYPE::MSG_TYPE_KILL)
+    {
+        if (MSG_TYPE_KILL(*msg).victim == this->target)
+        {
+            this->StopAttack();
+        }
+    }
+
 }
 
 void Zombie::StartAttack(Plant * plant)
@@ -61,7 +69,7 @@ void Zombie::StartAttack(Plant * plant)
 void Zombie::StopAttack()
 {
     is_attack = false;
-
+    target = nullptr;
 }
 
 void Zombie::Draw(sf::RenderWindow& win)
@@ -69,5 +77,5 @@ void Zombie::Draw(sf::RenderWindow& win)
     win.draw(sprite);
     sf::RectangleShape r(Size);
     r.setPosition(Position);
-    
+    win.draw(r);
 }
