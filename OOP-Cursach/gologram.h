@@ -35,7 +35,7 @@ public:
 
 	int Serialize() override 
 	{ 
-		return (int)Serialize_Enum::Gologram;
+		return (int)Serialize_Enum::Hologram;
 	}
 
 	sf::Rect<float> getbound() 

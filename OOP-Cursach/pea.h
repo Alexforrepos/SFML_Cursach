@@ -22,7 +22,7 @@ public:
 	}
 
 
-
+	int Serialize() override { return int(Serialize_Enum::Pea); }
 	// Унаследовано через I_Object
 	void Update() override;
 	void SendMSG(MSG* msg) override;

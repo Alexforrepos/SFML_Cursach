@@ -28,7 +28,7 @@ public:
 		switch (msg->MSG_TYPE.index())
 		{
 		case (int)MSG_TYPE::MSG_TYPE_KILL:
-			if (MSG_TYPE_KILL(*msg).victim->Serialize() == (int)Serialize_Enum::Gologram && MSG_TYPE_KILL(*msg).victim == MSG_TYPE_KILL(*msg).killer)
+			if (MSG_TYPE_KILL(*msg).victim->Serialize() == (int)Serialize_Enum::Hologram && MSG_TYPE_KILL(*msg).victim == MSG_TYPE_KILL(*msg).killer)
 				this->s.Plant(MSG_TYPE_KILL(*msg).victim);
 			break;
 		case (int)MSG_TYPE::MSG_TYPE_MOVE:
