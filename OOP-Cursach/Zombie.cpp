@@ -47,6 +47,5 @@ void Zombie::Draw(sf::RenderWindow& win)
     win.draw(sprite);
     sf::RectangleShape r(Size);
     r.setPosition(Position);
-    r.setFillColor(sf::Color::Red);
-    win.draw(r);
+    
 }
