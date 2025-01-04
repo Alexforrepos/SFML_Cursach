@@ -29,7 +29,7 @@ public:
 	{ 
 		this->position += move_vector;
 	};
-	void Plant(Plant* plant) 
+	void Plant_(Plant* plant) 
 	{
 		if (isplacable && (this->plant->IsWater() == this->iswater )) this->plant = plant;
 	};
@@ -73,4 +73,6 @@ public:
 	}
 
 	sf::FloatRect getBounds() { return { position.x,position.y,Size.x,Size.y }; }
+
+	Plant* GetPlant() { return plant; }
 };
