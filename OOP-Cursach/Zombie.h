@@ -10,7 +10,7 @@ class Zombie // обычный зомби
 {
 	Timer timer;
 protected:
-	int HP,cd_time_mc,height;
+	int HP,cd_time_mc,height,damage;
 	sf::Sprite sprite;
 	sf::Clock cd_time;
 	sf::Vector2f damage_area_size;
@@ -21,10 +21,10 @@ protected:
 
 public:
     Zombie()
-		:timer(100),cd_time(),damage_area_size(100,100),is_attack(false),height(0),HP(200),cd_time_mc(300),target(nullptr)
+		:timer(100),cd_time(),damage_area_size(100,100),is_attack(false),height(0),HP(200),cd_time_mc(300),target(nullptr),damage(1)
 	{
 		sprite.setTexture(*Res_Manager::getmger()->get_access<sf::Texture*>("bozhepomogi.jpg"));
-		sprite.setScale(0.18, 0.18);
+		sprite.setScale(0.15, 0.19);
 		Size = sf::Vector2f{ 100,100 };
 		sprite.setPosition({ 1500,400 });
 		this->SetPos({ 1500,400 });
