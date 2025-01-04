@@ -1,6 +1,7 @@
 #pragma once
 #include "Plant.h"
 #include "Zombie.h"
+#include "pea.h"
 
 class Attack_Plants : // так же обычный горохострел
     public Plant
