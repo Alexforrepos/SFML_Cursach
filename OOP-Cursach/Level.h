@@ -33,7 +33,7 @@ public:
 			if (MSG_TYPE_KILL(*msg).victim->Serialize() == (int)Serialize_Enum::Zombie && MSG_TYPE_KILL(*msg).victim == MSG_TYPE_KILL(*msg).killer)
 			break;
 		case (int)MSG_TYPE::MSG_TYPE_MOVE:
-			if (MSG_TYPE_MOVE(*msg).obj->Serialize() == (int)Serialize_Enum::Zombie)
+			if ((MSG_TYPE_MOVE(*msg).obj)->Serialize() == (int)Serialize_Enum::Zombie)
 				this->s.CheckCollision((Zombie*)(MSG_TYPE_MOVE(*msg).obj));
 			break;
 		default:
