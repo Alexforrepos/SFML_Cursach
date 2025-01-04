@@ -34,10 +34,13 @@ public:
 
 	void Plant(Gologram* g)
 	{
+		Plant
 		for (Landing_place* P_l : places)
 			if (g->getbound().intersects(P_l->getBounds()) && !P_l->IsPlanted() && P_l->Isplacable())
 			{
 				P_l->ChangePlacMode();
+
+				MSG_Manager::add(new MSG(MSG_TYPE_CREATE());
 				break;
 			}
 	}

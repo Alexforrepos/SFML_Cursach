@@ -3,11 +3,6 @@
 #include "Timer.h"
 #include "gologram.h"
 
-enum PlantTypes
-{
-	Peashooter, Sunflower, MrBigPenis
-};
-
 class Card_T
 	: public Object
 {
