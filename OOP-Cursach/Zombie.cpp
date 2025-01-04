@@ -14,7 +14,7 @@ void Zombie::Update()
         return;
     }
 
-    if (timer())
+    if (timer() && !is_attack)
     {
         timer.restart();
 
@@ -25,9 +25,29 @@ void Zombie::Update()
     }
 }
 
-void Zombie::SendMSG(MSG* msg)
+void Zombie::SendMSG(MSG* msg)//проверка на движенме гороха
 {
-  
+    if (msg->MSG_TYPE.index() == (int)MSG_TYPE::MSG_TYPE_DEAL_DAMAGE)
+    {
+        if (MSG_TYPE_DEAL_DAMAGE(*msg).target == this)
+        {
+            HP -= MSG_TYPE_DEAL_DAMAGE(*msg).damage;
+            if (HP <= 0)
+            {
+                HP = 0;
+                MSG_Manager::getmger()->add(new MSG(MSG_TYPE_KILL(this, this)));
+            }
+        }
+    }
+    
+    if (msg->MSG_TYPE.index() == (int)MSG_TYPE::MSG_TYPE_MOVE)
+    {
+        if (MSG_TYPE_MOVE(*msg).obj->Serialize() == Serialize_Enum::Pea)
+        {
+            
+        }
+    }
+
 }
 
 void Zombie::StartAttack(Plant * plant)

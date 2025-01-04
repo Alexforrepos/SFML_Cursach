@@ -3,14 +3,14 @@
 #include "MSG_Manager.h"
 #include "ResourceManager.h"
 #include "Timer.h"
-
+#include "pea.h"
 class Plant;
 class Zombie // обычный зомби
 	:public Object
 {
 	Timer timer;
 protected:
-	int HP,cd_time_mc,height,damage;
+	int HP,cd_time_mc,height;
 	sf::Sprite sprite;
 	sf::Clock cd_time;
 	sf::Vector2f damage_area_size;
@@ -21,7 +21,7 @@ protected:
 
 public:
     Zombie()
-		:timer(100),cd_time(),damage_area_size(100,100),is_attack(false),height(0),HP(200),cd_time_mc(300),target(nullptr),damage(1)
+		:timer(100),cd_time(),damage_area_size(100,100),is_attack(false),height(0),HP(200),cd_time_mc(300),target(nullptr)
 	{
 		sprite.setTexture(*Res_Manager::getmger()->get_access<sf::Texture*>("bozhepomogi.jpg"));
 		sprite.setScale(0.15, 0.19);
