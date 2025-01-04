@@ -45,7 +45,7 @@ void Zombie::SendMSG(MSG* msg)//проверка на движенме гороха
         
         if (MSG_TYPE_MOVE(*msg).obj->Serialize() == (int)Serialize_Enum::Pea)
         {
-         if ((MSG_TYPE_MOVE(*msg).obj.)
+         if (((pea*)(MSG_TYPE_MOVE(*msg).obj))->GetBound().intersects(this->getBounds()))
             MSG_Manager::getmger()->add(new MSG(MSG_TYPE_KILL(this, this)));
         }
     }
