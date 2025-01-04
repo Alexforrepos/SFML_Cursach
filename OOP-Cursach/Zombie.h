@@ -18,12 +18,18 @@ protected:
 
 public:
     Zombie()
-		:timer(100)
+		:timer(100),cd_time(),damage_area_size(100,100),is_attack(false),height(0),HP(200),cd_time_mc(300)
 	{
 		sprite.setTexture(*Res_Manager::getmger()->get_access<sf::Texture*>("bozhepomogi.jpg"));
 		sprite.setScale(0.18, 0.18);
 		sprite.setPosition({ 1500,400 });
-		
+		traectory = { { 0,0 } , { 0,0 } };
+	}
+	
+	Zombie(std::pair<sf::Vector2f, sf::Vector2f> traectory)
+		:Zombie()
+	{
+		this->traectory = traectory;
 	}
 	void StartAttack();   
 	void StopAttack();
