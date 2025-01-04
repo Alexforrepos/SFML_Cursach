@@ -63,7 +63,7 @@ public:
 		for (auto P_l : places)
 		{
 			if (P_l->GetPlant() == pl)
-				P_l.Wrest();
+				P_l->Wrest();
 		}
 	}
 	

@@ -38,7 +38,7 @@ public:
 			this->plant = plant;
 			ChangePlacMode();
 		}
-	};
+	}
 	void Wrest()
 	{
 		this->plant = nullptr;

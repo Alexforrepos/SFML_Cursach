@@ -41,7 +41,7 @@ public:
 	{
 		for (auto line : Lines)
 		{
-
+			line->Wrest(pl);
 		}
 	}
 

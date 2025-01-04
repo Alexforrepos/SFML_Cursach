@@ -25,11 +25,13 @@ public:
 		shape.setPosition(pos);
 		sprite.setTexture(*Res_Manager::getmger()->get_access<sf::Texture*>("bullet.png"));
 		sprite.setScale(0.2, 0.2);
+		size = { 100,100 };
+		damage = 100;
 	}
 
 
 	int Serialize() override { return int(Serialize_Enum::Pea); }
-	sf::FloatRect GetBound() { return shape.getGlobalBounds(); }
+	sf::FloatRect GetBound() { return { Position.x,Position.y,size.x,size.y }; }
 	// Унаследовано через I_Object
 	void Update() override;
 	void SendMSG(MSG* msg) override;

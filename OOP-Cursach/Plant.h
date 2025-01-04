@@ -22,4 +22,7 @@ public:
         //eto sssettterrr
     }
 
+    int Serialize() {
+        return int(Serialize_Enum::Plant); } 
+
 };

@@ -8,7 +8,7 @@ void Zombie::Update()
     {
         if (this->timer())
         {
-            MSG_Manager::getmger()->add(new MSG(MSG_TYPE_DEAL_DAMAGE(target, this, 10)));
+            MSG_Manager::getmger()->add(new MSG(MSG_TYPE_DEAL_DAMAGE(target, this, 1)));
             timer.restart();
         }
         return;
