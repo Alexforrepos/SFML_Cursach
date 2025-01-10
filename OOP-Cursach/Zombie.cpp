@@ -1,7 +1,6 @@
 #include "Zombie.h"
 #include "Plant.h"
 
-
 void Zombie::Update()
 {
     if (is_attack)
@@ -23,6 +22,8 @@ void Zombie::Update()
         this->Position += Move;
         sprite.move(Move);
     }
+
+    for (auto ef : eff) ef;
 }
 
 void Zombie::SendMSG(MSG* msg)//проверка на движенме гороха
@@ -55,6 +56,15 @@ void Zombie::SendMSG(MSG* msg)//проверка на движенме гороха
         if (MSG_TYPE_KILL(*msg).victim == this->target)
         {
             this->StopAttack();
+        }
+        if (MSG_TYPE_KILL(*msg).victim->Serialize() == int(Serialize_Enum::Effect))
+        {
+            for (std::vector<Effect*>::iterator it = eff.begin(); it != eff.end(); it++)
+                if (*it == MSG_TYPE_KILL(*msg).victim)
+                {
+                    eff.erase(it);
+                    break;
+                }
         }
     }
 

@@ -4,6 +4,7 @@
 #include "ResourceManager.h"
 #include "Timer.h"
 #include "pea.h"
+#include "Effect.h"
 class Plant;
 class Zombie // обычный зомби
 	:public Object
@@ -19,12 +20,13 @@ protected:
 	Plant* target;
 	bool is_attack;
 
+	std::vector<Effect*> eff;
 public:
     Zombie()
-		:timer(100),cd_time(),damage_area_size(100,100),is_attack(false),height(0),HP(200),cd_time_mc(300),target(nullptr)
+		:timer(100),cd_time(),damage_area_size(100,100),is_attack(false),height(0),HP(1000000000),cd_time_mc(300),target(nullptr)
 	{
-		sprite.setTexture(*Res_Manager::getmger()->get_access<sf::Texture*>("bozhepomogi.jpg"));
-		sprite.setScale(0.15, 0.19);
+		sprite.setTexture(*Res_Manager::getmger()->get_access<sf::Texture*>("zombie_n.png"));
+		sprite.setScale(0.1, 0.15);
 		Size = sf::Vector2f{ 100,100 };
 		sprite.setPosition({ 1500,400 });
 		this->SetPos({ 1500,400 });

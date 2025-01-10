@@ -1,12 +1,23 @@
 #pragma once
 #include "I_Object.h"
+#include "Timer.h"
 class Effect :
     public Object
 {
-    sf::Clock effecttime; // дл€ отслеживани€ времени эффекта
-    int durity_asmill; // длительность эффекта в миллисекудах
+    Timer time_to_die;
+    Object* target;
 public:
+
     
-    sf::Clock& time() { return effecttime; }
-    void restart() { effecttime.restart(); }
+    // ”наследовано через Object
+    void Update() override;
+
+    void SendMSG(MSG* msg) override;
+
+    void Draw(sf::RenderWindow& win) override;
+
+    Effect(const Timer& time_to_die, Object* target)
+        : time_to_die(time_to_die), target(target){};
+
+    int Serialize() { return int(Serialize_Enum::Effect); }
 };

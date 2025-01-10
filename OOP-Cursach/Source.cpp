@@ -15,7 +15,7 @@ int main()
 	Event ev;
 	auto p = O_Manager::getmger();
 	Res_Manager::getmger()->load_from_file("./resources/res_list.txt");
-	p->add_obj(new Level<9, 1>);
+	p->add_obj(new Level<9, 3>);
 	p->add_obj(new Card_T);
 	p->add_obj(new Zombie);
 	while (win.isOpen())

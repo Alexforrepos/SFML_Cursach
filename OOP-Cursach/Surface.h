@@ -22,7 +22,12 @@ public:
 		for (int i = 0; i < line_count; i++)
 			Lines[i] = new Line<place_size>(i, { 0 });
 	}
-
+	~Surface()
+	{
+		for (auto line : Lines)
+			delete line;
+	}
+	
 	int GetPower() 
 	{
 		int power = 0;

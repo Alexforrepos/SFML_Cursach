@@ -259,7 +259,7 @@
       <Filter>Исходные файлы\GameClasses\Instrument\Card\Gologram</Filter>
     </ClCompile>
     <ClCompile Include="Timer.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\Engine\Utils\Timer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -377,7 +377,7 @@
       <Filter>Исходные файлы\GameClasses\Instrument\Card\Gologram</Filter>
     </ClInclude>
     <ClInclude Include="Timer.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Исходные файлы\Engine\Utils\Timer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

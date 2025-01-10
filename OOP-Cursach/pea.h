@@ -23,10 +23,10 @@ public:
 
 		this->SetPos(pos);
 		shape.setPosition(pos);
-		sprite.setTexture(*Res_Manager::getmger()->get_access<sf::Texture*>("bullet.png"));
+		sprite.setTexture(*Res_Manager::getmger()->get_access<sf::Texture*>("pngwing.png"));
 		sprite.setScale(0.2, 0.2);
 		size = { 100,100 };
-		damage = 100;
+		damage = 1;
 	}
 
 
