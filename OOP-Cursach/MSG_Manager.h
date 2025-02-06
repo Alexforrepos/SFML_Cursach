@@ -21,6 +21,7 @@ public:
 		}
 		isvis = false;
 	}
+	void Recieve(MSG* msg) { this->buff.push_back(msg); };
 	void add(MSG* msg) 
 	{ 
 		if (!isvis)
@@ -63,4 +64,6 @@ public:
 	};
 	static MSG_Manager* getmger() { return MSGM_ ? MSGM_ : MSGM_ = new MSG_Manager; }
 	static void deinit_mger() { MSGM_ ? delete MSGM_ : void(); }
+	static MSG_Manager& get() { return MSGM_ ? *MSGM_ : *(MSGM_ = new MSG_Manager); }
+	static void del() { if (MSGM_) delete MSGM_; }
 };	

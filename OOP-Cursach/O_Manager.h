@@ -12,6 +12,10 @@ class O_Manager
 	MSG_Manager* MSGM = MSG_Manager::getmger();
 
 public:
+	static O_Manager* getmger() { return OMGR ? OMGR : OMGR = new O_Manager; }
+	static void deinit() { OMGR ? delete OMGR : void(); };
+	static O_Manager& get() { return OMGR ? *OMGR : *(OMGR = new O_Manager); }
+	static void del() { if (OMGR) delete OMGR; }
 	O_Manager() = default;
 	~O_Manager()
 	{
@@ -30,6 +34,5 @@ public:
 
 	std::vector<Object*>& getobj() { return objects; }
 
-	static O_Manager* getmger() { return OMGR ? OMGR : OMGR = new O_Manager; }
-	static void deinit() { OMGR ? delete OMGR : void(); };
+	
 };

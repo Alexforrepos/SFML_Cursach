@@ -108,5 +108,6 @@ public:
 #pragma endregion
 
 	static Res_Manager* getmger() { return RM ? RM : RM = new Res_Manager; }
-
+	static Res_Manager& get() { return RM ? *RM : *(RM = new Res_Manager); }
+	static void del() { if (RM) delete RM; }
 };

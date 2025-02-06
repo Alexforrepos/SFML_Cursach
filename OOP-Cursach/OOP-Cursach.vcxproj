@@ -150,6 +150,7 @@
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="Line.cpp" />
     <ClCompile Include="LOOSE_VIRGIN.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MSG.cpp" />
     <ClCompile Include="MSG_Manager.cpp" />
     <ClCompile Include="O_Manager.cpp" />
@@ -193,6 +194,7 @@
     <ClInclude Include="Level.h" />
     <ClInclude Include="Line.h" />
     <ClInclude Include="LOOSE_VIRGIN.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="MSG.h" />
     <ClInclude Include="MSG_Manager.h" />
     <ClInclude Include="O_Manager.h" />
