@@ -1,15 +1,21 @@
 #include <SFML/Graphics.hpp>
+#include "Game.h"/*
 #include "O_Manager.h"
 #include "ResourceManager.h"
 #include "Level.h"
 #include "Card_T.h"
 #include "Attack_Plants.h"
-#include "Zombie.h"
+#include "Zombie.h"*/
 using namespace std;
 using namespace sf;
 
 int main()
 {
+	Game* game = Game::Get();
+	while (game->isRunning())
+	{
+		game->Run();
+	}
 	/*while (game.isrun()) // то что должно быть у вас в мейне 
 		game.run();*/
 

@@ -261,6 +261,9 @@
     <ClCompile Include="Timer.cpp">
       <Filter>Исходные файлы\Engine\Utils\Timer</Filter>
     </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="openal32.dll">
@@ -378,6 +381,9 @@
     </ClInclude>
     <ClInclude Include="Timer.h">
       <Filter>Исходные файлы\Engine\Utils\Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

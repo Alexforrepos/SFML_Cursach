@@ -1,25 +1,30 @@
 #include "Game.h"
 
-void Game::main_beh_tree(sf::RenderWindow& win)
+Game* Game::game = nullptr;
+
+void Game::Run()
 {
-	switch (rm)
-	{
-	case Game::RUNMODE::RUNMODE_MENU:
-		
-		break;
-	default:
-		break;
-	}
+	
+}
+
+bool Game::isRunning()
+{
+	return isRun;
 }
 
 Game::Game(std::string res_filename)
+	:win(sf::VideoMode::VideoMode(sf::VideoMode::getDesktopMode()), "Plants vs Zombies", sf::Style::Fullscreen),
+	OMg(*O_Manager::getmger()),
+	MsMg(*MSG_Manager::getmger()),
+	RMg(*Res_Manager::getmger())
 {
-	if (ResourceManager::getmger()->load_from_file(res_filename))
+	if (Res_Manager::getmger()->load_from_file(res_filename))
 		throw "Res load err";
 	rm = RUNMODE::RUNMODE_MENU;
+	
 }
 
 void Game::operator()(sf::RenderWindow& win)
 {
-	main_beh_tree(win);
+	Run();
 }
