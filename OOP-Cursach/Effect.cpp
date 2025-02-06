@@ -21,5 +21,7 @@ void Effect::SendMSG(MSG* msg)
 void Effect::Draw(sf::RenderWindow& win)
 {
 
-}
+}	
+
+
 

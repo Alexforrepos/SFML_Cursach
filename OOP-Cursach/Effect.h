@@ -5,7 +5,7 @@ class Effect :
     public Object
 {
     Timer time_to_die;
-    Object* target;
+    class Zombie* target;
 public:
 
     
@@ -19,5 +19,9 @@ public:
     Effect(const Timer& time_to_die, Object* target)
         : time_to_die(time_to_die), target(target){};
 
-    int Serialize() { return int(Serialize_Enum::Effect); }
+    inline int Serialize() { return int(Serialize_Enum::Effect); }
+    
+    void effect() {};
+
+    Effect() = default;
 };

@@ -9,6 +9,7 @@ class Plant;
 class Zombie // обычный зомби
 	:public Object
 {
+	friend class Effect;
 	Timer timer;
 protected:
 	int HP,cd_time_mc,height;
@@ -31,7 +32,7 @@ public:
 		sprite.setPosition({ 1500,400 });
 		this->SetPos({ 1500,400 });
 		traectory = { { 0,0 } , { 0,0 } };
-	}
+	} 
 	
 	Zombie(std::pair<sf::Vector2f, sf::Vector2f> traectory)
 		:Zombie()

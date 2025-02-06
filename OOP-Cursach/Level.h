@@ -23,6 +23,7 @@ public:
 	{
 		
 	};
+
 	void SendMSG(MSG* msg) 
 	{
 		switch (msg->MSG_TYPE.index())

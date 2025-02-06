@@ -10,7 +10,10 @@ using namespace sf;
 
 int main()
 {
-	system("chcp 1251 > 0");
+	/*while (game.isrun()) // то что должно быть у вас в мейне 
+		game.run();*/
+
+	/*system("chcp 1251 > 0");
 	RenderWindow win(VideoMode::VideoMode(VideoMode::getDesktopMode()), "Plants vs Zombies", Style::Fullscreen);
 	Event ev;
 	auto p = O_Manager::getmger();
@@ -37,5 +40,5 @@ int main()
 		p->draw(win);
 		win.display();
 	}
-	O_Manager::deinit();
+	O_Manager::deinit();*/
 }
