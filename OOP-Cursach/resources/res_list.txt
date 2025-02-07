@@ -1,1 +1,2 @@
 d t ./resources/res/Textures
+d f ./resources/res/Fonts

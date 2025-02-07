@@ -9,33 +9,39 @@
 
 class Game
 {
-	static Game* game;
-
+public:
 	enum class RUNMODE
 	{
 		RUNMODE_MENU, RUNMODE_GAME
 	};
+private:
+	static Game* game;
 
 	bool isRun;
 
-	static RUNMODE rm;
-
-	void change_mode(const RUNMODE& rm) { this->rm = rm; };
+	RUNMODE rm, lastrm;
 
 	sf::RenderWindow win;
 
 	Game(std::string res_filename);
+
+	void Close()
+	{
+		OMg.clear();
+		MsMg.clear();
+
+		isRun = false;
+	}
 
 	O_Manager& OMg;
 	Res_Manager& RMg;
 	MSG_Manager& MsMg;
 
 public:
-	void Run();
 
-	static Game* Get() 
+	static Game& Get() 
 	{
-		return game ? game : game = new Game("./resources/res_list.txt");
+		return game ? *game : *(game = new Game("./resources/res_list.txt"));
 	}
 
 	static void Del() 
@@ -44,7 +50,12 @@ public:
 			delete game;
 	}
 
-	bool isRunning();
+	void Run();
 
-	void operator()(sf::RenderWindow& win);
+	void ChangeRunMode(RUNMODE RM) { lastrm = rm; this->rm = RM; }
+	void SetRM() { this->lastrm = rm; }
+
+	inline bool isRunning() {return isRun;}
+
+	int GetRunMod() { return int(rm); }
 };

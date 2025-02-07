@@ -5,7 +5,7 @@ class Effect :
     public Object
 {
     Timer time_to_die;
-    class Zombie* target;
+    class Object* target;
 public:
 
     

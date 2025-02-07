@@ -33,7 +33,7 @@ public:
 	}
 	void isvischange() { isvis = true; }
 	void add_buff(MSG* msg) { buff.push_back(msg); };
-	void unique();
+	//void unique();
 	void exclude(MSG* msg) 
 	{
 		auto it = std::find(msges.at(msg->MSG_TYPE.index()).begin(), msges.at(msg->MSG_TYPE.index()).end(), msg);

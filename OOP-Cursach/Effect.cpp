@@ -11,7 +11,7 @@ void Effect::SendMSG(MSG* msg)
 	switch (msg->MSG_TYPE.index())
 	{
 		case int(MSG_TYPE::MSG_TYPE_KILL):
-			if (MSG_TYPE_KILL(*msg).victim == target)
+			if (MSG_TYPE_KILL(*msg).victim == (Object*)target)
 				MSG_Manager::getmger()->add(new MSG(MSG_TYPE_KILL(this, this)));
 	default:
 		break;

@@ -11,10 +11,10 @@ using namespace sf;
 
 int main()
 {
-	Game* game = Game::Get();
-	while (game->isRunning())
+	Game& game = Game::Get();
+	while (game.isRunning())
 	{
-		game->Run();
+		game.Run();
 	}
 	/*while (game.isrun()) // то что должно быть у вас в мейне 
 		game.run();*/
