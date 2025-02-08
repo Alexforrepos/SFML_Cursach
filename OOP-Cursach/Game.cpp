@@ -1,5 +1,6 @@
 #include "Game.h"
 #include "Menu.h"
+#include "Game_Proc.h"
 
 Game* Game::game = nullptr;
 
@@ -20,19 +21,25 @@ void Game::Run()
 	}
 	
 	static Menu menu;
+	static Game_Proc gprc;
 	switch (int(rm))
 	{
 		case int(RUNMODE::RUNMODE_MENU) :
-			if (!menu.IsStarted())
+			if (!menu.IsStarted() && rm == RUNMODE::RUNMODE_MENU && rm != lastrm)
+			{
 				menu.Start();
+				SetRM();
+			}
+			menu.Run();
 			break;
 			case int(RUNMODE::RUNMODE_GAME) :
-				if (rm != lastrm && rm == RUNMODE::RUNMODE_GAME)
+				if (rm != lastrm && rm == RUNMODE::RUNMODE_GAME && !gprc.GetIsRun())
 				{
 					OMg.clear();
-					std::cout << " GameMode Inits\n";
+					gprc.Start();
 					SetRM();
 				}
+			gprc.Run();
 			break;
 	default:
 		break;
@@ -51,7 +58,7 @@ Game::Game(std::string res_filename)
 	:win(sf::VideoMode::VideoMode(sf::VideoMode::getDesktopMode()), "Plants vs Zombies", sf::Style::Fullscreen),
 	OMg(*O_Manager::getmger()),
 	MsMg(*MSG_Manager::getmger()),
-	RMg(*Res_Manager::getmger()), rm(RUNMODE::RUNMODE_MENU),isRun(true)
+	RMg(*Res_Manager::getmger()), rm(RUNMODE::RUNMODE_MENU),isRun(true),lastrm(RUNMODE::RUNMODE_GAME)
 {
 	if (Res_Manager::getmger()->load_from_file(res_filename))
 		throw "Res load err";

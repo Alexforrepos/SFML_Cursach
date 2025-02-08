@@ -8,6 +8,8 @@
 #include <string>
 #include <map>
 
+
+
 class Res_Manager
 {
 	static Res_Manager* RM;

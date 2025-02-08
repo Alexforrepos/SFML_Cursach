@@ -145,6 +145,7 @@
     <ClCompile Include="EnemyManager.cpp" />
     <ClCompile Include="FOREVER_VIRGIN.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Game_Proc.cpp" />
     <ClCompile Include="Gargantua.cpp" />
     <ClCompile Include="gologram.cpp" />
     <ClCompile Include="I_Object.cpp" />
@@ -190,6 +191,7 @@
     <ClInclude Include="EnemyManager.h" />
     <ClInclude Include="FOREVER_VIRGIN.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Game_Proc.h" />
     <ClInclude Include="Gargantua.h" />
     <ClInclude Include="gologram.h" />
     <ClInclude Include="I_Object.h" />

@@ -17,6 +17,8 @@ public:
 private:
 	static Game* game;
 
+	friend class Game_Proc;
+
 	bool isRun;
 
 	RUNMODE rm, lastrm;
@@ -39,7 +41,7 @@ private:
 
 public:
 
-	static Game& Get() 
+	static Game& Get()// Game::Get()
 	{
 		return game ? *game : *(game = new Game("./resources/res_list.txt"));
 	}

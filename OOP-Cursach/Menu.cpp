@@ -8,7 +8,6 @@
 void START()
 {
     Game::Get().ChangeRunMode(Game::RUNMODE::RUNMODE_GAME);
-    
 }
 
 
