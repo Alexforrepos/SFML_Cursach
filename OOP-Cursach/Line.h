@@ -33,7 +33,7 @@ public:
 			delete pl;
 	}
 
-	void Plant_(Gologram* g)
+	int Plant_(Gologram* g)
 	{
 		Plant* PlacedPlant = nullptr;
 		for (Landing_place* P_l : places)
@@ -41,8 +41,9 @@ public:
 			{
 				P_l->Plant_(PlacedPlant = new Attack_Plants(P_l->getBounds().getPosition()));
 				MSG_Manager::getmger()->add(new MSG(MSG_TYPE_CREATE(PlacedPlant,g)));
-				break;
+				return 1;
 			}
+		return 0;
 	}
 
 	void Draw(sf::RenderWindow& win);

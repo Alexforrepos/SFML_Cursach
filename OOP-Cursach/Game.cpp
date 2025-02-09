@@ -7,6 +7,9 @@ Game* Game::game = nullptr;
 void Game::Run()
 {
 	sf::Event ev;
+	static Menu menu;
+	static Game_Proc gprc;
+
 	while (win.pollEvent(ev))
 	{
 		switch (ev.type)
@@ -20,8 +23,7 @@ void Game::Run()
 		}
 	}
 	
-	static Menu menu;
-	static Game_Proc gprc;
+
 	switch (int(rm))
 	{
 		case int(RUNMODE::RUNMODE_MENU) :

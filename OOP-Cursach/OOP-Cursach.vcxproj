@@ -141,6 +141,7 @@
     <ClCompile Include="Attack_Plants.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Card_T.cpp" />
+    <ClCompile Include="Client.cpp" />
     <ClCompile Include="Effect.cpp" />
     <ClCompile Include="EnemyManager.cpp" />
     <ClCompile Include="FOREVER_VIRGIN.cpp" />
@@ -148,6 +149,7 @@
     <ClCompile Include="Game_Proc.cpp" />
     <ClCompile Include="Gargantua.cpp" />
     <ClCompile Include="gologram.cpp" />
+    <ClCompile Include="Host.cpp" />
     <ClCompile Include="I_Object.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="Line.cpp" />
@@ -187,6 +189,7 @@
     <ClInclude Include="Attack_Plants.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="Card_T.h" />
+    <ClInclude Include="Client.h" />
     <ClInclude Include="Effect.h" />
     <ClInclude Include="EnemyManager.h" />
     <ClInclude Include="FOREVER_VIRGIN.h" />
@@ -194,6 +197,7 @@
     <ClInclude Include="Game_Proc.h" />
     <ClInclude Include="Gargantua.h" />
     <ClInclude Include="gologram.h" />
+    <ClInclude Include="Host.h" />
     <ClInclude Include="I_Object.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="Line.h" />

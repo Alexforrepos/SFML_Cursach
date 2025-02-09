@@ -8,6 +8,8 @@ class Menu
 	std::vector<Button*> buttons;
 	bool isstarted;
 public:
+
+
 	void Start();
 	void Run();
 	void Close();

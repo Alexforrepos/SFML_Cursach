@@ -18,6 +18,7 @@ private:
 	static Game* game;
 
 	friend class Game_Proc;
+	friend class Menu;
 
 	bool isRun;
 

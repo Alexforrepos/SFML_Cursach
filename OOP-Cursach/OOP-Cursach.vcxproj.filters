@@ -52,113 +52,8 @@
     <Filter Include="Исходные файлы\Engine\Utils\Animator">
       <UniqueIdentifier>{6ebf0868-7aaa-402a-9f61-8a900c384f35}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Instrument">
-      <UniqueIdentifier>{46681443-edba-43f0-8aa2-8f4caf5de6d9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Plants">
-      <UniqueIdentifier>{831f7136-09ec-4192-b96a-eb612be4f324}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Zombie">
-      <UniqueIdentifier>{cf1250f5-f20d-4567-b76c-a75ba2c3e2f7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Projectile">
-      <UniqueIdentifier>{8e4b2b88-cf85-4f3f-9495-92314ff89d81}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Instrument\Card">
-      <UniqueIdentifier>{6c5f95dd-f44e-492b-9753-9662b0a9931e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Instrument\Showel">
-      <UniqueIdentifier>{a697fc2d-c905-420f-a04e-92e8f5ff0068}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Instrument\Magic">
-      <UniqueIdentifier>{a2d01439-3c11-4a04-8e6e-6d3f588ca84a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Исходные файлы\Engine\O_Manager\I_Object\Primer">
       <UniqueIdentifier>{4397ec95-39a0-41b3-8beb-ddd39cf4ec01}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Level">
-      <UniqueIdentifier>{ec747f93-f93e-4e89-bf92-a053c4575208}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Plants\Support">
-      <UniqueIdentifier>{c95c860b-9c3b-4de7-af8c-4ad24b02b9e3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Effect">
-      <UniqueIdentifier>{b608daab-533e-4d87-89ea-09eb2528cce5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Projectile\pea">
-      <UniqueIdentifier>{74d69482-1809-4788-aee1-97ef1dcf0ba7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Projectile\pea\fire_pea">
-      <UniqueIdentifier>{eb6463ce-214d-4765-9032-8a11e3556541}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Projectile\pea\AP_pea">
-      <UniqueIdentifier>{3bcf7589-f2c0-4b8e-b99f-12342fec2c27}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Projectile\pea\AIM_pea">
-      <UniqueIdentifier>{9fbab203-daa3-48bd-bef8-8164ede74451}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Instrument\Card\PlantCard">
-      <UniqueIdentifier>{f52f7967-ad10-4350-94c4-27591a72de08}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Plants\Support\sunflower">
-      <UniqueIdentifier>{dca2e970-c9f2-4b5c-90f9-877c43e64800}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Plants\Support\nut">
-      <UniqueIdentifier>{8821f120-5d5d-4d31-b02f-efccfd15b444}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Plants\Support\pumpkin">
-      <UniqueIdentifier>{ff25afcc-5b3a-48b7-bf6d-fc7b600d9fbf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Plants\Support\fire log">
-      <UniqueIdentifier>{88413842-bd62-4cee-9723-82118414adc5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Instrument\Sun">
-      <UniqueIdentifier>{c765c125-7496-4812-a319-730ca1b1a69a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Plants\Attack_Plants">
-      <UniqueIdentifier>{2d0f4073-7fc9-43a9-ab0f-7aa7fe81d5f3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Plants\Attack_Plants\Repeater">
-      <UniqueIdentifier>{79ce2c27-e260-4e02-a0c6-ba9893e4e1b8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Plants\Attack_Plants\Ice_Shooter">
-      <UniqueIdentifier>{9b03a49d-f8d5-46ad-992c-e5c4faf45327}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Plants\Attack_Plants\Fire_Shooter">
-      <UniqueIdentifier>{9b4d0c45-1876-4905-850e-e7a1dd088a96}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Plants\Attack_Plants\Spike_Shooter">
-      <UniqueIdentifier>{1718f2b1-4d04-493e-a570-2ab01b2d8061}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Zombie\Armored_Zombie">
-      <UniqueIdentifier>{a589c5c0-4f87-442c-a235-74b79bfb03a5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Zombie\Baloon_zombie">
-      <UniqueIdentifier>{7a024382-0ee9-42b5-a453-4b16b6e46d7c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Zombie\Gargantua">
-      <UniqueIdentifier>{ed3c7ef2-25ca-4927-a7c9-668fcc99537b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Zombie\Zombie_Gymnast">
-      <UniqueIdentifier>{2564a64f-aa45-47fd-8f78-ec5a60c2a03d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Zombie\Armored_Zombie\Zombie_Bucket">
-      <UniqueIdentifier>{8794f79b-e748-43aa-ab14-cac57e0d0ab0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Zombie\Armored_Zombie\Newspaper_Zombie">
-      <UniqueIdentifier>{39063946-b658-4f5d-b4dc-d4c3322907a9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Level\Surface">
-      <UniqueIdentifier>{edf7d9ac-f5dd-4dd4-974e-483e5588bfd0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Level\Surface\Line">
-      <UniqueIdentifier>{969209f2-40db-4093-b745-de8e73f1e6e3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Level\Surface\Line\PlaceToPlant">
-      <UniqueIdentifier>{5e469b39-4827-4bbc-8dfe-473a2b20f78e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Level\EnemyManager">
-      <UniqueIdentifier>{7374232c-1498-4a68-8363-1d45d07f38f2}</UniqueIdentifier>
     </Filter>
     <Filter Include="Файлы заголовков\PRIMER">
       <UniqueIdentifier>{ddf3f831-187c-4238-a132-4320ade90945}</UniqueIdentifier>
@@ -169,11 +64,143 @@
     <Filter Include="Файлы заголовков\PRIMER\FIN">
       <UniqueIdentifier>{1b546d2e-28f2-48f4-afd2-5327b93b7928}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Instrument\Card\Gologram">
-      <UniqueIdentifier>{c703a836-6bbb-4eb9-bfd2-f9391afcce42}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Исходные файлы\Engine\Utils\Timer">
       <UniqueIdentifier>{340bc0e5-9331-44bd-bec5-54df4f69eb39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Engine\NetSystem">
+      <UniqueIdentifier>{68185155-3eaa-43d5-a1e5-e966b9df15b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Engine\NetSystem\Host">
+      <UniqueIdentifier>{153d3303-8f57-4268-8b9a-b4bae2af2642}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Engine\NetSystem\Client">
+      <UniqueIdentifier>{88ab0c63-1d0f-4f49-8d60-14f92dabb1d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game">
+      <UniqueIdentifier>{a5142ce5-bf81-4bb8-9c59-77a69adebd45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Objecct">
+      <UniqueIdentifier>{f289aeec-aecd-454b-a1b3-c5e4e01e6766}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Objecct\Effect">
+      <UniqueIdentifier>{b608daab-533e-4d87-89ea-09eb2528cce5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Objecct\Instrument">
+      <UniqueIdentifier>{46681443-edba-43f0-8aa2-8f4caf5de6d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Objecct\Instrument\Card">
+      <UniqueIdentifier>{6c5f95dd-f44e-492b-9753-9662b0a9931e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Objecct\Instrument\Card\PlantCard">
+      <UniqueIdentifier>{f52f7967-ad10-4350-94c4-27591a72de08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Objecct\Instrument\Card\Gologram">
+      <UniqueIdentifier>{c703a836-6bbb-4eb9-bfd2-f9391afcce42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Objecct\Instrument\Showel">
+      <UniqueIdentifier>{a697fc2d-c905-420f-a04e-92e8f5ff0068}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Objecct\Instrument\Magic">
+      <UniqueIdentifier>{a2d01439-3c11-4a04-8e6e-6d3f588ca84a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Objecct\Instrument\Sun">
+      <UniqueIdentifier>{c765c125-7496-4812-a319-730ca1b1a69a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Objecct\Level">
+      <UniqueIdentifier>{ec747f93-f93e-4e89-bf92-a053c4575208}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Objecct\Level\Surface">
+      <UniqueIdentifier>{edf7d9ac-f5dd-4dd4-974e-483e5588bfd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Objecct\Level\Surface\Line">
+      <UniqueIdentifier>{969209f2-40db-4093-b745-de8e73f1e6e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Objecct\Level\Surface\Line\PlaceToPlant">
+      <UniqueIdentifier>{5e469b39-4827-4bbc-8dfe-473a2b20f78e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Objecct\Level\EnemyManager">
+      <UniqueIdentifier>{7374232c-1498-4a68-8363-1d45d07f38f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Objecct\Plants">
+      <UniqueIdentifier>{831f7136-09ec-4192-b96a-eb612be4f324}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Objecct\Plants\Support">
+      <UniqueIdentifier>{c95c860b-9c3b-4de7-af8c-4ad24b02b9e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Objecct\Plants\Support\sunflower">
+      <UniqueIdentifier>{dca2e970-c9f2-4b5c-90f9-877c43e64800}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Objecct\Plants\Support\nut">
+      <UniqueIdentifier>{8821f120-5d5d-4d31-b02f-efccfd15b444}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Objecct\Plants\Support\pumpkin">
+      <UniqueIdentifier>{ff25afcc-5b3a-48b7-bf6d-fc7b600d9fbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Objecct\Plants\Support\fire log">
+      <UniqueIdentifier>{88413842-bd62-4cee-9723-82118414adc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Objecct\Plants\Attack_Plants">
+      <UniqueIdentifier>{2d0f4073-7fc9-43a9-ab0f-7aa7fe81d5f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Objecct\Plants\Attack_Plants\Repeater">
+      <UniqueIdentifier>{79ce2c27-e260-4e02-a0c6-ba9893e4e1b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Objecct\Plants\Attack_Plants\Ice_Shooter">
+      <UniqueIdentifier>{9b03a49d-f8d5-46ad-992c-e5c4faf45327}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Objecct\Plants\Attack_Plants\Fire_Shooter">
+      <UniqueIdentifier>{9b4d0c45-1876-4905-850e-e7a1dd088a96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Objecct\Plants\Attack_Plants\Spike_Shooter">
+      <UniqueIdentifier>{1718f2b1-4d04-493e-a570-2ab01b2d8061}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Objecct\Projectile">
+      <UniqueIdentifier>{8e4b2b88-cf85-4f3f-9495-92314ff89d81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Objecct\Projectile\pea">
+      <UniqueIdentifier>{74d69482-1809-4788-aee1-97ef1dcf0ba7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Objecct\Projectile\pea\fire_pea">
+      <UniqueIdentifier>{eb6463ce-214d-4765-9032-8a11e3556541}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Objecct\Projectile\pea\AP_pea">
+      <UniqueIdentifier>{3bcf7589-f2c0-4b8e-b99f-12342fec2c27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Objecct\Projectile\pea\AIM_pea">
+      <UniqueIdentifier>{9fbab203-daa3-48bd-bef8-8164ede74451}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Objecct\Zombie">
+      <UniqueIdentifier>{cf1250f5-f20d-4567-b76c-a75ba2c3e2f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Objecct\Zombie\Armored_Zombie">
+      <UniqueIdentifier>{a589c5c0-4f87-442c-a235-74b79bfb03a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Objecct\Zombie\Armored_Zombie\Zombie_Bucket">
+      <UniqueIdentifier>{8794f79b-e748-43aa-ab14-cac57e0d0ab0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Objecct\Zombie\Armored_Zombie\Newspaper_Zombie">
+      <UniqueIdentifier>{39063946-b658-4f5d-b4dc-d4c3322907a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Objecct\Zombie\Baloon_zombie">
+      <UniqueIdentifier>{7a024382-0ee9-42b5-a453-4b16b6e46d7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Objecct\Zombie\Gargantua">
+      <UniqueIdentifier>{ed3c7ef2-25ca-4927-a7c9-668fcc99537b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Objecct\Zombie\Zombie_Gymnast">
+      <UniqueIdentifier>{2564a64f-aa45-47fd-8f78-ec5a60c2a03d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Menu">
+      <UniqueIdentifier>{bf409b24-47db-40de-93d2-847559b98ed4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Host">
+      <UniqueIdentifier>{b6240ffb-fbe1-47db-af8a-d3cdedad1737}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Game_Proc">
+      <UniqueIdentifier>{c8d973ec-604c-4208-992a-cc4fe16b74af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Client">
+      <UniqueIdentifier>{1c420728-4e91-4416-a147-b2a6afab7caf}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -208,43 +235,43 @@
       <Filter>Исходные файлы\Engine\O_Manager\I_Object\Primer</Filter>
     </ClCompile>
     <ClCompile Include="Surface.cpp">
-      <Filter>Исходные файлы\GameClasses\Level\Surface</Filter>
+      <Filter>Исходные файлы\GameClasses\Game\Objecct\Level\Surface</Filter>
     </ClCompile>
     <ClCompile Include="Line.cpp">
-      <Filter>Исходные файлы\GameClasses\Level\Surface\Line</Filter>
+      <Filter>Исходные файлы\GameClasses\Game\Objecct\Level\Surface\Line</Filter>
     </ClCompile>
     <ClCompile Include="Level.cpp">
-      <Filter>Исходные файлы\GameClasses\Level</Filter>
+      <Filter>Исходные файлы\GameClasses\Game\Objecct\Level</Filter>
     </ClCompile>
     <ClCompile Include="PlaceToPlant.cpp">
-      <Filter>Исходные файлы\GameClasses\Level\Surface\Line\PlaceToPlant</Filter>
+      <Filter>Исходные файлы\GameClasses\Game\Objecct\Level\Surface\Line\PlaceToPlant</Filter>
     </ClCompile>
     <ClCompile Include="Plant.cpp">
-      <Filter>Исходные файлы\GameClasses\Plants</Filter>
+      <Filter>Исходные файлы\GameClasses\Game\Objecct\Plants</Filter>
     </ClCompile>
     <ClCompile Include="Support_Plant.cpp">
-      <Filter>Исходные файлы\GameClasses\Plants\Support</Filter>
+      <Filter>Исходные файлы\GameClasses\Game\Objecct\Plants\Support</Filter>
     </ClCompile>
     <ClCompile Include="Sun.cpp">
-      <Filter>Исходные файлы\GameClasses\Instrument\Sun</Filter>
+      <Filter>Исходные файлы\GameClasses\Game\Objecct\Instrument\Sun</Filter>
     </ClCompile>
     <ClCompile Include="Zombie.cpp">
-      <Filter>Исходные файлы\GameClasses\Zombie</Filter>
+      <Filter>Исходные файлы\GameClasses\Game\Objecct\Zombie</Filter>
     </ClCompile>
     <ClCompile Include="Effect.cpp">
-      <Filter>Исходные файлы\GameClasses\Effect</Filter>
+      <Filter>Исходные файлы\GameClasses\Game\Objecct\Effect</Filter>
     </ClCompile>
     <ClCompile Include="EnemyManager.cpp">
-      <Filter>Исходные файлы\GameClasses\Level\EnemyManager</Filter>
+      <Filter>Исходные файлы\GameClasses\Game\Objecct\Level\EnemyManager</Filter>
     </ClCompile>
     <ClCompile Include="pea.cpp">
-      <Filter>Исходные файлы\GameClasses\Projectile\pea</Filter>
+      <Filter>Исходные файлы\GameClasses\Game\Objecct\Projectile\pea</Filter>
     </ClCompile>
     <ClCompile Include="Gargantua.cpp">
-      <Filter>Исходные файлы\GameClasses\Zombie\Gargantua</Filter>
+      <Filter>Исходные файлы\GameClasses\Game\Objecct\Zombie\Gargantua</Filter>
     </ClCompile>
     <ClCompile Include="Attack_Plants.cpp">
-      <Filter>Исходные файлы\GameClasses\Plants\Attack_Plants</Filter>
+      <Filter>Исходные файлы\GameClasses\Game\Objecct\Plants\Attack_Plants</Filter>
     </ClCompile>
     <ClCompile Include="FOREVER_VIRGIN.cpp">
       <Filter>Файлы заголовков\PRIMER\FIN</Filter>
@@ -253,16 +280,28 @@
       <Filter>Файлы заголовков\PRIMER\MAKS</Filter>
     </ClCompile>
     <ClCompile Include="Card_T.cpp">
-      <Filter>Исходные файлы\GameClasses\Instrument\Card\PlantCard</Filter>
+      <Filter>Исходные файлы\GameClasses\Game\Objecct\Instrument\Card\PlantCard</Filter>
     </ClCompile>
     <ClCompile Include="gologram.cpp">
-      <Filter>Исходные файлы\GameClasses\Instrument\Card\Gologram</Filter>
+      <Filter>Исходные файлы\GameClasses\Game\Objecct\Instrument\Card\Gologram</Filter>
     </ClCompile>
     <ClCompile Include="Timer.cpp">
       <Filter>Исходные файлы\Engine\Utils\Timer</Filter>
     </ClCompile>
     <ClCompile Include="Game.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\GameClasses\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Исходные файлы\GameClasses\Game\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Host.cpp">
+      <Filter>Исходные файлы\GameClasses\Game\Host</Filter>
+    </ClCompile>
+    <ClCompile Include="Game_Proc.cpp">
+      <Filter>Исходные файлы\GameClasses\Game\Game_Proc</Filter>
+    </ClCompile>
+    <ClCompile Include="Client.cpp">
+      <Filter>Исходные файлы\GameClasses\Game\Client</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -329,43 +368,43 @@
       <Filter>Исходные файлы\Engine\O_Manager\I_Object\Primer</Filter>
     </ClInclude>
     <ClInclude Include="Surface.h">
-      <Filter>Исходные файлы\GameClasses\Level\Surface</Filter>
+      <Filter>Исходные файлы\GameClasses\Game\Objecct\Level\Surface</Filter>
     </ClInclude>
     <ClInclude Include="Line.h">
-      <Filter>Исходные файлы\GameClasses\Level\Surface\Line</Filter>
+      <Filter>Исходные файлы\GameClasses\Game\Objecct\Level\Surface\Line</Filter>
     </ClInclude>
     <ClInclude Include="Level.h">
-      <Filter>Исходные файлы\GameClasses\Level</Filter>
+      <Filter>Исходные файлы\GameClasses\Game\Objecct\Level</Filter>
     </ClInclude>
     <ClInclude Include="PlaceToPlant.h">
-      <Filter>Исходные файлы\GameClasses\Level\Surface\Line\PlaceToPlant</Filter>
+      <Filter>Исходные файлы\GameClasses\Game\Objecct\Level\Surface\Line\PlaceToPlant</Filter>
     </ClInclude>
     <ClInclude Include="Plant.h">
-      <Filter>Исходные файлы\GameClasses\Plants</Filter>
+      <Filter>Исходные файлы\GameClasses\Game\Objecct\Plants</Filter>
     </ClInclude>
     <ClInclude Include="Support_Plant.h">
-      <Filter>Исходные файлы\GameClasses\Plants\Support</Filter>
+      <Filter>Исходные файлы\GameClasses\Game\Objecct\Plants\Support</Filter>
     </ClInclude>
     <ClInclude Include="Effect.h">
-      <Filter>Исходные файлы\GameClasses\Effect</Filter>
+      <Filter>Исходные файлы\GameClasses\Game\Objecct\Effect</Filter>
     </ClInclude>
     <ClInclude Include="Sun.h">
-      <Filter>Исходные файлы\GameClasses\Instrument\Sun</Filter>
+      <Filter>Исходные файлы\GameClasses\Game\Objecct\Instrument\Sun</Filter>
     </ClInclude>
     <ClInclude Include="Zombie.h">
-      <Filter>Исходные файлы\GameClasses\Zombie</Filter>
+      <Filter>Исходные файлы\GameClasses\Game\Objecct\Zombie</Filter>
     </ClInclude>
     <ClInclude Include="EnemyManager.h">
-      <Filter>Исходные файлы\GameClasses\Level\EnemyManager</Filter>
+      <Filter>Исходные файлы\GameClasses\Game\Objecct\Level\EnemyManager</Filter>
     </ClInclude>
     <ClInclude Include="pea.h">
-      <Filter>Исходные файлы\GameClasses\Projectile\pea</Filter>
+      <Filter>Исходные файлы\GameClasses\Game\Objecct\Projectile\pea</Filter>
     </ClInclude>
     <ClInclude Include="Gargantua.h">
-      <Filter>Исходные файлы\GameClasses\Zombie\Gargantua</Filter>
+      <Filter>Исходные файлы\GameClasses\Game\Objecct\Zombie\Gargantua</Filter>
     </ClInclude>
     <ClInclude Include="Attack_Plants.h">
-      <Filter>Исходные файлы\GameClasses\Plants\Attack_Plants</Filter>
+      <Filter>Исходные файлы\GameClasses\Game\Objecct\Plants\Attack_Plants</Filter>
     </ClInclude>
     <ClInclude Include="FOREVER_VIRGIN.h">
       <Filter>Файлы заголовков\PRIMER\FIN</Filter>
@@ -374,16 +413,28 @@
       <Filter>Файлы заголовков\PRIMER\MAKS</Filter>
     </ClInclude>
     <ClInclude Include="Card_T.h">
-      <Filter>Исходные файлы\GameClasses\Instrument\Card\PlantCard</Filter>
+      <Filter>Исходные файлы\GameClasses\Game\Objecct\Instrument\Card\PlantCard</Filter>
     </ClInclude>
     <ClInclude Include="gologram.h">
-      <Filter>Исходные файлы\GameClasses\Instrument\Card\Gologram</Filter>
+      <Filter>Исходные файлы\GameClasses\Game\Objecct\Instrument\Card\Gologram</Filter>
     </ClInclude>
     <ClInclude Include="Timer.h">
       <Filter>Исходные файлы\Engine\Utils\Timer</Filter>
     </ClInclude>
     <ClInclude Include="Game.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Исходные файлы\GameClasses\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Исходные файлы\GameClasses\Game\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Host.h">
+      <Filter>Исходные файлы\GameClasses\Game\Host</Filter>
+    </ClInclude>
+    <ClInclude Include="Game_Proc.h">
+      <Filter>Исходные файлы\GameClasses\Game\Game_Proc</Filter>
+    </ClInclude>
+    <ClInclude Include="Client.h">
+      <Filter>Исходные файлы\GameClasses\Game\Client</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

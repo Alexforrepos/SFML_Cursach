@@ -7,43 +7,25 @@
 
 class Client
 {
-	sf::TcpSocket socket;
-	unsigned short serverport;
-	bool isconnected = true;
-	std::thread t;
-	Client(unsigned short serverport,const std::string& adres)
-		:socket(), serverport(serverport)
-	{
-		if (socket.connect(adres, serverport) != sf::Socket::Done)
-		{
-			throw "conection err";
-		}
-		isconnected = true;
-	}
+	sf::TcpSocket server;
+	std::thread handle_server_thread;
 
+	static void Hande_Server();
 
+	std::atomic<bool> isconnected;
 public:
-
-	~Client()
+	Client()
+		:handle_server_thread([&]() {Hande_Server(); })
 	{
-		isconnected = false;
-		socket.disconnect();
+
 	}
 
-	void MSG_Send(MSG* msg)
-	{
-		if (!isconnected) throw "Client is not connected";
-		sf::Packet p;
-		p.append(msg, sizeof(msg));
-		if (socket.send(p) != sf::Socket::Done)
-		{
-			throw "err sending msg";
-		};
-	}
+	void Start(std::string IP, short port);
+	void Close();
 
-	static Client& GetClient()
+	static Client& Get() 
 	{
-		static Client d(12, "127.127.127.127");
-		return d;
+		static Client client;
+		return client;
 	}
 };

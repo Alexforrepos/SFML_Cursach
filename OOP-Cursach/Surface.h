@@ -80,5 +80,6 @@ inline void Surface<place_size, line_count>::Plant(Object* obj)
 {
 	Gologram* g = (Gologram*)obj;
 	for (auto line : Lines)
-		line->Plant_(g);
+		if (line->Plant_(g))
+			return;
 }
