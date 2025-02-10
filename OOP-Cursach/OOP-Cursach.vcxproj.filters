@@ -338,6 +338,9 @@
     <None Include="sfml-window-d-2.dll">
       <Filter>Файлы ресурсов\dll</Filter>
     </None>
+    <None Include="config.json">
+      <Filter>Файлы ресурсов\resource</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MSG_Manager.h">

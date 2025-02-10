@@ -15,7 +15,7 @@ class Client
 	std::atomic<bool> isconnected;
 public:
 	Client()
-		:handle_server_thread([&]() {Hande_Server(); })
+		:handle_server_thread([&]() { Hande_Server(); })
 	{
 
 	}

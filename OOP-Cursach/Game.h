@@ -4,6 +4,7 @@
 #include "O_Manager.h"
 #include <string>
 #include "Menu.h"
+#include ".\..\Lib\Json\include\nlohmann\json.hpp"
 
 
 
@@ -16,11 +17,13 @@ public:
 	};
 private:
 	static Game* game;
+	
 
 	friend class Game_Proc;
 	friend class Menu;
 
 	bool isRun;
+	nlohmann::json Config;
 
 	RUNMODE rm, lastrm;
 
@@ -40,6 +43,17 @@ private:
 	Res_Manager& RMg;
 	MSG_Manager& MsMg;
 
+	void Start(std::string jsonname)
+	{
+		std::fstream file(jsonname);
+		if (!file.is_open())
+		{
+			throw "json file didnt open";
+		}
+		file >> Config;
+		file.close();
+	}
+
 public:
 
 	static Game& Get()// Game::Get()
@@ -54,6 +68,8 @@ public:
 	}
 
 	void Run();
+
+	const bool& GetConfig(std::string confname) { if (Config.is) };
 
 	void ChangeRunMode(RUNMODE RM) { lastrm = rm; this->rm = RM; }
 	void SetRM() { this->lastrm = rm; }
