@@ -69,7 +69,7 @@ public:
 
 	void Run();
 
-	const bool& GetConfig(std::string confname) { if (Config.is) };
+	const bool& GetConfig(std::string confname);//{ if (Config.is) };
 
 	void ChangeRunMode(RUNMODE RM) { lastrm = rm; this->rm = RM; }
 	void SetRM() { this->lastrm = rm; }
