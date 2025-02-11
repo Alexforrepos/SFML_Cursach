@@ -64,5 +64,6 @@ Game::Game(std::string res_filename)
 {
 	if (Res_Manager::getmger()->load_from_file(res_filename))
 		throw "Res load err";
+
 }
 

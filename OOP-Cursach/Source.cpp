@@ -1,11 +1,5 @@
 #include <SFML/Graphics.hpp>
-#include "Game.h"/*
-#include "O_Manager.h"
-#include "ResourceManager.h"
-#include "Level.h"
-#include "Card_T.h"
-#include "Attack_Plants.h"
-#include "Zombie.h"*/
+#include "Game.h"
 using namespace std;
 using namespace sf;
 
@@ -16,35 +10,4 @@ int main()
 	{
 		game.Run();
 	}
-	/*while (game.isrun()) // то что должно быть у вас в мейне 
-		game.run();*/
-
-	/*system("chcp 1251 > 0");
-	RenderWindow win(VideoMode::VideoMode(VideoMode::getDesktopMode()), "Plants vs Zombies", Style::Fullscreen);
-	Event ev;
-	auto p = O_Manager::getmger();
-	Res_Manager::getmger()->load_from_file("./resources/res_list.txt");
-	p->add_obj(new Level<9, 3>);
-	p->add_obj(new Card_T);
-	p->add_obj(new Zombie);
-	while (win.isOpen())
-	{
-		win.clear();
-		while (win.pollEvent(ev))
-		{
-			switch (ev.type)
-			{
-			case Event::Closed:
-				win.close();
-				break;
-			default:
-				break;
-			}
-		}
-		
-		p->update();
-		p->draw(win);
-		win.display();
-	}
-	O_Manager::deinit();*/
 }

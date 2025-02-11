@@ -202,6 +202,9 @@
     <Filter Include="Исходные файлы\GameClasses\Game\Client">
       <UniqueIdentifier>{1c420728-4e91-4416-a147-b2a6afab7caf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Config_Load">
+      <UniqueIdentifier>{65fd7d92-5170-4243-89f5-536ea3674f29}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -303,6 +306,9 @@
     <ClCompile Include="Client.cpp">
       <Filter>Исходные файлы\GameClasses\Game\Client</Filter>
     </ClCompile>
+    <ClCompile Include="Config_load.cpp">
+      <Filter>Исходные файлы\GameClasses\Game\Config_Load</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="openal32.dll">
@@ -338,7 +344,7 @@
     <None Include="sfml-window-d-2.dll">
       <Filter>Файлы ресурсов\dll</Filter>
     </None>
-    <None Include="config.json">
+    <None Include="resources\config.json">
       <Filter>Файлы ресурсов\resource</Filter>
     </None>
   </ItemGroup>
@@ -438,6 +444,9 @@
     </ClInclude>
     <ClInclude Include="Client.h">
       <Filter>Исходные файлы\GameClasses\Game\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="Config_load.h">
+      <Filter>Исходные файлы\GameClasses\Game\Config_Load</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -110,10 +110,14 @@
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
       <AdditionalDependencies>sfml-graphics-d.lib;sfml-system-d.lib;sfml-window-d.lib;sfml-audio-d.lib;sfml-network-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>.\..\Lib\SFML-2.6.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <SuppressStartupBanner>false</SuppressStartupBanner>
     </Link>
+    <ProjectReference>
+      <UseLibraryDependencyInputs>true</UseLibraryDependencyInputs>
+    </ProjectReference>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -142,6 +146,7 @@
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Card_T.cpp" />
     <ClCompile Include="Client.cpp" />
+    <ClCompile Include="Config_load.cpp" />
     <ClCompile Include="Effect.cpp" />
     <ClCompile Include="EnemyManager.cpp" />
     <ClCompile Include="FOREVER_VIRGIN.cpp" />
@@ -172,8 +177,8 @@
     <ClCompile Include="Zombie.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="config.json" />
     <None Include="openal32.dll" />
+    <None Include="resources\config.json" />
     <None Include="sfml-audio-2.dll" />
     <None Include="sfml-audio-d-2.dll" />
     <None Include="sfml-graphics-2.dll" />
@@ -191,6 +196,7 @@
     <ClInclude Include="Button.h" />
     <ClInclude Include="Card_T.h" />
     <ClInclude Include="Client.h" />
+    <ClInclude Include="Config_load.h" />
     <ClInclude Include="Effect.h" />
     <ClInclude Include="EnemyManager.h" />
     <ClInclude Include="FOREVER_VIRGIN.h" />

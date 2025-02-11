@@ -44,6 +44,6 @@ void Card_T::SendMSG(MSG* msg)
 
 void Card_T::Draw(sf::RenderWindow& win)
 {
-	
-	win.draw(shape);
+	if (Config_load::getconfig().get().at("HitBoxVisibility").get<int>())   
+		win.draw(shape);
 }

@@ -1,7 +1,10 @@
 #pragma once
+#include "ResourceManager.h"
 #include "I_Object.h"
 #include "Timer.h"
 #include "gologram.h"
+#include "Config_load.h"
+//#include "Game.h"
 
 class Card_T
 	: public Object
@@ -34,6 +37,7 @@ public:
 		shape.setPosition(200, 200);
 		shape.setSize({ 200,200 });
 		shape.setFillColor(sf::Color::Cyan);
+		shape.setTexture(Res_Manager::get().get_access<sf::Texture*>("IvtClub.png"));
 		isactive = false;
 	}
 };
