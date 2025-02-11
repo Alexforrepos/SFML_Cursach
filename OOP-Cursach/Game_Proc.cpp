@@ -17,7 +17,7 @@ void Game_Proc::Close()
 
 void Game_Proc::Start()
 {
-	Game::Get();
+	Ost.play();
 	O_Manager::get().add_obj(new Level<9, 3>);
 	O_Manager::get().add_obj(new Card_T);
 	O_Manager::get().add_obj(new Zombie);

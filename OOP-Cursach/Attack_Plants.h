@@ -21,6 +21,8 @@ public:
         sprite.setPosition(pos);
         sprite.setTexture(*Res_Manager::getmger()->get_access<sf::Texture*>("ppss.jpg"));
         sprite.setScale(0.15, 0.2);
+
+        Res_Manager::get().get_access<sf::Music*>("pusomnadavil.mp3")->play();
     }
     // Унаследовано через Plant
     virtual void Update() override;

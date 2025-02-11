@@ -10,6 +10,7 @@
 void START()
 {
 	Game::Get().ChangeRunMode(Game::RUNMODE::RUNMODE_GAME);
+	Menu::get().Ost.stop();
 }
 
 void NET_HOST()
@@ -26,7 +27,8 @@ void Menu::Start()
 {
 	isstarted = true;
 	O_Manager::get().clear();
-
+	Ost.play();
+	Ost.setLoop(true);
 	if (!buttons.empty())
 	{
 		for (auto b : buttons)
@@ -36,7 +38,7 @@ void Menu::Start()
 
 	buttons.clear();
 	buttons.push_back(new Button(
-		sf::Text("Start", *(Res_Manager::get().get_access<sf::Font*>("PaluiSPDemo-Bold.otf")), 40),
+		sf::Text("DANYA", *(Res_Manager::get().get_access<sf::Font*>("PaluiSPDemo-Bold.otf")), 40),
 		sf::Vector2f(1400, 150),
 		sf::Vector2f(300, 100),
 		START

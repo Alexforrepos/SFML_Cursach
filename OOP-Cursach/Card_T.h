@@ -9,6 +9,7 @@
 class Card_T
 	: public Object
 {
+
 	sf::RectangleShape shape;
 	bool isactive;
 	PlantTypes PlT;
@@ -37,7 +38,7 @@ public:
 		shape.setPosition(200, 200);
 		shape.setSize({ 200,200 });
 		shape.setFillColor(sf::Color::Cyan);
-		shape.setTexture(Res_Manager::get().get_access<sf::Texture*>("IvtClub.png"));
+		shape.setTexture(Res_Manager::get().get_access<sf::Texture*>("jojo-dan.png"));
 		isactive = false;
 	}
 };

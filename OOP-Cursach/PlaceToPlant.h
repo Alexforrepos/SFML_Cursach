@@ -36,6 +36,7 @@ public:
 		if (isplacable && plant->IsWater() == iswater )
 		{
 			this->plant = plant;
+
 			ChangePlacMode();
 		}
 	}
