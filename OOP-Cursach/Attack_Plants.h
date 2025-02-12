@@ -17,6 +17,7 @@ public:
         cd_time_ms = 1000;
         damage = 1;
         HP = 5;
+        isActive = false;
         this->SetPos(pos);
         sprite.setPosition(pos);
         sprite.setTexture(*Res_Manager::getmger()->get_access<sf::Texture*>("ppss.jpg"));

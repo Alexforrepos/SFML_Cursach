@@ -6,7 +6,7 @@ class Plant :
     public Object
 {
 protected:
-    bool isActive;
+    bool isActive = false;
     bool iswater = false;
     unsigned HP,price;
     sf::Sprite sprite;
