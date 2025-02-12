@@ -26,8 +26,33 @@ void Zombie::Update()
     for (auto ef : eff) ef;
 }
 
-void Zombie::SendMSG(MSG* msg)//проверка на движенме гороха
+void Zombie::SendMSG(MSG* msg)
 {
+    if (msg->MSG_TYPE.index() == (int)MSG_TYPE::MSG_TYPE_MOVE)
+    {
+        if (MSG_TYPE_MOVE(*msg).obj->Serialize() == (int)Serialize_Enum::Pea)
+        {
+
+            pea* p = static_cast<pea*>(MSG_TYPE_MOVE(*msg).obj);
+          
+            if (p->GetBound().intersects(this->getBounds()))
+            {
+              
+                HP -= p->getDamage();
+
+
+                MSG_Manager::getmger()->add(new MSG(MSG_TYPE_KILL(p, p)));
+
+
+                if (HP <= 0)
+                {
+                    HP = 0;
+                    MSG_Manager::getmger()->add(new MSG(MSG_TYPE_KILL(this, this)));
+                }
+            }
+        }
+    }
+
     if (msg->MSG_TYPE.index() == (int)MSG_TYPE::MSG_TYPE_DEAL_DAMAGE)
     {
         if (MSG_TYPE_DEAL_DAMAGE(*msg).target == this)
@@ -40,16 +65,6 @@ void Zombie::SendMSG(MSG* msg)//проверка на движенме гороха
             }
         }
     }
-    
-    if (msg->MSG_TYPE.index() == (int)MSG_TYPE::MSG_TYPE_MOVE)
-    {
-        
-        if (MSG_TYPE_MOVE(*msg).obj->Serialize() == (int)Serialize_Enum::Pea)
-        {
-         if (((pea*)(MSG_TYPE_MOVE(*msg).obj))->GetBound().intersects(this->getBounds()))
-            MSG_Manager::getmger()->add(new MSG(MSG_TYPE_KILL(this, this)));
-        }
-    }
 
     if (msg->MSG_TYPE.index() == (int)MSG_TYPE::MSG_TYPE_KILL)
     {
@@ -59,16 +74,18 @@ void Zombie::SendMSG(MSG* msg)//проверка на движенме гороха
         }
         if (MSG_TYPE_KILL(*msg).victim->Serialize() == int(Serialize_Enum::Effect))
         {
-            for (std::vector<Effect*>::iterator it = eff.begin(); it != eff.end(); it++)
+            for (auto it = eff.begin(); it != eff.end(); it++)
+            {
                 if (*it == MSG_TYPE_KILL(*msg).victim)
                 {
                     eff.erase(it);
                     break;
                 }
+            }
         }
     }
-
 }
+
 
 void Zombie::StartAttack(Plant * plant)
 {

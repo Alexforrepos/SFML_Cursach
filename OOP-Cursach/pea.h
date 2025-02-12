@@ -29,7 +29,7 @@ public:
 		damage = 1;
 	}
 
-
+	int getDamage()  { return damage; }
 	int Serialize() override { return int(Serialize_Enum::Pea); }
 	sf::FloatRect GetBound() { return { Position.x,Position.y,size.x,size.y }; }
 	// Унаследовано через I_Object
