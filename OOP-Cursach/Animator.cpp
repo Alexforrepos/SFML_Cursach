@@ -20,7 +20,7 @@ void Animator::SwitchAnimation(Animator::Animation* animation)
 
 	if (animation != nullptr)
 	{
-		m_Sprite.setTexture(*(Res_Manager::getmger()->get_access<sf::Texture*>(animation->m_TextureName)));
+		m_Sprite.setTexture((Res_Manager::getmger()->get_access<sf::Texture>(animation->m_TextureName)));
 	}
 
 	m_CurrentAnimation = animation;

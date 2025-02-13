@@ -4,7 +4,7 @@ FOREVER_VIRGIN::FOREVER_VIRGIN()
 {
 	Position = sf::Vector2f(sf::Mouse::getPosition());
 	NEVER = nullptr;
-	spr.setTexture(*Res_Manager::getmger()->get_access<sf::Texture*>("sunflower.png"));//вставка текстуры
+	spr.setTexture(Res_Manager::getmger()->get_access<sf::Texture>("sunflower.png"));//вставка текстуры
 	spr.setPosition(this->Position);//позиция картинки
 	spr.setScale(0.1,0.1);
 }

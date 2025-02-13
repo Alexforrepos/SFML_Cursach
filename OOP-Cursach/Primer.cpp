@@ -4,7 +4,7 @@ Primer::Primer()
 {
 	this->timeofdying.restart();
 	spr.setPosition({ 300,300 });
-	spr.setTexture(*Res_Manager::getmger()->get_access<sf::Texture*>("00_6.png"));
+	spr.setTexture(Res_Manager::getmger()->get_access<sf::Texture>("00_6.png"));
 }
 
 void Primer::Update()

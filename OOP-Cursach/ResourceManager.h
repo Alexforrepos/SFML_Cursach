@@ -79,33 +79,33 @@ public:
 
 
 	template<typename T>
-	T get_access(const std::string& filename)
+	T& get_access(const std::string& filename)
 	{
 		throw "type not define";
 	};
 	template<>
-	sf::Texture* get_access<sf::Texture*>(const std::string& filename)
+	sf::Texture& get_access<sf::Texture>(const std::string& filename)
 	{
 		auto it = resources.find(filename);
 		if (it == resources.end())
 			throw "have not resourece with this name";
-		return std::get<sf::Texture*>(it->second);
+		return *std::get<sf::Texture*>(it->second);
 	}
 	template<>
-	sf::Music* get_access<sf::Music*>(const std::string& filename)
+	sf::Music& get_access<sf::Music>(const std::string& filename)
 	{
 		auto it = resources.find(filename);
 		if (it == resources.end())
 			throw "have not resourece with this name";
-		return std::get<sf::Music*>(it->second);
+		return *std::get<sf::Music*>(it->second);
 	}
 	template<>
-	sf::Font* get_access<sf::Font*>(const std::string& filename)
+	sf::Font& get_access<sf::Font>(const std::string& filename)
 	{
 		auto it = resources.find(filename);
 		if (it == resources.end())
 			throw "have not resourece with this name";
-		return std::get<sf::Font*>(it->second);
+		return *std::get<sf::Font*>(it->second);
 	}
 #pragma endregion
 

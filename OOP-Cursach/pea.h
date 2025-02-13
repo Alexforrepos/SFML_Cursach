@@ -23,7 +23,7 @@ public:
 
 		this->SetPos(pos);
 		shape.setPosition(pos);
-		sprite.setTexture(*Res_Manager::getmger()->get_access<sf::Texture*>("kpst.jpg"));
+		sprite.setTexture(Res_Manager::getmger()->get_access<sf::Texture>("kpst.jpg"));
 		sprite.setScale(2, 2);
 		size = { 100,100 };
 		damage = 1;

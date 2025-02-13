@@ -9,7 +9,7 @@ class Menu
 	sf::Music& Ost;
 	bool isstarted;
 	Menu()
-		:isstarted(false), Ost(*Res_Manager::get().get_access<sf::Music*>("Casey_Edwards_feat_Victor_Borba_-_Bury_The_Light_b64f0d584.mp3"))
+		:isstarted(false), Ost(Res_Manager::get().get_access<sf::Music>("Casey_Edwards_feat_Victor_Borba_-_Bury_The_Light_b64f0d584.mp3"))
 	{
 
 	}

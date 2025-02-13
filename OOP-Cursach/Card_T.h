@@ -38,7 +38,7 @@ public:
 		shape.setPosition(200, 200);
 		shape.setSize({ 200,200 });
 		shape.setFillColor(sf::Color::Cyan);
-		shape.setTexture(Res_Manager::get().get_access<sf::Texture*>("jojo-dan.png"));
+		shape.setTexture(&Res_Manager::get().get_access<sf::Texture>("jojo-dan.png"));
 		isactive = false;
 	}
 };

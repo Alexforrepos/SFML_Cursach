@@ -12,6 +12,7 @@ protected:
 
 public:
 	Object() = default;
+	Object(const sf::Vector2f& pos) { this->Position = pos; };
 	virtual void Update() = 0; // собственная логика
 	virtual void SendMSG(MSG* msg) = 0; // получение сообщения
 	virtual void Draw(sf::RenderWindow& win) = 0; // отрисовка

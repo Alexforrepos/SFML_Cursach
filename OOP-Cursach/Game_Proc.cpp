@@ -3,10 +3,20 @@
 #include "Level.h"
 #include "Card_T.h"
 #include "Zombie.h"
+#include "Sun.h"
 
 
 void Game_Proc::Run()
 {
+	static Timer time_to_click(1000);
+	if (Config_load::getconfig().get().at("SunOnLeftButton").get<int>())
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Right) && time_to_click())
+		{
+			MSG_Manager::get().add(new
+				MSG(MSG_TYPE_CREATE(new Sun((sf::Vector2f)sf::Mouse::getPosition(),
+					(sf::Mouse::getPosition().y + 1000)), nullptr)));
+			time_to_click.restart();
+		}
 }
 
 void Game_Proc::Close()
@@ -17,7 +27,8 @@ void Game_Proc::Close()
 
 void Game_Proc::Start()
 {
-	Ost.play();
+	if (Config_load::getconfig().get().at("SoundOn").get<int>())
+		Ost.play();
 	O_Manager::get().add_obj(new Level<9, 3>);
 	O_Manager::get().add_obj(new Card_T);
 	O_Manager::get().add_obj(new Zombie);

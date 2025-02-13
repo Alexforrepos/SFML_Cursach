@@ -26,7 +26,7 @@ public:
     Zombie()
 		:timer(100),cd_time(),damage_area_size(100,100),is_attack(false),height(0),HP(5),cd_time_mc(300),target(nullptr)
 	{
-		sprite.setTexture(*Res_Manager::getmger()->get_access<sf::Texture*>("zombie_n.png"));
+		sprite.setTexture(Res_Manager::getmger()->get_access<sf::Texture>("zombie_n.png"));
 		sprite.setScale(0.1, 0.15);
 		Size = sf::Vector2f{ 100,100 };
 		sprite.setPosition({ 1500,400 });
