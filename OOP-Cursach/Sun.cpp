@@ -9,14 +9,13 @@ void Sun::Update()
 		Game_Proc::get().GetSunValue() += value;
 		MSG_Manager::get().add(new MSG(MSG_TYPE_KILL(this, this)));
 	}
-	if (islay && dis_time() > SUN_TIME_TO_DIS)
+	if (islay && dis_time())
 	{
 		MSG_Manager::get().add(new MSG(MSG_TYPE_KILL(this, this)));
 	}
 	if (!islay)
 	{
-		Position.y + sin(45) * velocity * 1.0;
-		Position.x + cos(45) * velocity * 1.0;
+		Position.y += velocity;
 		if (Position.y > this->dis_level)
 		{
 			islay = true;

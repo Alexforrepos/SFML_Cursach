@@ -18,7 +18,7 @@ class Sun
 	unsigned velocity, dis_level;
 	float sin_angle;
 	Timer dis_time;
-	bool islay;
+	bool islay;	
 
 	sf::Sprite sprite;
 public:

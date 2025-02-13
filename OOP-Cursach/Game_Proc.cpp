@@ -14,7 +14,7 @@ void Game_Proc::Run()
 		{
 			MSG_Manager::get().add(new
 				MSG(MSG_TYPE_CREATE(new Sun((sf::Vector2f)sf::Mouse::getPosition(),
-					(sf::Mouse::getPosition().y + 1000)), nullptr)));
+					(900)), nullptr)));
 			time_to_click.restart();
 		}
 }
