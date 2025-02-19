@@ -29,8 +29,8 @@ public:
 		sprite.setTexture(Res_Manager::getmger()->get_access<sf::Texture>("zombie_n.png"));
 		sprite.setScale(0.1, 0.15);
 		Size = sf::Vector2f{ 100,100 };
-		sprite.setPosition({ 1500,400 });
-		this->SetPos({ 1500,400 });
+		sprite.setPosition(spawnPos);
+		this->SetPos(spawnPos);
 		traectory = { { 0,0 } , { 0,0 } };
 	} 
 	
