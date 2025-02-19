@@ -1,6 +1,7 @@
 #pragma once
 #include "Attack_Plants.h"
 #include "Timer.h"
+#include "SFML/Graphics.hpp"
 class Repeater : public Attack_Plants
 {
 	Timer time_to_repeat;

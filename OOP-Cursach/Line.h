@@ -3,6 +3,7 @@
 #include "gologram.h"
 #include "Zombie.h"
 #include "Attack_Plants.h"
+#include "Repeater.h"
 #define MAX_LINE_WIDTH_X 1500
 
 template<int size>
@@ -39,7 +40,7 @@ public:
 		for (Landing_place* P_l : places)
 			if (g->getbound().intersects(P_l->getBounds()) && !P_l->IsPlanted() && P_l->Isplacable())
 			{
-				switch ()
+				switch (g->getType())
 				{
 				case Peashooter:
 					P_l->Plant_(PlacedPlant = new Attack_Plants(P_l->getBounds().getPosition()));
