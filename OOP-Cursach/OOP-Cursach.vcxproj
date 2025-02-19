@@ -167,6 +167,7 @@
     <ClCompile Include="PlaceToPlant.cpp" />
     <ClCompile Include="Plant.cpp" />
     <ClCompile Include="Primer.cpp" />
+    <ClCompile Include="Repeater.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Sun.cpp" />
@@ -216,6 +217,7 @@
     <ClInclude Include="PlaceToPlant.h" />
     <ClInclude Include="Plant.h" />
     <ClInclude Include="Primer.h" />
+    <ClInclude Include="Repeater.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="Sun.h" />
     <ClInclude Include="Support_Plant.h" />

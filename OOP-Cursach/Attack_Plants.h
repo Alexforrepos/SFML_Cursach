@@ -16,7 +16,7 @@ public:
     Attack_Plants(sf::Vector2f pos)
         :s(Res_Manager::get().get_access<sf::SoundBuffer>("pusomnadavil.mp3"))
     {
-        cd_time_ms = 1000;
+        cd_time_ms = 2000;
         damage = 1;
         HP = 5;
         isActive = false;
@@ -34,4 +34,3 @@ public:
 
     virtual void Draw(sf::RenderWindow& win) override;
 };
-

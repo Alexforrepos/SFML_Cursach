@@ -303,6 +303,9 @@
     <ClCompile Include="Config_load.cpp">
       <Filter>Исходные файлы\GameClasses\Game\Config_Load</Filter>
     </ClCompile>
+    <ClCompile Include="Repeater.cpp">
+      <Filter>Исходные файлы\GameClasses\Game\Objecct\Plants\Attack_Plants\Repeater</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="openal32.dll">
@@ -438,6 +441,9 @@
     </ClInclude>
     <ClInclude Include="Config_load.h">
       <Filter>Исходные файлы\GameClasses\Game\Config_Load</Filter>
+    </ClInclude>
+    <ClInclude Include="Repeater.h">
+      <Filter>Исходные файлы\GameClasses\Game\Objecct\Plants\Attack_Plants\Repeater</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
