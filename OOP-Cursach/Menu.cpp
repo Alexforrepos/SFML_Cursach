@@ -6,6 +6,7 @@
 #include "MSG_Manager.h"
 #include "MSG.h"
 #include "O_Manager.h"
+#include "Config_load.h"
 
 void START()
 {
@@ -25,16 +26,12 @@ void NER_CLIENT()
 
 void Menu::Start()
 {
+	std::vector<Button*> buttons;
 	isstarted = true;
 	O_Manager::get().clear();
-	Ost.play();
+	if (Config_load::getconfig().get().at("SoundOn").get<int>())
+		Ost.play();
 	Ost.setLoop(true);
-	if (!buttons.empty())
-	{
-		for (auto b : buttons)
-			delete b;
-		buttons.clear();
-	}
 
 	buttons.clear();
 	buttons.push_back(new Button(

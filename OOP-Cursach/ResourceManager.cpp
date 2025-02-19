@@ -1,5 +1,5 @@
 #include "ResourceManager.h"
-using namespace std; 
+using namespace std;
 using namespace filesystem;
 
 Res_Manager* Res_Manager::RM = nullptr;
@@ -33,6 +33,10 @@ int Res_Manager::load_from_file(const std::string& filename)
 				for (auto files : filesystem::directory_iterator(path))
 					load<sf::Font*>(files.path().string());
 				break;
+			case 's'://для звука
+				for (auto files : filesystem::directory_iterator(path))
+						load<sf::SoundBuffer*>(files.path().string());
+					break;
 			}
 			break;
 		case 't'://для текстуры
@@ -47,7 +51,10 @@ int Res_Manager::load_from_file(const std::string& filename)
 			load<sf::Font*>(path);
 			file >> path;
 			break;
-
+		case 's':
+			load<sf::SoundBuffer*>(path);
+			file >> path;
+			break;
 		}
 	}
 	file.close();

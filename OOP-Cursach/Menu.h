@@ -3,9 +3,11 @@
 #include "ResourceManager.h"
 #include "Button.h"
 
+
+//Класс преднсзначенный для инициализации и хранения меню-объетов
 class Menu
 {
-	std::vector<Button*> buttons;
+	
 	sf::Music& Ost;
 	bool isstarted;
 	Menu()
@@ -14,15 +16,17 @@ class Menu
 
 	}
 public:
+	//функция кнопки запуска игры 
 	friend void START();
-
+	//инициализация кнопок и другого
 	void Start();
+	//Выполнения действийт выполняемых каждый игровой цикл
 	void Run();
+	//освобождение ресурсов без удаления класса
 	void Close();
-
+	//флаг возврат
 	bool IsStarted() { return isstarted; }
-
-
+	//инициализациия
 	static Menu& get()
 	{
 		static Menu m;

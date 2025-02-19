@@ -11,8 +11,10 @@ protected:
     int HP;
     int damage,cd_time_ms;
     sf::Clock time_to_shoot;
+    sf::Sound s;
 public:
     Attack_Plants(sf::Vector2f pos)
+        :s(Res_Manager::get().get_access<sf::SoundBuffer>("pusomnadavil.mp3"))
     {
         cd_time_ms = 1000;
         damage = 1;
@@ -23,7 +25,7 @@ public:
         sprite.setTexture(Res_Manager::getmger()->get_access<sf::Texture>("ppss.jpg"));
         sprite.setScale(0.15, 0.2);
 
-        Res_Manager::get().get_access<sf::Music>("pusomnadavil.mp3").play();
+        s.play();
     }
     // Унаследовано через Plant
     virtual void Update() override;
