@@ -4,7 +4,7 @@
 
 enum PlantTypes
 {
-	Peashooter, Sunflower, MrBigPenis
+	Peashooter, Sunflower, MrBigPenis, Repeater
 };
 
 
@@ -18,13 +18,17 @@ public:
 	Gologram(sf::Vector2f pos)
 		:timer(200)
 	{
-		PlntTp = Peashooter;
 		this->SetPos(pos);
 		shape.setPosition(pos);
 		shape.setSize({ 40,40 });
 		shape.setFillColor(sf::Color::White);
+		//PlntTp = Peashooter;
 	}
 	
+	const PlantTypes& getType()
+	{
+		return PlntTp;
+	}
 
 	// Унаследовано через Object
 	void Update() override;

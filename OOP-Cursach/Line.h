@@ -39,8 +39,24 @@ public:
 		for (Landing_place* P_l : places)
 			if (g->getbound().intersects(P_l->getBounds()) && !P_l->IsPlanted() && P_l->Isplacable())
 			{
-				P_l->Plant_(PlacedPlant = new Attack_Plants(P_l->getBounds().getPosition()));
-				MSG_Manager::getmger()->add(new MSG(MSG_TYPE_CREATE(PlacedPlant,g)));
+				switch ()
+				{
+				case Peashooter:
+					P_l->Plant_(PlacedPlant = new Attack_Plants(P_l->getBounds().getPosition()));
+					MSG_Manager::getmger()->add(new MSG(MSG_TYPE_CREATE(PlacedPlant, g)));
+					break;
+				case Sunflower:
+					break;
+				case MrBigPenis:
+					break;
+				case Repeater:
+					P_l->Plant_(PlacedPlant = new Repeater(P_l->getBounds().getPosition()));
+					MSG_Manager::getmger()->add(new MSG(MSG_TYPE_CREATE(PlacedPlant, g)));
+					break;
+				default:
+					break;
+				}
+				
 				return 1;
 			}
 		return 0;

@@ -30,12 +30,11 @@ public:
 		return PlT;
 	}
 
-	Card_T()
-		:timer(200)
+	Card_T(sf::Vector2f pos ,PlantTypes PlT)
+		:timer(200), PlT(PlT)
 	{
-		PlT = Peashooter;
 		g = nullptr;
-		shape.setPosition(200, 200);
+		shape.setPosition(pos);
 		shape.setSize({ 200,200 });
 		shape.setFillColor(sf::Color::Cyan);
 		shape.setTexture(&Res_Manager::get().get_access<sf::Texture>("jojo-dan.png"));

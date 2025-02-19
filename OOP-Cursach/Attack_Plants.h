@@ -2,6 +2,7 @@
 #include "Plant.h"
 #include "Zombie.h"
 #include "pea.h"
+#include "Timer.h"
 
 class Attack_Plants : // так же обычный горохострел
     public Plant
@@ -9,14 +10,13 @@ class Attack_Plants : // так же обычный горохострел
 protected:
 
     int HP;
-    int damage,cd_time_ms;
-    sf::Clock time_to_shoot;
+    int damage;
+    Timer time_to_shoot;
     sf::Sound s;
 public:
     Attack_Plants(sf::Vector2f pos)
-        :s(Res_Manager::get().get_access<sf::SoundBuffer>("pusomnadavil.mp3"))
+        :s(Res_Manager::get().get_access<sf::SoundBuffer>("pusomnadavil.mp3")),time_to_shoot(2000)
     {
-        cd_time_ms = 2000;
         damage = 1;
         HP = 5;
         isActive = false;

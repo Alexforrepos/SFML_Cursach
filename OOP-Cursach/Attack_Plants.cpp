@@ -2,7 +2,7 @@
 
 void Attack_Plants::Update()
 {
-	if (isActive && cd_time_ms <= time_to_shoot.getElapsedTime().asMilliseconds())
+	if (time_to_shoot() && isActive)
 	{
 
 		pea* penis = new pea(this->Position);
