@@ -33,6 +33,4 @@ public:
 	void update();
 
 	std::vector<Object*>& getobj() { return objects; }
-
-	
 };

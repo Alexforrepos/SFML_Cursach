@@ -7,7 +7,5 @@ int main()
 {
 	Game& game = Game::Get();
 	while (game.isRunning())
-	{
 		game.Run();
-	}
 }

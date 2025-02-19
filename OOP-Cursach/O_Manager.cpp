@@ -7,7 +7,6 @@ void O_Manager::update()
 	vector<Object*>::iterator it;
 	vector<Object*> gulag;
 	for (auto obj : objects) obj->Update();
-	/*this->MSGM->unique(); */
 	MSGM->isvischange();
 	auto msg_v = MSGM->get_msges();
 	for (auto& msg : msg_v)
@@ -34,6 +33,7 @@ void O_Manager::update()
 		}
 
 	}
+
 	for (auto obj : gulag)
 	{
 		it = find_if(objects.begin(), objects.end(), [&](Object* arg) { return arg == obj; });
