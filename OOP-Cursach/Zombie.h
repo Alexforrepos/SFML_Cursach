@@ -22,7 +22,7 @@ protected:
     std::pair<sf::Vector2f, sf::Vector2f> traectory;
     Plant* target;
     bool is_attack;
-
+    //
     std::vector<Effect*> eff;
 public:
     Zombie()
