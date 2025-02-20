@@ -21,7 +21,7 @@ public:
 	// Унаследовано через Object
 	void Update() override
 	{
-		
+		e_m.Update();
 	};
 
 	void SendMSG(MSG* msg) 

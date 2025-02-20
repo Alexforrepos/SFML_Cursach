@@ -1,5 +1,7 @@
 #pragma once
 #include "I_Object.h"
+#include "Timer.h"
+#include "Zombie.h"
 enum ZOMBE_TO_SPAWN_SCORES
 {
 	NORMAL_ZOMBIE_POINT = 100,
@@ -12,7 +14,9 @@ class EnemyManager
 	:public Object
 {
 	int points;
+	Timer spawn;
 public:
+	EnemyManager() : spawn(5000) {}
 	void Spawn();
 	void GetPoints(int GetPoint) { this->points += points; };
 

@@ -29,7 +29,7 @@ void Game_Proc::Start()
 {
 	if (Config_load::getconfig().get().at("SoundOn").get<int>())
 		Ost.play();
-	O_Manager::get().add_obj(new Level<9, 3>);
+	O_Manager::get().add_obj(new Level<9, 5>);
 	O_Manager::get().add_obj(new Card_T({200,200}, Peashooter));
 	O_Manager::get().add_obj(new Card_T({ 400,200 }, Repeater));
 	O_Manager::get().add_obj(new Card_T({ 600,200 }, Showel));
