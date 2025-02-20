@@ -62,6 +62,9 @@ Game::Game(std::string res_filename)
 	MsMg(*MSG_Manager::getmger()),
 	RMg(*Res_Manager::getmger()), rm(RUNMODE::RUNMODE_MENU),isRun(true),lastrm(RUNMODE::RUNMODE_GAME)
 {
+	auto rand_seed = time(NULL);
+	srand(rand_seed);
+	std::cout << "Rand_seed == " << rand_seed << std::endl;
 	if (Res_Manager::getmger()->load_from_file(res_filename))
 		throw "Res load err";
 

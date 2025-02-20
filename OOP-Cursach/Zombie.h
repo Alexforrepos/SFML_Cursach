@@ -5,6 +5,7 @@
 #include "Timer.h"
 #include "pea.h"
 #include "Effect.h"
+#include "PlaceToPlant.h"
 
 class Plant;
 class Zombie // обычный зомби
@@ -32,10 +33,8 @@ public:
         Size = sf::Vector2f{ 100, 100 };
 
       
-        const float possibleLines[] = { 400.f, 600.f, 800.f }; 
-        const int numLines = sizeof(possibleLines) / sizeof(possibleLines[0]);
-        srand(time(NULL));
-       
+        const float possibleLines[] = { BEGIN_OF_LINE_Y , BEGIN_OF_LINE_Y + WIDTH_OF_PLACE * 2, BEGIN_OF_LINE_Y + 2 * WIDTH_OF_PLACE * 2 };
+        const int numLines = sizeof(possibleLines) / sizeof(possibleLines[0]);       
         float randomLine = possibleLines[rand() % numLines];
 
         sprite.setPosition({ 1500.f, randomLine });

@@ -15,8 +15,8 @@ class Gologram
 	PlantTypes PlntTp;
 	Timer timer;
 public:
-	Gologram(sf::Vector2f pos)
-		:timer(200)
+	Gologram(sf::Vector2f pos,PlantTypes type)
+		:timer(200),PlntTp(type)
 	{
 		this->SetPos(pos);
 		shape.setPosition(pos);

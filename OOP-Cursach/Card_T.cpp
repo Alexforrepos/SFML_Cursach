@@ -6,7 +6,7 @@ void Card_T::Update()
 		&& timer())
 	{
 		isactive = true;
-		this->g = new Gologram(sf::Vector2f( sf::Mouse::getPosition()));
+		this->g = new Gologram(sf::Vector2f( sf::Mouse::getPosition()),PlT);
 		MSG_Manager::getmger()->add(new MSG(MSG_TYPE_CREATE(g,this)));
 		shape.setFillColor(sf::Color::Cyan);
 		timer.restart();
