@@ -41,6 +41,7 @@ public:
         this->SetPos({ 1500.f, randomLine });
     }
 
+    //
     Zombie(std::pair<sf::Vector2f, sf::Vector2f> traectory)
         : Zombie()
     {
