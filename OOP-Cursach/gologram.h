@@ -4,7 +4,7 @@
 
 enum PlantTypes
 {
-	Peashooter, Sunflower, MrBigPenis, Repeater
+	Peashooter, Sunflower, MrBigPenis, Repeater, Showel
 };
 
 
@@ -15,8 +15,8 @@ class Gologram
 	PlantTypes PlntTp;
 	Timer timer;
 public:
-	Gologram(sf::Vector2f pos,PlantTypes type)
-		:timer(200),PlntTp(type)
+	Gologram(sf::Vector2f pos, PlantTypes type)
+		:timer(200), PlntTp(type)
 	{
 		this->SetPos(pos);
 		shape.setPosition(pos);
@@ -24,7 +24,7 @@ public:
 		shape.setFillColor(sf::Color::White);
 		//PlntTp = Peashooter;
 	}
-	
+
 	const PlantTypes& getType()
 	{
 		return PlntTp;
@@ -37,13 +37,13 @@ public:
 
 	void Draw(sf::RenderWindow& win) override;
 
-	int Serialize() override 
-	{ 
+	int Serialize() override
+	{
 		return (int)Serialize_Enum::Hologram;
 	}
 
-	sf::Rect<float> getbound() 
-	{ 
-		return shape.getGlobalBounds(); 
+	sf::Rect<float> getbound()
+	{
+		return shape.getGlobalBounds();
 	}
 };

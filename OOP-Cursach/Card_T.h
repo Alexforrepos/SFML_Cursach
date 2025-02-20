@@ -38,7 +38,25 @@ public:
 		shape.setPosition(pos);
 		shape.setSize({ 200,200 });
 		shape.setFillColor(sf::Color::Cyan);
-		shape.setTexture(&Res_Manager::get().get_access<sf::Texture>("jojo-dan.png"));
+		switch (PlT)
+		{
+		case Peashooter:
+			shape.setTexture(&Res_Manager::get().get_access<sf::Texture>("jojo-dan.png"));
+			break;
+		case Sunflower:
+			break;
+		case MrBigPenis:
+			break;
+		case Repeater:
+			shape.setTexture(&Res_Manager::get().get_access<sf::Texture>("loose.jpg"));
+			break;
+		case Showel:
+			shape.setTexture(&Res_Manager::get().get_access<sf::Texture>("bozhepomogi.jpg"));
+			break;
+		default:
+			break;
+		}
+		
 		isactive = false;
 	}
 };

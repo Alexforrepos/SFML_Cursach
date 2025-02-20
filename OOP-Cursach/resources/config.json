@@ -5,5 +5,6 @@
   "Immortality": 0,
   "ManySun": 0,
   "SoundOn": 0,
-  "SunOnLeftButton": 1
+  "SunOnLeftButton": 1,
+  "ZombieImmortal" : 0
 }

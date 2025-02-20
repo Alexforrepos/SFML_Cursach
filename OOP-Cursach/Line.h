@@ -38,8 +38,19 @@ public:
 	{
 		Plant* PlacedPlant = nullptr;
 		for (Landing_place* P_l : places)
+		{
+			{
+				if (g->getType() == PlantTypes::Showel && g->getbound().intersects(P_l->getBounds()))
+				{
+					if (P_l->GetPlant())
+						MSG_Manager::getmger()->add(new MSG(MSG_TYPE_KILL(P_l->GetPlant(), g)));
+					P_l->Wrest();
+					return 1;
+				}
+			}
 			if (g->getbound().intersects(P_l->getBounds()) && !P_l->IsPlanted() && P_l->Isplacable())
 			{
+
 				switch (g->getType())
 				{
 				case Peashooter:
@@ -54,12 +65,14 @@ public:
 					P_l->Plant_(PlacedPlant = new Repeater(P_l->getBounds().getPosition()));
 					MSG_Manager::getmger()->add(new MSG(MSG_TYPE_CREATE(PlacedPlant, g)));
 					break;
+					break;
 				default:
 					break;
 				}
-				
+
 				return 1;
 			}
+		}
 		return 0;
 	}
 
@@ -84,7 +97,7 @@ public:
 				P_l->Wrest();
 		}
 	}
-	
+
 	sf::Rect<float> getbound()
 	{
 		return shape.getGlobalBounds();

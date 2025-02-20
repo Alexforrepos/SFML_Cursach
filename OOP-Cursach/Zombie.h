@@ -6,6 +6,7 @@
 #include "pea.h"
 #include "Effect.h"
 #include "PlaceToPlant.h"
+#include "Config_load.h"
 
 class Plant;
 class Zombie // обычный зомби
@@ -39,6 +40,8 @@ public:
 
         sprite.setPosition({ 1500.f, randomLine });
         this->SetPos({ 1500.f, randomLine });
+        if (Config_load::getconfig().get().at("ZombieImmortal").get<int>())
+            HP += 10000;
     }
 
     //
