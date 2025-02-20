@@ -14,5 +14,6 @@ public:
 	void Update() override;
 	void SendMSG(MSG* msg) override;
 	void Draw(sf::RenderWindow& win) override;
+	//û
 };
 
