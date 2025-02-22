@@ -9,7 +9,10 @@
 void Game_Proc::Run()
 {
 	static Timer time_to_click(1000);
+
+	//здесь спавн солнц на пкм
 	if (Config_load::getconfig().get().at("SunOnLeftButton").get<int>())
+	{
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Right) && time_to_click())
 		{
 			MSG_Manager::get().add(new
@@ -17,6 +20,8 @@ void Game_Proc::Run()
 					(900)), nullptr)));
 			time_to_click.restart();
 		}
+	}
+	//здесь отрисовка количества солнц
 	if (!Config_load::getconfig().get().at("FreePlants").get<int>())
 	{
 		std::string SunCountText = "SUN:";
@@ -25,6 +30,13 @@ void Game_Proc::Run()
 		sf::Text SunCount(SunCountText, Res_Manager::get().get_access<sf::Font>("BantyBold.ttf"));
 		SunCount.setPosition(100, 0);
 		Game::Get().win.draw(SunCount);
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape))
+	{
+		Game::Get().ChangeRunMode(Game::RUNMODE::RUNMODE_MENU);
+		O_Manager::get().clear();
+		isrun = false;
 	}
 }
 

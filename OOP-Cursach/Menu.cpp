@@ -11,12 +11,14 @@
 void START()
 {
 	Game::Get().ChangeRunMode(Game::RUNMODE::RUNMODE_GAME);
+	Menu::get().isstarted = false;
 	Menu::get().Ost.stop();
 }
 
 void NET_HOST()
 {
 	Host::Get().Start(53000);
+	START();
 }
 
 void NER_CLIENT()
@@ -59,11 +61,7 @@ void Menu::Start()
 
 void Menu::Run()
 {
-	/// тут ошибка ты в функции старта уже добавил в очередь обработки все кнопки
-	/* for (auto b : buttons)
-	 {
-		 b->Update();
-	 }*/
+	
 }
 
 void Menu::Close()

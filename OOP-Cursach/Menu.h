@@ -26,7 +26,7 @@ public:
 	void Close();
 	//флаг возврат
 	bool IsStarted() { return isstarted; }
-	//инициализациия
+	//инициализациия 
 	static Menu& get()
 	{
 		static Menu m;
