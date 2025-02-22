@@ -13,6 +13,7 @@ void START()
 	Game::Get().ChangeRunMode(Game::RUNMODE::RUNMODE_GAME);
 	Menu::get().isstarted = false;
 	Menu::get().Ost.stop();
+	Menu::get().Close();
 }
 
 void NET_HOST()
@@ -24,6 +25,11 @@ void NET_HOST()
 void NER_CLIENT()
 {
 	Client::Get().Start("125.0.0.0", 53000);
+}
+
+void EXIT()
+{
+	Game::Get().Close();
 }
 
 void Menu::Start()
@@ -54,6 +60,12 @@ void Menu::Start()
 		sf::Vector2f(300, 400),
 		NER_CLIENT
 	));
+	buttons.push_back(new Button(
+		sf::Text("Exit", Res_Manager::get().get_access<sf::Font>("PaluiSPDemo-Bold.otf"), 40),
+		sf::Vector2f(1400, 150),
+		sf::Vector2f(300, 700),
+		EXIT
+	));
 
 	for (auto b : buttons)
 		MSG_Manager::get().Recieve(new MSG(MSG_TYPE_CREATE(b, nullptr)));
@@ -67,4 +79,5 @@ void Menu::Run()
 void Menu::Close()
 {
 	O_Manager::get().clear();
+	this->isstarted = false;
 }

@@ -31,19 +31,20 @@ void Game_Proc::Run()
 		SunCount.setPosition(100, 0);
 		Game::Get().win.draw(SunCount);
 	}
-
+	//выход в меню 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape))
 	{
 		Game::Get().ChangeRunMode(Game::RUNMODE::RUNMODE_MENU);
-		O_Manager::get().clear();
-		isrun = false;
+		this->Close();
 	}
 }
 
 void Game_Proc::Close()
 {
 	O_Manager::get().clear();
-	isrun = false;
+	this->Sun_value = false;
+	Ost.stop();
+	
 }
 
 void Game_Proc::Start()

@@ -14,6 +14,7 @@ class Game
 {
 	friend class Game_Proc;
 	friend class Menu;
+	friend void EXIT();	
 public:
 	enum class RUNMODE
 	{

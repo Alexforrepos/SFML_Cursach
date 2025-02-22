@@ -22,7 +22,7 @@ void Game::Run()
 			break;
 		}
 	}
-	
+
 
 	switch (int(rm))
 	{
@@ -32,19 +32,19 @@ void Game::Run()
 				menu.Start();
 				SetRM();
 			}
-			menu.Run();
-			break;
-			case int(RUNMODE::RUNMODE_GAME) :
-				if (rm != lastrm && rm == RUNMODE::RUNMODE_GAME && !gprc.GetIsRun())
-				{
-					OMg.clear();
-					gprc.Start();
-					SetRM();
-				}
-			gprc.Run();
-			break;
-	default:
+		menu.Run();
 		break;
+		case int(RUNMODE::RUNMODE_GAME) :
+			if (rm != lastrm && rm == RUNMODE::RUNMODE_GAME && !gprc.GetIsRun())
+			{
+				OMg.clear();
+				gprc.Start();
+				SetRM();
+			}
+		gprc.Run();
+		break;
+		default:
+			break;
 	}
 
 	OMg.update();
@@ -60,7 +60,7 @@ Game::Game(std::string res_filename)
 	:win(sf::VideoMode::VideoMode(sf::VideoMode::getDesktopMode()), "Plants vs Zombies", sf::Style::Fullscreen),
 	OMg(*O_Manager::getmger()),
 	MsMg(*MSG_Manager::getmger()),
-	RMg(*Res_Manager::getmger()), rm(RUNMODE::RUNMODE_MENU),isRun(true),lastrm(RUNMODE::RUNMODE_GAME)
+	RMg(*Res_Manager::getmger()), rm(RUNMODE::RUNMODE_MENU), isRun(true), lastrm(RUNMODE::RUNMODE_GAME)
 {
 	auto rand_seed = time(NULL);
 	srand(rand_seed);
