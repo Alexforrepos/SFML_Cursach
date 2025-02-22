@@ -1,9 +1,10 @@
+#include <iostream>
 #include <SFML/Graphics.hpp>
 #include "Game.h"
-using namespace std;
-using namespace sf;
 
-int main()
+
+
+int WinMain(int argc, char* argv[])
 {
 	Game& game = Game::Get();
 	while (game.isRunning())
