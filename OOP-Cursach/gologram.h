@@ -1,31 +1,35 @@
 #pragma once
 #include "I_Object.h"
 #include "Timer.h"
+#include "ResourceManager.h"
+#include "Config_load.h"
+enum HoloType
 
-enum PlantTypes
 {
 	Peashooter, Sunflower, MrBigPenis, Repeater, Showel
 };
 
 
-class Gologram
+class Hologram
 	: public Object
 {
-	sf::RectangleShape shape;
-	PlantTypes PlntTp;
+	HoloType PlntTp;
+	sf::Sprite spr;
 	Timer timer;
 public:
-	Gologram(sf::Vector2f pos, PlantTypes type)
-		:timer(200), PlntTp(type)
+	Hologram(sf::Vector2f pos, HoloType type)
+		:timer(200), PlntTp(type), spr(Res_Manager::get().get_access<sf::Texture>("Seed.png"))
 	{
 		this->SetPos(pos);
-		shape.setPosition(pos);
-		shape.setSize({ 40,40 });
-		shape.setFillColor(sf::Color::White);
-		//PlntTp = Peashooter;
+		spr.setScale(0.1, 0.1);
+		if (type == Showel)
+		{
+			spr.setTexture(Res_Manager::get().get_access<sf::Texture>("showel.png"),true);
+			spr.setScale(0.05, 0.05);
+		}
 	}
 
-	const PlantTypes& getType()
+	const HoloType& getType()
 	{
 		return PlntTp;
 	}
@@ -44,6 +48,6 @@ public:
 
 	sf::Rect<float> getbound()
 	{
-		return shape.getGlobalBounds();
+		return spr.getGlobalBounds();
 	}
 };

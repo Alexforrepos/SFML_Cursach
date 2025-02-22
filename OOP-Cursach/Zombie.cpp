@@ -102,7 +102,10 @@ void Zombie::StopAttack()
 void Zombie::Draw(sf::RenderWindow& win)
 {
     win.draw(sprite);
-    sf::RectangleShape r(Size);
-    r.setPosition(Position);
-    win.draw(r);
+    if (Config_load::getconfig().get().at("HitBoxVisibility").get<int>())
+    {
+        sf::RectangleShape r(Size);
+        r.setPosition(Position);
+        win.draw(r);
+    }
 }

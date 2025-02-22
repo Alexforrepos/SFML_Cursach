@@ -16,21 +16,15 @@ void Card_T::Update()
 				break;
 			case Sunflower:
 				break;
-			case MrBigPenis:
-				break;
 			case Repeater:
 				if (Game_Proc::get().GetSunValue() < Plant::Repeater)
 					return;
 				Game_Proc::get().TakeSun(Plant::Repeater);
 				break;
-			case Showel:
-				break;
-			default:
-				break;
 			}
 
 		isactive = true;
-		this->g = new Gologram(sf::Vector2f(sf::Mouse::getPosition()), PlT);
+		this->g = new Hologram(sf::Vector2f(sf::Mouse::getPosition()), PlT);
 		MSG_Manager::getmger()->add(new MSG(MSG_TYPE_CREATE(g, this)));
 		shape.setFillColor(sf::Color::Cyan);
 		timer.restart();
@@ -68,6 +62,5 @@ void Card_T::SendMSG(MSG* msg)
 
 void Card_T::Draw(sf::RenderWindow& win)
 {
-	if (Config_load::getconfig().get().at("HitBoxVisibility").get<int>())
-		win.draw(shape);
+	win.draw(shape);
 }

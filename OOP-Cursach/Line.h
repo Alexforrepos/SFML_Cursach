@@ -34,13 +34,13 @@ public:
 			delete pl;
 	}
 
-	int Plant_(Gologram* g)
+	int Plant_(Hologram* g)
 	{
 		Plant* PlacedPlant = nullptr;
 		for (Landing_place* P_l : places)
 		{
 			{
-				if (g->getType() == PlantTypes::Showel && g->getbound().intersects(P_l->getBounds()))
+				if (g->getType() == HoloType::Showel && g->getbound().intersects(P_l->getBounds()))
 				{
 					if (P_l->GetPlant())
 						MSG_Manager::getmger()->add(new MSG(MSG_TYPE_KILL(P_l->GetPlant(), g)));

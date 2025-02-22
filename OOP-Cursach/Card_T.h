@@ -14,8 +14,8 @@ class Card_T
 
 	sf::RectangleShape shape;
 	bool isactive;
-	PlantTypes PlT;
-	Gologram* g;
+	HoloType PlT;
+	Hologram* g;
 	Timer timer;
 public:
 	
@@ -27,12 +27,12 @@ public:
 
 	void Draw(sf::RenderWindow& win) override;
 
-	PlantTypes getType()
+	HoloType getType()
 	{
 		return PlT;
 	}
 
-	Card_T(sf::Vector2f pos ,PlantTypes PlT)
+	Card_T(sf::Vector2f pos ,HoloType PlT)
 		:timer(200), PlT(PlT)
 	{
 		g = nullptr;

@@ -78,7 +78,7 @@ public:
 template<int place_size, int line_count>
 inline void Surface<place_size, line_count>::Plant(Object* obj)
 {
-	Gologram* g = (Gologram*)obj;
+	Hologram* g = (Hologram*)obj;
 	for (auto line : Lines)
 		if (line->Plant_(g))
 			return;

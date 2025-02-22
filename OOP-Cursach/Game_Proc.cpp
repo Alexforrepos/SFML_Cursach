@@ -17,12 +17,15 @@ void Game_Proc::Run()
 					(900)), nullptr)));
 			time_to_click.restart();
 		}
-	std::string SunCountText = "SUN:";
-	SunCountText += std::to_string(Sun_value);
+	if (!Config_load::getconfig().get().at("FreePlants").get<int>())
+	{
+		std::string SunCountText = "SUN:";
+		SunCountText += std::to_string(Sun_value);
 
-	sf::Text SunCount(SunCountText, Res_Manager::get().get_access<sf::Font>("BantyBold.ttf"));
-	SunCount.setPosition(100, 0);
-	Game::Get().win.draw(SunCount);
+		sf::Text SunCount(SunCountText, Res_Manager::get().get_access<sf::Font>("BantyBold.ttf"));
+		SunCount.setPosition(100, 0);
+		Game::Get().win.draw(SunCount);
+	}
 }
 
 void Game_Proc::Close()

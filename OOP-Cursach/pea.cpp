@@ -11,7 +11,7 @@ void pea::Update()
         this->Position += Move;
         sprite.move(Move);
     }
-    if (time_to_die.getElapsedTime().asSeconds() > 10)
+    if (time_to_die.getElapsedTime().asSeconds() > 20)
         MSG_Manager::getmger()->add(new MSG(MSG_TYPE_KILL(this, this)));
 
 }
