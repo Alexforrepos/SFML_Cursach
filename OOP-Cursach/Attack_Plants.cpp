@@ -2,7 +2,7 @@
 
 void Attack_Plants::Update()
 {
-	if (time_to_shoot() && isActive)
+	if (time_to_shoot() && isactive)
 	{
 
 		pea* penis = new pea(this->Position);

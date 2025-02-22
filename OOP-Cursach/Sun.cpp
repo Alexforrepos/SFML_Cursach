@@ -6,7 +6,7 @@ void Sun::Update()
 	if (sprite.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition())) && 
 		sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
-		Game_Proc::get().GetSunValue() += value;
+		Game_Proc::get().AddSun(value);
 		MSG_Manager::get().add(new MSG(MSG_TYPE_KILL(this, this)));
 	}
 	if (islay && dis_time())

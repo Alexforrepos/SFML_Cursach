@@ -15,11 +15,10 @@ protected:
     sf::Sound s;
 public:
     Attack_Plants(sf::Vector2f pos)
-        :s(Res_Manager::get().get_access<sf::SoundBuffer>("pusomnadavil.mp3")),time_to_shoot(2000)
+        :Plant(5,50), s(Res_Manager::get().get_access<sf::SoundBuffer>("pusomnadavil.mp3")), time_to_shoot(2000)
     {
         damage = 1;
-        HP = 5;
-        isActive = false;
+        isactive = false;
         this->SetPos(pos);
         sprite.setPosition(pos);
         sprite.setTexture(Res_Manager::getmger()->get_access<sf::Texture>("ppss.jpg"));

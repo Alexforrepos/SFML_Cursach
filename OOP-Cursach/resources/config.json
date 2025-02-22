@@ -4,7 +4,9 @@
   "HitBoxVisibility": 1,
   "Immortality": 0,
   "ManySun": 0,
+  "PlantsImmortal": 1,
   "SoundOn": 0,
   "SunOnLeftButton": 1,
-  "ZombieImmortal" : 0
+  "ZombieImmortal": 0,
+  "FreePlants" :  1
 }

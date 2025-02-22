@@ -41,13 +41,13 @@ void Menu::Start()
 		START
 	));
 	buttons.push_back(new Button(
-		sf::Text("NetTest", (Res_Manager::get().get_access<sf::Font>("PaluiSPDemo-Bold.otf")), 40),
+		sf::Text("Host", (Res_Manager::get().get_access<sf::Font>("PaluiSPDemo-Bold.otf")), 40),
 		sf::Vector2f(700, 150),
 		sf::Vector2f(1000, 400),
 		NET_HOST
 	));
 	buttons.push_back(new Button(
-		sf::Text("NetClient", (Res_Manager::get().get_access<sf::Font>("PaluiSPDemo-Bold.otf")), 40),
+		sf::Text("Client", (Res_Manager::get().get_access<sf::Font>("PaluiSPDemo-Bold.otf")), 40),
 		sf::Vector2f(700, 150),
 		sf::Vector2f(300, 400),
 		NER_CLIENT

@@ -7,15 +7,15 @@
 
 class Client
 {
-	sf::TcpSocket server;
+	sf::TcpSocket host;
 	std::thread handle_server_thread;
 
-	static void Hande_Server();
+	static void Handle_Server();
 
 	std::atomic<bool> isconnected;
 public:
 	Client()
-		:handle_server_thread([&]() { Hande_Server(); })
+		:handle_server_thread([&]() { Handle_Server(); })
 	{
 
 	}

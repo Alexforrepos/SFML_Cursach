@@ -8,7 +8,7 @@ void Game::Run()
 {
 	sf::Event ev;
 	static Menu& menu = Menu::get();
-	static Game_Proc gprc;
+	static Game_Proc& gprc = Game_Proc::get();
 
 	while (win.pollEvent(ev))
 	{

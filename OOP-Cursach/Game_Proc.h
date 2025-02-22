@@ -28,6 +28,8 @@ public:
 
 	bool GetIsRun() { return isrun; };
 	unsigned& GetSunValue() { return Sun_value; }
+	void AddSun(unsigned value) { Sun_value += value; }
+	void TakeSun(unsigned value) { Sun_value -= value; }
 	//выполнение тех действий которые необходимо выполнять каждую итерацию игрового цикла
 	void Run();
 	//освобождение ресурсов без уничтожения класса

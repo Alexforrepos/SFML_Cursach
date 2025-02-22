@@ -1,13 +1,37 @@
 #include "Card_T.h"
+#include "Game_Proc.h"
 
 void Card_T::Update()
 {
 	if (shape.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition())) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && !isactive
 		&& timer())
 	{
+		if (!Config_load::getconfig().get().at("FreePlants").get<int>())
+			switch (PlT)
+			{
+			case Peashooter:
+				if (Game_Proc::get().GetSunValue() < Plant::Peashooter)
+					return;
+				Game_Proc::get().TakeSun(Plant::Peashooter);
+				break;
+			case Sunflower:
+				break;
+			case MrBigPenis:
+				break;
+			case Repeater:
+				if (Game_Proc::get().GetSunValue() < Plant::Repeater)
+					return;
+				Game_Proc::get().TakeSun(Plant::Repeater);
+				break;
+			case Showel:
+				break;
+			default:
+				break;
+			}
+
 		isactive = true;
-		this->g = new Gologram(sf::Vector2f( sf::Mouse::getPosition()),PlT);
-		MSG_Manager::getmger()->add(new MSG(MSG_TYPE_CREATE(g,this)));
+		this->g = new Gologram(sf::Vector2f(sf::Mouse::getPosition()), PlT);
+		MSG_Manager::getmger()->add(new MSG(MSG_TYPE_CREATE(g, this)));
 		shape.setFillColor(sf::Color::Cyan);
 		timer.restart();
 	}
@@ -44,6 +68,6 @@ void Card_T::SendMSG(MSG* msg)
 
 void Card_T::Draw(sf::RenderWindow& win)
 {
-	if (Config_load::getconfig().get().at("HitBoxVisibility").get<int>())   
+	if (Config_load::getconfig().get().at("HitBoxVisibility").get<int>())
 		win.draw(shape);
 }
