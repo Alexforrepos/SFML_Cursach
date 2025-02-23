@@ -17,7 +17,7 @@ class Host
 
 	static void HandleClient();
 	Host()
-		:MsMg(MSG_Manager::get()), handle_recieve_client([&]() {Host::HandleClient(); })
+		:MsMg(MSG_Manager::get())
 	{
 		
 	}

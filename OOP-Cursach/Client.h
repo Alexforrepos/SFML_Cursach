@@ -7,21 +7,40 @@
 class Client
 {
 	sf::TcpSocket host;
-	std::thread handle_server_thread;
 
-	static void Handle_Server();
+
+	static void Handle_Server()
+	{
+		MSG* msg = nullptr;
+		size_t received_data;
+
+		while (!Get().isconnected)
+		{
+			std::this_thread::yield();
+		}
+
+		while (Get().isconnected)
+		{
+			sf::Packet p;
+			if (Get().host.receive(p) == sf::Socket::Done)
+			{
+				std::cout << "recieved msg \n";
+				
+			}
+		}
+	}
 
 	std::atomic<bool> isconnected;
-public:
 	Client()
-		:handle_server_thread([&]() { Handle_Server(); })
 	{
 
 	}
+public:
 
 	void Start(std::string IP, short port);
 	void Close();
-
+	static void SendToHost(MSG* msg);
+	bool Status() { return isconnected; }
 	static Client& Get() 
 	{
 		static Client client;

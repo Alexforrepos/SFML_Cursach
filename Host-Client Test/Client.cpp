@@ -41,18 +41,21 @@ void Client::Close()
 void Client::SendToHost(MSG* msg)
 {
 	static int Try = 0;
-	std::cout << "msg sending:" << Try << std::endl;
+	std::cout << "msg sending: " << Try << std::endl;
 	Try++;
-	if (Get().isconnected = false)
+
+	if (!Get().isconnected)
 	{
-		std::cout << " disconected " << std::endl;
+		std::cout << "Disconnected" << std::endl;
 		return;
 	}
+
 	sf::Packet p;
-	p.append(MSG)
-	if (Get().host.send((void*)(msg), sizeof(msg)) != sf::Socket::Done)
+
+	p.append((msg), sizeof(MSG));	
+	if (Get().host.send(p) != sf::Socket::Done)
 	{
-		std::cout << " jj " << std::endl;
+		std::cout << "Error sending packet" << std::endl;
 		Get().host.disconnect();
 		Get().isconnected = false;
 	}

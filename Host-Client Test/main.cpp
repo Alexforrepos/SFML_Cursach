@@ -29,7 +29,7 @@ int main()
 			cl.Start("26.117.143.176", 310);
 			cout << "Client started" << endl;
 		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) && cl.Status())
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) && cl.Status() && Butt_delay())
 		{
 			cl.SendToHost(new MSG(MSG_NET_TYPE_KILL_HOLO({ 100,100 }, { 100,100 }, 1)));
 		}
