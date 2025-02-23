@@ -199,9 +199,6 @@
     <Filter Include="Исходные файлы\GameClasses\Game\Object\Zombie\Zombie_Gymnast">
       <UniqueIdentifier>{2564a64f-aa45-47fd-8f78-ec5a60c2a03d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Game\Object\Instrument\Выдергивалка">
-      <UniqueIdentifier>{a697fc2d-c905-420f-a04e-92e8f5ff0068}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">

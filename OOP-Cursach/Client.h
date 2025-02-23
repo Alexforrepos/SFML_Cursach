@@ -2,7 +2,6 @@
 #include <SFML\Network.hpp>
 #include "MSG_Manager.h"
 #include <iostream>
-#include "Server.h"
 #include <thread>
 
 class Client
