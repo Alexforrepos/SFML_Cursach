@@ -19,14 +19,18 @@ void START()
 void NET_HOST()
 {
 
-	Host::Get().Start(53000);
+	Host::Get().Start(310);
 	START();
 }
 
 void NER_CLIENT()
 {
 	std::cout << " Client starting..." << std::endl;
-	Client::Get().Start("125.0.0.0", 53000); // закинуть 
+	if (Config_load::getconfig().get().at("NetOnYouSelf").get<int>())
+		Client::Get().Start(sf::IpAddress().getLocalAddress().toString(), 310);
+	else
+		Client::Get().Start("", 310);
+
 	std::cout << " Client started" << std::endl;
 }
 
@@ -76,7 +80,7 @@ void Menu::Start()
 
 void Menu::Run()
 {
-	
+
 }
 
 void Menu::Close()

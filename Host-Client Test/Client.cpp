@@ -8,7 +8,7 @@ void Client::Start(std::string IP, short port)
 		isconnected = true;
 		std::cout << "Successfully connected to Host at " << IP << ":" << port << std::endl;
 
-		std::thread serverThread(&Client::Handle_Server);
+		std::thread serverThread(&Client::Handle_Host);
 		serverThread.detach(); 
 
 		return;

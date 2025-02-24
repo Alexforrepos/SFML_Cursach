@@ -5,6 +5,7 @@
   "HitBoxVisibility": 0,
   "Immortality": 0,
   "ManySun": 0,
+  "NetOnYouSelf": 1,
   "PlantsImmortal": 1,
   "SoundOn": 0,
   "SunOnLeftButton": 1,

@@ -37,4 +37,6 @@ public:
 	//запуск и иницализация Game_Proc
 	//внутри создание левела и если надо будет то карт и друих кнопок
 	void Start();
+	void ClientStart();
+	void HostStart();
 };

@@ -8,7 +8,17 @@ class O_Manager;
 
 enum class MSG_TYPE
 {
-	MSG_TYPE_MOVE, MSG_TYPE_KILL, MSG_TYPE_CREATE, MSG_TYPE_DEAL_DAMAGE, MSG_NET_TYPE_KILL_HOLO
+	MSG_TYPE_MOVE, MSG_TYPE_KILL, MSG_TYPE_CREATE, MSG_TYPE_DEAL_DAMAGE, MSG_NET_TYPE_KILL_HOLO, MSG_NET_TYPE_IMG_SEND
+};
+
+struct MSG_NET_TYPE_IMG_SEND
+{
+	sf::Image img;
+
+	MSG_NET_TYPE_IMG_SEND(const sf::Image& img)
+		: img(img)
+	{
+	}
 };
 
 struct MSG_TYPE_MOVE
@@ -42,12 +52,12 @@ struct MSG_TYPE_MOVE
 };
 
 struct MSG_NET_TYPE_KILL_HOLO
-{  
+{
 	// from Serialize
-	sf::Vector2f pos,size;
+	sf::Vector2f pos, size;
 	int type;
 
-	MSG_NET_TYPE_KILL_HOLO(const sf::Vector2f& pos,const sf::Vector2f& size, int type)
+	MSG_NET_TYPE_KILL_HOLO(const sf::Vector2f& pos, const sf::Vector2f& size, int type)
 		: pos(pos), type(type)
 	{
 	}
@@ -101,12 +111,12 @@ struct MSG_TYPE_DEAL_DAMAGE
 class MSG
 {
 public:
-	std::variant<MSG_TYPE_MOVE, MSG_TYPE_KILL, MSG_TYPE_CREATE, MSG_TYPE_DEAL_DAMAGE, MSG_NET_TYPE_KILL_HOLO> MSG_TYPE = MSG_TYPE_MOVE();
+	std::variant<MSG_TYPE_MOVE, MSG_TYPE_KILL, MSG_TYPE_CREATE, MSG_TYPE_DEAL_DAMAGE, MSG_NET_TYPE_KILL_HOLO, MSG_NET_TYPE_IMG_SEND> MSG_TYPE = MSG_TYPE_MOVE();
 	friend class O_Manager;
 
 	MSG() = default;
 	MSG(const std::variant<MSG_TYPE_MOVE, MSG_TYPE_KILL, MSG_TYPE_CREATE,
-		MSG_TYPE_DEAL_DAMAGE, MSG_NET_TYPE_KILL_HOLO>& MSG_TYPE) : MSG_TYPE(MSG_TYPE) {
+		MSG_TYPE_DEAL_DAMAGE, MSG_NET_TYPE_KILL_HOLO, MSG_NET_TYPE_IMG_SEND>& MSG_TYPE) : MSG_TYPE(MSG_TYPE) {
 	};
 
 	operator MSG_TYPE_MOVE& () { return std::get<MSG_TYPE_MOVE>(this->MSG_TYPE); }
@@ -114,6 +124,7 @@ public:
 	operator MSG_TYPE_CREATE& () { return std::get<MSG_TYPE_CREATE>(this->MSG_TYPE); }
 	operator MSG_TYPE_DEAL_DAMAGE& () { return std::get<MSG_TYPE_DEAL_DAMAGE>(this->MSG_TYPE); }
 	operator MSG_NET_TYPE_KILL_HOLO& () { return std::get<MSG_NET_TYPE_KILL_HOLO>(this->MSG_TYPE); }
-	//operator MSG_NET_TYPE_KILL& () { return std::get<MSG_NET_TYPE_KILL>(this->MSG_TYPE); }
+	operator MSG_NET_TYPE_IMG_SEND& () { return std::get<MSG_NET_TYPE_IMG_SEND>(this->MSG_TYPE); }
+
 };
 

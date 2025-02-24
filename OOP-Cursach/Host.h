@@ -22,13 +22,19 @@ class Host
 		
 	}
 public:
-
 	bool IsStarted() { return isconnected; }
 
-	void Send(sf::Image) {};
+	void SendWindow(sf::RenderWindow& win) 
+	{ 
+		sf::RenderTexture r;
+		r.create(win.getSize().x, win.getSize().y);
+		auto img = r.getTexture().copyToImage();
+		SendMSG(MSG(MSG_NET_TYPE_IMG_SEND(img)));  
+	};
 	void Close();
 	void Start(short port);
 
+	void SendMSG(const MSG& msg);
 	static Host& Get()
 	{
 		static Host host;

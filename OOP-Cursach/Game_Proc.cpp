@@ -44,7 +44,6 @@ void Game_Proc::Close()
 	O_Manager::get().clear();
 	this->Sun_value = false;
 	Ost.stop();
-	
 }
 
 void Game_Proc::Start()
@@ -58,4 +57,15 @@ void Game_Proc::Start()
 	O_Manager::get().add_obj(new Zombie);
 
 	isrun = true;
+}
+
+void Game_Proc::ClientStart()
+{
+	O_Manager::get().add_obj(new Card_T({ 600,200 }, Showel));
+
+}
+
+void Game_Proc::HostStart()
+{
+	Start();
 }

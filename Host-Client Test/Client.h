@@ -9,7 +9,7 @@ class Client
 	sf::TcpSocket host;
 
 
-	static void Handle_Server()
+	static void Handle_Host()
 	{
 		MSG* msg = nullptr;
 		size_t received_data;
@@ -40,7 +40,7 @@ public:
 	void Start(std::string IP, short port);
 	void Close();
 	static void SendToHost(MSG* msg);
-	bool Status() { return isconnected; }
+	bool IsConnected() { return isconnected; }
 	static Client& Get() 
 	{
 		static Client client;

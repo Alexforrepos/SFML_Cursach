@@ -1,6 +1,8 @@
 #include "Game.h"
 #include "Menu.h"
 #include "Game_Proc.h"
+#include "Client.h"
+#include "Host.h"
 
 Game* Game::game = nullptr;
 
@@ -48,8 +50,12 @@ void Game::Run()
 	}
 
 	OMg.update();
+	if (Client::Get().IsConnected())
+		Client::Get().BuffDraw(win);
 	OMg.draw(win);
 	win.display();
+	if (Host::Get().IsStarted())
+		Host::Get().SendWindow(win);
 	win.clear();
 
 }
@@ -64,7 +70,7 @@ Game::Game(std::string res_filename)
 {
 	auto rand_seed = time(NULL);
 	srand(rand_seed);
-	std::cout << "Rand_seed == " << rand_seed << std::endl;
+	std::cout << "Rand_seed = " << rand_seed << std::endl;
 	if (Res_Manager::getmger()->load_from_file(res_filename))
 		throw "Res load err";
 

@@ -25,7 +25,8 @@ public:
 		objects.clear();
 	}
 
-	void add_obj(Object* obj) {
+	void add_obj(Object* obj)
+	{
 		objects.push_back(obj); 
 	};
 	void clear() { MSGM->clear(); for (auto obj : objects) delete obj; objects.clear(); };

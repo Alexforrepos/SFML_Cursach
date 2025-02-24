@@ -2,26 +2,28 @@
 #include "I_Object.h"
 #include "Timer.h"
 class Effect :
-    public Object
+	public Object
 {
-    Timer time_to_die;
-    class Object* target;
+	Timer time_to_die;
+	class Object* target;
 public:
 
-    
-    // Унаследовано через Object
-    void Update() override;
 
-    void SendMSG(MSG* msg) override;
+	// Унаследовано через Object
+	void Update() override;
 
-    void Draw(sf::RenderWindow& win) override;
+	void SendMSG(MSG* msg) override;
 
-    Effect(const Timer& time_to_die, Object* target)
-        : time_to_die(time_to_die), target(target){};
+	void Draw(sf::RenderWindow& win) override;
 
-    inline int Serialize() { return int(Serialize_Enum::Effect); }
-    
-    void effect() {};
+	Effect(const Timer& time_to_die, Object* target)
+		: time_to_die(time_to_die), target(target) 
+	{
+	};
 
-    Effect() = default;
+	inline int Serialize() { return int(Serialize_Enum::Effect); }
+
+	void effect() {};
+
+	Effect() = default;
 };

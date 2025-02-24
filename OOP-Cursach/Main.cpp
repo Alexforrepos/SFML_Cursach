@@ -4,7 +4,7 @@
 
 
 
-int WinMain(int argc, char* argv[])
+int main(int argc, char* argv[])
 {
 	Game& game = Game::Get();
 	while (game.isRunning())
