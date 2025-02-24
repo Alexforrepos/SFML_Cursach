@@ -22,6 +22,3 @@ void Effect::Draw(sf::RenderWindow& win)
 {
 
 }	
-
-
-

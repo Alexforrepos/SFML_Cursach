@@ -184,14 +184,11 @@
     <Filter Include="Исходные файлы\GameClasses\Game\Object\Zombie\Zombie_Gymnast">
       <UniqueIdentifier>{2564a64f-aa45-47fd-8f78-ec5a60c2a03d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\GameClasses\Game\Menu">
-      <UniqueIdentifier>{bf409b24-47db-40de-93d2-847559b98ed4}</UniqueIdentifier>
+    <Filter Include="Исходные файлы\GameClasses\Game\Object\Projectile\pea\Ice_Pea">
+      <UniqueIdentifier>{78785d8d-cd0c-4708-b4f3-1f41cc1555a1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\Engine\NetSystem\Client">
-      <UniqueIdentifier>{1c420728-4e91-4416-a147-b2a6afab7caf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\Engine\NetSystem\Host">
-      <UniqueIdentifier>{b6240ffb-fbe1-47db-af8a-d3cdedad1737}</UniqueIdentifier>
+    <Filter Include="Исходные файлы\GameClasses\Game\Object\Effect\Freeze">
+      <UniqueIdentifier>{89b7d7a5-57a2-438c-8481-d4dcd1aa7208}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -296,6 +293,18 @@
     </ClCompile>
     <ClCompile Include="Repeater.cpp">
       <Filter>Исходные файлы\GameClasses\Game\Object\Plants\Attack_Plants\Repeater</Filter>
+    </ClCompile>
+    <ClCompile Include="IceShooter.cpp">
+      <Filter>Исходные файлы\GameClasses\Game\Object\Plants\Attack_Plants\Ice_Shooter</Filter>
+    </ClCompile>
+    <ClCompile Include="IcePea.cpp">
+      <Filter>Исходные файлы\GameClasses\Game\Object\Projectile\pea\Ice_Pea</Filter>
+    </ClCompile>
+    <ClCompile Include="FirePea.cpp">
+      <Filter>Исходные файлы\GameClasses\Game\Object\Projectile\pea\fire_pea</Filter>
+    </ClCompile>
+    <ClCompile Include="FreezeEffect.cpp">
+      <Filter>Исходные файлы\GameClasses\Game\Object\Effect\Freeze</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -435,6 +444,18 @@
     </ClInclude>
     <ClInclude Include="Repeater.h">
       <Filter>Исходные файлы\GameClasses\Game\Object\Plants\Attack_Plants\Repeater</Filter>
+    </ClInclude>
+    <ClInclude Include="IceShooter.h">
+      <Filter>Исходные файлы\GameClasses\Game\Object\Plants\Attack_Plants\Ice_Shooter</Filter>
+    </ClInclude>
+    <ClInclude Include="IcePea.h">
+      <Filter>Исходные файлы\GameClasses\Game\Object\Projectile\pea\Ice_Pea</Filter>
+    </ClInclude>
+    <ClInclude Include="FirePea.h">
+      <Filter>Исходные файлы\GameClasses\Game\Object\Projectile\pea\fire_pea</Filter>
+    </ClInclude>
+    <ClInclude Include="FreezeEffect.h">
+      <Filter>Исходные файлы\GameClasses\Game\Object\Effect\Freeze</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

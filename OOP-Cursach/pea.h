@@ -6,6 +6,7 @@
 class pea
 	: public Object
 {
+protected:
 	Timer timer;
 	sf::Sprite sprite;
 	sf::RectangleShape shape;
@@ -36,5 +37,4 @@ public:
 	void Update() override;
 	void SendMSG(MSG* msg) override;
 	void Draw(sf::RenderWindow& win) override;
-	
 };
