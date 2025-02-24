@@ -17,7 +17,7 @@ void Zombie::Update()
     {
         timer.restart();
 
-        sf::Vector2f Move(-5.0, 0.0);
+        sf::Vector2f Move(-2.5, 0.0);
         MSG_Manager::getmger()->add(new MSG(MSG_TYPE_MOVE(Move, this)));
         this->Position += Move;
         sprite.move(Move);
