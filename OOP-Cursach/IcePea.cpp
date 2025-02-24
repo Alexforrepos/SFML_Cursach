@@ -27,7 +27,7 @@ void IcePea::SendMSG(MSG* msg)
             if (MSG_TYPE_KILL(*msg).killer->Serialize() == int(Serialize_Enum::Zombie))
             {
                 MSG_Manager::getmger()->add(new MSG(MSG_TYPE_DEAL_DAMAGE(MSG_TYPE_KILL(*msg).killer, this, this->damage)));
-                MSG_Manager::getmger()->add(new MSG(MSG_TYPE_CREATE(new FreezeEffect(), this)));
+                //MSG_Manager::getmger()->add(new MSG(MSG_TYPE_CREATE(new FreezeEffect(), this)));
             }
         break;
     default:
