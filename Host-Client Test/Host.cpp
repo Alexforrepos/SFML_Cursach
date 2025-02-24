@@ -19,7 +19,8 @@ void Host::HandleClient()
             return;
         }
 
-        if (p.getDataSize() < sizeof(MSG)) {
+        if (p.getDataSize() < sizeof(MSG))
+        {
             std::cerr << "Received packet size is smaller than expected." << std::endl;
             continue; 
         }

@@ -6,6 +6,7 @@ void O_Manager::update()
 {
 	vector<Object*>::iterator it;
 	vector<Object*> gulag;
+	//if (objects.empty()) return;
 	for (auto obj : objects) obj->Update();
 	MSGM->isvischange();
 	auto msg_v = MSGM->get_msges();

@@ -76,7 +76,4 @@ public:
 	//полностью меняет режим 
 	void ChangeRunMode(RUNMODE RM) { lastrm = rm; this->rm = RM; }
 
-
-
-
 };

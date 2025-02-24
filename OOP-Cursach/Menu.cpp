@@ -18,13 +18,16 @@ void START()
 
 void NET_HOST()
 {
+
 	Host::Get().Start(53000);
 	START();
 }
 
 void NER_CLIENT()
 {
-	Client::Get().Start("125.0.0.0", 53000);
+	std::cout << " Client starting..." << std::endl;
+	Client::Get().Start("125.0.0.0", 53000); // закинуть 
+	std::cout << " Client started" << std::endl;
 }
 
 void EXIT()
@@ -78,6 +81,5 @@ void Menu::Run()
 
 void Menu::Close()
 {
-	O_Manager::get().clear();
 	this->isstarted = false;
 }
