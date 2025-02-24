@@ -24,13 +24,15 @@ void NET_HOST()
 }
 
 void NER_CLIENT()
-{
+{ 
+	if (Client::Get().IsConnected())
+		return;
 	std::cout << " Client starting..." << std::endl;
 	if (Config_load::getconfig().get().at("NetOnYouSelf").get<int>())
 		Client::Get().Start(sf::IpAddress().getLocalAddress().toString(), 310);
 	else
 		Client::Get().Start("", 310);
-
+	Game::Get().ChangeRunMode(Game::RUNMODE::RUNMODE_GAME);
 	std::cout << " Client started" << std::endl;
 }
 

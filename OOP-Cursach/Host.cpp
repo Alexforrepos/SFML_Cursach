@@ -43,10 +43,15 @@ void Host::Close()
 void Host::Start(short port)
 {
 	client_listener.listen(port);
-	if (client_listener.accept(client) != sf::Socket::Done)
+	while (!this->isconnected)
 	{
-		throw "Client connection err";
+		if (client_listener.accept(client) == sf::Socket::Done)
+		{
+			isconnected = true;
+		}
+		cout << "err connect to client" << endl;
 	}
+	cout << "suck connect to client" << endl;
 	thread t([&]() {Host::HandleClient(); });
 	t.detach();
 	isconnected = true;
@@ -65,5 +70,5 @@ void Host::SendMSG(const MSG& msg)
 		std::cout << "Send MSG Err" << std::endl;
 		Close();
 	}
-
+	std::cout << "send msg" << endl;
 }

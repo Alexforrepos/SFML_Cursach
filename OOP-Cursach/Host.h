@@ -28,8 +28,7 @@ public:
 	{ 
 		sf::RenderTexture r;
 		r.create(win.getSize().x, win.getSize().y);
-		auto img = r.getTexture().copyToImage();
-		SendMSG(MSG(MSG_NET_TYPE_IMG_SEND(img)));  
+		SendMSG(MSG(MSG_NET_TYPE_IMG_SEND(r.getTexture())));  
 	};
 	void Close();
 	void Start(short port);

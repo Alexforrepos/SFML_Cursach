@@ -8,47 +8,9 @@
 class Client
 {
 	sf::TcpSocket host;
-	sf::Image* Buff;
+	sf::Texture* Buff;
 
-	static void Handle_Host()
-	{
-		MSG* msg = nullptr;
-		size_t received_data;
-
-		while (!Get().isconnected)
-		{
-			std::this_thread::yield();
-		}
-
-		while (Get().isconnected)
-		{
-			sf::Packet p;
-			if (Get().host.receive(p) == sf::Socket::Done)
-			{
-				//std::cout << "recieved msg \n";
-				MSG* m = (MSG*)p.getData();
-				switch (MSG_TYPE(m->MSG_TYPE.index()))
-				{
-				case MSG_TYPE::MSG_TYPE_MOVE:
-					break;
-				case MSG_TYPE::MSG_TYPE_KILL:
-					break;
-				case MSG_TYPE::MSG_TYPE_CREATE:
-					break;
-				case MSG_TYPE::MSG_TYPE_DEAL_DAMAGE:
-					break;
-				case MSG_TYPE::MSG_NET_TYPE_KILL_HOLO:
-					break;
-				case MSG_TYPE::MSG_NET_TYPE_IMG_SEND:
-					Get().Buff = new sf::Image(m->operator MSG_NET_TYPE_IMG_SEND & ().img);
-					break;
-				default:
-					break;
-				}
-				delete msg;
-			}
-		}
-	}
+	static void Handle_Host();
 
 	std::atomic<bool> isconnected;
 	Client()
@@ -62,9 +24,9 @@ public:
 	void BuffDraw(sf::RenderWindow& win)
 	{
 		if (!Buff)  return;
-		sf::Texture t;
-		t.loadFromImage(*Buff);
-		sf::Sprite spr(t);
+		sf::Sprite spr(*Buff);
+		spr.setPosition(0, 0);
+		std::cout << "buff drawed" << std::endl;
 		win.draw(spr);
 	}
 	void Close();

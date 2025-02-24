@@ -4,6 +4,8 @@
 #include "Card_T.h"
 #include "Zombie.h"
 #include "Sun.h"
+#include "Host.h"
+#include "Client.h"
 
 
 void Game_Proc::Run()
@@ -48,24 +50,14 @@ void Game_Proc::Close()
 
 void Game_Proc::Start()
 {
+	if (!Client::Get().IsConnected())
+		O_Manager::get().add_obj(new Level<9, 5>);
 	if (Config_load::getconfig().get().at("SoundOn").get<int>())
 		Ost.play();
-	O_Manager::get().add_obj(new Level<9, 5>);
-	O_Manager::get().add_obj(new Card_T({200,200}, Peashooter));
+	O_Manager::get().add_obj(new Card_T({ 200,200 }, Peashooter));
 	O_Manager::get().add_obj(new Card_T({ 400,200 }, Repeater));
 	O_Manager::get().add_obj(new Card_T({ 600,200 }, Showel));
 	O_Manager::get().add_obj(new Zombie);
 
 	isrun = true;
-}
-
-void Game_Proc::ClientStart()
-{
-	O_Manager::get().add_obj(new Card_T({ 600,200 }, Showel));
-
-}
-
-void Game_Proc::HostStart()
-{
-	Start();
 }

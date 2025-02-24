@@ -63,7 +63,7 @@ void Game::Run()
 
 
 Game::Game(std::string res_filename)
-	:win(sf::VideoMode::VideoMode(sf::VideoMode::getDesktopMode()), "Plants vs Zombies", sf::Style::Fullscreen),
+	:win(sf::VideoMode::VideoMode(sf::VideoMode::getDesktopMode()), "Plants vs Zombies"),
 	OMg(*O_Manager::getmger()),
 	MsMg(*MSG_Manager::getmger()),
 	RMg(*Res_Manager::getmger()), rm(RUNMODE::RUNMODE_MENU), isRun(true), lastrm(RUNMODE::RUNMODE_GAME)
