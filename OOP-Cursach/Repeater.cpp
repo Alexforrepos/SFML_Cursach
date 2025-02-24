@@ -8,6 +8,7 @@ void Repeater::Update()
 		pea* penis = new pea(this->Position);
 		MSG_Manager::getmger()->add(new MSG(MSG_TYPE_CREATE(penis, this)));
 		time_to_repeat.restart();
+		time_to_shoot.restart(); 
 	}
 }
 
