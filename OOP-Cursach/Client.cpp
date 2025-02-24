@@ -33,7 +33,7 @@ void Client::Handle_Host()
 				break;
 			case MSG_TYPE::MSG_NET_TYPE_IMG_SEND:
 				std::cout << "Image MSG recieved" << endl;
-				Get().Buff = new sf::Texture(MSG_NET_TYPE_IMG_SEND(*m).img);
+				Get().Buff = new sf::Image(MSG_NET_TYPE_IMG_SEND(*m).img);
 				break;
 			default:
 				break;

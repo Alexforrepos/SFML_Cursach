@@ -24,11 +24,13 @@ class Host
 public:
 	bool IsStarted() { return isconnected; }
 
-	void SendWindow(sf::RenderWindow& win) 
-	{ 
-		sf::RenderTexture r;
-		r.create(win.getSize().x, win.getSize().y);
-		SendMSG(MSG(MSG_NET_TYPE_IMG_SEND(r.getTexture())));  
+	void SendWindow(sf::RenderWindow& win)
+	{
+		sf::Texture t;
+		t.create(win.getSize().x, win.getSize().y);
+		t.update(win);
+		auto f = t.copyToImage();
+		SendMSG(MSG(MSG_NET_TYPE_IMG_SEND(f)));
 	};
 	void Close();
 	void Start(short port);

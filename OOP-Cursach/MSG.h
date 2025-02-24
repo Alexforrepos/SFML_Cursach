@@ -13,9 +13,9 @@ enum class MSG_TYPE
 
 struct MSG_NET_TYPE_IMG_SEND
 {
-	sf::Texture img;
+	sf::Image img;
 
-	MSG_NET_TYPE_IMG_SEND(sf::Texture img)
+	MSG_NET_TYPE_IMG_SEND(sf::Image img)
 		: img(img)
 	{
 	}

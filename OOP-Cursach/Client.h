@@ -8,7 +8,7 @@
 class Client
 {
 	sf::TcpSocket host;
-	sf::Texture* Buff;
+	sf::Image* Buff;
 
 	static void Handle_Host();
 
@@ -16,7 +16,6 @@ class Client
 	Client()
 		:Buff(nullptr)
 	{
-
 	}
 public:
 
@@ -24,7 +23,10 @@ public:
 	void BuffDraw(sf::RenderWindow& win)
 	{
 		if (!Buff)  return;
-		sf::Sprite spr(*Buff);
+		sf::Texture t;
+		t.create(Buff->getSize().x, Buff->getSize().y);
+		t.loadFromImage(*Buff);
+		sf::Sprite spr(t);
 		spr.setPosition(0, 0);
 		std::cout << "buff drawed" << std::endl;
 		win.draw(spr);
