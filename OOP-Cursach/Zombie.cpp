@@ -38,17 +38,12 @@ void Zombie::SendMSG(MSG* msg)
             if (p->GetBound().intersects(this->getBounds()))
             {
               
-                HP -= p->getDamage();
+                //HP -= p->getDamage();
 
 
-                MSG_Manager::getmger()->add(new MSG(MSG_TYPE_KILL(p, p)));
+                MSG_Manager::getmger()->add(new MSG(MSG_TYPE_KILL(p,this)));
 
 
-                if (HP <= 0)
-                {
-                    HP = 0;
-                    MSG_Manager::getmger()->add(new MSG(MSG_TYPE_KILL(this, this)));
-                }
             }
         }
     }

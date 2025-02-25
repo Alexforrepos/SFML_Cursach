@@ -18,32 +18,15 @@ void ZombieBucket::SendMSG(MSG* msg)
             pea* p = static_cast<pea*>(MSG_TYPE_MOVE(*msg).obj);
             if (p->GetBound().intersects(this->getBounds()))
             {
-                int damage = p->getDamage();
-                if (armor > 0)
-                {
-                    armor -= damage;
-                    if (armor <= 0) 
-                    {
-                        armor = 0;       
-                        sprite.setTexture(Res_Manager::getmger()->get_access<sf::Texture>("zombie_n.png"));
-                    }
-                }
-                else
-                {
-                    HP -= damage;
-                    if (HP <= 0) 
-                    {
-                        HP = 0;
-                        MSG_Manager::getmger()->add(new MSG(MSG_TYPE_KILL(this, this)));
-                    }
-                }
-                MSG_Manager::getmger()->add(new MSG(MSG_TYPE_KILL(p, p)));
+
+                MSG_Manager::getmger()->add(new MSG(MSG_TYPE_KILL(p, this)));
             }
         }
         else 
         { 
             Zombie::SendMSG(msg);
         }
+        return;
     }
    if (msg->MSG_TYPE.index() == (int)MSG_TYPE::MSG_TYPE_DEAL_DAMAGE)
     {
@@ -69,9 +52,7 @@ void ZombieBucket::SendMSG(MSG* msg)
                 }
             }
         }
+        return;
     }
-   if (msg->MSG_TYPE.index() == (int)MSG_TYPE::MSG_TYPE_KILL)
-   {
        Zombie::SendMSG(msg);
-   }
 }
