@@ -2,8 +2,17 @@
 
 void EnemyManager::Spawn()
 {
-	Zombie* newZombie = new Zombie();
-	MSG_Manager::getmger()->add(new MSG(MSG_TYPE_CREATE(newZombie, this)));
+    Zombie* newZombie = nullptr;
+    
+    if (rand() % 2 == 0)
+    { 
+        newZombie = new ZombieBucket();
+    }
+    else
+    {
+        newZombie = new Zombie();
+    }
+    MSG_Manager::getmger()->add(new MSG(MSG_TYPE_CREATE(newZombie, this)));
 }
 
 void EnemyManager::Update()

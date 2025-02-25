@@ -276,17 +276,8 @@
     <ClCompile Include="Game.cpp">
       <Filter>Исходные файлы\GameClasses\Game</Filter>
     </ClCompile>
-    <ClCompile Include="Menu.cpp">
-      <Filter>Исходные файлы\GameClasses\Game\Menu</Filter>
-    </ClCompile>
-    <ClCompile Include="Host.cpp">
-      <Filter>Исходные файлы\Engine\NetSystem\Host</Filter>
-    </ClCompile>
     <ClCompile Include="Game_Proc.cpp">
       <Filter>Исходные файлы\GameClasses\Game\Game_Proc</Filter>
-    </ClCompile>
-    <ClCompile Include="Client.cpp">
-      <Filter>Исходные файлы\Engine\NetSystem\Client</Filter>
     </ClCompile>
     <ClCompile Include="Config_load.cpp">
       <Filter>Исходные файлы\GameClasses\Game\Config_Load</Filter>
@@ -305,6 +296,18 @@
     </ClCompile>
     <ClCompile Include="FreezeEffect.cpp">
       <Filter>Исходные файлы\GameClasses\Game\Object\Effect\Freeze</Filter>
+    </ClCompile>
+    <ClCompile Include="Client.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Host.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="ZombieBucket.cpp">
+      <Filter>Исходные файлы\GameClasses\Game\Object\Zombie\Armored_Zombie\Zombie_Bucket</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -427,17 +430,8 @@
     <ClInclude Include="Game.h">
       <Filter>Исходные файлы\GameClasses\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Menu.h">
-      <Filter>Исходные файлы\GameClasses\Game\Menu</Filter>
-    </ClInclude>
-    <ClInclude Include="Host.h">
-      <Filter>Исходные файлы\Engine\NetSystem\Host</Filter>
-    </ClInclude>
     <ClInclude Include="Game_Proc.h">
       <Filter>Исходные файлы\GameClasses\Game\Game_Proc</Filter>
-    </ClInclude>
-    <ClInclude Include="Client.h">
-      <Filter>Исходные файлы\Engine\NetSystem\Client</Filter>
     </ClInclude>
     <ClInclude Include="Config_load.h">
       <Filter>Исходные файлы\GameClasses\Game\Config_Load</Filter>
@@ -456,6 +450,18 @@
     </ClInclude>
     <ClInclude Include="FreezeEffect.h">
       <Filter>Исходные файлы\GameClasses\Game\Object\Effect\Freeze</Filter>
+    </ClInclude>
+    <ClInclude Include="Client.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Host.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="ZombieBucket.h">
+      <Filter>Исходные файлы\GameClasses\Game\Object\Zombie\Armored_Zombie\Zombie_Bucket</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

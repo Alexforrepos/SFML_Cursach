@@ -185,6 +185,7 @@
     <ClCompile Include="Surface.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Zombie.cpp" />
+    <ClCompile Include="ZombieBucket.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="openal32.dll" />
@@ -238,6 +239,7 @@
     <ClInclude Include="Surface.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Zombie.h" />
+    <ClInclude Include="ZombieBucket.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="resources\res_list.txt" />
