@@ -30,12 +30,13 @@ public:
 		t.create(win.getSize().x, win.getSize().y);
 		t.update(win);
 		auto f = t.copyToImage();
-		SendMSG(MSG(MSG_NET_TYPE_IMG_SEND(f)));
+		auto m = MSG(MSG_NET_TYPE_IMG_SEND(f.getPixelsPtr(), f.getSize().y * f.getSize().x * 4,f.getSize().x,f.getSize().y));
+		SendMSG(m);
 	};
 	void Close();
 	void Start(short port);
 
-	void SendMSG(const MSG& msg);
+	void SendMSG(MSG& msg);
 	static Host& Get()
 	{
 		static Host host;

@@ -11,34 +11,31 @@ void Client::Handle_Host()
 	{
 		std::this_thread::yield();
 	}
-
 	while (Get().isconnected)
 	{
+		this_thread::sleep_for(chrono::milliseconds(50));
 		sf::Packet p;
 		if (Get().host.receive(p) == sf::Socket::Done)
 		{
-			//std::cout << "recieved msg \n";
-			MSG* m = (MSG*)p.getData();
-			switch (MSG_TYPE(m->MSG_TYPE.index()))
+			int width;
+			p >> width;
+			if (width)
 			{
-			case MSG_TYPE::MSG_TYPE_MOVE:
-				break;
-			case MSG_TYPE::MSG_TYPE_KILL:
-				break;
-			case MSG_TYPE::MSG_TYPE_CREATE:
-				break;
-			case MSG_TYPE::MSG_TYPE_DEAL_DAMAGE:
-				break;
-			case MSG_TYPE::MSG_NET_TYPE_KILL_HOLO:
-				break;
-			case MSG_TYPE::MSG_NET_TYPE_IMG_SEND:
-				std::cout << "Image MSG recieved" << endl;
-				Get().Buff = new sf::Image(MSG_NET_TYPE_IMG_SEND(*m).img);
-				break;
-			default:
-				break;
+				int height, size;
+				p >> height >> size;
+				const sf::Uint8* data = static_cast<const sf::Uint8*>(p.getData());
+				/*std::vector<sf::Uint8> pixels;
+				pixels.assign(data + p.getReadPosition(), data + p.getReadPosition() + size);*/
+				if (Get().Buff)
+					delete Get().Buff;
+				Get().Buff = new sf::Image;
+				Get().Buff->create(width, height, data);
 			}
-			delete msg;
+			if (!width)
+			{
+				cout << "something wrong";
+			}
+			
 		}
 	}
 }

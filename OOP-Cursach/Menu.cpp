@@ -20,7 +20,8 @@ void NET_HOST()
 {
 
 	Host::Get().Start(310);
-	START();
+	Game::Get().ChangeRunMode(Game::RUNMODE::RUNMODE_GAME);
+
 }
 
 void NER_CLIENT()

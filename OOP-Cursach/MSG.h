@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <SFML/Network.hpp>
 #include <iostream>
 #include <variant>
 
@@ -13,13 +14,24 @@ enum class MSG_TYPE
 
 struct MSG_NET_TYPE_IMG_SEND
 {
-	sf::Image img;
+	std::vector<sf::Uint8> Pixels;
+	size_t image_size;
+	int width, height;
 
-	MSG_NET_TYPE_IMG_SEND(sf::Image img)
-		: img(img)
+	MSG_NET_TYPE_IMG_SEND(const sf::Uint8* pixels, size_t size, const int& width, const int& height)
+		: Pixels(pixels, pixels + size), image_size(size), width(width), height(height)
 	{
 	}
+
+	void toPacket(sf::Packet& packet) const
+	{
+		packet << image_size;
+		packet.append(Pixels.data(), Pixels.size());
+	}
+
+	MSG_NET_TYPE_IMG_SEND() = default;
 };
+
 
 struct MSG_TYPE_MOVE
 {

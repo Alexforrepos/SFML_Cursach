@@ -19,7 +19,8 @@ void Host::HandleClient()
 			return;
 		}
 
-		if (p.getDataSize() < sizeof(MSG)) {
+		if (p.getDataSize() < sizeof(MSG)) 
+		{
 			std::cerr << "Received packet size is smaller than expected." << std::endl;
 			continue;
 		}
@@ -57,14 +58,29 @@ void Host::Start(short port)
 	isconnected = true;
 }
 
-void Host::SendMSG(const MSG& msg)
+void Host::SendMSG(MSG& msg)
 {
 	if (!isconnected)
 	{
 		return;
 	}
 	sf::Packet p;
-	p.append(&msg, sizeof(msg));
+	if (msg.MSG_TYPE.index() == int(MSG_TYPE::MSG_NET_TYPE_KILL_HOLO))
+	{
+		int i = 0;
+		p.append(&i, sizeof(i));
+		p.append(&msg, sizeof(msg));
+	}
+	if (msg.MSG_TYPE.index() == int(MSG_TYPE::MSG_NET_TYPE_IMG_SEND))
+	{
+		auto h = MSG_NET_TYPE_IMG_SEND(msg).height, w = MSG_NET_TYPE_IMG_SEND(msg).height;
+		sf::Uint8* d = MSG_NET_TYPE_IMG_SEND(msg).Pixels.data();
+		auto size = MSG_NET_TYPE_IMG_SEND(msg).Pixels.size();
+		p.append(&h, sizeof(h));
+		p.append(&w, sizeof(w));
+		p.append(&size, sizeof(size));
+		p.append(d, size);
+	}
 	if (client.send(p) != sf::Socket::Done)
 	{
 		std::cout << "Send MSG Err" << std::endl;

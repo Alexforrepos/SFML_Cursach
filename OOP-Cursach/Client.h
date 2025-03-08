@@ -14,7 +14,7 @@ class Client
 
 	std::atomic<bool> isconnected;
 	Client()
-		:Buff(nullptr)
+		:Buff()
 	{
 	}
 public:
@@ -22,7 +22,11 @@ public:
 	void Start(std::string IP, short port);
 	void BuffDraw(sf::RenderWindow& win)
 	{
-		if (!Buff)  return;
+		if (!Buff)
+		{
+			std::cout << "Win cdnt drawed\n";
+			return;
+		}
 		sf::Texture t;
 		t.create(Buff->getSize().x, Buff->getSize().y);
 		t.loadFromImage(*Buff);

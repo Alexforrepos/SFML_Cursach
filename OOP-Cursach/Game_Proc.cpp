@@ -50,6 +50,7 @@ void Game_Proc::Close()
 
 void Game_Proc::Start()
 {
+	O_Manager::get().clear();
 	if (!Client::Get().IsConnected())
 		O_Manager::get().add_obj(new Level<9, 5>);
 	if (Config_load::getconfig().get().at("SoundOn").get<int>())
@@ -58,6 +59,7 @@ void Game_Proc::Start()
 	O_Manager::get().add_obj(new Card_T({ 400,200 }, Repeater));
 	O_Manager::get().add_obj(new Card_T({ 600,200 }, Showel));
 	O_Manager::get().add_obj(new Zombie);
+	Game::Get().rm == Game::RUNMODE::RUNMODE_GAME;
 
 	isrun = true;
 }
