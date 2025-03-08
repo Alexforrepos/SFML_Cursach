@@ -2,6 +2,7 @@
 #include "I_Object.h"
 #include "Timer.h"
 #include "Zombie.h"
+#include "ZombieBucket.h"
 enum ZOMBE_TO_SPAWN_SCORES
 {
 	NORMAL_ZOMBIE_POINT = 100,
