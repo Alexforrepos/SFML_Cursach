@@ -50,12 +50,8 @@ void Game::Run()
 	}
 
 	OMg.update();
-	if (Client::Get().IsConnected())
-		Client::Get().BuffDraw(win);
 	OMg.draw(win);
 	win.display();
-	if (Host::Get().IsStarted())
-		Host::Get().SendWindow(win);
 	win.clear();
 
 }

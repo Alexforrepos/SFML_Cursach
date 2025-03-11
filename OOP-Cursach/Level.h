@@ -40,9 +40,7 @@ public:
 			if ((MSG_TYPE_MOVE(*msg).obj)->Serialize() == (int)Serialize_Enum::Zombie)
 				this->s.CheckCollision((Zombie*)(MSG_TYPE_MOVE(*msg).obj));
 			break;
-		case (int)MSG_TYPE::MSG_NET_TYPE_KILL_HOLO:
-			Hologram g(MSG_NET_TYPE_KILL_HOLO(*msg).pos, HoloType(MSG_NET_TYPE_KILL_HOLO(*msg).type));
-			this->s.Plant(&g);
+		
 		}
 	}
 	void Draw(sf::RenderWindow& win) override

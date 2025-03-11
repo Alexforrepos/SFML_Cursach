@@ -1,12 +1,12 @@
+#include "ResourceManager.h"  
+#include "Config_load.h"
+#include "MSG_Manager.h"
+#include "O_Manager.h"
+#include "Client.h"
 #include "Menu.h"
 #include "Game.h"
 #include "Host.h"
-#include "Client.h"
-#include "ResourceManager.h"  
-#include "MSG_Manager.h"
 #include "MSG.h"
-#include "O_Manager.h"
-#include "Config_load.h"
 
 void START()
 {
@@ -18,23 +18,12 @@ void START()
 
 void NET_HOST()
 {
-
-	Host::Get().Start(310);
-	Game::Get().ChangeRunMode(Game::RUNMODE::RUNMODE_GAME);
-
+	
 }
 
 void NER_CLIENT()
 { 
-	if (Client::Get().IsConnected())
-		return;
-	std::cout << " Client starting..." << std::endl;
-	if (Config_load::getconfig().get().at("NetOnYouSelf").get<int>())
-		Client::Get().Start(sf::IpAddress().getLocalAddress().toString(), 310);
-	else
-		Client::Get().Start("", 310);
-	Game::Get().ChangeRunMode(Game::RUNMODE::RUNMODE_GAME);
-	std::cout << " Client started" << std::endl;
+
 }
 
 void EXIT()
