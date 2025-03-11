@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Исходные файлы">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Файлы ресурсов">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Исходные файлы\Engine">
+      <UniqueIdentifier>{d4592d82-7f48-413d-a4c9-626b9b59d2d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Engine\Net">
+      <UniqueIdentifier>{808817f0-58d7-445d-b4c4-9e93e9213151}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Engine\Interfaces">
+      <UniqueIdentifier>{ec83d2ea-de9c-4edd-8e2f-a0d2bc16de26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Engine\MSGSystem">
+      <UniqueIdentifier>{c48662ce-d501-496f-ad41-2c35fb29ee84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Engine\MSGSystem\MSG_Manager">
+      <UniqueIdentifier>{ca640a64-d645-47a2-9c60-8459ba93fca4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Engine\MSGSystem\OBJ_Manager">
+      <UniqueIdentifier>{51257cfc-38d9-4bd4-8580-7fa53ea63480}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Engine\MSGSystem\MSG_Manager\MSG">
+      <UniqueIdentifier>{d0ddf686-0dd1-4561-b508-b0b89e3d5260}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Engine\MSGSystem\OBJ_Manager\OBJ">
+      <UniqueIdentifier>{49ef2aa8-f42e-4a5f-9fc9-d1464f48b7dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Engine\Interfaces\Serializable">
+      <UniqueIdentifier>{2b9d18a2-8aff-45e6-9410-e5df45a11b59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Engine\Interfaces\Packatable">
+      <UniqueIdentifier>{ad43340f-8419-4934-aea5-01b2f6b0d5d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Engine\Interfaces\Positionable">
+      <UniqueIdentifier>{d0c879c0-2620-405c-ad64-9f77d56c6924}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Engine\Interfaces\Typable">
+      <UniqueIdentifier>{01394f5f-6fd9-4b7e-b68e-12d5fbf755de}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="MSG_Manager.cpp">
+      <Filter>Исходные файлы\Engine\MSGSystem\MSG_Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="MSG.cpp">
+      <Filter>Исходные файлы\Engine\MSGSystem\MSG_Manager\MSG</Filter>
+    </ClCompile>
+    <ClCompile Include="O_Manager.cpp">
+      <Filter>Исходные файлы\Engine\MSGSystem\OBJ_Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>Исходные файлы\Engine\MSGSystem\OBJ_Manager\OBJ</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MSG_Manager.h">
+      <Filter>Исходные файлы\Engine\MSGSystem\MSG_Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="MSG.h">
+      <Filter>Исходные файлы\Engine\MSGSystem\MSG_Manager\MSG</Filter>
+    </ClInclude>
+    <ClInclude Include="I_Pacatable.h">
+      <Filter>Исходные файлы\Engine\Interfaces\Packatable</Filter>
+    </ClInclude>
+    <ClInclude Include="O_Manager.h">
+      <Filter>Исходные файлы\Engine\MSGSystem\OBJ_Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Исходные файлы\Engine\MSGSystem\OBJ_Manager\OBJ</Filter>
+    </ClInclude>
+    <ClInclude Include="I_Pos.h">
+      <Filter>Исходные файлы\Engine\Interfaces\Positionable</Filter>
+    </ClInclude>
+    <ClInclude Include="I_Type.h">
+      <Filter>Исходные файлы\Engine\Interfaces\Typable</Filter>
+    </ClInclude>
+    <ClInclude Include="I_Serialize.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

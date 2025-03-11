@@ -196,6 +196,9 @@
     <Filter Include="Исходные файлы\Engine\NetSystem\Host">
       <UniqueIdentifier>{216804b3-7143-45cc-9dac-40707670cae5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\GameClasses\Game\Menu">
+      <UniqueIdentifier>{f82fc536-f2d1-4908-94ee-7c1f0a7492e3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -303,9 +306,6 @@
     <ClCompile Include="FreezeEffect.cpp">
       <Filter>Исходные файлы\GameClasses\Game\Object\Effect\Freeze</Filter>
     </ClCompile>
-    <ClCompile Include="Menu.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="ZombieBucket.cpp">
       <Filter>Исходные файлы\GameClasses\Game\Object\Zombie\Armored_Zombie\Zombie_Bucket</Filter>
     </ClCompile>
@@ -314,6 +314,9 @@
     </ClCompile>
     <ClCompile Include="Host.cpp">
       <Filter>Исходные файлы\Engine\NetSystem\Host</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Исходные файлы\GameClasses\Game\Menu</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -457,9 +460,6 @@
     <ClInclude Include="FreezeEffect.h">
       <Filter>Исходные файлы\GameClasses\Game\Object\Effect\Freeze</Filter>
     </ClInclude>
-    <ClInclude Include="Menu.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="ZombieBucket.h">
       <Filter>Исходные файлы\GameClasses\Game\Object\Zombie\Armored_Zombie\Zombie_Bucket</Filter>
     </ClInclude>
@@ -468,6 +468,9 @@
     </ClInclude>
     <ClInclude Include="Host.h">
       <Filter>Исходные файлы\Engine\NetSystem\Host</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Исходные файлы\GameClasses\Game\Menu</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
