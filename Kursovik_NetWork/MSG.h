@@ -13,15 +13,17 @@ enum class MSG_TYPE
 class MSG :
 	public I_Pacatable
 {
-	MSG_TYPE index;
-public:
-	MSG_TYPE getIndex() { return index; }
-
+protected:
+	//конструктор специально в защищенном поле чтобы ни одна падла не создала сообщение без данных
 	MSG(int index)
 		: index(MSG_TYPE(index))
 	{
 
 	}
+	MSG_TYPE index;
+public:
+	MSG_TYPE getIndex() { return index; }
+
 	virtual ~MSG() = default;
 
 };

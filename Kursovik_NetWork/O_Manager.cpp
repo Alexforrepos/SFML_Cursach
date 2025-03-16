@@ -18,24 +18,48 @@ void O_Manager::update()
 	std::vector<Object*> gulag;
 	Object* g_member = nullptr;
 
-	for (auto& obj : ObjVector)
+	std::vector<std::unique_ptr<Object>>::iterator it;
+
+	for (const auto& obj : this->ObjVector)
 		obj->update();
 
 	auto msgs = msgm.getVector();
 
-	for (auto& msg : msgs)
+	for (const auto& msg : msgs) 
 	{
-		for (auto& obj : ObjVector)
-			obj->sendMsg(msg.get());
-		switch (msg->getIndex())
-		{
 
+		for (const auto& obj : ObjVector)
+			obj->sendMsg(msg.get());
+
+		switch (msg->getIndex()) 
+		{
 		case MSG_TYPE::MSG_TYPE_KILL:
-			if (g_member = find_if(ObjVector.begin(), ObjVector.end(), [&](unique_ptr<Object>& a) {return (a.get() == static_cast<MSG_TYPE_KILL>(msg).victim); }))
-		default:
+			Object* objToKill = static_cast<MSG_TYPE_KILL*>(msg.get())->victim;
+
+			// Находим объект в списке и добавляем его в "гулаг" для последующего удаления
+			it = std::find(ObjVector.begin(), ObjVector.end(), objToKill);
+			if (it != ObjVector.end())
+			{
+				gulag.push_back(it->get());  // Добавляем объект в список на удаление
+			}
 			break;
+		case MSG_TYPE::MSG_TYPE_CREATE:
+
+			addObject(static_cast<MSG_TYPE_CREATE*>(msg.get())->creature);
+			break;
+		};
+	}
+
+	for (auto objToKill : gulag)
+	{
+		// Ищем объект в основном списке
+		auto it = std::find(ObjVector.begin(), ObjVector.end(), objToKill);
+		if (it != ObjVector.end())
+		{
+			ObjVector.erase(it);  // Удаляем объект из основного списка
+			delete objToKill;     // Освобождаем память, если объект был создан через new
 		}
 	}
 
 	msgm.clear();
-}
+};

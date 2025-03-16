@@ -9,33 +9,35 @@
 //
 
 
-class MSG_Manager
-{
+class MSG_Manager {
+private:
+    std::vector<std::shared_ptr<MSG>> MSGVector;
 
-	std::vector<std::unique_ptr<MSG>> MSGVector;
-	
-	MSG_Manager() = default;
+    // Закрытый конструктор для реализации singleton паттерна
+    MSG_Manager() = default;
 
 public:
-	
-	static MSG_Manager& get()
-	{
-		static MSG_Manager inst;
-		return inst;
-	}
+    // Синглтон метод для доступа к экземпляру MSG_Manager
+    static MSG_Manager& get() {
+        static MSG_Manager inst;
+        return inst;
+    }
 
-	void addMSG(MSG* msg) 
-	{
-		MSGVector.emplace_back(std::move(msg));
-	};
+    // Метод для добавления сообщения
+    void addMSG(std::shared_ptr<MSG> msg)
+    {
+        MSGVector.emplace_back(std::move(msg)); 
+    }
 
-	void clear() 
-	{
-		MSGVector.clear();
-	};
+    // Метод для очистки вектора
+    void clear()
+    {
+        MSGVector.clear();
+    }
 
-	std::vector<std::unique_ptr<MSG>>& getVector() 
-	{
-		return MSGVector; 
-	};
+    // Метод для получения вектора сообщений
+    std::vector<std::shared_ptr<MSG>>& getVector()
+    {
+        return MSGVector;
+    }
 };

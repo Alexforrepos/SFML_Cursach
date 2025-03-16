@@ -3,6 +3,7 @@
 #include "I_Pos.h"
 #include "I_Type.h"
 #include "I_Serialize.h"
+#include "MSG.h"
 
 class Object
 	: public I_Pos , public I_Type , public I_Serialize
