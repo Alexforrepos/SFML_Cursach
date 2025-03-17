@@ -49,6 +49,30 @@
     <Filter Include="Исходные файлы\Engine\Interfaces\Typable">
       <UniqueIdentifier>{01394f5f-6fd9-4b7e-b68e-12d5fbf755de}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\Game">
+      <UniqueIdentifier>{266e788c-ccc1-49d5-8b94-a8b72d1c2444}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Engine\ResManager">
+      <UniqueIdentifier>{041387ab-2771-4d46-83f8-c130341f5bc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Game\Game">
+      <UniqueIdentifier>{e63ea5ee-0276-40d2-93e3-9e0fb1bb5e6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\Res">
+      <UniqueIdentifier>{f8ecd06c-df01-4cc9-9633-5b949d1b1bf9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Game\Menu">
+      <UniqueIdentifier>{e49f3942-7b2d-44e0-8c3f-e0397d238985}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Game\GameObject">
+      <UniqueIdentifier>{34d7e9bd-9c7e-46da-a7c4-b9bebdcdbf01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Game\GameObject\Utils">
+      <UniqueIdentifier>{de31fbfd-0865-4bfa-8a69-7f33bd89400b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Game\GameObject\Utils\Button">
+      <UniqueIdentifier>{3da095ce-f5c6-4bd2-84aa-e2705da9e982}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -65,6 +89,18 @@
     </ClCompile>
     <ClCompile Include="Object.cpp">
       <Filter>Исходные файлы\Engine\MSGSystem\OBJ_Manager\OBJ</Filter>
+    </ClCompile>
+    <ClCompile Include="R_Manager.cpp">
+      <Filter>Исходные файлы\Engine\ResManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Исходные файлы\Game\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Исходные файлы\Game\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Исходные файлы\Game\GameObject\Utils\Button</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -90,7 +126,24 @@
       <Filter>Исходные файлы\Engine\Interfaces\Typable</Filter>
     </ClInclude>
     <ClInclude Include="I_Serialize.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Исходные файлы\Engine\Interfaces\Serializable</Filter>
     </ClInclude>
+    <ClInclude Include="R_Manager.h">
+      <Filter>Исходные файлы\Engine\ResManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Исходные файлы\Game\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Исходные файлы\Game\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Исходные файлы\Game\GameObject\Utils\Button</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Res\ResDistr.txt">
+      <Filter>Файлы ресурсов\Res</Filter>
+    </Text>
   </ItemGroup>
 </Project>

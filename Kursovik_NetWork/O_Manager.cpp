@@ -57,7 +57,7 @@ void O_Manager::update()
 		if (it != ObjVector.end())
 		{
 			ObjVector.erase(it);  // Удаляем объект из основного списка
-			delete objToKill;     // Освобождаем память, если объект был создан через new
+			delete objToKill;     // Освобождаем память
 		}
 	}
 

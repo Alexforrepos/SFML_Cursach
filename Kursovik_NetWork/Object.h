@@ -6,7 +6,7 @@
 #include "MSG.h"
 
 class Object
-	: public I_Pos , public I_Type , public I_Serialize
+	: public I_Pos , public I_Type 
 {
 public:
 	virtual void update() = 0;

@@ -1,5 +1,13 @@
 #pragma once
 
+enum class Types 
+	: uint8_t
+{
+	None = 0
+
+};
+
+
 
 class I_Type
 {

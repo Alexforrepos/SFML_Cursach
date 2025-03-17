@@ -111,6 +111,8 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>.\..\Lib\Json\include;.\..\Lib\SFML-2.6.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -140,21 +142,32 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MSG.cpp" />
     <ClCompile Include="MSG_Manager.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="O_Manager.cpp" />
+    <ClCompile Include="R_Manager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Button.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="I_Pacatable.h" />
     <ClInclude Include="I_Pos.h" />
     <ClInclude Include="I_Serialize.h" />
     <ClInclude Include="I_Type.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="MSG.h" />
     <ClInclude Include="MSG_Manager.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="O_Manager.h" />
+    <ClInclude Include="R_Manager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Res\ResDistr.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
