@@ -11,5 +11,5 @@ public:
 		last_id += 1;
 		return last_id; 
 	}
-	virtual unsigned long long getId() = 0;
+	virtual unsigned long long getId() { return 0; };
 };

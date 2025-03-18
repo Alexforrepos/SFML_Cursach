@@ -1,5 +1,6 @@
 #pragma once
 #include "I_Pacatable.h"
+#include <memory>
 #include <iostream>
 
 class Object;
@@ -36,7 +37,7 @@ class MSG_TYPE_MOVE
 public:
 
 	sf::Vector2f dir;
-	Object* tareget;
+	Object* target;
 
 	/// <summary>
 	/// 
@@ -44,7 +45,7 @@ public:
 	/// <param name="dir">вектор движения объекта</param>
 	/// <param name="target">объект который движется</param>
 	MSG_TYPE_MOVE(sf::Vector2f dir, Object* target)
-		: MSG(int(MSG_TYPE::MSG_TYPE_MOVE)), tareget(tareget), dir(dir)
+		: MSG(int(MSG_TYPE::MSG_TYPE_MOVE)), target(target), dir(dir)
 	{
 	};
 	~MSG_TYPE_MOVE() = default;
@@ -93,7 +94,7 @@ class MSG_TYPE_CREATE
 {
 public:
 
-	Object* creature, * creator;
+	std::shared_ptr<Object> creature,  creator;
 
 	/// <summary>
 	/// 
@@ -101,9 +102,8 @@ public:
 	/// <param name="creature">то что уже создано</param>
 	/// <param name="creator">тот кто создал</param>
 	MSG_TYPE_CREATE(Object* creature, Object* creator) :
-		MSG(int(MSG_TYPE::MSG_TYPE_CREATE)), creature(creature), creator(creator)
+		MSG(int(MSG_TYPE::MSG_TYPE_CREATE)), creature(std::move(creature)),creator(std::move(creator))
 	{
-
 	}
 
 

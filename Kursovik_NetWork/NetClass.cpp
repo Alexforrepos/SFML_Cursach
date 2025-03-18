@@ -40,7 +40,7 @@ void NetClass::Host::HandleClient() {
 			{
 				MSG_TYPE_MOVE moveMsg({ 0,0 }, VOID_ID);
 				moveMsg.open(packet);
-				std::cout << "Received MOVE message: (" << moveMsg.dir.x << ", " << moveMsg.dir.y << ", id:" << moveMsg.tareget->getId() << ")" << std::endl;
+				std::cout << "Received MOVE message: (" << moveMsg.dir.x << ", " << moveMsg.dir.y << ", id:" << moveMsg.target->getId() << ")" << std::endl;
 				break;
 			}
 			// Обработка других типов сообщений

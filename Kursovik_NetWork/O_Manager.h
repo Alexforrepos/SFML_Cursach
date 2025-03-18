@@ -6,7 +6,7 @@
 
 class O_Manager
 {
-	std::vector<std::unique_ptr<Object>> ObjVector;
+	std::vector<std::shared_ptr<Object>> ObjVector;
 
 	MSG_Manager& msgm;
 
@@ -28,7 +28,7 @@ public:
 		ObjVector.clear(); 
 	};
 
-	void addObject(Object* obj);
+	void addObject(std::shared_ptr<Object> obj);
 
 
 	void update();

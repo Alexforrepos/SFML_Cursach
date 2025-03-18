@@ -19,6 +19,8 @@ public:
 	{
 
 	}
+
+	virtual ~Object() = default;
 	/// <summary>
 	/// метод отвечающий за внутреннюю логику объекта
 	/// </summary>
