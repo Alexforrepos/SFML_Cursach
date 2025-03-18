@@ -1,4 +1,5 @@
 #pragma once
+#include "Menu.h"
 #include "I_Serialize.h"
 #include "O_Manager.h"
 #include "R_Manager.h"
@@ -25,6 +26,9 @@ private:
 	bool isrun;
 
 	State state;
+
+
+	Menu menu;
 
 
 	Game()

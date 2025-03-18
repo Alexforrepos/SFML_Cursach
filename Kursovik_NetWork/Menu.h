@@ -1,13 +1,14 @@
 #pragma once
 #include <vector>
 #include "Button.h"	
+#include "Timer.h"
 
 class Menu
 {
 	bool isrun;
 public:
 	/// <summary>
-	/// инициализация всех кнопок
+	/// инициализация всех кнопок	
 	/// </summary>
 	void start();
 	/// <summary>
@@ -19,4 +20,5 @@ public:
 	/// </summary>
 	void close();
 
+	bool getIsRun() { return isrun; }
 };

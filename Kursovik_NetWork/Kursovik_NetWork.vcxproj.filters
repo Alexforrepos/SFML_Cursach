@@ -76,6 +76,12 @@
     <Filter Include="Исходные файлы\Engine\Interfaces\I_Identifiable">
       <UniqueIdentifier>{6015cba9-2350-49a0-860d-b69d657ff243}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\Utils">
+      <UniqueIdentifier>{42c20600-cff3-49d3-a581-7989477d8c73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Utils\Timer">
+      <UniqueIdentifier>{ad5c892b-ccc2-4de8-b1e7-2ad2b24140f3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -110,6 +116,9 @@
     </ClCompile>
     <ClCompile Include="I_Identifiable.cpp">
       <Filter>Исходные файлы\Engine\Interfaces\I_Identifiable</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Исходные файлы\Utils\Timer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -154,6 +163,9 @@
     </ClInclude>
     <ClInclude Include="I_Identifiable.h">
       <Filter>Исходные файлы\Engine\Interfaces\I_Identifiable</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>Исходные файлы\Utils\Timer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -2,7 +2,9 @@
 
 void Game::run()
 {
-    
+    if (getState() == State::Menu && !menu.getIsRun())
+        menu.start();
+
     omger.update();
     omger.draw(win);
     
