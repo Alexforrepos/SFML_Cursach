@@ -36,7 +36,7 @@ class MSG_TYPE_MOVE
 public:
 
 	sf::Vector2f dir;
-	unsigned long long id;
+	Object* id;
 
 	/// <summary>
 	/// 
@@ -64,7 +64,7 @@ class MSG_TYPE_KILL
 {
 public:
 
-	unsigned long long victim, killer;
+	Object* victim, * killer;
 
 
 	/// <summary>
@@ -72,7 +72,7 @@ public:
 	/// </summary>
 	/// <param name="victim">объекта который умирает</param>
 	/// <param name="killer">объекта который убивает</param>
-	MSG_TYPE_KILL(unsigned long long& victim, unsigned long long& killer)
+	MSG_TYPE_KILL(Object* victim, Object* killer)
 		: MSG(int(MSG_TYPE::MSG_TYPE_KILL)), victim(victim), killer(killer)
 	{
 
@@ -92,15 +92,15 @@ class MSG_TYPE_CREATE
 	:public MSG
 {
 public:
-	unsigned long long creator;
-	Object* creature;
+
+	Object* creature, * creator;
 
 	/// <summary>
 	/// 
 	/// </summary>
 	/// <param name="creature">то что уже создано</param>
 	/// <param name="creator">тот кто создал</param>
-	MSG_TYPE_CREATE(Object* creature, unsigned long long creator) :
+	MSG_TYPE_CREATE(Object* creature, Object *creator) :
 		MSG(int(MSG_TYPE::MSG_TYPE_CREATE)), creature(creature), creator(creator)
 	{
 
@@ -121,7 +121,7 @@ class MSG_TYPE_DAMAGE
 {
 public:
 	unsigned damage;
-	unsigned long long target, damager;
+	Object* target,* damager;
 
 
 	/// <summary>
@@ -130,7 +130,7 @@ public:
 	/// <param name="damage">модуль дамага(только положительное)</param>
 	/// <param name="target">цель дамага</param>
 	/// <param name="damager">тот кто наносит урон</param>
-	MSG_TYPE_DAMAGE(unsigned damage, unsigned long long target, unsigned long long damager)
+	MSG_TYPE_DAMAGE(unsigned damage, Object*, Object* damager)
 		:MSG(int(MSG_TYPE::MSG_TYPE_DAMAGE)), damage(damage), target(target), damager(damager)
 	{
 	}

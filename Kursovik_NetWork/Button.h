@@ -30,7 +30,7 @@ public:
     // position - позиция кнопки на экране
     // callback - функция, которая будет вызвана при нажатии на кнопку
     Button(const sf::Text& text, const sf::Vector2f& size, const sf::Vector2f& position, std::function<void(void)> callback)
-        : is_active(false), f(callback), label(text)
+        : is_active(false), f(callback), label(text),Object(int(Types::None)
     {
         // Настройка прямоугольника-контейнера кнопки
         Intershape.setSize(size);

@@ -1,0 +1,4 @@
+d t ./resources/res/Textures
+d f ./resources/res/Fonts
+d m ./resources/res/Music
+d s ./resources/res/SoundEffect

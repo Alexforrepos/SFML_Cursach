@@ -11,6 +11,7 @@ public:
 	enum class State
 		: uint8_t
 	{
+		None,
 		Menu,
 		NetWait,
 		Prepare,

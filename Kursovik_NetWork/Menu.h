@@ -4,6 +4,7 @@
 
 class Menu
 {
+	bool isrun;
 public:
 	/// <summary>
 	/// инициализация всех кнопок
