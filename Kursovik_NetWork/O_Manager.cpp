@@ -34,10 +34,10 @@ void O_Manager::update()
 		switch (msg->getIndex()) 
 		{
 		case MSG_TYPE::MSG_TYPE_KILL:
-			Object* objToKill = static_cast<MSG_TYPE_KILL*>(msg.get())->victim;
+			unsigned long long objToKill = static_cast<MSG_TYPE_KILL*>(msg.get())->victim;
 
 			// Находим объект в списке и добавляем его в "гулаг" для последующего удаления
-			it = std::find(ObjVector.begin(), ObjVector.end(), objToKill);
+			it = std::find_if(ObjVector.begin(), ObjVector.end(), [&](Object& a) {return a.getId() == objToKill; });
 			if (it != ObjVector.end())
 			{
 				gulag.push_back(it->get());  // Добавляем объект в список на удаление

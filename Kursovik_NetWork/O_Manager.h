@@ -23,13 +23,13 @@ public:
 		static O_Manager inst;
 		return inst;
 	}
-
-	void addObject(Object* obj);
-
 	inline void clear() 
 	{ 
 		ObjVector.clear(); 
 	};
+
+	void addObject(Object* obj);
+
 
 	void update();
 	void draw(sf::RenderWindow& win);

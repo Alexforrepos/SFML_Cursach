@@ -36,15 +36,15 @@ class MSG_TYPE_MOVE
 public:
 
 	sf::Vector2f dir;
-	Object* target;
+	unsigned long long id;
 
 	/// <summary>
 	/// 
 	/// </summary>
 	/// <param name="dir">вектор движения объекта</param>
 	/// <param name="target">объект который движется</param>
-	MSG_TYPE_MOVE(sf::Vector2f dir, Object* target)
-		: MSG(int(MSG_TYPE::MSG_TYPE_MOVE)), target(target)
+	MSG_TYPE_MOVE(sf::Vector2f dir, unsigned long long id)
+		: MSG(int(MSG_TYPE::MSG_TYPE_MOVE)), id(id)
 	{
 	};
 	~MSG_TYPE_MOVE() = default;
@@ -64,7 +64,7 @@ class MSG_TYPE_KILL
 {
 public:
 
-	Object* victim, * killer;
+	unsigned long long victim, killer;
 
 
 	/// <summary>
@@ -72,7 +72,7 @@ public:
 	/// </summary>
 	/// <param name="victim">объекта который умирает</param>
 	/// <param name="killer">объекта который убивает</param>
-	MSG_TYPE_KILL(Object* victim, Object* killer)
+	MSG_TYPE_KILL(unsigned long long& victim, unsigned long long& killer)
 		: MSG(int(MSG_TYPE::MSG_TYPE_KILL)), victim(victim), killer(killer)
 	{
 
@@ -92,15 +92,15 @@ class MSG_TYPE_CREATE
 	:public MSG
 {
 public:
-	Object* creature, * creator;
-
+	unsigned long long creator;
+	Object* creature;
 
 	/// <summary>
 	/// 
 	/// </summary>
 	/// <param name="creature">то что уже создано</param>
 	/// <param name="creator">тот кто создал</param>
-	MSG_TYPE_CREATE(Object* creature, Object* creator) :
+	MSG_TYPE_CREATE(Object* creature, unsigned long long creator) :
 		MSG(int(MSG_TYPE::MSG_TYPE_CREATE)), creature(creature), creator(creator)
 	{
 
@@ -121,7 +121,7 @@ class MSG_TYPE_DAMAGE
 {
 public:
 	unsigned damage;
-	Object* target, * damager;
+	unsigned long long target, damager;
 
 
 	/// <summary>
@@ -130,7 +130,7 @@ public:
 	/// <param name="damage">модуль дамага(только положительное)</param>
 	/// <param name="target">цель дамага</param>
 	/// <param name="damager">тот кто наносит урон</param>
-	MSG_TYPE_DAMAGE(unsigned damage, Object* target, Object* damager)
+	MSG_TYPE_DAMAGE(unsigned damage, unsigned long long target, unsigned long long damager)
 		:MSG(int(MSG_TYPE::MSG_TYPE_DAMAGE)), damage(damage), target(target), damager(damager)
 	{
 	}

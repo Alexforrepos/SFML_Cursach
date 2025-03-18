@@ -73,6 +73,9 @@
     <Filter Include="Исходные файлы\Game\GameObject\Utils\Button">
       <UniqueIdentifier>{3da095ce-f5c6-4bd2-84aa-e2705da9e982}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\Engine\Interfaces\I_Identifiable">
+      <UniqueIdentifier>{6015cba9-2350-49a0-860d-b69d657ff243}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -101,6 +104,12 @@
     </ClCompile>
     <ClCompile Include="Button.cpp">
       <Filter>Исходные файлы\Game\GameObject\Utils\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="NetClass.cpp">
+      <Filter>Исходные файлы\Engine\Net</Filter>
+    </ClCompile>
+    <ClCompile Include="I_Identifiable.cpp">
+      <Filter>Исходные файлы\Engine\Interfaces\I_Identifiable</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -139,6 +148,12 @@
     </ClInclude>
     <ClInclude Include="Button.h">
       <Filter>Исходные файлы\Game\GameObject\Utils\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="NetClass.h">
+      <Filter>Исходные файлы\Engine\Net</Filter>
+    </ClInclude>
+    <ClInclude Include="I_Identifiable.h">
+      <Filter>Исходные файлы\Engine\Interfaces\I_Identifiable</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

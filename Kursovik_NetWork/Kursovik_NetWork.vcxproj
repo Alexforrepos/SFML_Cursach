@@ -144,10 +144,12 @@
   <ItemGroup>
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="I_Identifiable.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MSG.cpp" />
     <ClCompile Include="MSG_Manager.cpp" />
+    <ClCompile Include="NetClass.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="O_Manager.cpp" />
     <ClCompile Include="R_Manager.cpp" />
@@ -155,6 +157,7 @@
   <ItemGroup>
     <ClInclude Include="Button.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="I_Identifiable.h" />
     <ClInclude Include="I_Pacatable.h" />
     <ClInclude Include="I_Pos.h" />
     <ClInclude Include="I_Serialize.h" />
@@ -162,6 +165,7 @@
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MSG.h" />
     <ClInclude Include="MSG_Manager.h" />
+    <ClInclude Include="NetClass.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="O_Manager.h" />
     <ClInclude Include="R_Manager.h" />
