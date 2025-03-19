@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 #include "Timer.h"
-
+#include "NetClass.h"
 
 class Menu
 {

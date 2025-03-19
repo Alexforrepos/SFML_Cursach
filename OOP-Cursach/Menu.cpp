@@ -21,7 +21,7 @@ void NET_HOST()
 	
 }
 
-void NER_CLIENT()
+void NET_CLIENT()
 { 
 
 }
@@ -57,12 +57,12 @@ void Menu::Start()
 		sf::Text("Client", (Res_Manager::get().get_access<sf::Font>("PaluiSPDemo-Bold.otf")), 40),
 		sf::Vector2f(700, 150),
 		sf::Vector2f(300, 400),
-		NER_CLIENT
+		NET_CLIENT
 	));
 	buttons.push_back(new Button(
 		sf::Text("Exit", Res_Manager::get().get_access<sf::Font>("PaluiSPDemo-Bold.otf"), 40),
 		sf::Vector2f(1400, 150),
-		sf::Vector2f(300, 700),
+		sf::Vector2f(300, 600),
 		EXIT
 	));
 

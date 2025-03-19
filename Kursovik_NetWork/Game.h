@@ -4,6 +4,7 @@
 #include "O_Manager.h"
 #include "R_Manager.h"
 #include <SFML/Graphics.hpp>
+#include "GameProcess.h"
 
 class Game :
 	public I_Serialize
@@ -29,14 +30,15 @@ private:
 
 
 	Menu menu;
+	GameProcess gameproc;
 
 
 	Game()
-		: omger(O_Manager::get()), rmger(R_Manager::get()), win(sf::VideoMode(1000, 1000), "PVZ"), state(State::Prepare), isrun(true)
+		: omger(O_Manager::get()), rmger(R_Manager::get()), win(sf::VideoMode(1000, 1000), "PVZ", sf::Style::Fullscreen), state(State::Prepare), isrun(true)
 	{
 		//TODO::загрузка из файла предыдущего стэйта игры
 		rmger.pushFromFile("./Res/ResDistr.txt");
-
+		menu.start();
 		setState(State::Menu);
 	}
 
@@ -57,17 +59,16 @@ public:
 	//закрытие игры
 	void close() { isrun = false; }
 
-	/// <summary>
-	/// 
-	/// </summary>
 	/// <returns>состояние игры</returns>
 	State& getState() { return state; }
 
-	/// <summary>
-	/// 
-	/// </summary>
 	/// <param name="state">новое состояние игры</param>
 	void setState(State state) { this->state = state; }
+
+	void menuClose()
+	{
+		menu.close();
+	}
 
 	// Унаследовано через I_Serialize
 

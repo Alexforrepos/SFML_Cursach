@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -144,6 +144,7 @@
   <ItemGroup>
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameProcess.cpp" />
     <ClCompile Include="I_Identifiable.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
@@ -153,11 +154,13 @@
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="O_Manager.cpp" />
     <ClCompile Include="R_Manager.cpp" />
+    <ClCompile Include="Surface.cpp" />
     <ClCompile Include="Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GameProcess.h" />
     <ClInclude Include="I_Identifiable.h" />
     <ClInclude Include="I_Pacatable.h" />
     <ClInclude Include="I_Pos.h" />
@@ -170,6 +173,7 @@
     <ClInclude Include="Object.h" />
     <ClInclude Include="O_Manager.h" />
     <ClInclude Include="R_Manager.h" />
+    <ClInclude Include="Surface.h" />
     <ClInclude Include="Timer.h" />
   </ItemGroup>
   <ItemGroup>

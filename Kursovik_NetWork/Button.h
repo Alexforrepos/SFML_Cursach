@@ -1,4 +1,5 @@
 #pragma once
+#include "Timer.h"
 #include "Object.h"
 #include <SFML/Graphics.hpp>
 #include <functional>
@@ -8,9 +9,11 @@
 /// </summary>
 class Button : public Object
 {
+    Timer click_delay;
+
     // Флаг, показывающий, активна ли кнопка (курсор над ней)
     bool is_active;
-
+    bool wasPressed;
     // Прямоугольник-контейнер кнопки
     sf::RectangleShape Intershape;
     // Текст кнопки
@@ -23,6 +26,8 @@ class Button : public Object
     sf::Color activeColor;
     sf::Color passiveColor;
 
+    int statistic_cliked;
+
 public:
     // Конструктор:
     // text - текст для кнопки (уже настроенный шрифт, размер и т.д.)
@@ -30,7 +35,7 @@ public:
     // position - позиция кнопки на экране
     // callback - функция, которая будет вызвана при нажатии на кнопку
     Button(const sf::Text& text, const sf::Vector2f& size, const sf::Vector2f& position, std::function<void(void)> callback)
-        : is_active(false), f(callback), label(text),Object(int(Types::None))
+        : is_active(false), f(callback), label(text),Object(int(Types::None)),click_delay(200),wasPressed(false),statistic_cliked(0)
     {
         // Настройка прямоугольника-контейнера кнопки
         Intershape.setSize(size);
@@ -45,6 +50,13 @@ public:
             position.x + (size.x - label.getLocalBounds().width) / 2.f,
             position.y + (size.y - label.getLocalBounds().height) / 2.f - 5.f  // небольшая корректировка по вертикали
         );
+
+        click_delay.restart();
+    }
+
+    ~Button()
+    {
+        std::cout << " was kliked: " << statistic_cliked << std::endl;
     }
 
     // Реализация методов Object

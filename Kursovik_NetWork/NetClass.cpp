@@ -122,10 +122,13 @@ void NetClass::Client::stop() {
 }
 
 void NetClass::startClient() {
-	if (status == Status::NOTISRUN) {
+	if (status == Status::NOTISRUN)
+	{
 		status = Status::ISCLINET;
-		client.start("127.0.0.1", 53000); // Пример IP и порта
+		client.start(sf::IpAddress::getLocalAddress(), 53000); // Пример IP и порта
 	}
+
+	std::cout << "Client started" << std::endl;
 }
 
 void NetClass::stopClient() {

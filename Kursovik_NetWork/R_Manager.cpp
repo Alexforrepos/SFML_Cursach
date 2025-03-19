@@ -31,19 +31,19 @@ int R_Manager::pushFromFile(std::string filepath)
 				switch (kind)
 				{
 				case 't': //папки текстур
-					for (auto files : filesystem::directory_iterator(filepath))
+					for (auto files : filesystem::directory_iterator(DirPath))
 						push<sf::Texture>(files.path().string());
 					break;
 				case 'm': //папки музыки
-					for (auto files : filesystem::directory_iterator(filepath))
+					for (auto files : filesystem::directory_iterator(DirPath))
 						push<sf::Music>(files.path().string());
 					break;
 				case 'f': //папки шрифтов
-					for (auto files : filesystem::directory_iterator(filepath))
+					for (auto files : filesystem::directory_iterator(DirPath))
 						push<sf::Font>(files.path().string());
 					break;
 				case 's'://для звука
-					for (auto files : filesystem::directory_iterator(filepath))
+					for (auto files : filesystem::directory_iterator(DirPath))
 						push<sf::SoundBuffer>(files.path().string());
 					break;
 				}

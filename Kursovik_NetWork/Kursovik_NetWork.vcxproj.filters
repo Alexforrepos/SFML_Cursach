@@ -82,6 +82,12 @@
     <Filter Include="Исходные файлы\Utils\Timer">
       <UniqueIdentifier>{ad5c892b-ccc2-4de8-b1e7-2ad2b24140f3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\Game\GameObject\Surface">
+      <UniqueIdentifier>{9854ab72-6ff2-4276-a3bc-30630d9768b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Game\GameProc">
+      <UniqueIdentifier>{0a9bfe2d-4199-4a16-a17d-7521dcb06146}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -119,6 +125,12 @@
     </ClCompile>
     <ClCompile Include="Timer.cpp">
       <Filter>Исходные файлы\Utils\Timer</Filter>
+    </ClCompile>
+    <ClCompile Include="Surface.cpp">
+      <Filter>Исходные файлы\Game\GameObject\Surface</Filter>
+    </ClCompile>
+    <ClCompile Include="GameProcess.cpp">
+      <Filter>Исходные файлы\Game\GameProc</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -166,6 +178,12 @@
     </ClInclude>
     <ClInclude Include="Timer.h">
       <Filter>Исходные файлы\Utils\Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="Surface.h">
+      <Filter>Исходные файлы\Game\GameObject\Surface</Filter>
+    </ClInclude>
+    <ClInclude Include="GameProcess.h">
+      <Filter>Исходные файлы\Game\GameProc</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
