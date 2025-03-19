@@ -74,7 +74,7 @@ public:
 
 	std::vector<char> serialize() override;
 
-	I_Serialize* deserialize(std::vector<char> data) override;
+	std::pair<Types, std::pair<void*, int>> deserialize(std::vector<char> data, size_t& readpoint) override;
 
 };
 

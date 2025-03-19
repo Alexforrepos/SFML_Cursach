@@ -44,7 +44,7 @@ std::vector<char> Game::serialize()
     return std::vector<char>();
 }
 
-I_Serialize* Game::deserialize(std::vector<char> data)
+std::pair<Types, std::pair<void*, int>> Game::deserialize(std::vector<char> data, size_t& readpoint)
 {
     return nullptr;
 }
