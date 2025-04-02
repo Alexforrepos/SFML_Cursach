@@ -1,8 +1,8 @@
 #pragma once
 #include "MSG.h"
-#include "I_Pos.h"
-#include "I_Type.h"
-#include "I_Identifiable.h"
+#include "./../Interfaces/I_Pos.h"
+#include "./../Interfaces/I_Type.h"
+#include "./../Interfaces/I_Identifiable.h"
 #include <SFML/Graphics.hpp>
 
 class Object

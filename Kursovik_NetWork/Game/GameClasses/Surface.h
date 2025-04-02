@@ -1,6 +1,6 @@
 #pragma once
-#include "Object.h"
-#include "MSG_Manager.h"
+#include "./../../Engine/Object.h"
+#include "./../../Engine/MSG_Manager.h"
 #define DEFAULT_LINE_QOUNT 5
 #define DEFAULT_LINE_SIZE 10
 #define START_SURFACE_POSITION_X 300

@@ -1,6 +1,6 @@
 #pragma once
-#include "Timer.h"
-#include "Object.h"
+#include "./../Utils/Timer.h"
+#include "./../../Engine/Object.h"
 #include <SFML/Graphics.hpp>
 #include <functional>
 

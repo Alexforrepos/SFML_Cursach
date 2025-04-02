@@ -1,10 +1,11 @@
 #pragma once
-#include "Menu.h"
-#include "I_Serialize.h"
-#include "O_Manager.h"
-#include "R_Manager.h"
+#include "./../Interfaces/I_Serialize.h"
+#include "./GameManagers/GameProcess.h"
+#include "./../Engine/R_Manager.h"
+#include "./../Engine/O_Manager.h"
+#include "./GameManagers/Menu.h"
 #include <SFML/Graphics.hpp>
-#include "GameProcess.h"
+
 
 class Game :
 	public I_Serialize
@@ -19,6 +20,16 @@ public:
 		Prepare,
 		GameProcess
 	};
+
+	struct
+	{
+		std::string profileName = "";
+
+		int levelUnlok = 0;
+
+
+	} GameData;
+
 private:
 	sf::RenderWindow win;
 	O_Manager& omger;
@@ -29,12 +40,15 @@ private:
 	State state;
 
 
-	Menu menu;
+	Menu& menu;
 	GameProcess gameproc;
 
 
 	Game()
-		: omger(O_Manager::get()), rmger(R_Manager::get()), win(sf::VideoMode(1000, 1000), "PVZ", sf::Style::Fullscreen), state(State::Prepare), isrun(true)
+		: omger(O_Manager::get()),
+		rmger(R_Manager::get()),
+		win(sf::VideoMode(1000, 1000), "PVZ", sf::Style::Fullscreen), state(State::Prepare),
+		isrun(true), menu(Menu::get())
 	{
 		//TODO::загрузка из файла предыдущего стэйта игры
 		rmger.pushFromFile("./Res/ResDistr.txt");

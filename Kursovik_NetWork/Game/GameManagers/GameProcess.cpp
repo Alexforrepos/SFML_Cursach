@@ -1,8 +1,5 @@
 #include "GameProcess.h"
-#include "O_Manager.h"
-#include "Surface.h"
-#include "Timer.h"
-#include "Game.h"
+#include "./../Game.h"
 
 
 void GameProcess::start()

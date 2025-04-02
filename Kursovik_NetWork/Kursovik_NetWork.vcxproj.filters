@@ -13,182 +13,113 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Исходные файлы\Engine">
-      <UniqueIdentifier>{d4592d82-7f48-413d-a4c9-626b9b59d2d3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\Engine\Net">
-      <UniqueIdentifier>{808817f0-58d7-445d-b4c4-9e93e9213151}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\Engine\Interfaces">
-      <UniqueIdentifier>{ec83d2ea-de9c-4edd-8e2f-a0d2bc16de26}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\Engine\MSGSystem">
-      <UniqueIdentifier>{c48662ce-d501-496f-ad41-2c35fb29ee84}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\Engine\MSGSystem\MSG_Manager">
-      <UniqueIdentifier>{ca640a64-d645-47a2-9c60-8459ba93fca4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\Engine\MSGSystem\OBJ_Manager">
-      <UniqueIdentifier>{51257cfc-38d9-4bd4-8580-7fa53ea63480}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\Engine\MSGSystem\MSG_Manager\MSG">
-      <UniqueIdentifier>{d0ddf686-0dd1-4561-b508-b0b89e3d5260}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\Engine\MSGSystem\OBJ_Manager\OBJ">
-      <UniqueIdentifier>{49ef2aa8-f42e-4a5f-9fc9-d1464f48b7dd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\Engine\Interfaces\Serializable">
-      <UniqueIdentifier>{2b9d18a2-8aff-45e6-9410-e5df45a11b59}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\Engine\Interfaces\Packatable">
-      <UniqueIdentifier>{ad43340f-8419-4934-aea5-01b2f6b0d5d5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\Engine\Interfaces\Positionable">
-      <UniqueIdentifier>{d0c879c0-2620-405c-ad64-9f77d56c6924}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\Engine\Interfaces\Typable">
-      <UniqueIdentifier>{01394f5f-6fd9-4b7e-b68e-12d5fbf755de}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\Game">
-      <UniqueIdentifier>{266e788c-ccc1-49d5-8b94-a8b72d1c2444}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\Engine\ResManager">
-      <UniqueIdentifier>{041387ab-2771-4d46-83f8-c130341f5bc5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\Game\Game">
-      <UniqueIdentifier>{e63ea5ee-0276-40d2-93e3-9e0fb1bb5e6e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Файлы ресурсов\Res">
       <UniqueIdentifier>{f8ecd06c-df01-4cc9-9633-5b949d1b1bf9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\Game\Menu">
-      <UniqueIdentifier>{e49f3942-7b2d-44e0-8c3f-e0397d238985}</UniqueIdentifier>
+    <Filter Include="Исходные файлы\Engine">
+      <UniqueIdentifier>{bfc3f943-e1d3-423d-90da-e4394a82ab61}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\Game\GameObject">
-      <UniqueIdentifier>{34d7e9bd-9c7e-46da-a7c4-b9bebdcdbf01}</UniqueIdentifier>
+    <Filter Include="Исходные файлы\Intefaces">
+      <UniqueIdentifier>{a549191a-9c96-4b72-a64b-3fa3ee8ac1e5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\Game\GameObject\Utils">
-      <UniqueIdentifier>{de31fbfd-0865-4bfa-8a69-7f33bd89400b}</UniqueIdentifier>
+    <Filter Include="Исходные файлы\Game">
+      <UniqueIdentifier>{017b0a93-6f70-4e3a-9104-075cc5431a32}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\Game\GameObject\Utils\Button">
-      <UniqueIdentifier>{3da095ce-f5c6-4bd2-84aa-e2705da9e982}</UniqueIdentifier>
+    <Filter Include="Исходные файлы\Game\GameManagers">
+      <UniqueIdentifier>{13fb58fd-a48d-41d7-92a7-6b17b01d779b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\Engine\Interfaces\I_Identifiable">
-      <UniqueIdentifier>{6015cba9-2350-49a0-860d-b69d657ff243}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\Utils">
-      <UniqueIdentifier>{42c20600-cff3-49d3-a581-7989477d8c73}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\Utils\Timer">
-      <UniqueIdentifier>{ad5c892b-ccc2-4de8-b1e7-2ad2b24140f3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\Game\GameObject\Surface">
-      <UniqueIdentifier>{9854ab72-6ff2-4276-a3bc-30630d9768b8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\Game\GameProc">
-      <UniqueIdentifier>{0a9bfe2d-4199-4a16-a17d-7521dcb06146}</UniqueIdentifier>
+    <Filter Include="Исходные файлы\Game\GameClasses">
+      <UniqueIdentifier>{a1197448-f6d8-4679-9982-d302fd907d0b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="MSG_Manager.cpp">
-      <Filter>Исходные файлы\Engine\MSGSystem\MSG_Manager</Filter>
+    <ClCompile Include="Engine\MSG.cpp">
+      <Filter>Исходные файлы\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="MSG.cpp">
-      <Filter>Исходные файлы\Engine\MSGSystem\MSG_Manager\MSG</Filter>
+    <ClCompile Include="Engine\MSG_Manager.cpp">
+      <Filter>Исходные файлы\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="O_Manager.cpp">
-      <Filter>Исходные файлы\Engine\MSGSystem\OBJ_Manager</Filter>
+    <ClCompile Include="Engine\O_Manager.cpp">
+      <Filter>Исходные файлы\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Object.cpp">
-      <Filter>Исходные файлы\Engine\MSGSystem\OBJ_Manager\OBJ</Filter>
+    <ClCompile Include="Engine\Object.cpp">
+      <Filter>Исходные файлы\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="R_Manager.cpp">
-      <Filter>Исходные файлы\Engine\ResManager</Filter>
+    <ClCompile Include="Engine\R_Manager.cpp">
+      <Filter>Исходные файлы\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Исходные файлы\Game\Game</Filter>
+    <ClCompile Include="Interfaces\I_Identifiable.cpp">
+      <Filter>Исходные файлы\Intefaces</Filter>
     </ClCompile>
-    <ClCompile Include="Menu.cpp">
-      <Filter>Исходные файлы\Game\Menu</Filter>
+    <ClCompile Include="Game\Game.cpp">
+      <Filter>Исходные файлы\Game</Filter>
     </ClCompile>
-    <ClCompile Include="Button.cpp">
-      <Filter>Исходные файлы\Game\GameObject\Utils\Button</Filter>
+    <ClCompile Include="Game\GameManagers\GameProcess.cpp">
+      <Filter>Исходные файлы\Game\GameManagers</Filter>
     </ClCompile>
-    <ClCompile Include="NetClass.cpp">
-      <Filter>Исходные файлы\Engine\Net</Filter>
+    <ClCompile Include="Game\GameManagers\Menu.cpp">
+      <Filter>Исходные файлы\Game\GameManagers</Filter>
     </ClCompile>
-    <ClCompile Include="I_Identifiable.cpp">
-      <Filter>Исходные файлы\Engine\Interfaces\I_Identifiable</Filter>
+    <ClCompile Include="Game\GameClasses\Button.cpp">
+      <Filter>Исходные файлы\Game\GameClasses</Filter>
     </ClCompile>
-    <ClCompile Include="Timer.cpp">
-      <Filter>Исходные файлы\Utils\Timer</Filter>
+    <ClCompile Include="Game\GameClasses\Surface.cpp">
+      <Filter>Исходные файлы\Game\GameClasses</Filter>
     </ClCompile>
-    <ClCompile Include="Surface.cpp">
-      <Filter>Исходные файлы\Game\GameObject\Surface</Filter>
-    </ClCompile>
-    <ClCompile Include="GameProcess.cpp">
-      <Filter>Исходные файлы\Game\GameProc</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="MSG_Manager.h">
-      <Filter>Исходные файлы\Engine\MSGSystem\MSG_Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="MSG.h">
-      <Filter>Исходные файлы\Engine\MSGSystem\MSG_Manager\MSG</Filter>
-    </ClInclude>
-    <ClInclude Include="I_Pacatable.h">
-      <Filter>Исходные файлы\Engine\Interfaces\Packatable</Filter>
-    </ClInclude>
-    <ClInclude Include="O_Manager.h">
-      <Filter>Исходные файлы\Engine\MSGSystem\OBJ_Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="Object.h">
-      <Filter>Исходные файлы\Engine\MSGSystem\OBJ_Manager\OBJ</Filter>
-    </ClInclude>
-    <ClInclude Include="I_Pos.h">
-      <Filter>Исходные файлы\Engine\Interfaces\Positionable</Filter>
-    </ClInclude>
-    <ClInclude Include="I_Type.h">
-      <Filter>Исходные файлы\Engine\Interfaces\Typable</Filter>
-    </ClInclude>
-    <ClInclude Include="I_Serialize.h">
-      <Filter>Исходные файлы\Engine\Interfaces\Serializable</Filter>
-    </ClInclude>
-    <ClInclude Include="R_Manager.h">
-      <Filter>Исходные файлы\Engine\ResManager</Filter>
-    </ClInclude>
-    <ClInclude Include="Game.h">
-      <Filter>Исходные файлы\Game\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Menu.h">
-      <Filter>Исходные файлы\Game\Menu</Filter>
-    </ClInclude>
-    <ClInclude Include="Button.h">
-      <Filter>Исходные файлы\Game\GameObject\Utils\Button</Filter>
-    </ClInclude>
-    <ClInclude Include="NetClass.h">
-      <Filter>Исходные файлы\Engine\Net</Filter>
-    </ClInclude>
-    <ClInclude Include="I_Identifiable.h">
-      <Filter>Исходные файлы\Engine\Interfaces\I_Identifiable</Filter>
-    </ClInclude>
-    <ClInclude Include="Timer.h">
-      <Filter>Исходные файлы\Utils\Timer</Filter>
-    </ClInclude>
-    <ClInclude Include="Surface.h">
-      <Filter>Исходные файлы\Game\GameObject\Surface</Filter>
-    </ClInclude>
-    <ClInclude Include="GameProcess.h">
-      <Filter>Исходные файлы\Game\GameProc</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Res\ResDistr.txt">
       <Filter>Файлы ресурсов\Res</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Engine\MSG.h">
+      <Filter>Исходные файлы\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\MSG_Manager.h">
+      <Filter>Исходные файлы\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\O_Manager.h">
+      <Filter>Исходные файлы\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Object.h">
+      <Filter>Исходные файлы\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\R_Manager.h">
+      <Filter>Исходные файлы\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\I_Identifiable.h">
+      <Filter>Исходные файлы\Intefaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\I_Pacatable.h">
+      <Filter>Исходные файлы\Intefaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\I_Pos.h">
+      <Filter>Исходные файлы\Intefaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\I_Serialize.h">
+      <Filter>Исходные файлы\Intefaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\I_Type.h">
+      <Filter>Исходные файлы\Intefaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game.h">
+      <Filter>Исходные файлы\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameManagers\GameProcess.h">
+      <Filter>Исходные файлы\Game\GameManagers</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameManagers\Menu.h">
+      <Filter>Исходные файлы\Game\GameManagers</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameClasses\Button.h">
+      <Filter>Исходные файлы\Game\GameClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameClasses\Surface.h">
+      <Filter>Исходные файлы\Game\GameClasses</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

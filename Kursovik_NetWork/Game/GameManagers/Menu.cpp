@@ -1,6 +1,6 @@
 #include "Menu.h"
-#include "Game.h"
-#include "Button.h"	
+#include "./../Game.h"
+
 using namespace std;
 
 
@@ -24,20 +24,9 @@ void EXIT()
 	//cout << "exit click" << endl;
 }
 
-// запуск класса клиента для дебага
-void CLIENTSTART()
+void MULT()
 {
-	if (NetClass::get().getStatus() == NetClass::Status::ISCLINET && NetClass::get().getStatus() == NetClass::Status::ISHOST)
-		return;
-	NetClass::get().startClient();
-}
-//запуск класса хоста для дебага
-void HOSTSTART()
-{
-	START();
-	if (NetClass::get().getStatus() == NetClass::Status::ISCLINET && NetClass::get().getStatus() == NetClass::Status::ISHOST)
-		return;
-	NetClass::get().startHost();
+
 }
 
 void Menu::start() {
@@ -55,10 +44,10 @@ void Menu::start() {
 
 	bvect.push_back(
 		new Button(
-			sf::Text("Client", R_Manager::get().access<sf::Font>("PaluiSPDemo-Bold.otf"), 40),
+			sf::Text("Multi", R_Manager::get().access<sf::Font>("PaluiSPDemo-Bold.otf"), 40),
 			{ 1400,150 },
 			{ 300,300 },
-			CLIENTSTART
+			MULT
 		)
 	);
 
@@ -66,17 +55,9 @@ void Menu::start() {
 
 	bvect.push_back(
 		new Button(
-			sf::Text("Host", R_Manager::get().access<sf::Font>("PaluiSPDemo-Bold.otf"), 40),
-			{ 1400,150 },
-			{ 300,500 },
-			HOSTSTART)
-	);
-
-	bvect.push_back(
-		new Button(
 			sf::Text("Exit", R_Manager::get().access<sf::Font>("PaluiSPDemo-Bold.otf"), 40),
 			sf::Vector2f(1400, 150),
-			sf::Vector2f(300, 700),
+			{ 300,500 }, 
 			EXIT
 		)
 	);

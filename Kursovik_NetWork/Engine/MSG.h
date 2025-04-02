@@ -1,14 +1,14 @@
 #pragma once
-#include "I_Pacatable.h"
+#include "./../Interfaces/I_Pacatable.h"
 #include <memory>
 #include <iostream>
-
+#include <vector>
 class Object;
 
 enum class MSG_TYPE
 	: uint8_t
 {
-	MSG_TYPE_MOVE = 1, MSG_TYPE_KILL, MSG_TYPE_CREATE, MSG_TYPE_DAMAGE
+	MSG_TYPE_MOVE = 1, MSG_TYPE_KILL, MSG_TYPE_CREATE, MSG_TYPE_DAMAGE, MSG_NET_ROOM_RECIEVE, MSG_NET_SEND_ROOM_RECIEVE
 };
 
 class MSG :
@@ -94,7 +94,7 @@ class MSG_TYPE_CREATE
 {
 public:
 
-	std::shared_ptr<Object> creature,  creator;
+	std::shared_ptr<Object> creature, creator;
 
 	/// <summary>
 	/// 
@@ -102,7 +102,7 @@ public:
 	/// <param name="creature">то что уже создано</param>
 	/// <param name="creator">тот кто создал</param>
 	MSG_TYPE_CREATE(Object* creature, Object* creator) :
-		MSG(int(MSG_TYPE::MSG_TYPE_CREATE)), creature(std::move(creature)),creator(std::move(creator))
+		MSG(int(MSG_TYPE::MSG_TYPE_CREATE)), creature(std::move(creature)), creator(std::move(creator))
 	{
 	}
 
@@ -135,6 +135,44 @@ public:
 	{
 	}
 
+	// Унаследовано через MSG
+	sf::Packet& pack(sf::Packet& packet) override;
+	std::pair<void*, size_t> open(sf::Packet& packet) override;
+};
+
+class MSG_NET_UPDATE_OBJECTS
+	:public MSG
+{
+protected:
+	std::vector<char> objects;
+public:
+
+	// Унаследовано через MSG
+	sf::Packet& pack(sf::Packet& packet) override;
+	std::pair<void*, size_t> open(sf::Packet& packet) override;
+};
+
+
+class MSG_NET_ROOM_RECIEVE
+	: public MSG
+{
+	std::vector<std::string> roomnames;
+public:
+
+
+	// Унаследовано через MSG
+	sf::Packet& pack(sf::Packet& packet) override;
+
+	std::pair<void*, size_t> open(sf::Packet& packet) override;
+
+};
+
+
+class MSG_NET_SEND_ROOM_RECIEVE
+	: public MSG
+{
+	sf::IpAddress applicant;
+public:
 	// Унаследовано через MSG
 	sf::Packet& pack(sf::Packet& packet) override;
 	std::pair<void*, size_t> open(sf::Packet& packet) override;

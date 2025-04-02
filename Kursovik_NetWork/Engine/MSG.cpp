@@ -47,3 +47,33 @@ std::pair<void*, size_t> MSG_TYPE_DAMAGE::open(sf::Packet& packet) {
     packet >> damage; // Распаковываем урон
     return { nullptr, 0 };
 }
+
+sf::Packet& MSG_NET_UPDATE_OBJECTS::pack(sf::Packet& packet)
+{
+    return packet;// TODO: вставьте здесь оператор return
+}
+
+std::pair<void*, size_t> MSG_NET_UPDATE_OBJECTS::open(sf::Packet& packet)
+{
+    return std::pair<void*, size_t>();
+}
+
+sf::Packet& MSG_NET_ROOM_RECIEVE::pack(sf::Packet& packet)
+{
+    return packet; // TODO: вставьте здесь оператор return
+}
+
+std::pair<void*, size_t> MSG_NET_ROOM_RECIEVE::open(sf::Packet& packet)
+{
+    return std::pair<void*, size_t>();
+}
+
+sf::Packet& MSG_NET_SEND_ROOM_RECIEVE::pack(sf::Packet& packet)
+{
+    return packet; // TODO: вставьте здесь оператор return
+}
+
+std::pair<void*, size_t> MSG_NET_SEND_ROOM_RECIEVE::open(sf::Packet& packet)
+{
+    return std::pair<void*, size_t>();
+}

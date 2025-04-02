@@ -1,4 +1,4 @@
-#include "Game.h"
+#include "./Game.h"
 
 using namespace std;
 using namespace sf;
@@ -46,5 +46,5 @@ std::vector<char> Game::serialize()
 
 std::pair<Types, std::pair<void*, int>> Game::deserialize(std::vector<char> data, size_t& readpoint)
 {
-    return nullptr;
+    return std::pair<Types, std::pair<void*, int>>();
 }
