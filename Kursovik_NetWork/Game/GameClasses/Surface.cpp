@@ -6,7 +6,7 @@ sf::Vector2f Surface::getPos()
 	return sf::Vector2f();
 }
 
-void Surface::changePos(sf::Vector2f other)
+void Surface::changePos(const sf::Vector2f& other)
 {
 	//NULL
 }

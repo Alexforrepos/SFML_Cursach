@@ -71,7 +71,7 @@ void Menu::start() {
 void Menu::run()
 {
 	static Timer escapeDelay(500);
-	if (false && sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) && escapeDelay())
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) && escapeDelay())
 	{
 		escapeDelay.restart();
 		cout << "exit" << endl;

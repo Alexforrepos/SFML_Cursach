@@ -15,7 +15,7 @@ public:
 	/// метод который "двигает" объект
 	/// </summary>
 	/// <param name="other">вектор(x,y позиция) добавляемый к позиции</param>
-	virtual void changePos(sf::Vector2f other) = 0;
+	virtual void changePos(const sf::Vector2f& other) = 0;
 
 	/// <summary>
 	/// метод который меняет позицию на другую

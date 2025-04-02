@@ -31,6 +31,30 @@
     <Filter Include="Исходные файлы\Game\GameClasses">
       <UniqueIdentifier>{a1197448-f6d8-4679-9982-d302fd907d0b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы ресурсов\Config">
+      <UniqueIdentifier>{3013e031-d00d-4ed4-8762-0234349ec027}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Net">
+      <UniqueIdentifier>{6eb39975-b2a9-4765-a697-6c9cf1ede2a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Game\GameClasses\Surface">
+      <UniqueIdentifier>{3304e9b9-fff0-40a8-b3b9-6020af360c87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Game\GameClasses\Projectile">
+      <UniqueIdentifier>{1e55a9de-62b2-4d73-b58d-02b6093122c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Game\GameClasses\Zombie">
+      <UniqueIdentifier>{25f56f39-7ebb-4eae-a4fd-d98e02d38a16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Game\GameClasses\Plant">
+      <UniqueIdentifier>{870831e4-2f0a-4f8f-9f04-67af45c0e6a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Game\GameClasses\Button">
+      <UniqueIdentifier>{a77721d6-a923-483c-a147-11c5b1dfa08b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Game\Utils">
+      <UniqueIdentifier>{957797a2-549e-4229-aff4-99e0bf1fe205}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -51,9 +75,6 @@
     <ClCompile Include="Engine\R_Manager.cpp">
       <Filter>Исходные файлы\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Interfaces\I_Identifiable.cpp">
-      <Filter>Исходные файлы\Intefaces</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Game.cpp">
       <Filter>Исходные файлы\Game</Filter>
     </ClCompile>
@@ -63,11 +84,20 @@
     <ClCompile Include="Game\GameManagers\Menu.cpp">
       <Filter>Исходные файлы\Game\GameManagers</Filter>
     </ClCompile>
-    <ClCompile Include="Game\GameClasses\Button.cpp">
-      <Filter>Исходные файлы\Game\GameClasses</Filter>
+    <ClCompile Include="Interfaces\I_Identifiable.cpp">
+      <Filter>Исходные файлы\Intefaces</Filter>
+    </ClCompile>
+    <ClCompile Include="Net\Client.cpp">
+      <Filter>Исходные файлы\Net</Filter>
     </ClCompile>
     <ClCompile Include="Game\GameClasses\Surface.cpp">
-      <Filter>Исходные файлы\Game\GameClasses</Filter>
+      <Filter>Исходные файлы\Game\GameClasses\Surface</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameClasses\Button.cpp">
+      <Filter>Исходные файлы\Game\GameClasses\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Utils\Timer.cpp">
+      <Filter>Исходные файлы\Game\Utils</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -115,11 +145,34 @@
     <ClInclude Include="Game\GameManagers\Menu.h">
       <Filter>Исходные файлы\Game\GameManagers</Filter>
     </ClInclude>
-    <ClInclude Include="Game\GameClasses\Button.h">
-      <Filter>Исходные файлы\Game\GameClasses</Filter>
+    <ClInclude Include="Net\Client.h">
+      <Filter>Исходные файлы\Net</Filter>
     </ClInclude>
     <ClInclude Include="Game\GameClasses\Surface.h">
-      <Filter>Исходные файлы\Game\GameClasses</Filter>
+      <Filter>Исходные файлы\Game\GameClasses\Surface</Filter>
     </ClInclude>
+    <ClInclude Include="Game\GameClasses\Button.h">
+      <Filter>Исходные файлы\Game\GameClasses\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Utils\Timer.h">
+      <Filter>Исходные файлы\Game\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameClasses\Projectile.h">
+      <Filter>Исходные файлы\Game\GameClasses\Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameClasses\Zombie.h">
+      <Filter>Исходные файлы\Game\GameClasses\Zombie</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameClasses\Plant.h">
+      <Filter>Исходные файлы\Game\GameClasses\Plant</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res\Config\Config.json">
+      <Filter>Файлы ресурсов\Config</Filter>
+    </None>
+    <None Include="Res\Config\Level.json">
+      <Filter>Файлы ресурсов\Config</Filter>
+    </None>
   </ItemGroup>
 </Project>

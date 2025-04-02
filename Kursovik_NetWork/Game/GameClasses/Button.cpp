@@ -57,9 +57,9 @@ sf::Vector2f Button::getPos()
 	return Intershape.getPosition();
 }
 
-void Button::changePos(sf::Vector2f other)
+void Button::changePos(const sf::Vector2f& other)
 {
-	setPos(getPos() + other);
+    setPos(getPos() + other);
 }
 
 void Button::setPos(sf::Vector2f other)

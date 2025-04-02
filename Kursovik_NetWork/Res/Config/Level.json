@@ -1,0 +1,17 @@
+{
+  "count": 2,
+  "Level": [
+    {
+      "Line_Q": 1,
+      "Avaliavle_Zombie": [ "Zombie", "Armored Zombie" ],
+      "Avaliable_Plant": [ "Plant", "Sunflower" ]
+
+    },
+    {
+      "Line_Q": 3,
+      "Avaliavle_Zombie": [ "Zombie", "Armored Zombie", "Mini Zombie" ],
+      "Avaliable_Plant": [ "Plant", "Sunflower" ]
+    }
+
+  ]
+}

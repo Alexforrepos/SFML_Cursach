@@ -152,8 +152,10 @@
     <ClCompile Include="Game\GameClasses\Surface.cpp" />
     <ClCompile Include="Game\GameManagers\GameProcess.cpp" />
     <ClCompile Include="Game\GameManagers\Menu.cpp" />
+    <ClCompile Include="Game\Utils\Timer.cpp" />
     <ClCompile Include="Interfaces\I_Identifiable.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Net\Client.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Res\ResDistr.txt" />
@@ -166,14 +168,23 @@
     <ClInclude Include="Engine\R_Manager.h" />
     <ClInclude Include="Game\Game.h" />
     <ClInclude Include="Game\GameClasses\Button.h" />
+    <ClInclude Include="Game\GameClasses\Plant.h" />
+    <ClInclude Include="Game\GameClasses\Projectile.h" />
     <ClInclude Include="Game\GameClasses\Surface.h" />
+    <ClInclude Include="Game\GameClasses\Zombie.h" />
     <ClInclude Include="Game\GameManagers\GameProcess.h" />
     <ClInclude Include="Game\GameManagers\Menu.h" />
+    <ClInclude Include="Game\Utils\Timer.h" />
     <ClInclude Include="Interfaces\I_Identifiable.h" />
     <ClInclude Include="Interfaces\I_Pacatable.h" />
     <ClInclude Include="Interfaces\I_Pos.h" />
     <ClInclude Include="Interfaces\I_Serialize.h" />
     <ClInclude Include="Interfaces\I_Type.h" />
+    <ClInclude Include="Net\Client.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Res\Config\Config.json" />
+    <None Include="Res\Config\Level.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

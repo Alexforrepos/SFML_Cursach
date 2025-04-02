@@ -1,9 +1,9 @@
 #pragma once
 
-enum class Types 
+enum class Types
 	: uint8_t
 {
-	None = 0, Level
+	None = 0, Level, Projectile, Zombie, Plant
 
 };
 

@@ -19,6 +19,7 @@ class Surface
 {
 	int lines_qount, lines_size;
 
+	
 	struct Place
 	{
 		bool isplanted;
@@ -87,7 +88,7 @@ public:
 	// Унаследовано через Object
 	sf::Vector2f getPos() override;
 
-	void changePos(sf::Vector2f other) override;
+	void changePos(const sf::Vector2f& other) override;
 
 	void setPos(sf::Vector2f other) override;
 

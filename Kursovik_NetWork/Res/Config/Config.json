@@ -1,0 +1,11 @@
+{
+  "Dev": {
+    "InfSun": 0,
+    "ZSpeed": 1.0,
+    "FSpeed": 1.0
+  },
+  "Mult": {
+    "ClientRun": 0,
+    "ServerIP": "192.168.1.1"
+  }
+}

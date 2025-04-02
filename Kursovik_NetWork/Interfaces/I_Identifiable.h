@@ -13,3 +13,4 @@ public:
 	}
 	virtual unsigned long long getId() { return 0; };
 };
+
