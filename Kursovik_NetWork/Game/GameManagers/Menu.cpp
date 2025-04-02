@@ -11,7 +11,7 @@ using namespace std;
 void START()
 {
 	Game::get().setState(Game::State::GameProcess);
-	Game::get().menuClose();
+	Game::get().closeMenu();
 }
 
 

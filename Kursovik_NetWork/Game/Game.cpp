@@ -12,10 +12,10 @@ void Game::run()
 
     if (getState() == State::Menu && !menu.getIsRun())
         menu.start();
-    if (getState() == State::GameProcess && !gameproc.isRun())
-        gameproc.start();
+    if (getState() == State::GameProcess && !gameProcess.isRun())
+        gameProcess.start();
 
-    switch (state)
+    switch (this->currentState)
     {
     case Game::State::None:
         break;
@@ -27,7 +27,7 @@ void Game::run()
     case Game::State::Prepare:
         break;
     case Game::State::GameProcess:
-        gameproc.run();
+        gameProcess.run();
         break;
     default:
         break;

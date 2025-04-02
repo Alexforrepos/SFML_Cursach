@@ -99,6 +99,9 @@
     <ClCompile Include="Game\Utils\Timer.cpp">
       <Filter>Исходные файлы\Game\Utils</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Utils\Config.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Res\ResDistr.txt">
@@ -166,12 +169,12 @@
     <ClInclude Include="Game\GameClasses\Plant.h">
       <Filter>Исходные файлы\Game\GameClasses\Plant</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Utils\Config.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Res\Config\Config.json">
-      <Filter>Файлы ресурсов\Config</Filter>
-    </None>
-    <None Include="Res\Config\Level.json">
       <Filter>Файлы ресурсов\Config</Filter>
     </None>
   </ItemGroup>

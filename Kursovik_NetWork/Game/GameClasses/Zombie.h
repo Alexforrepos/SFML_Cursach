@@ -15,10 +15,10 @@ class Zombie
 	sf::Sprite spr;
 public:
 
-	Zombie(I_Pos* creator, const uint16_t& HP, const uint16_t& velocity, const uint16_t& damage, const uint16_t& line, const sf::Sprite& spr)
+	Zombie(const uint16_t& HP, const uint16_t& velocity, const uint16_t& damage, const uint16_t& line, const sf::Sprite& spr)
 		:Object(int(Types::Zombie)), HP(HP), velocity(velocity), damage(damage), line(line), spr(spr)
 	{
-		setPos(creator->getPos());
+		
 	}
 
 	sf::Vector2f getPos() { return pos; }

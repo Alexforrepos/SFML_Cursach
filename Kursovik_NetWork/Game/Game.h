@@ -1,4 +1,6 @@
+// Game.h
 #pragma once
+#include "./Utils/Config.h"
 #include "./../Interfaces/I_Serialize.h"
 #include "./GameManagers/GameProcess.h"
 #include "./../Engine/R_Manager.h"
@@ -6,89 +8,93 @@
 #include "./GameManagers/Menu.h"
 #include <SFML/Graphics.hpp>
 
-
-class Game :
-	public I_Serialize
+class Game : public I_Serialize
 {
 public:
-	enum class State
-		: uint8_t
-	{
-		None,
-		Menu,
-		NetWait,
-		Prepare,
-		GameProcess
-	};
+    enum class State : uint8_t
+    {
+        None,
+        Menu,
+        NetWait,
+        Prepare,
+        GameProcess
+    };
 
-	struct
-	{
-		std::string profileName = "";
-
-		int levelUnlok = 0;
-
-
-	} GameData;
+    struct GameData
+    {
+        std::string profileName;
+        int levelUnlock = 0;
+    };
 
 private:
-	sf::RenderWindow win;
-	O_Manager& omger;
-	R_Manager& rmger;
+    sf::RenderWindow win;
+    O_Manager& omger;
+    R_Manager& rmger;
+    Config& config;
+    bool isRun;
+    State currentState;
+    Menu& menu;
+    GameProcess gameProcess;
+    GameData gameData;
 
-	bool isrun;
+    Game() :
+        omger(O_Manager::get()),
+        rmger(R_Manager::get()),
+        win(sf::VideoMode(1000, 1000), "PVZ", sf::Style::Fullscreen),
+        config(Config::getInstance()),
+        menu(Menu::get()),
+        isRun(true),
+        currentState(State::Prepare)
+    {
+        try {
+            // Загрузка конфигурации
+            config.load("./Res/Config/Config.json");
 
-	State state;
+            // Загрузка ресурсов
+             rmger.pushFromFile(config["FileSystem"]["Resource"]);
 
+            // Инициализация меню
+            menu.start();
+            setState(State::Menu);
 
-	Menu& menu;
-	GameProcess gameproc;
-
-
-	Game()
-		: omger(O_Manager::get()),
-		rmger(R_Manager::get()),
-		win(sf::VideoMode(1000, 1000), "PVZ", sf::Style::Fullscreen), state(State::Prepare),
-		isrun(true), menu(Menu::get())
-	{
-		//TODO::загрузка из файла предыдущего стэйта игры
-		rmger.pushFromFile("./Res/ResDistr.txt");
-		menu.start();
-		setState(State::Menu);
-	}
+            
+           
+        }
+        catch (const std::exception& e) {
+            std::cerr << "Game initialization error: " << e.what() << std::endl;
+            isRun = false;
+        }
+    }
 
 public:
-	static Game& get()
-	{
-		static Game inst;
-		return inst;
-	}
+    ~Game() = default;
 
-	/// <summary>
-	/// основная функция игры ее игровой цикл
-	/// </summary>
-	void run();
+    static Game& get() {
+        static Game instance;
+        return instance;
+    }
 
-	//проверка запущена ли игра
-	bool getRun() { return isrun; }
-	//закрытие игры
-	void close() { isrun = false; }
+    void run();
 
-	/// <returns>состояние игры</returns>
-	State& getState() { return state; }
+    bool isRunning() { return isRun; }
+    void close() { isRun = false; }
 
-	/// <param name="state">новое состояние игры</param>
-	void setState(State state) { this->state = state; }
+    State getState() const { return currentState; }
+    void setState(State state) { currentState = state; }
 
-	void menuClose()
-	{
-		menu.close();
-	}
+    void closeMenu() {
+        menu.close();
+    }
 
-	// Унаследовано через I_Serialize
+    // Сохранение данных игры в конфиг перед выходом
+    void saveGameData() {
+        config["GameData"]["profileName"] = gameData.profileName;
+        config["GameData"]["levelUnlock"] = gameData.levelUnlock;
+        config.save();
+    }
 
-	std::vector<char> serialize() override;
+    // Методы сериализации
+    std::vector<char> serialize();
 
-	std::pair<Types, std::pair<void*, int>> deserialize(std::vector<char> data, size_t& readpoint) override;
-
+    std::pair<Types, std::pair<void*, int>> deserialize(std::vector<char> data, size_t& readPoint);
 };
-

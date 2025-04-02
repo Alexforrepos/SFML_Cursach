@@ -152,6 +152,7 @@
     <ClCompile Include="Game\GameClasses\Surface.cpp" />
     <ClCompile Include="Game\GameManagers\GameProcess.cpp" />
     <ClCompile Include="Game\GameManagers\Menu.cpp" />
+    <ClCompile Include="Game\Utils\Config.cpp" />
     <ClCompile Include="Game\Utils\Timer.cpp" />
     <ClCompile Include="Interfaces\I_Identifiable.cpp" />
     <ClCompile Include="main.cpp" />
@@ -174,6 +175,7 @@
     <ClInclude Include="Game\GameClasses\Zombie.h" />
     <ClInclude Include="Game\GameManagers\GameProcess.h" />
     <ClInclude Include="Game\GameManagers\Menu.h" />
+    <ClInclude Include="Game\Utils\Config.h" />
     <ClInclude Include="Game\Utils\Timer.h" />
     <ClInclude Include="Interfaces\I_Identifiable.h" />
     <ClInclude Include="Interfaces\I_Pacatable.h" />
@@ -184,9 +186,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Res\Config\Config.json" />
-    <None Include="Res\Config\Level.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties Res_4Config_4Config_1json__JsonSchema="https://alec016.github.io/Custom-Machinery/Json%20Schema/src/main/resources/schemas/custom_machinery_machine.json" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>
