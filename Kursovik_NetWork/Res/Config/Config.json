@@ -1,36 +1,53 @@
 {
-  "Profile": {
-    "ProfileName": "Default",
-    "UnlockedLevel": 1
-  },
-  "FileSystem": {
-    "Config": "./Res/Config/Config.json",
-    "Resource": "./Res/ResDistr.txt",
-    "MusicOn": 1
-  },
-  "Dev": {
-    "FSpeed": 1.0,
-    "InfSun": 0,
-    "ZSpeed": 1.0
-  },
-  "Multiplayer": {
-    "ClientMayRun": 0,
-    "ServerIP": "192.168.1.1"
-  },
-  "Level": {
-    "count": 2,
-    "Levels": [
-      {
-        "Avaliable_Plant": [ "Plant", "Sunflower" ],
-        "Avaliavle_Zombie": [ "Zombie", "Armored Zombie" ],
-        "Line_Q": 1
-      },
-      {
-        "Avaliable_Plant": [ "Plant", "Sunflower", "Ice Shooter" ],
-        "Avaliavle_Zombie": [ "Zombie", "Armored Zombie", "Mini Zombie" ],
-        "Line_Q": 3
-      }
-
-    ]
-  }
+    "Dev": {
+        "FSpeed": 1.0,
+        "InfSun": 0,
+        "ZSpeed": 1.0
+    },
+    "FileSystem": {
+        "Config": "./Res/Config/Config.json",
+        "MusicOn": 1,
+        "Resource": "./Res/ResDistr.txt"
+    },
+    "GameData": {
+        "levelUnlock": 0,
+        "profileName": ""
+    },
+    "Level": {
+        "Levels": [
+            {
+                "Avaliable_Plant": [
+                    "Plant",
+                    "Sunflower"
+                ],
+                "Avaliavle_Zombie": [
+                    "Zombie",
+                    "Armored Zombie"
+                ],
+                "Line_Q": 1
+            },
+            {
+                "Avaliable_Plant": [
+                    "Plant",
+                    "Sunflower",
+                    "Ice Shooter"
+                ],
+                "Avaliavle_Zombie": [
+                    "Zombie",
+                    "Armored Zombie",
+                    "Mini Zombie"
+                ],
+                "Line_Q": 3
+            }
+        ],
+        "count": 2
+    },
+    "Multiplayer": {
+        "ClientMayRun": 0,
+        "ServerIP": "192.168.1.1"
+    },
+    "Profile": {
+        "ProfileName": "Default",
+        "UnlockedLevel": 1
+    }
 }

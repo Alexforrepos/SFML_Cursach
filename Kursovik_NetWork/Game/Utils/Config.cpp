@@ -1,6 +1,6 @@
 #include "Config.h"
 
-inline void Config::load(const std::string& filename) {
+void Config::load(const std::string& filename) {
 	if (!std::filesystem::exists(filename)) {
 		throw std::runtime_error("Config file does not exist: " + filename);
 	}
@@ -17,7 +17,7 @@ inline void Config::load(const std::string& filename) {
 	}
 }
 
-inline void Config::save(const std::string& filename) {
+void Config::save(const std::string& filename) {
 	std::string savePath = filename.empty() ? currentFilePath : filename;
 	if (savePath.empty()) {
 		throw std::runtime_error("No file path specified for saving");

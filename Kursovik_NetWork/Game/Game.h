@@ -77,7 +77,11 @@ public:
     void run();
 
     bool isRunning() { return isRun; }
-    void close() { isRun = false; }
+    void close() 
+    { 
+        isRun = false;
+        saveGameData();
+    }
 
     State getState() const { return currentState; }
     void setState(State state) { currentState = state; }
@@ -90,7 +94,7 @@ public:
     void saveGameData() {
         config["GameData"]["profileName"] = gameData.profileName;
         config["GameData"]["levelUnlock"] = gameData.levelUnlock;
-        config.save();
+        config.save("./Res/Config/Config.json");
     }
 
     // Методы сериализации

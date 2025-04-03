@@ -24,8 +24,6 @@ void Game::run()
         break;
     case Game::State::NetWait:
         break;
-    case Game::State::Prepare:
-        break;
     case Game::State::GameProcess:
         gameProcess.run();
         break;
