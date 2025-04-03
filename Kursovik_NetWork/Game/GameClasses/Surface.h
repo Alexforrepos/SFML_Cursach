@@ -83,8 +83,6 @@ public:
 		}
 	}
 
-
-
 	// Унаследовано через Object
 	sf::Vector2f getPos() override;
 
@@ -97,6 +95,12 @@ public:
 	void draw(sf::RenderWindow& win) override;
 
 	void sendMsg(MSG* msg) override;
+
+
+	// Унаследовано через Object
+	std::vector<char> serialize() override;
+
+	std::pair<Types, std::pair<void*, int>> deserialize(std::vector<char> data, size_t& readpoint) override;
 
 };
 

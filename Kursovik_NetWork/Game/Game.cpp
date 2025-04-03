@@ -10,8 +10,10 @@ void Game::run()
     win.pollEvent(ev);
     win.clear();
 
-    if (getState() == State::Menu && !menu.getIsRun())
-        menu.start();
+    
+
+    if (getState() == State::Menu && !menu->getIsRun())
+        menu->start();
     if (getState() == State::GameProcess && !gameProcess.isRun())
         gameProcess.start();
 
@@ -20,7 +22,7 @@ void Game::run()
     case Game::State::None:
         break;
     case Game::State::Menu:
-        menu.run();
+        menu->run();
         break;
     case Game::State::NetWait:
         

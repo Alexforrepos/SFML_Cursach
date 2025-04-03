@@ -3,10 +3,11 @@
 #include "./../Interfaces/I_Pos.h"
 #include "./../Interfaces/I_Type.h"
 #include "./../Interfaces/I_Identifiable.h"
+#include "./../Interfaces/I_Serialize.h"
 #include <SFML/Graphics.hpp>
 
 class Object
-	: public I_Pos , public I_Type , public I_Identifiable
+	: public I_Pos , public I_Type , public I_Identifiable, public I_Serialize
 {
 	//переменная отвечающая за id
 	unsigned long long id;

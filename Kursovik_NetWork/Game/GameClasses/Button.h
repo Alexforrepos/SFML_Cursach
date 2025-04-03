@@ -41,7 +41,7 @@ public:
         Intershape.setSize(size);
         Intershape.setPosition(position);
         // ”станавливаем начальные цвета (на ваш вкус)
-        passiveColor = sf::Color(200, 200, 200); // светло-серый
+        passiveColor = sf::Color::Transparent; // светло-серый
         activeColor = sf::Color(150, 150, 150); // чуть темнее
         Intershape.setFillColor(passiveColor);
 
@@ -69,4 +69,8 @@ public:
     void changePos(const sf::Vector2f& other) override;
     void setPos(sf::Vector2f other) override;
     int type() override;
+
+    // ”наследовано через Object
+    std::vector<char> serialize() override;
+    std::pair<Types, std::pair<void*, int>> deserialize(std::vector<char> data, size_t& readpoint) override;
 };

@@ -1,4 +1,3 @@
-// Game.h
 #pragma once
 #include "./Utils/Config.h"
 #include "./../Interfaces/I_Serialize.h"
@@ -25,6 +24,9 @@ public:
         std::string profileName;
         int levelUnlock = 0;
     };
+    
+
+    friend class Menu;
 
 private:
     sf::RenderWindow win;
@@ -33,7 +35,7 @@ private:
     Config& config;
     bool isRun;
     State currentState;
-    Menu& menu;
+    Menu* menu;
     GameProcess gameProcess;
     GameData gameData;
 
@@ -42,19 +44,20 @@ private:
         rmger(R_Manager::get()),
         win(sf::VideoMode(1000, 1000), "PVZ", sf::Style::Fullscreen),
         config(Config::getInstance()),
-        menu(Menu::get()),
+        menu(nullptr),
         isRun(true),
         currentState(State::Prepare)
     {
+        menu = &Menu::get();
         try {
             // Загрузка конфигурации
             config.load("./Res/Config/Config.json");
 
             // Загрузка ресурсов
-             rmger.pushFromFile(config["FileSystem"]["Resource"]);
+             rmger.pushFromFile(win,config["FileSystem"]["Resource"]);
 
             // Инициализация меню
-            menu.start();
+            menu->start();
             setState(State::Menu);
 
             
@@ -87,7 +90,7 @@ public:
     void setState(State state) { currentState = state; }
 
     void closeMenu() {
-        menu.close();
+        menu->close();
     }
 
     // Сохранение данных игры в конфиг перед выходом

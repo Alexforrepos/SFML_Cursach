@@ -153,6 +153,7 @@
     <ClCompile Include="Game\GameManagers\GameProcess.cpp" />
     <ClCompile Include="Game\GameManagers\Menu.cpp" />
     <ClCompile Include="Game\Utils\Config.cpp" />
+    <ClCompile Include="Game\Utils\ProgressBar.cpp" />
     <ClCompile Include="Game\Utils\Timer.cpp" />
     <ClCompile Include="Interfaces\I_Identifiable.cpp" />
     <ClCompile Include="main.cpp" />
@@ -176,6 +177,7 @@
     <ClInclude Include="Game\GameManagers\GameProcess.h" />
     <ClInclude Include="Game\GameManagers\Menu.h" />
     <ClInclude Include="Game\Utils\Config.h" />
+    <ClInclude Include="Game\Utils\ProgressBar.h" />
     <ClInclude Include="Game\Utils\Timer.h" />
     <ClInclude Include="Interfaces\I_Identifiable.h" />
     <ClInclude Include="Interfaces\I_Pacatable.h" />

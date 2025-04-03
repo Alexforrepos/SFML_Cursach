@@ -45,9 +45,5 @@
     "Multiplayer": {
         "ClientMayRun": 0,
         "ServerIP": "192.168.1.1"
-    },
-    "Profile": {
-        "ProfileName": "Default",
-        "UnlockedLevel": 1
     }
 }

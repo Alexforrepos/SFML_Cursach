@@ -4,6 +4,10 @@
 using namespace std;
 
 // Функции-обработчики кнопок
+
+#pragma region BUTTONS_CALLBACK
+
+
 void START()
 {
 	Game::get().setState(Game::State::GameProcess);
@@ -19,7 +23,8 @@ void EXIT()
 
 void MULT()
 {
-	Menu::get().ChangeMode(Menu::State::Multiplayer);
+	Menu::get().state = Menu::State::Multiplayer;
+	Menu::get().change = true;
 }
 
 void SETTINGS()
@@ -38,10 +43,15 @@ void BACK_TO_MAIN()
 void Menu::ChangeMode(const State& newState)
 {
 	Menu::get().state = newState;
-	Menu::get().start(); // Перезапускаем меню с новым состоянием
+	Menu::get().start(); 
 }
+#pragma endregion
+
+
 
 void Menu::start() {
+	isrun = false;
+
 	std::vector<Button*> bvect;
 	O_Manager::get().clear();
 
@@ -124,8 +134,11 @@ void Menu::start() {
 void Menu::run()
 {
 	static Timer escapeDelay(500);
+	BackGround.setTexture(&R_Manager::get().access<sf::Texture>
+		("textur-gas-kvas-com-h9hz-p-tekstura-rasteniya-protiv-zombi-8.jpg"));
+	BackGround.setSize(sf::Vector2f(Game::get().win.getSize()));
 
-	if (change)
+	if (change)	
 	{
 		change = false;
 		ChangeMode(state);
@@ -142,6 +155,7 @@ void Menu::run()
 
 		EXIT();
 	}
+	Game::get().win.draw(BackGround);
 }
 
 

@@ -12,5 +12,6 @@ public:
 		return last_id; 
 	}
 	virtual unsigned long long getId() { return 0; };
+	
 };
 

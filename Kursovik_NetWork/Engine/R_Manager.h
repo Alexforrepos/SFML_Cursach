@@ -9,6 +9,7 @@
 #include <filesystem>
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
+#include "./../Game/Utils/ProgressBar.h"
 
 
 class R_Manager
@@ -130,7 +131,7 @@ public:
 	/// </summary>
 	/// <param name="path">путь к текстовому файлу</param>
 	/// <returns>количество полученных ресурсов</returns>
-	int pushFromFile(std::string path);
+	int pushFromFile(sf::RenderWindow& win, const std::string& filepath);
 
 
 
@@ -211,3 +212,4 @@ public:
 
 };
 //R_Manager::get().access<Texture>(name)
+

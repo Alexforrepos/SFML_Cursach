@@ -23,9 +23,13 @@ public:
 		static O_Manager inst;
 		return inst;
 	}
+
+	
 	inline void clear() 
 	{ 
 		ObjVector.clear(); 
+		std::cout << " ___________________________________________ " << std::endl;
+		
 	};
 
 	void addObject(std::shared_ptr<Object> obj);

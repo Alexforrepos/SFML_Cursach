@@ -8,7 +8,7 @@ class Zombie
 	sf::Vector2f pos;
 
 	uint16_t HP,
-		velocity,
+		velocity, // =speed 
 		damage,
 		line;
 

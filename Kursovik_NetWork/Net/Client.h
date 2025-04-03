@@ -8,6 +8,8 @@ class Client
 	sf::TcpListener listenPort;
 	sf::TcpSocket sendPort;
 	
+	static void HandleListenSocket();
+
 public:
 
 	Client();

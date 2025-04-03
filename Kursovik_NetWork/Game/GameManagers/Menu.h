@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include "./../../Engine/R_Manager.h"
 #include "./../Utils/Timer.h"
 #include "./../GameClasses/Button.h"	
 
@@ -13,7 +14,7 @@ public:
 		Settings
 	};
 private:
-
+	sf::RectangleShape BackGround;
 
 	State state;
 	bool change;
@@ -21,8 +22,10 @@ private:
 	bool isrun;
 
 	Menu()
-		: state(State::Base), isrun(false), change(false)
+		: state(State::Base), isrun(false), change(false),
+		BackGround({0,0})
 	{
+		
 	}
 
 public:
