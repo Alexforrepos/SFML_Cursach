@@ -6,63 +6,45 @@
 class Menu
 {
 public:
-	enum class State
-	{
-		Base = 1, Multplayer, Settings
-	};
+    enum class State
+    {
+        Base = 1,
+        Multiplayer,
+        Settings
+    };
 private:
+    class Basic_Menu
+    {
+        bool isRun;
+        friend Menu;
 
-	class Basic_Menu
-	{
-		bool isRun;
-		friend Menu;
+        void start()
+        {
 
-		void start()
-		{
+        }
+    };
 
-		}
+    State state;
+    bool isrun;
 
-	};
-
-
-	State state;
-
-	bool isrun;
-
-
-
-
-
-	Menu()
-		:state(State::Base), isrun(false)
-	{
-
-	}
-
-	
+    Menu()
+        : state(State::Base), isrun(false)
+    {
+    }
 
 public:
+    static void ChangeMode(const State& newState);
 
-	static void ChangeMode();
+    static Menu& get()
+    {
+        static Menu inst;
+        return inst;
+    }
 
-	static Menu& get()
-	{
-		static Menu inst;
-		return inst;
-	}
+    void start();
+    void run();
+    void close();
 
-	/// <summary>
-	/// инициализация всех кнопок	
-	/// </summary>
-	void start();
-	/// <summary>
-	/// цикл меню
-	/// </summary>
-	void run();
-	/// <summary>
-	/// очистка всех объектов меню
-	/// </summary>
-	void close();
-
-	bool getIsRun() { return isrun; }
+    bool getIsRun() { return isrun; }
+    State getCurrentState() { return state; }
 };

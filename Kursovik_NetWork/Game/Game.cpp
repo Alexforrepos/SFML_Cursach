@@ -23,6 +23,7 @@ void Game::run()
         menu.run();
         break;
     case Game::State::NetWait:
+        
         break;
     case Game::State::GameProcess:
         gameProcess.run();

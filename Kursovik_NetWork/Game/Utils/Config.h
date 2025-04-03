@@ -17,6 +17,7 @@ private:
 
 public:
 	// Удаляем копирование и присваивание
+	// то есть нельзя совсем нельзя даже если хочется максим
 	Config(const Config&) = delete;
 	Config& operator=(const Config&) = delete;
 
