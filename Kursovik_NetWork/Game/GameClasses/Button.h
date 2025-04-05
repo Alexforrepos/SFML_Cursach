@@ -37,11 +37,11 @@ public:
     Button(const sf::Text& text, const sf::Vector2f& size, const sf::Vector2f& position, std::function<void(void)> callback)
         : is_active(false), f(callback), label(text),Object(int(Types::None)),click_delay(200),wasPressed(false),statistic_cliked(0)
     {
-        // Настройка прямоугольника-контейнера кнопки
+       
         Intershape.setSize(size);
         Intershape.setPosition(position);
         // Устанавливаем начальные цвета (на ваш вкус)
-        passiveColor = sf::Color::Transparent; // светло-серый
+        passiveColor = sf::Color::Transparent; // прозрачный цвет очень красивый
         activeColor = sf::Color(150, 150, 150); // чуть темнее
         Intershape.setFillColor(passiveColor);
 

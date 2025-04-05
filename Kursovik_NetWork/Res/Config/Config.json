@@ -2,6 +2,7 @@
     "Dev": {
         "FSpeed": 1.0,
         "InfSun": 0,
+        "OutLineDraw": true,
         "ZSpeed": 1.0
     },
     "FileSystem": {

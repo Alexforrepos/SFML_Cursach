@@ -152,6 +152,10 @@
     <ClCompile Include="Game\GameClasses\Surface.cpp" />
     <ClCompile Include="Game\GameManagers\GameProcess.cpp" />
     <ClCompile Include="Game\GameManagers\Menu.cpp" />
+    <ClCompile Include="Game\Interfaces\Button_.cpp" />
+    <ClCompile Include="Game\Interfaces\InterfaceBase.cpp" />
+    <ClCompile Include="Game\Interfaces\InterfaceIntputText.cpp" />
+    <ClCompile Include="Game\Interfaces\InterfaceWindow.cpp" />
     <ClCompile Include="Game\Utils\Config.cpp" />
     <ClCompile Include="Game\Utils\ProgressBar.cpp" />
     <ClCompile Include="Game\Utils\Timer.cpp" />
@@ -176,6 +180,10 @@
     <ClInclude Include="Game\GameClasses\Zombie.h" />
     <ClInclude Include="Game\GameManagers\GameProcess.h" />
     <ClInclude Include="Game\GameManagers\Menu.h" />
+    <ClInclude Include="Game\Interfaces\Button_.h" />
+    <ClInclude Include="Game\Interfaces\InterfaceBase.h" />
+    <ClInclude Include="Game\Interfaces\InterfaceIntputText.h" />
+    <ClInclude Include="Game\Interfaces\InterfaceWindow.h" />
     <ClInclude Include="Game\Utils\Config.h" />
     <ClInclude Include="Game\Utils\ProgressBar.h" />
     <ClInclude Include="Game\Utils\Timer.h" />

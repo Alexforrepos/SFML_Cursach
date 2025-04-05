@@ -23,8 +23,9 @@ void Surface::update()
 
 void Surface::draw(sf::RenderWindow& win)
 {
-	for (auto line : place_vector)
+	for (auto& line : place_vector)
 	{
+		win.draw(this->line(line));
 		for (auto place : line)
 			place.draw(win);
 	}

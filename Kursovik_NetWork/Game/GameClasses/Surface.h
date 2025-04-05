@@ -1,4 +1,5 @@
 #pragma once
+#include "./../Utils/Config.h"
 #include "./../../Engine/Object.h"
 #include "./../../Engine/MSG_Manager.h"
 #define DEFAULT_LINE_QOUNT 5
@@ -19,7 +20,7 @@ class Surface
 {
 	int lines_qount, lines_size;
 
-	
+
 	struct Place
 	{
 		bool isplanted;
@@ -96,6 +97,22 @@ public:
 
 	void sendMsg(MSG* msg) override;
 
+	sf::RectangleShape line(std::vector<Place> places)
+	{
+		sf::RectangleShape line_;
+		line_.setPosition(places[0].shape_rect.getPosition());
+		line_.setSize({ places[places.size() - 1].shape_rect.getPosition().x + (places[places.size() - 1].shape_rect.getSize().x),
+			places[0].shape_rect.getSize().y });
+		if (static_cast<bool>((Config::getInstance())["Dev"]["OutLineDraw"]))
+		{
+			line_.setFillColor(sf::Color::Yellow);
+			line_.setOutlineThickness(3.);
+			line_.setOutlineColor(sf::Color::White);
+		}
+
+
+		return line_;
+	};
 
 	// Унаследовано через Object
 	std::vector<char> serialize() override;

@@ -55,6 +55,18 @@
     <Filter Include="Исходные файлы\Game\Utils">
       <UniqueIdentifier>{957797a2-549e-4229-aff4-99e0bf1fe205}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\Game\Interface">
+      <UniqueIdentifier>{a56706a7-c267-4f44-9224-c69418e645e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Game\Interface\InterfaceWindow">
+      <UniqueIdentifier>{f43a31cc-b517-4329-addc-413ee14732d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Game\Interface\Button">
+      <UniqueIdentifier>{412eb0a5-3a0e-4a30-a66a-a5084e83bd23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Game\Interface\InterfaceIntputText">
+      <UniqueIdentifier>{eff63684-cf4b-4f11-a06e-e6a556c78afd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -104,6 +116,18 @@
     </ClCompile>
     <ClCompile Include="Game\Utils\ProgressBar.cpp">
       <Filter>Исходные файлы\Game\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Interfaces\InterfaceBase.cpp">
+      <Filter>Исходные файлы\Game\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Interfaces\InterfaceWindow.cpp">
+      <Filter>Исходные файлы\Game\Interface\InterfaceWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Interfaces\Button_.cpp">
+      <Filter>Исходные файлы\Game\Interface\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Interfaces\InterfaceIntputText.cpp">
+      <Filter>Исходные файлы\Game\Interface\InterfaceIntputText</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -176,7 +200,19 @@
       <Filter>Исходные файлы\Game\Utils</Filter>
     </ClInclude>
     <ClInclude Include="Game\Utils\ProgressBar.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Исходные файлы\Game\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Interfaces\InterfaceBase.h">
+      <Filter>Исходные файлы\Game\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Interfaces\InterfaceWindow.h">
+      <Filter>Исходные файлы\Game\Interface\InterfaceWindow</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Interfaces\Button_.h">
+      <Filter>Исходные файлы\Game\Interface\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Interfaces\InterfaceIntputText.h">
+      <Filter>Исходные файлы\Game\Interface\InterfaceIntputText</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
