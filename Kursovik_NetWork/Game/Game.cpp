@@ -47,7 +47,7 @@ void Game::run()
 		m_menu->start();
 
 	if (getState() == State::GameProcess && !m_gameProcess.isRun())
-		m_gameProcess.start();
+		m_gameProcess.start(1);
 
 	
 	switch (m_currentState)

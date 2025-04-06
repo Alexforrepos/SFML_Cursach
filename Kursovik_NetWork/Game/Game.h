@@ -93,6 +93,8 @@ public:
 
 	sf::RenderWindow& getWindow() { return m_window; }
 
+	GameProcess& getGameProcess() { return m_gameProcess; }
+
 	// Save game data to config before exit
 	void saveGameData() {
 		m_config["GameData"]["profileName"] = m_gameData.profileName;

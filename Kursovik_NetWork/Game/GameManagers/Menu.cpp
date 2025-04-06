@@ -4,10 +4,10 @@
 using namespace std;
 
 // Button callbacks
+#pragma region CALLBACKS
 void START()
 {
-	Game::get().setState(Game::State::GameProcess);
-	Game::get().closeMenu();
+	Menu::get().changeState(Menu::State::Start);
 }
 
 void EXIT()
@@ -20,7 +20,7 @@ void EXIT()
 void MULT()
 {
 	Menu::get().changeState(Menu::State::Multiplayer);
-	
+
 }
 
 void SETTINGS()
@@ -32,6 +32,20 @@ void BACK_TO_MAIN()
 {
 	Menu::get().changeState(Menu::State::Base);
 }
+
+void LEVEL1()
+{
+	Game::get().setState(Game::State::GameProcess);
+	Game::get().getGameProcess().start(1);
+}
+
+void LEVEL2()
+{
+	Game::get().setState(Game::State::GameProcess);
+	Game::get().getGameProcess().start(2);
+}
+
+#pragma endregion
 
 void Menu::changeState(const State& newState)
 {
@@ -79,6 +93,9 @@ void Menu::createBaseMenu()
 	window->addElement(std::move(exitBtn));
 
 	m_currentWindow = std::move(window);
+
+	m_currentWindow->centerElementsVertically();
+	m_currentWindow->centerElementsHorizontally();
 }
 
 void Menu::createMultiplayerMenu()
@@ -123,6 +140,30 @@ void Menu::createSettingsMenu()
 	// Add settings buttons here...
 
 	m_currentWindow = std::move(window);
+
+	m_currentWindow->centerElementsVertically();
+	m_currentWindow->centerElementsHorizontally();
+}
+
+void Menu::createStartMenu()
+{
+	auto window = std::make_unique<InterfaceWindow>(sf::Vector2f(1400, 800), sf::Vector2f(100, 100));
+
+	int Level_q = Config::getInstance()["Level"]["count"];
+	std::function<void()> Callbacks[] = { LEVEL1 ,LEVEL2 };
+	for (int i = 0; i < Level_q; i++)
+	{
+		string Level = "Level " + std::to_string(i + 1);
+		auto button = std::make_unique<Button>(sf::Vector2f{ 1300,200 }, sf::Vector2f{},
+			Level,
+			R_Manager::get().access<sf::Font>("BantyBold.ttf"), 40);
+		button->setCallback(Button::Callback(Callbacks[i]));
+		window->addElement(std::move(button));
+	}
+	
+	m_currentWindow = std::move(window);
+	m_currentWindow->centerElementsVertically();
+	m_currentWindow->centerElementsHorizontally();
 }
 
 void Menu::start() {
@@ -146,9 +187,11 @@ void Menu::start() {
 	case State::Settings:
 		createSettingsMenu();
 		break;
+	case State::Start:
+		createStartMenu();
+		break;
 	}
-	m_currentWindow->centerElementsVertically();
-	m_currentWindow->centerElementsHorizontally();
+
 
 	m_isRunning = true;
 }

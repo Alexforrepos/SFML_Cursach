@@ -26,7 +26,7 @@ public:
 	/// <summary>
 	/// создание всех объектов игры 
 	/// </summary>
-	void start();
+	void start(int levelnumber);
 
 
 	/// <summary>

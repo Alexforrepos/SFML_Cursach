@@ -1,4 +1,5 @@
 #pragma once
+#include <sstream>
 #include "iostream" 
 #include <vector>
 #include "./../../Engine/R_Manager.h"
@@ -16,6 +17,7 @@ public:
     enum class State
     {
         Base = 1,
+        Start,
         Multiplayer,
         Settings
     };
@@ -32,7 +34,7 @@ private:
     void createBaseMenu();
     void createMultiplayerMenu();
     void createSettingsMenu();
-
+    void createStartMenu();
 
 
 public:

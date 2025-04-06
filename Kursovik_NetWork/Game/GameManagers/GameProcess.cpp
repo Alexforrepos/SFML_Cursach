@@ -2,10 +2,10 @@
 #include "./../Game.h"
 
 
-void GameProcess::start()
+void GameProcess::start(int levelnumber)
 {
 	O_Manager::get().clear();
-	O_Manager::get().addObject(std::shared_ptr<Object>(new Surface()));
+	O_Manager::get().addObject(std::shared_ptr<Object>(new Surface(Config::getInstance()["Level"]["Levels"][levelnumber]["Line_Q"])));
 	this->isActive = true;
 }
 
