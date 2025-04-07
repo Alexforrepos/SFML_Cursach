@@ -44,8 +44,7 @@ private:
 		m_window(sf::VideoMode(1000, 1000), "PVZ", sf::Style::Fullscreen),
 		m_config(Config::getInstance()),
 		m_isRunning(true),
-		m_currentState(State::Prepare),
-		m_menu(&Menu::get())
+		m_currentState(State::Prepare)
 	{
 		try {
 			// Load configuration
@@ -62,6 +61,7 @@ private:
 			std::cerr << "Game initialization error: " << e.what() << std::endl;
 			m_isRunning = false;
 		}
+		m_menu.reset(&Menu::get());
 	}
 
 public:

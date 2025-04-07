@@ -28,6 +28,8 @@ private:
     State m_state;
     bool m_change;
     bool m_isRunning;
+    sf::Music& m_music;
+
 
    
 
@@ -41,8 +43,12 @@ public:
 
     Menu()
         : m_state(State::Base), m_isRunning(false), m_change(false),
-        m_background({ 0,0 })
+        m_background({ 0,0 }), m_music(R_Manager::get().access<sf::Music>("Greenpath.mp3"))
     {
+        m_music.setLoop(true);
+        m_music.setVolume(40);
+        m_music.play();
+
     }
 
     friend void SETTINGS();

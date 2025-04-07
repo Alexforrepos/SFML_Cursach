@@ -36,12 +36,14 @@ void BACK_TO_MAIN()
 void LEVEL1()
 {
 	Game::get().setState(Game::State::GameProcess);
+	Menu::get().close();
 	Game::get().getGameProcess().start(1);
 }
 
 void LEVEL2()
 {
 	Game::get().setState(Game::State::GameProcess);
+	Menu::get().close();
 	Game::get().getGameProcess().start(2);
 }
 
@@ -112,6 +114,9 @@ void Menu::createMultiplayerMenu()
 	// Add multiplayer buttons here...
 
 	m_currentWindow = std::move(window);
+	m_currentWindow->centerElementsVertically();
+	m_currentWindow->centerElementsHorizontally();
+
 }
 
 void Menu::createSettingsMenu()
@@ -160,7 +165,13 @@ void Menu::createStartMenu()
 		button->setCallback(Button::Callback(Callbacks[i]));
 		window->addElement(std::move(button));
 	}
-	
+
+	auto backBtn = std::make_unique<Button>(
+		sf::Vector2f(280, 100), sf::Vector2f(10, 10),
+		"Back", R_Manager::get().access<sf::Font>("PaluiSPDemo-Bold.otf"), 40);
+	backBtn->setCallback(BACK_TO_MAIN);
+	window->addElement(std::move(backBtn));
+
 	m_currentWindow = std::move(window);
 	m_currentWindow->centerElementsVertically();
 	m_currentWindow->centerElementsHorizontally();
@@ -168,6 +179,7 @@ void Menu::createStartMenu()
 
 void Menu::start() {
 	m_isRunning = false;
+	if (m_music.getStatus() != sf::Music::Playing)m_music.play();
 
 	try {
 		m_background.setSize(sf::Vector2f(Game::get().getWindow().getSize()));
@@ -223,6 +235,7 @@ void Menu::run()
 void Menu::close()
 {
 	cout << "Menu class closed" << endl;
+	m_music.stop();
 	m_isRunning = false;
 	m_currentWindow.reset();
 }
