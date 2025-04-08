@@ -29,6 +29,10 @@ void Surface::draw(sf::RenderWindow& win)
 		for (auto place : line)
 			place.draw(win);
 	}
+	for (auto& zp : zombie_places) 
+	{
+		win.draw(zp.shape_rect);
+	}
 }
 
 void Surface::sendMsg(MSG* msg)
