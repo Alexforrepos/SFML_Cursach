@@ -149,7 +149,7 @@
     <ClCompile Include="Engine\R_Manager.cpp" />
     <ClCompile Include="Game\Game.cpp" />
     <ClCompile Include="Game\GameClasses\Button.cpp" />
-    <ClCompile Include="Game\GameClasses\Cart.cpp" />
+    <ClCompile Include="Game\GameClasses\Card.cpp" />
     <ClCompile Include="Game\GameClasses\Surface.cpp" />
     <ClCompile Include="Game\GameManagers\GameProcess.cpp" />
     <ClCompile Include="Game\GameManagers\Menu.cpp" />
@@ -163,6 +163,7 @@
     <ClCompile Include="Interfaces\I_Identifiable.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Net\Client.cpp" />
+    <ClCompile Include="Skorostrel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Res\ResDistr.txt" />
@@ -175,7 +176,7 @@
     <ClInclude Include="Engine\R_Manager.h" />
     <ClInclude Include="Game\Game.h" />
     <ClInclude Include="Game\GameClasses\Button.h" />
-    <ClInclude Include="Game\GameClasses\Cart.h" />
+    <ClInclude Include="Game\GameClasses\Card.h" />
     <ClInclude Include="Game\GameClasses\Plant.h" />
     <ClInclude Include="Game\GameClasses\Projectile.h" />
     <ClInclude Include="Game\GameClasses\Surface.h" />
@@ -195,6 +196,7 @@
     <ClInclude Include="Interfaces\I_Serialize.h" />
     <ClInclude Include="Interfaces\I_Type.h" />
     <ClInclude Include="Net\Client.h" />
+    <ClInclude Include="Skorostrel.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Res\Config\Config.json" />
