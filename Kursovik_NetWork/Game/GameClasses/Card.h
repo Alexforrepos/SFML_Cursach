@@ -10,10 +10,8 @@
 class Card : public Object {
     sf::Sprite sprite;
     Timer clickTimer;
-    std::string plantType;
-    bool isActive;
-    static sf::Vector2f basePosition; // Базовая позиция для первой карты
-    static int cardCounter; // Счетчик карт для смещения
+    static sf::Vector2f basePosition; 
+    static int cardCounter; 
 
 public:
     Card(const std::string& plantType);
@@ -24,7 +22,6 @@ public:
     sf::Vector2f getPos() override;
     void changePos(const sf::Vector2f& other) override;
     void setPos(sf::Vector2f other) override;
-    int type() override { return static_cast<int>(Types::None); }
     std::vector<char> serialize() override { return {}; }
     std::pair<Types, std::pair<void*, int>> deserialize(std::vector<char>, size_t&) override { return {}; }
 };

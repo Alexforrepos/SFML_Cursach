@@ -7,9 +7,7 @@ int Card::cardCounter = 0;
 
 Card::Card(const std::string& plantType)
     : Object(static_cast<int>(Types::None)),
-    clickTimer(200),
-    plantType(plantType),
-    isActive(false)
+    clickTimer(200)
 {
     sf::Vector2f position = basePosition + sf::Vector2f(0.f, cardCounter * 120.f);
     cardCounter++;
@@ -20,25 +18,9 @@ Card::Card(const std::string& plantType)
     sprite.setColor(sf::Color(255, 255, 255, 200)); 
 }
 
-void Card::update() {
-    sf::Vector2i mousePos = sf::Mouse::getPosition(Game::get().getWindow());
-    sf::Vector2f worldPos = Game::get().getWindow().mapPixelToCoords(mousePos);
-
-    if (sprite.getGlobalBounds().contains(worldPos))
-    {
-        sprite.setColor(sf::Color::White); 
-        if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && clickTimer()) 
-        {
-            MSG_Manager::get().addMSG(std::make_shared<MSG_TYPE_CREATE>(
-                nullptr,
-                this
-            ));
-            clickTimer.restart();
-        }
-    }
-    else {
-        sprite.setColor(sf::Color(255, 255, 255, 200));
-    }
+void Card::update() 
+{
+    
 }
 
 void Card::draw(sf::RenderWindow& win) {
