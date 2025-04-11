@@ -1,13 +1,14 @@
-
+#include "./../GameClasses/Skorostrel.h"
 #include "Card.h"
-
+#include "./../Game.h"
 
 sf::Vector2f Card::basePosition = { 50.f, 50.f }; 
 int Card::cardCounter = 0;
 
 Card::Card(const std::string& plantType)
     : Object(static_cast<int>(Types::None)),
-    clickTimer(200)
+    clickTimer(200),
+    plantType(plantType) // Сохраняем тип растения
 {
     if ((basePosition.y + cardCounter * 120.f) > 1000) {
         cardCounter = 0;
@@ -31,7 +32,8 @@ void Card::update()
         sprite.setColor(sf::Color::White); // Подсветка при наведении
         if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && clickTimer()) 
         {
-           
+            auto skoro = new Skorostrel(plantType, worldPos);
+            MSG_Manager::get().addMSG(std::make_shared<MSG_TYPE_CREATE>(skoro, this));
             clickTimer.restart();
         }
     }

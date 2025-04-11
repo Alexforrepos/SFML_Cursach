@@ -135,6 +135,12 @@
     <ClCompile Include="Game\Interfaces\InterfaceIntputText.cpp">
       <Filter>Исходные файлы\Game\Interface\InterfaceIntputText</Filter>
     </ClCompile>
+    <ClCompile Include="Game\GameClasses\Card.cpp">
+      <Filter>Исходные файлы\Game\GameClasses\Card</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameClasses\Skorostrel.cpp">
+      <Filter>Исходные файлы\Game\GameClasses\Plant</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Res\ResDistr.txt">
@@ -219,6 +225,12 @@
     </ClInclude>
     <ClInclude Include="Game\Interfaces\InterfaceIntputText.h">
       <Filter>Исходные файлы\Game\Interface\InterfaceIntputText</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameClasses\Card.h">
+      <Filter>Исходные файлы\Game\GameClasses\Card</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameClasses\Skorostrel.h">
+      <Filter>Исходные файлы\Game\GameClasses\Plant</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

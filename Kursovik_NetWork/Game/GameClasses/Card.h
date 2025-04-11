@@ -12,6 +12,7 @@ class Card : public Object {
     Timer clickTimer;
     static sf::Vector2f basePosition; 
     static int cardCounter; 
+    std::string plantType;
 
 public:
     Card(const std::string& plantType);
