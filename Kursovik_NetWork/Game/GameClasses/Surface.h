@@ -10,6 +10,8 @@
 #define PLANT_DISTANCE 0
 #define PLANT_SIZE_W 100
 #define PLANT_SIZE_H 100
+#define START_ZOMBIE_POSITION_X 1550  
+#define ZOMBIE_SPAWN_SIZE 100 
 
 
 
@@ -28,7 +30,6 @@ class Surface
 		Object* plant_;
 		sf::RectangleShape shape_rect;
 
-
 		Place(sf::Vector2f pos, sf::Vector2f size)
 			:shape_rect( size), isplanted(false), plant_(nullptr)
 		{
@@ -43,7 +44,7 @@ class Surface
 			this->plant_ = plant_;
 			this->isplanted = true;
 		}
-
+	
 		void deletePLant()
 		{
 			if (!isplanted)
@@ -68,6 +69,20 @@ class Surface
 
 	std::vector<std::vector<Place>> place_vector;
 
+	struct ZombiePlace {
+		sf::RectangleShape shape_rect;
+		bool isOccupied = false;
+
+		ZombiePlace(sf::Vector2f pos) {
+			shape_rect.setSize({ PLANT_SIZE_W, PLANT_SIZE_H });
+			shape_rect.setPosition(pos);
+			shape_rect.setTexture(&R_Manager::get().access<sf::Texture>("bozhepomogi.jpg"));
+		}
+	};
+
+	std::vector<ZombiePlace> zombie_places; 
+
+
 public:
 	Surface(const int& lines_qount = DEFAULT_LINE_QOUNT, const int& lines_size = DEFAULT_LINE_SIZE)
 		:lines_qount(lines_qount), lines_size(lines_size), Object(static_cast<int>(Types::Level))
@@ -82,6 +97,12 @@ public:
 					static_cast<float>(START_SURFACE_POSITION_Y + rows * (PLANT_SIZE_H + PLANT_DISTANCE)) },
 					{ PLANT_SIZE_W,PLANT_SIZE_H }));
 			}
+		}
+		for (int row = 0; row < lines_qount; row++) {
+			float y = START_SURFACE_POSITION_Y + row * (PLANT_SIZE_H + PLANT_DISTANCE);
+			zombie_places.emplace_back(
+				sf::Vector2f(START_ZOMBIE_POSITION_X, y)
+			);
 		}
 	}
 
