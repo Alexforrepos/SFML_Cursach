@@ -6,15 +6,21 @@ void GameProcess::start(int levelnumber)
 {
 	O_Manager::get().clear();
 	O_Manager::get().clear();
+	Card::resetCounter();
 
-	// Создаем карты растений
-	O_Manager::get().addObject(std::make_shared<Card>("Peashooter"));
-	O_Manager::get().addObject(std::make_shared<Card>("Sunflower"));
-	O_Manager::get().addObject(std::make_shared<Card>("Wallnut"));
-	O_Manager::get().addObject(std::shared_ptr<Object>(new Surface(Config::getInstance()["Level"]["Levels"][levelnumber - 1]["Line_Q"])));
+	auto& config = Config::getInstance();
+	auto& levelConfig = config["Level"]["Levels"][levelnumber - 1];
+
+	// Создаем карточки из конфига
+	for (auto& plant : levelConfig["Avaliable_Plant"]) {
+		std::string plantName = plant.get<std::string>();
+		O_Manager::get().addObject(std::make_shared<Card>(plantName));
+	}
+
+	O_Manager::get().addObject(std::shared_ptr<Object>(new Surface(levelConfig["Line_Q"])));
 	this->isActive = true;
-
 }
+
 
 void GameProcess::run()
 {
