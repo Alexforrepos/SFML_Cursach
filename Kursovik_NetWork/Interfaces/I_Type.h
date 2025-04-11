@@ -3,7 +3,7 @@
 enum class Types
 	: uint8_t
 {
-	None = 0, Level, Projectile, Zombie, Plant
+	None = 0, Level, Projectile, Zombie, Plant, Cart , Hologram
 
 };
 

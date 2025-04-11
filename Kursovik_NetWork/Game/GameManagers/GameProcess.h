@@ -12,12 +12,19 @@ class GameProcess
 {
 	bool isActive;
 
-
+	uint16_t sun_q;
 public:
 	GameProcess()
-		: isActive(false)
+		: isActive(false),sun_q(0)
 	{
+		Object* o;
+		
+	}
 
+	static GameProcess& get()
+	{
+		static GameProcess inst;
+		return inst;
 	}
 	
 	/// <returns>возвращает состояние цикла</returns>
@@ -39,5 +46,7 @@ public:
 	/// закрытие игрового процесса 
 	/// </summary>
 	void close();
+
+	uint16_t getSun() { return sun_q; }
 
 };

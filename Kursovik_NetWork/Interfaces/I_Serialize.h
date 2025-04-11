@@ -6,9 +6,7 @@ class I_Serialize
 {
 public:
 	virtual std::vector<char> serialize() = 0;
-
 	/// <summary>
-	/// 
 	/// </summary>
 	/// <param name="data">"чистые данные"</param>
 	/// <param name="readpoint">точка чтения</param>

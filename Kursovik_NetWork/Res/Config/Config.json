@@ -3,7 +3,7 @@
         "FSpeed": 1.0,
         "InfSun": 0,
         "OutLineDraw": true,
-        "ZSpeed": 1.0
+        "ZSpeedMult": 1.0
     },
     "FileSystem": {
         "Config": "./Res/Config/Config.json",
@@ -46,5 +46,31 @@
     "Multiplayer": {
         "ClientMayRun": 0,
         "ServerIP": "192.168.1.1"
+    },
+    "PlantParams": {
+        "Plants": {
+            "PeaShooter": {
+                "CD": 1,
+                "Damage": 34,
+                "HP": 150,
+                "cost": 50
+            },
+            "Sunflower": {
+                "CD": 15,
+                "DeathGainSun": false,
+                "HP": 100,
+                "cost": 50
+            }
+        }
+    },
+    "ZombieParams": {
+        "Zombies": {
+            "Zombie": {
+                "CD": 1,
+                "Damage": 30,
+                "HP": 100,
+                "Speed": 5.0
+            }
+        }
     }
 }

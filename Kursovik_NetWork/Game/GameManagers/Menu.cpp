@@ -49,6 +49,7 @@ void LEVEL2()
 
 #pragma endregion
 
+
 void Menu::changeState(const State& newState)
 {
 	m_state = newState;
@@ -57,6 +58,7 @@ void Menu::changeState(const State& newState)
 
 void Menu::createBaseMenu()
 {
+
 	try {
 		m_background.setTexture(&R_Manager::get().access<sf::Texture>(
 			"textur-gas-kvas-com-h9hz-p-tekstura-rasteniya-protiv-zombi-8.jpg"));
@@ -66,6 +68,7 @@ void Menu::createBaseMenu()
 	}
 
 	auto window = std::make_unique<InterfaceWindow>(sf::Vector2f(500, 950), sf::Vector2f(1400, 50));
+	m_background.setScale(1, 1);
 
 	// Create buttons
 	auto startBtn = std::make_unique<Button>(
@@ -102,6 +105,8 @@ void Menu::createBaseMenu()
 
 void Menu::createMultiplayerMenu()
 {
+	this->m_background.setTexture(&R_Manager::get().access<sf::Texture>("IvtClub.png"));
+	m_background.setScale(0.1,0.1);
 	auto window = std::make_unique<InterfaceWindow>(sf::Vector2f(1000, 950), sf::Vector2f(100, 50));
 
 	auto backBtn = std::make_unique<Button>(
@@ -129,6 +134,7 @@ void Menu::createSettingsMenu()
 	}
 
 	auto window = std::make_unique<InterfaceWindow>(sf::Vector2f(300, 600), sf::Vector2f(1400, 100));
+	m_background.setScale(1, 1);
 
 	auto backBtn = std::make_unique<Button>(
 		sf::Vector2f(280, 100), sf::Vector2f(10, 10),
@@ -156,6 +162,8 @@ void Menu::createStartMenu()
 
 	int Level_q = Config::getInstance()["Level"]["count"];
 	std::function<void()> Callbacks[] = { LEVEL1 ,LEVEL2 };
+	m_background.setScale(1, 1);
+	
 	for (int i = 0; i < Level_q; i++)
 	{
 		string Level = "Level " + std::to_string(i + 1);

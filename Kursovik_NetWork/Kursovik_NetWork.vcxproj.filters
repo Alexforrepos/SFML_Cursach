@@ -67,6 +67,12 @@
     <Filter Include="Исходные файлы\Game\Interface\InterfaceIntputText">
       <UniqueIdentifier>{eff63684-cf4b-4f11-a06e-e6a556c78afd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\Game\GameClasses\Hologram">
+      <UniqueIdentifier>{1365322d-7c3d-4e84-bf86-27945e6d5fb2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Game\GameClasses\Cart">
+      <UniqueIdentifier>{32b50bc2-774b-49d4-a1ea-bcaea11f3e2b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -128,6 +134,12 @@
     </ClCompile>
     <ClCompile Include="Game\Interfaces\InterfaceIntputText.cpp">
       <Filter>Исходные файлы\Game\Interface\InterfaceIntputText</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameClasses\Hologram.cpp">
+      <Filter>Исходные файлы\Game\GameClasses\Hologram</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameClasses\Cart.cpp">
+      <Filter>Исходные файлы\Game\GameClasses\Cart</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -213,6 +225,12 @@
     </ClInclude>
     <ClInclude Include="Game\Interfaces\InterfaceIntputText.h">
       <Filter>Исходные файлы\Game\Interface\InterfaceIntputText</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameClasses\Hologram.h">
+      <Filter>Исходные файлы\Game\GameClasses\Hologram</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameClasses\Cart.h">
+      <Filter>Исходные файлы\Game\GameClasses\Cart</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
