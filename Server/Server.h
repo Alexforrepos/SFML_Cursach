@@ -22,7 +22,6 @@ private:
     void clientReadHandler();
     void waitForClinet();
     void send();
-    void 
 
 public:
     
