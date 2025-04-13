@@ -1,40 +1,103 @@
 #include "Server.h"
+#include <string>
 
-void Server::runTcpServer(unsigned short port)
-{
-    // Create a server socket to accept new connections
-    sf::TcpListener listener;
+bool Server::start(unsigned short port) {
+    if (listener.listen(port) != sf::Socket::Done) {
+        std::cerr << "Failed to bind port " << port << std::endl;
+        return false;
+    }
 
-    // Listen to the given port for incoming connections
-    if (listener.listen(port) != sf::Socket::Done)
-        return;
-    std::cout << "Server is listening to port " << port << ", waiting for connections... " << std::endl;
+    std::cout << "Server started on port " << port << std::endl;
+    isRunning = true;
+
+    // Accept connection in separate thread
+    std::thread acceptThread([this]() {
+        if (listener.accept(clientSocket) != sf::Socket::Done) {
+            std::cerr << "Accept connection failed" << std::endl;
+            return;
+        }
+        std::cout << "Client connected: " << clientSocket.getRemoteAddress() << std::endl;
+
+        // Start communication threads
+        std::thread(&Server::clientHandler, this).detach();
+        std::thread(&Server::inputHandler, this).detach();
+        });
+    acceptThread.detach();
+
+    return true;
 }
 
-void Server::createConnection(unsigned short port, sf::TcpListener listener)
-{
-    // Wait for a connection
-    sf::TcpSocket socket;
-    if (listener.accept(socket) != sf::Socket::Done)
-        return;
-    std::cout << "Client connected: " << socket.getRemoteAddress() << std::endl;
+void Server::clientHandler() {
+    while (isRunning) {
+        char buffer[1024];
+        std::size_t received;
+        if (clientSocket.receive(buffer, sizeof(buffer), received) == sf::Socket::Done) {
+            std::string message(buffer, received);
+            std::cout << "Client: " << message << std::endl;
+        }
+    }
 }
 
-void Server::sendInfo(unsigned short port, sf::TcpListener listener, sf::TcpSocket socket)
-{
-    // Send a message to the connected client
-    const char out[] = "Hi, I'm the server";
-    if (socket.send(out, sizeof(out)) != sf::Socket::Done)
-        return;
-    std::cout << "Message sent to the client: \"" << out << "\"" << std::endl;
+void Server::inputHandler() {
+    std::string message;
+    while (isRunning) {
+        std::getline(std::cin, message);
+        if (message == "exit") {
+            stop();
+            break;
+        }
+        clientSocket.send(message.c_str(), message.size() + 1);
+    }
 }
 
-void Server::getInfo(unsigned short port, sf::TcpListener listener, sf::TcpSocket socket)
-{
-    // Receive a message back from the client
-    char in[128];
-    std::size_t received;
-    if (socket.receive(in, sizeof(in), received) != sf::Socket::Done)
-        return;
-    std::cout << "Answer received from the client: \"" << in << "\"" << std::endl;
+void Server::stop() {
+    isRunning = false;
+    clientSocket.disconnect();
+    listener.close();
+    std::cout << "Server stopped" << std::endl;
+}
+
+// Client implementation
+bool Client::connect(const std::string& ip, unsigned short port) {
+    if (socket.connect(ip, port) != sf::Socket::Done) {
+        std::cerr << "Connection failed" << std::endl;
+        return false;
+    }
+
+    isConnected = true;
+    std::cout << "Connected to server" << std::endl;
+
+    std::thread(&Client::receiveHandler, this).detach();
+    std::thread(&Client::inputHandler, this).detach();
+
+    return true;
+}
+
+void Client::receiveHandler() {
+    while (isConnected) {
+        char buffer[1024];
+        std::size_t received;
+        if (socket.receive(buffer, sizeof(buffer), received) == sf::Socket::Done) {
+            std::string message(buffer, received);
+            std::cout << "Server: " << message << std::endl;
+        }
+    }
+}
+
+void Client::inputHandler() {
+    std::string message;
+    while (isConnected) {
+        std::getline(std::cin, message);
+        if (message == "exit") {
+            disconnect();
+            break;
+        }
+        socket.send(message.c_str(), message.size() + 1);
+    }
+}
+
+void Client::disconnect() {
+    isConnected = false;
+    socket.disconnect();
+    std::cout << "Disconnected" << std::endl;
 }

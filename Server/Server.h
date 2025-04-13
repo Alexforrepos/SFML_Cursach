@@ -1,12 +1,32 @@
-#include <SFML/Network.hpp> 
+#include <SFML/Network.hpp>
 #include <iostream>
+#include <thread>
+#include <atomic>
 #pragma once
-class Server
-{
+
+class Server {
 private:
+    sf::TcpListener listener;
+    sf::TcpSocket clientSocket;
+    std::atomic<bool> isRunning;
+
+    void clientHandler();
+    void inputHandler();
+
 public:
-    void runTcpServer(unsigned short port); 
-    void createConnection(unsigned short port, sf::TcpListener listener);
-    void sendInfo(unsigned short port, sf::TcpListener listener, sf::TcpSocket socket);
-    void getInfo(unsigned short port, sf::TcpListener listener, sf::TcpSocket socket);
+    bool start(unsigned short port);
+    void stop();
+};
+
+class Client {
+private:
+    sf::TcpSocket socket;
+    std::atomic<bool> isConnected;
+
+    void receiveHandler();
+    void inputHandler();
+
+public:
+    bool connect(const std::string& ip, unsigned short port);
+    void disconnect();
 };
