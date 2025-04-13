@@ -27,16 +27,22 @@
     <ClInclude Include="Server.h">
       <Filter>Исходные файлы\Server</Filter>
     </ClInclude>
+    <ClInclude Include="Program.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Исходные файлы\Server</Filter>
-    </ClCompile>
     <ClCompile Include="Room.cpp">
       <Filter>Исходные файлы\Server</Filter>
     </ClCompile>
     <ClCompile Include="Server.cpp">
       <Filter>Исходные файлы\Server</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Program.cpp">
+      <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

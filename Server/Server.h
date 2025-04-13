@@ -1,34 +1,33 @@
+#pragma once
+#include "./../Kursovik_NetWork/Engine/MSG.h"
+#include <vector>
+#include "Room.h"
 #include <SFML/Network.hpp>
 #include <iostream>
 #include <thread>
 #include <atomic>
-#pragma once
+
+
+#define PORT1 53000
+#define PORT2 53200 
 
 class Server 
 {
 private:
-    sf::TcpListener listener;
-    sf::TcpSocket clientSocket;
+    std::vector<Room> rooms;
+
+    sf::TcpListener global_server_listener;
     std::atomic<bool> isRunning;
 
-    void clientHandler();
-    void inputHandler();
+    void clientReadHandler();
+    void waitForClinet();
+    void send();
+    void 
 
 public:
+    
+    bool isStarted() { return isRunning; }
     bool start(unsigned short port);
     void stop();
-};
-
-class Client 
-{
-private:
-    sf::TcpSocket socket;
-    std::atomic<bool> isConnected;
-
-    void receiveHandler();
-    void inputHandler();
-
-public:
-    bool connect(const std::string& ip, unsigned short port);
-    void disconnect();
+    
 };
