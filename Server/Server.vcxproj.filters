@@ -13,36 +13,47 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Исходные файлы\Server">
+    <Filter Include="Исходные файлы\Program">
+      <UniqueIdentifier>{4eda9605-1324-46a9-a7a7-acbe7d05cc34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Program\Server">
       <UniqueIdentifier>{a911151e-7345-405f-8e1a-5667a08a9074}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Program\Room">
+      <UniqueIdentifier>{0d0741ae-e26c-45e1-b79c-78a514c8d7d8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="About.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Room.h">
-      <Filter>Исходные файлы\Server</Filter>
-    </ClInclude>
-    <ClInclude Include="Server.h">
-      <Filter>Исходные файлы\Server</Filter>
-    </ClInclude>
-    <ClInclude Include="Program.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Room.cpp">
-      <Filter>Исходные файлы\Server</Filter>
-    </ClCompile>
-    <ClCompile Include="Server.cpp">
-      <Filter>Исходные файлы\Server</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Program.cpp">
-      <Filter>Исходные файлы</Filter>
+    <ClCompile Include="Program\Server\Server.cpp">
+      <Filter>Исходные файлы\Program\Server</Filter>
     </ClCompile>
+    <ClCompile Include="Program\Program.cpp">
+      <Filter>Исходные файлы\Program</Filter>
+    </ClCompile>
+    <ClCompile Include="Program\Room\Room.cpp">
+      <Filter>Исходные файлы\Program\Room</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Program\Server\Server.h">
+      <Filter>Исходные файлы\Program\Server</Filter>
+    </ClInclude>
+    <ClInclude Include="Program\Program.h">
+      <Filter>Исходные файлы\Program</Filter>
+    </ClInclude>
+    <ClInclude Include="Program\Room\Room.h">
+      <Filter>Исходные файлы\Program\Room</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="config.json">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
   </ItemGroup>
 </Project>

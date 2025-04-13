@@ -7,7 +7,8 @@
 #include "./../../Engine/R_Manager.h"
 #include "./../../Engine/O_Manager.h"
 #include "./../Game.h"
-class Card : public Object {
+class Card : public Object
+{
     sf::Sprite sprite;
     Timer clickTimer;
     static sf::Vector2f basePosition; 

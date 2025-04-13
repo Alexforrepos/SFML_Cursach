@@ -7,6 +7,8 @@
 /// <summary>
 /// класс конпки в меню
 /// </summary>
+/// заменен на UI
+/// 
 class Button : public Object
 {
     Timer click_delay;

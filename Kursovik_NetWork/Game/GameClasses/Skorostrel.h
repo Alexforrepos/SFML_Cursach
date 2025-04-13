@@ -3,7 +3,8 @@
 #include <SFML/Graphics.hpp>
 #include "./../Utils/Timer.h"
 
-class Skorostrel : public Object {
+class Skorostrel : public Object
+{
     sf::Sprite sprite;
     Timer clickTimer;
     std::string plantType;
