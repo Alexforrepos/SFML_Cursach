@@ -141,6 +141,9 @@
     <ClCompile Include="Game\GameClasses\Skorostrel.cpp">
       <Filter>Исходные файлы\Game\GameClasses\Plant</Filter>
     </ClCompile>
+    <ClCompile Include="Game\GameClasses\Hologram.cpp">
+      <Filter>Исходные файлы\Game\GameClasses\Card</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Res\ResDistr.txt">
@@ -231,6 +234,9 @@
     </ClInclude>
     <ClInclude Include="Game\GameClasses\Skorostrel.h">
       <Filter>Исходные файлы\Game\GameClasses\Plant</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameClasses\Hologram.h">
+      <Filter>Исходные файлы\Game\GameClasses\Card</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

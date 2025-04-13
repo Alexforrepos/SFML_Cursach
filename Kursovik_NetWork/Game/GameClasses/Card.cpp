@@ -32,8 +32,7 @@ void Card::update()
         sprite.setColor(sf::Color::White); // Подсветка при наведении
         if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && clickTimer()) 
         {
-            auto skoro = new Skorostrel(plantType, worldPos);
-            MSG_Manager::get().addMSG(std::make_shared<MSG_TYPE_CREATE>(skoro, this));
+          
             clickTimer.restart();
         }
     }
