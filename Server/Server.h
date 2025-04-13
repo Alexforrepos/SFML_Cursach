@@ -4,7 +4,8 @@
 #include <atomic>
 #pragma once
 
-class Server {
+class Server 
+{
 private:
     sf::TcpListener listener;
     sf::TcpSocket clientSocket;
@@ -18,7 +19,8 @@ public:
     void stop();
 };
 
-class Client {
+class Client 
+{
 private:
     sf::TcpSocket socket;
     std::atomic<bool> isConnected;

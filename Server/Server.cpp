@@ -1,8 +1,10 @@
 #include "Server.h"
 #include <string>
 
-bool Server::start(unsigned short port) {
-    if (listener.listen(port) != sf::Socket::Done) {
+bool Server::start(unsigned short port) 
+{
+    if (listener.listen(port) != sf::Socket::Done) 
+    {
         std::cerr << "Failed to bind port " << port << std::endl;
         return false;
     }
@@ -11,8 +13,10 @@ bool Server::start(unsigned short port) {
     isRunning = true;
 
     // Accept connection in separate thread
-    std::thread acceptThread([this]() {
-        if (listener.accept(clientSocket) != sf::Socket::Done) {
+    std::thread acceptThread([this]() 
+        {
+        if (listener.accept(clientSocket) != sf::Socket::Done)
+        {
             std::cerr << "Accept connection failed" << std::endl;
             return;
         }
@@ -27,22 +31,27 @@ bool Server::start(unsigned short port) {
     return true;
 }
 
-void Server::clientHandler() {
-    while (isRunning) {
+void Server::clientHandler() 
+{
+    while (isRunning) 
+    {
         char buffer[1024];
         std::size_t received;
-        if (clientSocket.receive(buffer, sizeof(buffer), received) == sf::Socket::Done) {
+        if (clientSocket.receive(buffer, sizeof(buffer), received) == sf::Socket::Done) 
+        {
             std::string message(buffer, received);
             std::cout << "Client: " << message << std::endl;
         }
     }
 }
 
-void Server::inputHandler() {
+void Server::inputHandler() 
+{
     std::string message;
     while (isRunning) {
         std::getline(std::cin, message);
-        if (message == "exit") {
+        if (message == "exit") 
+        {
             stop();
             break;
         }
@@ -50,7 +59,8 @@ void Server::inputHandler() {
     }
 }
 
-void Server::stop() {
+void Server::stop() 
+{
     isRunning = false;
     clientSocket.disconnect();
     listener.close();
@@ -58,8 +68,10 @@ void Server::stop() {
 }
 
 // Client implementation
-bool Client::connect(const std::string& ip, unsigned short port) {
-    if (socket.connect(ip, port) != sf::Socket::Done) {
+bool Client::connect(const std::string& ip, unsigned short port) 
+{
+    if (socket.connect(ip, port) != sf::Socket::Done) 
+    {
         std::cerr << "Connection failed" << std::endl;
         return false;
     }
@@ -73,22 +85,28 @@ bool Client::connect(const std::string& ip, unsigned short port) {
     return true;
 }
 
-void Client::receiveHandler() {
-    while (isConnected) {
+void Client::receiveHandler() 
+{
+    while (isConnected) 
+    {
         char buffer[1024];
         std::size_t received;
-        if (socket.receive(buffer, sizeof(buffer), received) == sf::Socket::Done) {
+        if (socket.receive(buffer, sizeof(buffer), received) == sf::Socket::Done) 
+        {
             std::string message(buffer, received);
             std::cout << "Server: " << message << std::endl;
         }
     }
 }
 
-void Client::inputHandler() {
+void Client::inputHandler() 
+{
     std::string message;
-    while (isConnected) {
+    while (isConnected) 
+    {
         std::getline(std::cin, message);
-        if (message == "exit") {
+        if (message == "exit") 
+        {
             disconnect();
             break;
         }
@@ -96,7 +114,8 @@ void Client::inputHandler() {
     }
 }
 
-void Client::disconnect() {
+void Client::disconnect() 
+{
     isConnected = false;
     socket.disconnect();
     std::cout << "Disconnected" << std::endl;
