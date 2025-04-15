@@ -29,14 +29,15 @@ void Card::update()
     sf::Vector2i mousePos = sf::Mouse::getPosition(Game::get().getWindow());
     sf::Vector2f worldPos = Game::get().getWindow().mapPixelToCoords(mousePos);
     if (sprite.getGlobalBounds().contains(worldPos)) {
-        sprite.setColor(sf::Color::White); // Подсветка при наведении
-        if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && clickTimer()) 
+        sprite.setColor(sf::Color::White);
+        if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && clickTimer())
         {
           
+           
             clickTimer.restart();
         }
     }
-    else 
+    else
     {
         sprite.setColor(sf::Color(255, 255, 255, 200));
     }
