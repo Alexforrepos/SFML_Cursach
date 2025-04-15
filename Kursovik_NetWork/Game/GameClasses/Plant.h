@@ -1,6 +1,5 @@
 #pragma once
 #include "./../../Engine/O_Manager.h"
-
 class Plant
 	: public Object
 {

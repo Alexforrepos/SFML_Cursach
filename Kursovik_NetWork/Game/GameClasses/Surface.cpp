@@ -58,3 +58,21 @@ std::pair<Types, std::pair<void*, int>> Surface::deserialize(std::vector<char> d
 {
 	return std::pair<Types, std::pair<void*, int>>();
 }
+
+Surface& Surface::getInstance()
+{
+	static Surface instance;
+	return instance;
+}
+
+bool Surface::isFreeField(const sf::Vector2f& pos) const {
+	// ѕройдитесь по местам (Place) и проверьте, содержит ли какое-либо из них точку pos и не зан€то ли оно
+	for (const auto& line : place_vector) {
+		for (const auto& place : line) {
+			if (place.shape_rect.getGlobalBounds().contains(pos) && !place.isPlanted()) {
+				return true;
+			}
+		}
+	}
+	return false;
+}
