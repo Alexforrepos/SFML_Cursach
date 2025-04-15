@@ -41,14 +41,14 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Program\Server\Server.h">
-      <Filter>Исходные файлы\Program\Server</Filter>
-    </ClInclude>
     <ClInclude Include="Program\Program.h">
       <Filter>Исходные файлы\Program</Filter>
     </ClInclude>
     <ClInclude Include="Program\Room\Room.h">
       <Filter>Исходные файлы\Program\Room</Filter>
+    </ClInclude>
+    <ClInclude Include="Program\Server\Server.h">
+      <Filter>Исходные файлы\Program\Server</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

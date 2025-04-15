@@ -18,8 +18,13 @@ class Room
 	unsigned port;
 
 	bool activeflag;
-	
 	HANDLE room_Pipe;
+	
+	void startProcess()
+	{
+
+	}
+
 
 public:
 	Room()
@@ -47,18 +52,26 @@ public:
 			PIPE_ACCESS_DUPLEX,             // Двунаправленный обмен
 			PIPE_TYPE_MESSAGE | PIPE_READMODE_MESSAGE | PIPE_WAIT,
 			1,                              // Макс. количество экземпляров
-			MAXBUFSIZE, MAXBUFSIZE,		// Размер входного/выходного буфера
+			MAXBUFSIZE, MAXBUFSIZE,			// Размер входного/выходного буфера
 			0,                              // Таймаут по умолчанию
 			NULL                            // Атрибуты безопасности
 		);
+
 	};
 	void stop()
 	{
 
 	};
+	void sendCommand();
+
 	~Room()
 	{
 
 	}
+public:
+	enum class Command
+	{
+		STOP,EXIT,
+	};
 };
 

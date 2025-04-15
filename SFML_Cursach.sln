@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Kursovik_NetWork", "Kursovi
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Server", "Server\Server.vcxproj", "{525F7C97-6200-421F-B4AC-B07E36576C66}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RoomProcess", "RoomProcess\RoomProcess.vcxproj", "{398B7E9D-BE57-4BD7-9F01-7CE4AA0A175B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{525F7C97-6200-421F-B4AC-B07E36576C66}.Release|x64.Build.0 = Release|x64
 		{525F7C97-6200-421F-B4AC-B07E36576C66}.Release|x86.ActiveCfg = Release|Win32
 		{525F7C97-6200-421F-B4AC-B07E36576C66}.Release|x86.Build.0 = Release|Win32
+		{398B7E9D-BE57-4BD7-9F01-7CE4AA0A175B}.Debug|x64.ActiveCfg = Debug|x64
+		{398B7E9D-BE57-4BD7-9F01-7CE4AA0A175B}.Debug|x64.Build.0 = Debug|x64
+		{398B7E9D-BE57-4BD7-9F01-7CE4AA0A175B}.Debug|x86.ActiveCfg = Debug|Win32
+		{398B7E9D-BE57-4BD7-9F01-7CE4AA0A175B}.Debug|x86.Build.0 = Debug|Win32
+		{398B7E9D-BE57-4BD7-9F01-7CE4AA0A175B}.Release|x64.ActiveCfg = Release|x64
+		{398B7E9D-BE57-4BD7-9F01-7CE4AA0A175B}.Release|x64.Build.0 = Release|x64
+		{398B7E9D-BE57-4BD7-9F01-7CE4AA0A175B}.Release|x86.ActiveCfg = Release|Win32
+		{398B7E9D-BE57-4BD7-9F01-7CE4AA0A175B}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
