@@ -3,7 +3,6 @@
 #include "./../Utils/Config.h"
 #include "./../../Engine/Object.h"
 #include "./../../Engine/MSG_Manager.h"
-#include "./../GameClasses/Plant.h"
 #define DEFAULT_LINE_QOUNT 5
 #define DEFAULT_LINE_SIZE 9
 #define START_SURFACE_POSITION_X 300
@@ -54,7 +53,7 @@ class Surface
 			MSG_Manager::get().addMSG(std::shared_ptr<MSG>(new MSG_TYPE_KILL(plant_, nullptr)));
 		}
 
-		bool isPlanted() const
+		bool isPlanted()
 		{
 			return isplanted;
 		}
@@ -106,10 +105,7 @@ public:
 			);
 		}
 	}
-	bool isFreeField(const sf::Vector2f& pos) const;
 
-	// ƒл€ удобного доступа можно сделать метод getInstance(), если Surface Ч синглтон:
-	static Surface& getInstance();
 	// ”наследовано через Object
 	sf::Vector2f getPos() override;
 

@@ -24,29 +24,22 @@ Card::Card(const std::string& plantType)
     sprite.setColor(sf::Color(255, 255, 255, 200)); 
 }
 
-void Card::update() {
-    sf::Vector2i mousePixelPos = sf::Mouse::getPosition(Game::get().getWindow());
-    sf::Vector2f worldPos = Game::get().getWindow().mapPixelToCoords(mousePixelPos);
-
-   
+void Card::update()
+{
+    sf::Vector2i mousePos = sf::Mouse::getPosition(Game::get().getWindow());
+    sf::Vector2f worldPos = Game::get().getWindow().mapPixelToCoords(mousePos);
     if (sprite.getGlobalBounds().contains(worldPos)) {
         sprite.setColor(sf::Color::White);
-        
-        if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && clickTimer() && currentHologram == nullptr) {
+        if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && clickTimer())
+        {
+          
+           
             clickTimer.restart();
-            
-            currentHologram = new Hologram(R_Manager::get().access<sf::Texture>("bozhepomogi.jpg"),
-                sprite.getPosition(), plantType);
-            MSG_Manager::get().addMSG(std::make_shared<MSG_TYPE_CREATE>(currentHologram, this));
         }
     }
-    else {
+    else
+    {
         sprite.setColor(sf::Color(255, 255, 255, 200));
-    }
- 
-   
-    if (currentHologram) {
-        currentHologram->update();
     }
 }
 
@@ -70,11 +63,7 @@ void Card::setPos(sf::Vector2f other)
     sprite.setPosition(other);
 }
 
-void Card::sendMsg(MSG* msg) {
-    if (msg->getIndex() == MSG_TYPE::MSG_TYPE_KILL) {
-        // Проверяем, если убиваемый объект – наша голограмма, сбрасываем указатель
-        if (static_cast<MSG_TYPE_KILL*>(msg)->victim == currentHologram)
-            currentHologram = nullptr;
-    }
-    
+void Card::sendMsg(MSG* msg) 
+{
+   
 }

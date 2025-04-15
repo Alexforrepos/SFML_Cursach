@@ -1,25 +1,24 @@
-
 #pragma once
-#include "./../GameClasses/Plant.h"
+#include "./../../Engine/Object.h"
 #include <SFML/Graphics.hpp>
+#include "./../Utils/Timer.h"
 
+class Skorostrel : public Object
+{
+    sf::Sprite sprite;
+    Timer clickTimer;
+    std::string plantType;
 
-class Skorostrel : public Plant {
-private:
-    sf::Vector2f pos; 
 public:
-    
-    Skorostrel(uint8_t line, uint8_t col, uint16_t HP, const sf::Vector2f& startPos)
-        : Plant(line, col, HP), pos(startPos)
-    {
-    }
+    Skorostrel(const std::string& plantType, sf::Vector2f pos);
 
    
     void update() override;
-    void draw(sf::RenderWindow& win) override;
     void sendMsg(MSG* msg) override;
-
-
-    sf::Vector2f getPos() const { return pos; }
-    void setPos(const sf::Vector2f& newPos) { pos = newPos; }
+    void draw(sf::RenderWindow& win) override;
+    sf::Vector2f getPos() override;  
+    void changePos(const sf::Vector2f& other) override;
+    void setPos(sf::Vector2f other) override;
+    std::vector<char> serialize() override { return {}; }
+    std::pair<Types, std::pair<void*, int>> deserialize(std::vector<char>, size_t&) override { return {}; }
 };

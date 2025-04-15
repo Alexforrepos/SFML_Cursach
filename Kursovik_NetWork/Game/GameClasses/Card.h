@@ -7,7 +7,6 @@
 #include "./../../Engine/R_Manager.h"
 #include "./../../Engine/O_Manager.h"
 #include "./../Game.h"
-#include "./../GameClasses/Hologram.h"
 class Card : public Object
 {
     sf::Sprite sprite;
@@ -15,7 +14,7 @@ class Card : public Object
     static sf::Vector2f basePosition; 
     static int cardCounter; 
     std::string plantType;
-    Hologram* currentHologram = nullptr;
+
 public:
     Card(const std::string& plantType);
 
