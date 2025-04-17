@@ -1,12 +1,6 @@
 #pragma once
-#include "./../../Engine/Object.h"
-#include "./../../Engine/MSG_Manager.h"
-#include "./../GameClasses/Plant.h"
-#include <SFML/Graphics.hpp>
-#include "./../Utils/Timer.h"
-#include "./../../Engine/R_Manager.h"
-#include "./../../Engine/O_Manager.h"
-#include "./../Game.h"
+
+#include "./../GameClasses/Hologram.h"
 class Card : public Object
 {
     sf::Sprite sprite;

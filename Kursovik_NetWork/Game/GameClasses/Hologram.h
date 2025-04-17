@@ -1,15 +1,21 @@
 #pragma once
 #include "./../../Engine/Object.h"
-
+#include "./../../Engine/MSG_Manager.h"
+#include "./../GameClasses/Plant.h"
+#include <SFML/Graphics.hpp>
+#include "./../Utils/Timer.h"
+#include "./../../Engine/R_Manager.h"
+#include "./../../Engine/O_Manager.h"
+#include "./../Game.h"
 class Hologram : public Object
 {
-public:
-	
 private:
-//	HoloType holotype;
-	sf::Sprite sprite;
-
-	
+   //sf::Sprite sprite;
+    std::string plantType; // Тип растения, который должен быть создан
+    Timer Clicktime;
+    sf::Vector2f position;
+public:	
+    Hologram(const sf::Vector2f& startPos, const std::string& type);
     void update() override;
     void sendMsg(MSG* msg) override;
     void draw(sf::RenderWindow& win) override;
