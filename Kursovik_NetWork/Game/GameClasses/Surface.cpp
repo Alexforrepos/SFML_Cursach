@@ -49,12 +49,3 @@ void Surface::sendMsg(MSG* msg)
 	}
 }
 
-std::vector<char> Surface::serialize()
-{
-	return std::vector<char>();
-}
-
-std::pair<Types, std::pair<void*, int>> Surface::deserialize(std::vector<char> data, size_t& readpoint)
-{
-	return std::pair<Types, std::pair<void*, int>>();
-}

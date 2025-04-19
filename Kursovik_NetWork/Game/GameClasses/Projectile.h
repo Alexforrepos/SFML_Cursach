@@ -11,7 +11,7 @@ class Projectile
 	sf::Sprite spr;
 public:
 	Projectile(uint16_t velocity, uint16_t line, uint16_t damage,sf::Texture& texture)
-		:Object(int(Types::Projectile)), velocity(velocity), line(line), damage(damage), spr(texture)
+		:Object(int(Types::BaseProjectileType)), velocity(velocity), line(line), damage(damage), spr(texture)
 	{
 
 	}

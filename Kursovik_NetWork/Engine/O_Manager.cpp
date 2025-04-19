@@ -1,74 +1,50 @@
 #include "O_Manager.h"
 
-using namespace std;
-
-void O_Manager::addObject(std::shared_ptr<Object> obj) 
-{
-	ObjVector.push_back(std::move(obj));
+void O_Manager::addObject(std::shared_ptr<Object<void>> obj) {
+    ObjVector.push_back(std::move(obj));
 }
 
-void O_Manager::draw(sf::RenderWindow& win)
-{
-	for (auto& obj : ObjVector)
-		obj.get()->draw(win);
+void O_Manager::draw(sf::RenderWindow& win) {
+    for (auto& obj : ObjVector)
+        obj->draw(win);
 }
 
-void O_Manager::update()
-{
-	std::vector<Object*> gulag;
-	Object* g_member = nullptr;
+void O_Manager::update() {
+    std::vector<std::shared_ptr<Object<void>>> gulag;
 
+    for (const auto& obj : ObjVector)
+        obj->update();
 
+    auto msgs = msgm.getVector();
 
-	for (const auto& obj : this->ObjVector)
-		obj->update();
+    for (const auto& msg : msgs) {
+        for (const auto& obj : ObjVector)
+            obj->sendMsg(msg.get());
 
-	auto msgs = msgm.getVector();
+        switch (msg->getIndex()) {
+        case MSG_TYPE::MSG_TYPE_KILL: {
+            auto killMsg = static_cast<MSG_TYPE_KILL*>(msg.get());
+            auto it = std::find_if(ObjVector.begin(), ObjVector.end(),
+                [&killMsg](const auto& obj) { return obj.get() == killMsg->victim.get(); });
+            if (it != ObjVector.end()) {
+                gulag.push_back(*it);
+            }
+            break;
+        }
+        case MSG_TYPE::MSG_TYPE_CREATE: {
+            auto createMsg = static_cast<MSG_TYPE_CREATE*>(msg.get());
+            addObject(createMsg->creature);
+            break;
+        }
+        }
+    }
 
-	for (const auto& msg : msgs)
-	{
+    for (const auto& obj : gulag) {
+        auto it = std::find(ObjVector.begin(), ObjVector.end(), obj);
+        if (it != ObjVector.end()) {
+            ObjVector.erase(it);
+        }
+    }
 
-		for (const auto& obj : ObjVector)
-			obj->sendMsg(msg.get());
-
-		switch (msg->getIndex())
-		{
-		case MSG_TYPE::MSG_TYPE_KILL:
-		{
-			Object* objToKill = static_cast<MSG_TYPE_KILL*>(msg.get())->victim;
-
-			// Находим объект в списке и добавляем его в "гулаг" для последующего удаления
-			auto it = std::find_if(ObjVector.begin(), ObjVector.end(),
-				[objToKill](const std::shared_ptr<Object>& a) {
-					return (a.get()) == objToKill;
-				});
-			if (it != ObjVector.end())
-			{
-				gulag.push_back(it->get());  // Добавляем объект в список на удаление
-			}
-		}
-		break;
-		case MSG_TYPE::MSG_TYPE_CREATE:
-		{
-			auto* createMsg = static_cast<MSG_TYPE_CREATE*>(msg.get());
-			addObject(shared_ptr<Object>(createMsg->creature)); // Теперь creature — shared_ptr
-			break;
-		}
-		};
-	}
-
-	for (auto objToKill : gulag)
-	{
-		// Ищем объект в основном списке
-		auto it = std::find_if(ObjVector.begin(), ObjVector.end(),
-			[objToKill](const std::shared_ptr<Object>& ptr) {
-				return ptr.get() == objToKill; // Сравниваем сырые указатели
-			});
-		if (it != ObjVector.end())
-		{
-			ObjVector.erase(it);  // Удаляем объект из основного списка
-		}
-	}
-
-	msgm.clear();
-};
+    msgm.clear();
+}

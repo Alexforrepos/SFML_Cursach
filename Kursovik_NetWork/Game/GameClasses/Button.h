@@ -9,7 +9,7 @@
 /// </summary>
 /// заменен на UI
 /// 
-class Button : public Object
+class Button : public Object<Button>
 {
     Timer click_delay;
 
@@ -73,6 +73,5 @@ public:
     int type() override;
 
     // Унаследовано через Object
-    std::vector<char> serialize() override;
-    std::pair<Types, std::pair<void*, int>> deserialize(std::vector<char> data, size_t& readpoint) override;
+  
 };

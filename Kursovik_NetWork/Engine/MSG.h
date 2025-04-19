@@ -3,177 +3,96 @@
 #include <memory>
 #include <iostream>
 #include <vector>
-class Object;
+#include <SFML/Network.hpp>
 
-enum class MSG_TYPE
-	: uint8_t
-{
-	MSG_TYPE_MOVE = 1, MSG_TYPE_KILL, MSG_TYPE_CREATE, MSG_TYPE_DAMAGE, MSG_NET_ROOM_RECIEVE, MSG_NET_SEND_ROOM_RECIEVE
+template<typename Derived> class Object;
+enum class MSG_TYPE : uint8_t {
+    MSG_TYPE_MOVE = 1, MSG_TYPE_KILL, MSG_TYPE_CREATE, MSG_TYPE_DAMAGE,
+    MSG_NET_ROOM_RECIEVE, MSG_NET_UPDATE_OBJECTS
 };
 
-class MSG :
-	public I_Pacatable
+class MSG 
 {
 protected:
-	//конструктор специально в защищенном поле чтобы ни одна падла не создала сообщение без данных
-	MSG(int index)
-		: index(MSG_TYPE(index))
-	{
+    MSG(int index) : index(MSG_TYPE(index)) {}
+    MSG_TYPE index;
 
-	}
-	MSG_TYPE index;
+    virtual sf::Packet& pack(sf::Packet& pack_) {
+        pack_ << static_cast<int8_t>(index);
+        return pack_;
+    }
+
+    virtual sf::Packet& open(sf::Packet& pack) {
+        int8_t index_;
+        pack >> index_;
+        index = static_cast<MSG_TYPE>(index_);
+        return pack;
+    }
+
 public:
-	MSG_TYPE getIndex() { return index; }
-
-	virtual ~MSG() = default;
-
+    virtual ~MSG() = default;
+    MSG_TYPE getIndex() const { return index; }
 };
 
-
-//cообщение о движении
-class MSG_TYPE_MOVE
-	: public MSG
-{
+class MSG_TYPE_MOVE : public MSG {
 public:
+    sf::Vector2f dir;
+    std::shared_ptr<Object<void>> target;  // »спользуем shared_ptr и шаблонный Object
 
-	sf::Vector2f dir;
-	Object* target;
-
-	/// <summary>
-	/// 
-	/// </summary>
-	/// <param name="dir">вектор движени€ объекта</param>
-	/// <param name="target">объект который движетс€</param>
-	MSG_TYPE_MOVE(sf::Vector2f dir, Object* target)
-		: MSG(int(MSG_TYPE::MSG_TYPE_MOVE)), target(target), dir(dir)
-	{
-	};
-	~MSG_TYPE_MOVE() = default;
-
-
-
-	// ”наследовано через MSG
-	sf::Packet& pack(sf::Packet& packet) override;
-
-	std::pair<void*, size_t> open(sf::Packet& packet) override;
-
+    MSG_TYPE_MOVE(sf::Vector2f dir, std::shared_ptr<Object<void>> target)
+        : MSG(int(MSG_TYPE::MSG_TYPE_MOVE)), target(std::move(target)), dir(dir) {
+    }
 };
 
-//сообщение об убийстве
-class MSG_TYPE_KILL
-	: public MSG
-{
+class MSG_TYPE_KILL : public MSG {
 public:
+    std::shared_ptr<Object<void>> victim, killer;
 
-	Object* victim, * killer;
-
-
-	/// <summary>
-	/// 
-	/// </summary>
-	/// <param name="victim">объекта который умирает</param>
-	/// <param name="killer">объекта который убивает</param>
-	MSG_TYPE_KILL(Object* victim, Object* killer)
-		: MSG(int(MSG_TYPE::MSG_TYPE_KILL)), victim(victim), killer(killer)
-	{
-
-	}
-
-
-
-	// ”наследовано через MSG
-	sf::Packet& pack(sf::Packet& packet) override;
-
-	std::pair<void*, size_t> open(sf::Packet& packet) override;
-
+    MSG_TYPE_KILL(std::shared_ptr<Object<void>> victim, std::shared_ptr<Object<void>> killer)
+        : MSG(int(MSG_TYPE::MSG_TYPE_KILL)), victim(std::move(victim)), killer(std::move(killer)) {
+    }
 };
 
-//сообщение об создании
-class MSG_TYPE_CREATE
-	:public MSG
-{
+class MSG_TYPE_CREATE : public MSG {
 public:
+    std::shared_ptr<Object<void>> creature, creator;
 
-	std::shared_ptr<Object> creature, creator;
-
-	/// <summary>
-	/// 
-	/// </summary>
-	/// <param name="creature">то что уже создано</param>
-	/// <param name="creator">тот кто создал</param>
-	MSG_TYPE_CREATE(Object* creature, Object* creator) :
-		MSG(int(MSG_TYPE::MSG_TYPE_CREATE)), creature(std::move(creature)), creator(std::move(creator))
-	{
-	}
-
-
-	// ”наследовано через MSG
-
-	sf::Packet& pack(sf::Packet& packet) override;
-
-	std::pair<void*, size_t> open(sf::Packet& packet) override;
-
+    MSG_TYPE_CREATE(std::shared_ptr<Object<void>> creature, std::shared_ptr<Object<void>> creator)
+        : MSG(int(MSG_TYPE::MSG_TYPE_CREATE)), creature(std::move(creature)), creator(std::move(creator)) {
+    }
 };
 
-//сообщение о получении урона
-class MSG_TYPE_DAMAGE
-	: public MSG
-{
+class MSG_TYPE_DAMAGE : public MSG {
 public:
-	unsigned damage;
-	Object* target, * damager;
+    unsigned damage;
+    std::shared_ptr<Object<void>> target, damager;
 
-
-	/// <summary>
-	/// 
-	/// </summary>
-	/// <param name="damage">модуль дамага(только положительное)</param>
-	/// <param name="target">цель дамага</param>
-	/// <param name="damager">тот кто наносит урон</param>
-	MSG_TYPE_DAMAGE(unsigned damage, Object*, Object* damager)
-		:MSG(int(MSG_TYPE::MSG_TYPE_DAMAGE)), damage(damage), target(target), damager(damager)
-	{
-	}
-
-	// ”наследовано через MSG
-	sf::Packet& pack(sf::Packet& packet) override;
-	std::pair<void*, size_t> open(sf::Packet& packet) override;
+    MSG_TYPE_DAMAGE(unsigned damage, std::shared_ptr<Object<void>> target,
+        std::shared_ptr<Object<void>> damager)
+        : MSG(int(MSG_TYPE::MSG_TYPE_DAMAGE)), damage(damage),
+        target(std::move(target)), damager(std::move(damager)) {
+    }
 };
 
-class MSG_NET_UPDATE_OBJECTS
-	:public MSG
-{
+class MSG_NET_UPDATE_OBJECTS : public MSG {
 protected:
-	std::vector<char> objects;
-public:
+    std::vector<std::shared_ptr<Object<void>>> objects;
 
-	// ”наследовано через MSG
-	sf::Packet& pack(sf::Packet& packet) override;
-	std::pair<void*, size_t> open(sf::Packet& packet) override;
+public:
+    MSG_NET_UPDATE_OBJECTS() : MSG(int(MSG_TYPE::MSG_NET_UPDATE_OBJECTS)) {}
+
+    sf::Packet& pack(sf::Packet& pack_) override {
+        MSG::pack(pack_);
+        // –еализаци€ упаковки объектов
+        return pack_;
+    }
 };
 
+class MSG_NET_ROOM_RECIEVE : public MSG {
+    void* roomdata;
+    size_t size;
 
-class MSG_NET_ROOM_RECIEVE
-	: public MSG
-{
-	std::vector<std::string> roomnames;
 public:
-
-
-	// ”наследовано через MSG
-	sf::Packet& pack(sf::Packet& packet) override;
-
-	std::pair<void*, size_t> open(sf::Packet& packet) override;
-
-};
-
-
-class MSG_NET_SEND_ROOM_RECIEVE
-	: public MSG
-{
-	sf::IpAddress applicant;
-public:
-	// ”наследовано через MSG
-	sf::Packet& pack(sf::Packet& packet) override;
-	std::pair<void*, size_t> open(sf::Packet& packet) override;
+    MSG_NET_ROOM_RECIEVE() : 
+        MSG(int(MSG_TYPE::MSG_NET_ROOM_RECIEVE)) {}
 };

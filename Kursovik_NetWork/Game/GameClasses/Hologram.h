@@ -2,7 +2,7 @@
 #include "./../../Engine/Object.h"
 
 class Hologram :
-    public Object
+    public Object<Hologram>
 {
 public:
 	

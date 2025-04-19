@@ -2,40 +2,39 @@
 #include "./../Game.h"
 #include "./../GameClasses/Card.h"
 
-void GameProcess::start(int levelnumber)
+void GameProcess::start(int levelNumber)
 {
-	O_Manager::get().clear();
-	O_Manager::get().clear();
-	Card::resetCounter();
+    O_Manager::get().clear();
+    Card::resetCounter();
 
-	auto& config = Config::getInstance();
-	auto& levelConfig = config["Level"]["Levels"][levelnumber - 1];
+    auto& config = Config::getInstance();
+    auto& levelConfig = config["Level"]["Levels"][levelNumber - 1];
 
-	// Создаем карточки из конфига
-	for (auto& plant : levelConfig["Avaliable_Plant"]) {
-		std::string plantName = plant.get<std::string>();
-		O_Manager::get().addObject(std::make_shared<Card>(plantName));
-	}
+    for (auto& plant : levelConfig["Avaliable_Plant"]) {
+        std::string plantName = plant.get<std::string>();
+        O_Manager::get().addObject(std::make_shared<Object<void>>(plantName));
+    }
 
-	O_Manager::get().addObject(std::shared_ptr<Object>(new Surface(levelConfig["Line_Q"])));
-	this->isActive = true;
+    O_Manager::get().addObject(std::make_shared<Object<void>>(levelConfig["Line_Q"]));
+    m_isActive = true;
 }
-
 
 void GameProcess::run()
 {
-	static Timer escape_delay(200);
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) && escape_delay())
-	{
-		close();
-		escape_delay.restart();
-		O_Manager::get().clear();
-		Game::get().setState(Game::State::Menu);
-		return;
-	}
+    static Timer escapeDelay(200);
+    // Game logic here
 }
 
 void GameProcess::close()
 {
-	isActive = false;
+    m_isActive = false;
+    O_Manager::get().clear();
+}
+
+void GameProcess::handleEvent(const sf::Event& event)
+{
+    if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) {
+        close();
+        Game::get().setState(Game::State::Menu);
+    }
 }

@@ -75,13 +75,3 @@ int Button::type()
 {
 	return (int)Types::None;
 }
-
-std::vector<char> Button::serialize()
-{
-    return std::vector<char>();
-}
-
-std::pair<Types, std::pair<void*, int>> Button::deserialize(std::vector<char> data, size_t& readpoint)
-{
-    return std::pair<Types, std::pair<void*, int>>();
-}

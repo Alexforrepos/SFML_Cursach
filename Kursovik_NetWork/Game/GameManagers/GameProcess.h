@@ -2,51 +2,27 @@
 #include "./../../Engine/O_Manager.h"
 #include "./../GameClasses/Surface.h"
 #include "./../Utils/Timer.h"
+#include <SFML/Window/Event.hpp>
 
-
-
-/// <summary>
-/// класс который ответственнен за игровой процесс
-/// </summary>
 class GameProcess
 {
-	bool isActive;
+    bool m_isActive;
+    uint16_t m_sunQuantity;
 
-	uint16_t sun_q;
 public:
-	GameProcess()
-		: isActive(false),sun_q(0)
-	{
-		Object* o;
-		
-	}
+    GameProcess() : m_isActive(false), m_sunQuantity(0) {}
 
-	static GameProcess& get()
-	{
-		static GameProcess inst;
-		return inst;
-	}
-	
-	/// <returns>возвращает состояние цикла</returns>
-	bool isRun() { return isActive; }
+    bool isRunning() const { return m_isActive; }
+    uint16_t getSun() const { return m_sunQuantity; }
 
-	/// <summary>
-	/// создание всех объектов игры 
-	/// </summary>
-	void start(int levelnumber);
+    void start(int levelNumber);
+    void run();
+    void close();
+    void handleEvent(const sf::Event& event);
 
-
-	/// <summary>
-	/// внутренний цикл игры
-	/// </summary>
-	void run();
-
-
-	/// <summary>
-	/// закрытие игрового процесса 
-	/// </summary>
-	void close();
-
-	uint16_t getSun() { return sun_q; }
-
+    static GameProcess& get()
+    {
+        static GameProcess instance;
+        return instance;
+    }
 };

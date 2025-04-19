@@ -5,44 +5,31 @@
 #include "./../Interfaces/I_Identifiable.h"
 #include "./../Interfaces/I_Serialize.h"
 #include <SFML/Graphics.hpp>
+#include <memory>
 
-class Object
-	: public I_Pos , public I_Type , public I_Identifiable, public I_Serialize
-{
-	//переменная отвечающая за id
-	unsigned long long id;
-	//переменная отвечающая за типизацию
-	int type_; 
+template <typename Derived>
+class Object : public I_Pos, public I_Type, public I_Identifiable, public I_Serialize<Derived> {
+protected:
+    unsigned long long id;
+    int type_;
+
 public:
+    Object(int type) : id(I_Identifiable::getId()), type_(type) {}
 
-	Object(int type) 
-		: id(I_Identifiable::getId()),type_(type)
-	{
+    virtual ~Object() = default;
 
-	}
+    // Чисто виртуальные методы
+    virtual void update() = 0;
+    virtual void draw(sf::RenderWindow& win) = 0;
+    virtual void sendMsg(MSG* msg) = 0;
 
-	virtual ~Object() = default;
-	/// <summary>
-	/// метод отвечающий за внутреннюю логику объекта
-	/// </summary>
-	virtual void update() = 0;
-	/// <summary>
-	/// метод отвечающий за отрисовку объекта
-	/// </summary>
-	/// <param name="win">окно в котором объект отрисуется</param>
-	virtual void draw(sf::RenderWindow& win) = 0;
-	/// <summary>
-	/// метод отвечающий за реакцию объекта на сообщение
-	/// </summary>
-	/// <param name="msg">сообщение на которое реагирует объект</param>
-	virtual void sendMsg(MSG* msg) = 0;
+    // Реализация интерфейсов
+    unsigned long long getId() override { return id; }
+    int type() override { return type_; }
 
-	// Унаследовано через I_Identifiable
-
-	//метод для получения ID
-	unsigned long long getId() override { return id; };
-
-	//метод для определения типа объекта
-	int type() { return type_; }
+    // Сериализация через CRTP
+    template <class Archive>
+    void serialize(Archive& ar) {
+        ar(id, type_);
+    }
 };
-

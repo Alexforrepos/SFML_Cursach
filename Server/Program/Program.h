@@ -8,7 +8,7 @@ class Program
 	Server server;
 public:
 	Program()
-		:isrun(true)
+		:isrun(true), server()
 	{
 		Config::getInstance().load("config.json");
 	}
@@ -16,7 +16,7 @@ public:
 	bool isRun() { return isrun; }
 	void run()
 	{
-		
+
 	};
 };
 

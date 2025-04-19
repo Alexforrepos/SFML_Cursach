@@ -33,22 +33,13 @@ private:
 		global_server_listener.listen(port);
 	};
 	void send();
+public:
 
 	Server()
 		:Status(Stopped), global_server_listener(), global_listener_socket(), isRunning(true)
 	{
 		global_server_listener.accept(global_listener_socket);
-		try
-		{
-			waitForClient(PORT1);
-		}
-		catch (...)
-		{
-			waitForClient(PORT2);
-		}
-
 	}
-public:
 	
 	static Server& get()
 	{

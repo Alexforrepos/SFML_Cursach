@@ -144,6 +144,9 @@
     <ClCompile Include="Game\GameClasses\Hologram.cpp">
       <Filter>Исходные файлы\Game\GameClasses\Card</Filter>
     </ClCompile>
+    <ClCompile Include="Interfaces\I_Type.cpp">
+      <Filter>Исходные файлы\Intefaces</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Res\ResDistr.txt">

@@ -50,6 +50,17 @@ void LEVEL2()
 #pragma endregion
 
 
+Menu::Menu() :
+	m_state(State::Base),
+	m_isRunning(false),
+	m_change(false),
+	m_background(sf::Vector2f(0, 0)),
+	m_music(R_Manager::get().access<sf::Music>("Greenpath.mp3"))
+{
+	m_music.setLoop(true);
+	m_music.setVolume(40);
+}
+
 void Menu::changeState(const State& newState)
 {
 	m_state = newState;
@@ -184,10 +195,9 @@ void Menu::createStartMenu()
 	m_currentWindow->centerElementsVertically();
 	m_currentWindow->centerElementsHorizontally();
 }
-
 void Menu::start() {
 	m_isRunning = false;
-	if (m_music.getStatus() != sf::Music::Playing)m_music.play();
+	if (m_music.getStatus() != sf::Music::Playing) m_music.play();
 
 	try {
 		m_background.setSize(sf::Vector2f(Game::get().getWindow().getSize()));
@@ -196,28 +206,17 @@ void Menu::start() {
 		m_change = false;
 	}
 
-	switch (m_state)
-	{
-	case State::Base:
-		createBaseMenu();
-		break;
-	case State::Multiplayer:
-		createMultiplayerMenu();
-		break;
-	case State::Settings:
-		createSettingsMenu();
-		break;
-	case State::Start:
-		createStartMenu();
-		break;
+	switch (m_state) {
+	case State::Base: createBaseMenu(); break;
+	case State::Multiplayer: createMultiplayerMenu(); break;
+	case State::Settings: createSettingsMenu(); break;
+	case State::Start: createStartMenu(); break;
 	}
-
 
 	m_isRunning = true;
 }
 
-void Menu::run()
-{
+void Menu::run() {
 	static Timer escapeDelay(500);
 
 	if (m_change) {
@@ -231,7 +230,7 @@ void Menu::run()
 			changeState(State::Base);
 			return;
 		}
-		EXIT();
+		Game::get().close();
 	}
 
 	Game::get().getWindow().draw(m_background);
