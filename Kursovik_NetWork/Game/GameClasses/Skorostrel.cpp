@@ -15,15 +15,7 @@ Skorostrel::Skorostrel(const std::string& plantType, sf::Vector2f pos)
 // Реализация всех методов
 void Skorostrel::update()
 {
-    sf::Vector2i mousePos = sf::Mouse::getPosition(Game::get().getWindow());
-    sf::Vector2f worldPos = Game::get().getWindow().mapPixelToCoords(mousePos);
-    setPos(worldPos);
-
-    if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && clickTimer())
-    {
-        MSG_Manager::get().addMSG(std::make_shared<MSG_TYPE_KILL>(this, nullptr));
-        clickTimer.restart();
-    }
+   
 }
 
 void Skorostrel::sendMsg(MSG* msg)

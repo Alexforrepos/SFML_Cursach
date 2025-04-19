@@ -11,6 +11,9 @@
 
 class Card : 
     public Object<Card>
+
+#include "./../GameClasses/Hologram.h"
+class Card : public Object
 {
     sf::Sprite sprite;
     Timer clickTimer;
