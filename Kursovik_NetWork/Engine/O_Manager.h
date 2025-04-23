@@ -5,7 +5,7 @@
 #include "Object.h"
 
 class O_Manager {
-    std::vector<std::shared_ptr<Object<void>>> ObjVector;
+    std::vector<std::shared_ptr<Object>> ObjVector;
     MSG_Manager& msgm;
 
     O_Manager() : msgm(MSG_Manager::get()) {}
@@ -21,7 +21,7 @@ public:
         std::cout << " ___________________________________________ " << std::endl;
     }
 
-    void addObject(std::shared_ptr<Object<void>> obj);
+    void addObject(std::shared_ptr<Object> obj);
     void update();
     void draw(sf::RenderWindow& win);
 };

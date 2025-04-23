@@ -39,7 +39,7 @@ void Button::update()
     }
 }
 
-void Button::sendMsg(MSG* msg)
+void Button::sendMsg(Engine::MSG* msg)
 {
 	// В данном примере кнопка не обрабатывает сообщения.
 	// Реализуйте, если нужно реагировать на внешние события.

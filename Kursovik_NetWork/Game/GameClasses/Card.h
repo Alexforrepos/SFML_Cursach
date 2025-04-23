@@ -7,13 +7,9 @@
 #include "./../../Engine/R_Manager.h"
 #include "./../../Engine/O_Manager.h"
 #include "./../Game.h"
-
-
-class Card : 
-    public Object<Card>
-
 #include "./../GameClasses/Hologram.h"
-class Card : public Object
+class Card : 
+    public Object
 {
     sf::Sprite sprite;
     Timer clickTimer;
@@ -25,7 +21,7 @@ public:
     Card(const std::string& plantType);
 
     void update() override;
-    void sendMsg(MSG* msg) override;
+    void sendMsg(Engine::MSG* msg) override;
     void draw(sf::RenderWindow& win) override;
     sf::Vector2f getPos() override;
     void changePos(const sf::Vector2f& other) override;

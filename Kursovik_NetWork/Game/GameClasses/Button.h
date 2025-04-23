@@ -9,7 +9,7 @@
 /// </summary>
 /// заменен на UI
 /// 
-class Button : public Object<Button>
+class Button : public Object
 {
     Timer click_delay;
 
@@ -63,7 +63,7 @@ public:
 
     // Реализация методов Object
     virtual void update() override;
-    virtual void sendMsg(MSG* msg) override;
+    virtual void sendMsg(Engine::MSG* msg) override;
     virtual void draw(sf::RenderWindow& win) override;
 
     // Унаследовано через Object

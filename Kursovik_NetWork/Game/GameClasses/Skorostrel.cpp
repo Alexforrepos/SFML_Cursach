@@ -18,7 +18,7 @@ void Skorostrel::update()
    
 }
 
-void Skorostrel::sendMsg(MSG* msg)
+void Skorostrel::sendMsg(Engine::MSG* msg)
 {
     
 }
@@ -42,3 +42,6 @@ void Skorostrel::setPos(sf::Vector2f other)
 {
    
 }
+
+CEREAL_REGISTER_TYPE(Skorostrel);
+CEREAL_REGISTER_POLYMORPHIC_RELATION(Plant, Skorostrel);

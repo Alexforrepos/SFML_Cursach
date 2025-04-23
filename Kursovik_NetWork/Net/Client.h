@@ -18,7 +18,7 @@ public:
 	void connectToRoom(sf::IpAddress ServerIp, uint16_t port);
 	void disconnect();
 
-	void sendMsg(MSG* msg);
+	void sendMsg(Engine::MSG* msg);
 	
 };
 

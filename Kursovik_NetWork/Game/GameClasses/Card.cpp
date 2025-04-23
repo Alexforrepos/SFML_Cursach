@@ -1,77 +1,87 @@
 #include "./../GameClasses/Skorostrel.h"
-#include "Card.h"
 #include "./../Game.h"
+#include "Card.h"
 
-sf::Vector2f Card::basePosition = { 50.f, 50.f }; 
+sf::Vector2f Card::basePosition = { 50.f, 50.f };
 int Card::cardCounter = 0;
 
+
+CEREAL_REGISTER_POLYMORPHIC_RELATION(Object, Card);
+
 Card::Card(const std::string& plantType)
-    : Object(static_cast<int>(Types::None)),
-    clickTimer(2000),
-    plantType(plantType) 
+	: Object(static_cast<int>(Types::None)),
+	clickTimer(2000),
+	plantType(plantType)
 {
-    if ((basePosition.y + cardCounter * 120.f) > 1000) {
-        cardCounter = 0;
-    }
+	if ((basePosition.y + cardCounter * 120.f) > 1000) {
+		cardCounter = 0;
+	}
 
-    sf::Vector2f position = basePosition + sf::Vector2f(0.f, cardCounter * 120.f);
-    cardCounter++;
+	sf::Vector2f position = basePosition + sf::Vector2f(0.f, cardCounter * 120.f);
+	cardCounter++;
 
-  
-    sprite.setTexture(R_Manager::get().access<sf::Texture>("ps.png"));
-    sprite.setPosition(position);
-    sprite.setScale(0.2f, 0.2f);
-    sprite.setColor(sf::Color(255, 255, 255, 200)); 
+
+	sprite.setTexture(R_Manager::get().access<sf::Texture>("ps.png"));
+	sprite.setPosition(position);
+	sprite.setScale(0.2f, 0.2f);
+	sprite.setColor(sf::Color(255, 255, 255, 200));
 }
 
 void Card::update() {
-    sf::Vector2i mousePixelPos = sf::Mouse::getPosition(Game::get().getWindow());
-    sf::Vector2f worldPos = Game::get().getWindow().mapPixelToCoords(mousePixelPos);
-    //sprite.setTexture(R_Manager::get().access<sf::Texture>("shkibidiSanya.png"));
-    Hologram gologram(basePosition, plantType) ;
+	sf::Vector2i mousePixelPos = sf::Mouse::getPosition(Game::get().getWindow());
+	sf::Vector2f worldPos = Game::get().getWindow().mapPixelToCoords(mousePixelPos);
+	//sprite.setTexture(R_Manager::get().access<sf::Texture>("shkibidiSanya.png"));
+	std::shared_ptr<Object> gologram(new Hologram(basePosition, plantType));
 
-    if (sprite.getGlobalBounds().contains(worldPos)) {
-        sprite.setColor(sf::Color::White);
+	if (sprite.getGlobalBounds().contains(worldPos)) {
+		sprite.setColor(sf::Color::White);
 
-        if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && clickTimer()) 
-        {
-            MSG_Manager::get().addMSG(std::shared_ptr<MSG>(new MSG_TYPE_CREATE(&gologram, this)));
-            clickTimer.restart();
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && clickTimer())
+		{
+			MSG_Manager::get().addMSG(std::shared_ptr<Engine::MSG>(new Engine::MSG_TYPE_CREATE(gologram, std::make_shared<Object>(this))));
+			clickTimer.restart();
 
-           //MSG_Manager::get().addMSG(std::make_shared<MSG_TYPE_CREATE>(gologram, this));
-        }
-    }
-    else {
-        sprite.setColor(sf::Color(255, 255, 255, 200));
-    }
+			//MSG_Manager::get().addMSG(std::make_shared<MSG_TYPE_CREATE>(gologram, this));
+		}
+	}
+	else 
+	{
+		sprite.setColor(sf::Color(255, 255, 255, 200));
+	}
 
 
-  /*  if (currentHologram) {
-        currentHologram->update();
-    }*/
+	/*
+	if (currentHologram)
+	{
+		  currentHologram->update();
+	}
+	*/
 }
 
 void Card::draw(sf::RenderWindow& win)
 {
-    win.draw(sprite);
+	win.draw(sprite);
 }
 
-sf::Vector2f Card::getPos() 
+sf::Vector2f Card::getPos()
 {
-    return sprite.getPosition();
+	return sprite.getPosition();
 }
 
 void Card::changePos(const sf::Vector2f& other)
 {
-    setPos(getPos() + other);
+	setPos(getPos() + other);
 }
 
 void Card::setPos(sf::Vector2f other)
 {
-    sprite.setPosition(other);
+	sprite.setPosition(other);
 }
 
-void Card::sendMsg(MSG* msg) 
+void Card::sendMsg(Engine::MSG* msg)
 {
-   
+
 }
+
+
+//CEREAL_REGISTER_TYPE(Card);

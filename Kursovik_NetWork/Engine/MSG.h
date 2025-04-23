@@ -1,98 +1,87 @@
 #pragma once
-#include "./../Interfaces/I_Pacatable.h"
+#include "./../Interfaces/I_Serialize.h"
 #include <memory>
 #include <iostream>
 #include <vector>
 #include <SFML/Network.hpp>
 
-template<typename Derived> class Object;
-enum class MSG_TYPE : uint8_t {
-    MSG_TYPE_MOVE = 1, MSG_TYPE_KILL, MSG_TYPE_CREATE, MSG_TYPE_DAMAGE,
-    MSG_NET_ROOM_RECIEVE, MSG_NET_UPDATE_OBJECTS
-};
+class Object;
 
-class MSG 
+namespace Engine
 {
-protected:
-    MSG(int index) : index(MSG_TYPE(index)) {}
-    MSG_TYPE index;
+	enum class MSG_TYPE : uint8_t
+	{
+		MSG_NONE, MSG_TYPE_MOVE = 1, MSG_TYPE_KILL, MSG_TYPE_CREATE, MSG_TYPE_DAMAGE, MSG_NET_TYPE
 
-    virtual sf::Packet& pack(sf::Packet& pack_) {
-        pack_ << static_cast<int8_t>(index);
-        return pack_;
-    }
+	};
+	class MSG
+		:public I_Serialize
+	{
+	protected:
 
-    virtual sf::Packet& open(sf::Packet& pack) {
-        int8_t index_;
-        pack >> index_;
-        index = static_cast<MSG_TYPE>(index_);
-        return pack;
-    }
+		
+		MSG(int index) : index(MSG_TYPE(index)) {}
+		MSG_TYPE index;
 
-public:
-    virtual ~MSG() = default;
-    MSG_TYPE getIndex() const { return index; }
-};
+	public:
+		MSG() = default;
+		virtual ~MSG() = default;
+		MSG_TYPE getIndex() const { return index; }
+	};
 
-class MSG_TYPE_MOVE : public MSG {
-public:
-    sf::Vector2f dir;
-    std::shared_ptr<Object<void>> target;  // Используем shared_ptr и шаблонный Object
+	class MSG_TYPE_MOVE :
+		public Engine::MSG {
+	public:
+		sf::Vector2f dir;
+		std::shared_ptr<Object> target;  // Используем shared_ptr и шаблонный Object
 
-    MSG_TYPE_MOVE(sf::Vector2f dir, std::shared_ptr<Object<void>> target)
-        : MSG(int(MSG_TYPE::MSG_TYPE_MOVE)), target(std::move(target)), dir(dir) {
-    }
-};
+		MSG_TYPE_MOVE(sf::Vector2f dir, std::shared_ptr<Object> target)
+			: MSG(int(MSG_TYPE::MSG_TYPE_MOVE)), target(std::move(target)), dir(dir) {
+		}
+	};
 
-class MSG_TYPE_KILL : public MSG {
-public:
-    std::shared_ptr<Object<void>> victim, killer;
+	class MSG_TYPE_KILL : public MSG {
+	public:
+		std::shared_ptr<Object> victim, killer;
 
-    MSG_TYPE_KILL(std::shared_ptr<Object<void>> victim, std::shared_ptr<Object<void>> killer)
-        : MSG(int(MSG_TYPE::MSG_TYPE_KILL)), victim(std::move(victim)), killer(std::move(killer)) {
-    }
-};
+		MSG_TYPE_KILL(std::shared_ptr<Object> victim, std::shared_ptr<Object> killer)
+			: MSG(int(MSG_TYPE::MSG_TYPE_KILL)), victim(std::move(victim)), killer(std::move(killer))
+		{
+		}
 
-class MSG_TYPE_CREATE : public MSG {
-public:
-    std::shared_ptr<Object<void>> creature, creator;
 
-    MSG_TYPE_CREATE(std::shared_ptr<Object<void>> creature, std::shared_ptr<Object<void>> creator)
-        : MSG(int(MSG_TYPE::MSG_TYPE_CREATE)), creature(std::move(creature)), creator(std::move(creator)) {
-    }
-};
+	};
 
-class MSG_TYPE_DAMAGE : public MSG {
-public:
-    unsigned damage;
-    std::shared_ptr<Object<void>> target, damager;
+	class MSG_TYPE_CREATE : public MSG {
+	public:
+		std::shared_ptr<Object> creature, creator;
 
-    MSG_TYPE_DAMAGE(unsigned damage, std::shared_ptr<Object<void>> target,
-        std::shared_ptr<Object<void>> damager)
-        : MSG(int(MSG_TYPE::MSG_TYPE_DAMAGE)), damage(damage),
-        target(std::move(target)), damager(std::move(damager)) {
-    }
-};
+		MSG_TYPE_CREATE(std::shared_ptr<Object> creature, std::shared_ptr<Object> creator)
+			: MSG(int(MSG_TYPE::MSG_TYPE_CREATE)), creature(std::move(creature)), creator(std::move(creator))
+		{
+		}
 
-class MSG_NET_UPDATE_OBJECTS : public MSG {
-protected:
-    std::vector<std::shared_ptr<Object<void>>> objects;
+	};
 
-public:
-    MSG_NET_UPDATE_OBJECTS() : MSG(int(MSG_TYPE::MSG_NET_UPDATE_OBJECTS)) {}
+	class MSG_TYPE_DAMAGE : public MSG {
+	public:
+		unsigned damage;
+		std::shared_ptr<Object> target, damager;
 
-    sf::Packet& pack(sf::Packet& pack_) override {
-        MSG::pack(pack_);
-        // Реализация упаковки объектов
-        return pack_;
-    }
-};
+		MSG_TYPE_DAMAGE(unsigned damage, std::shared_ptr<Object> target,
+			std::shared_ptr<Object> damager)
+			: MSG(int(MSG_TYPE::MSG_TYPE_DAMAGE)), damage(damage),
+			target(std::move(target)), damager(std::move(damager)) {
+		}
+	};
 
-class MSG_NET_ROOM_RECIEVE : public MSG {
-    void* roomdata;
-    size_t size;
+	class MSG_NET_TYPE
+		:public MSG
+	{
+		std::string byte;
 
-public:
-    MSG_NET_ROOM_RECIEVE() : 
-        MSG(int(MSG_TYPE::MSG_NET_ROOM_RECIEVE)) {}
-};
+
+	};
+}
+
+

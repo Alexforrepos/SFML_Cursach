@@ -1,4 +1,3 @@
 #include "MSG.h"
-#include "Object.h"
 
-
+CEREAL_REGISTER_TYPE(Engine::MSG);

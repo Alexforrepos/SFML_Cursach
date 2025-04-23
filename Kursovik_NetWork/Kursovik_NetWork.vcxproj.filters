@@ -147,6 +147,12 @@
     <ClCompile Include="Interfaces\I_Type.cpp">
       <Filter>Исходные файлы\Intefaces</Filter>
     </ClCompile>
+    <ClCompile Include="Interfaces\I_Serialize.cpp">
+      <Filter>Исходные файлы\Intefaces</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameClasses\Plant.cpp">
+      <Filter>Исходные файлы\Game\GameClasses\Plant</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Res\ResDistr.txt">

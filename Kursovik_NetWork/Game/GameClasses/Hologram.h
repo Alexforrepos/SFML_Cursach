@@ -7,10 +7,10 @@
 #include "./../../Engine/R_Manager.h"
 #include "./../../Engine/O_Manager.h"
 #include "./../Game.h"
-class Hologram : public Object
+
 
 class Hologram :
-    public Object<Hologram>
+    public Object
 {
 private:
    //sf::Sprite sprite;
@@ -18,14 +18,17 @@ private:
     Timer Clicktime;
     sf::Vector2f position;
 public:	
+    Hologram()
+        :Clicktime(100)
+    {
+    };
+
     Hologram(const sf::Vector2f& startPos, const std::string& type);
     void update() override;
-    void sendMsg(MSG* msg) override;
+    void sendMsg(Engine::MSG* msg) override;
     void draw(sf::RenderWindow& win) override;
     sf::Vector2f getPos() override;
     void changePos(const sf::Vector2f& other) override;
     void setPos(sf::Vector2f other) override;
-    std::vector<char> serialize() override { return {}; }
-    std::pair<Types, std::pair<void*, int>> deserialize(std::vector<char>, size_t&) override { return {}; }
+   
 };
-

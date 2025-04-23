@@ -1,0 +1,4 @@
+#include "Plant.h"
+
+CEREAL_REGISTER_TYPE(Plant);
+CEREAL_REGISTER_POLYMORPHIC_RELATION(Object, Plant);

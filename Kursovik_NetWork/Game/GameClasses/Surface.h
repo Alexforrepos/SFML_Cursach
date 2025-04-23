@@ -19,7 +19,7 @@
 /// класс линий и мест отвечает за рамещение расстений по местам
 /// </summary>
 class Surface
-	: public Object<Surface>
+	: public Object
 {
 	int lines_qount, lines_size;
 
@@ -27,7 +27,7 @@ class Surface
 	struct Place
 	{
 		bool isplanted;
-		Object<void>* plant_;
+		Object* plant_;
 		sf::RectangleShape shape_rect;
 
 		Place(sf::Vector2f pos, sf::Vector2f size)
@@ -37,7 +37,7 @@ class Surface
 			shape_rect.setTexture(&R_Manager::get().access<sf::Texture>("Drag.png"));
 		}
 
-		void plant(Object<void>* plant_)
+		void plant(Object* plant_)
 		{
 			if (isplanted)
 				return;
@@ -45,14 +45,7 @@ class Surface
 			this->isplanted = true;
 		}
 	
-		void deletePLant()
-		{
-			if (!isplanted)
-				return;
-			isplanted = false;
-			MSG_Manager::get().addMSG(std::shared_ptr<MSG>(new 
-				MSG_TYPE_KILL(std::make_shared<Object<void>>(std::move(plant_)), nullptr)));
-		}
+		void deletePLant();
 
 		bool isPlanted()
 		{
@@ -118,7 +111,7 @@ public:
 
 	void draw(sf::RenderWindow& win) override;
 
-	void sendMsg(MSG* msg) override;
+	void sendMsg(Engine::MSG* msg) override;
 
 	sf::RectangleShape line(std::vector<Place> places)
 	{

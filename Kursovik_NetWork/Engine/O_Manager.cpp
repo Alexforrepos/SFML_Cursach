@@ -1,6 +1,8 @@
 #include "O_Manager.h"
 
-void O_Manager::addObject(std::shared_ptr<Object<void>> obj) {
+using namespace Engine;
+
+void O_Manager::addObject(std::shared_ptr<Object> obj) {
     ObjVector.push_back(std::move(obj));
 }
 
@@ -10,7 +12,7 @@ void O_Manager::draw(sf::RenderWindow& win) {
 }
 
 void O_Manager::update() {
-    std::vector<std::shared_ptr<Object<void>>> gulag;
+    std::vector<std::shared_ptr<Object>> gulag;
 
     for (const auto& obj : ObjVector)
         obj->update();
@@ -22,8 +24,8 @@ void O_Manager::update() {
             obj->sendMsg(msg.get());
 
         switch (msg->getIndex()) {
-        case MSG_TYPE::MSG_TYPE_KILL: {
-            auto killMsg = static_cast<MSG_TYPE_KILL*>(msg.get());
+        case Engine::MSG_TYPE::MSG_TYPE_KILL: {
+            auto killMsg = static_cast<Engine::MSG_TYPE_KILL*>(msg.get());
             auto it = std::find_if(ObjVector.begin(), ObjVector.end(),
                 [&killMsg](const auto& obj) { return obj.get() == killMsg->victim.get(); });
             if (it != ObjVector.end()) {
@@ -31,8 +33,8 @@ void O_Manager::update() {
             }
             break;
         }
-        case MSG_TYPE::MSG_TYPE_CREATE: {
-            auto createMsg = static_cast<MSG_TYPE_CREATE*>(msg.get());
+        case Engine::MSG_TYPE::MSG_TYPE_CREATE: {
+            auto createMsg = static_cast<Engine::MSG_TYPE_CREATE*>(msg.get());
             addObject(createMsg->creature);
             break;
         }

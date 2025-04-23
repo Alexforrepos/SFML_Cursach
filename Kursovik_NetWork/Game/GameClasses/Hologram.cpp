@@ -19,7 +19,7 @@ void Hologram::update()
 
 }
 
-void Hologram::sendMsg(MSG* msg)
+void Hologram::sendMsg(Engine::MSG* msg)
 {
 
 }
@@ -43,3 +43,7 @@ void Hologram::setPos(sf::Vector2f other)
 {
 
 }
+
+
+CEREAL_REGISTER_TYPE(Hologram);
+CEREAL_REGISTER_POLYMORPHIC_RELATION(Object, Hologram);

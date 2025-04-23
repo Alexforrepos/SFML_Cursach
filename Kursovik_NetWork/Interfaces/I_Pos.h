@@ -24,3 +24,4 @@ public:
 	virtual void setPos(sf::Vector2f other) = 0;
 };
 
+		

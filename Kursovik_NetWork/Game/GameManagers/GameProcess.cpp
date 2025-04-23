@@ -12,10 +12,10 @@ void GameProcess::start(int levelNumber)
 
     for (auto& plant : levelConfig["Avaliable_Plant"]) {
         std::string plantName = plant.get<std::string>();
-        O_Manager::get().addObject(std::make_shared<Object<void>>(plantName));
+        O_Manager::get().addObject(std::make_shared<Object>(plantName));
     }
 
-    O_Manager::get().addObject(std::make_shared<Object<void>>(levelConfig["Line_Q"]));
+    O_Manager::get().addObject(std::make_shared<Object>(levelConfig["Line_Q"]));
     m_isActive = true;
 }
 
