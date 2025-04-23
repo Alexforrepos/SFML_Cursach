@@ -7,6 +7,8 @@
 #include "./../Engine/R_Manager.h"
 #include <SFML/Graphics.hpp>
 
+#define BASE_SERIALIZATION template <class Archive> void serialize(Archive& ar) {};
+
 #pragma region SerializeUtils
 
 // Специализации для сериализации SFML-типов
@@ -34,8 +36,7 @@ public:
     // Виртуальный метод для сериализации
     template <class Archive>
     void serialize(Archive& ar)
-    {
-        // Базовая реализация (может быть пустой)
+    {// Базовая реализация (может быть пустой)
     };
 
     std::string serializeToStream() {
@@ -60,41 +61,4 @@ public:
     }
 };
 
-// Обёртка для sf::Sprite
-class SpriteWrapper :
-    public sf::Sprite,
-    public I_Serialize
-{
-private:
-    std::string textureId;
-    sf::Color spriteColor;
 
-public:
-    template <class Archive>
-    void serialize(Archive& ar)
-    {
-        sf::Vector2f pos = getPosition();
-        sf::Vector2f scale = getScale();
-        float rotation = getRotation();
-        sf::IntRect textureRect = getTextureRect();
-
-        ar(textureId, pos, scale, rotation, textureRect, spriteColor);
-
-        if constexpr (Archive::is_loading::value)
-        {
-            setPosition(pos);
-            setScale(scale);
-            setRotation(rotation);
-            setTextureRect(textureRect);
-            setColor(spriteColor);
-        }
-    }
-
-    void setTextureById(const std::string& id, R_Manager& resManager) {
-        textureId = id;
-        const auto& texture = resManager.access<sf::Texture>(id);
-        setTexture(texture, true);
-    }
-
-    const std::string& getTextureId() const { return textureId; }
-};

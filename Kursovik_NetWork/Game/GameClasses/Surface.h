@@ -78,7 +78,9 @@ class Surface
 
 
 public:
-	Surface(const int& lines_qount = DEFAULT_LINE_QOUNT, const int& lines_size = DEFAULT_LINE_SIZE)
+	Surface() = default;
+
+	Surface(const int& lines_qount, const int& lines_size = DEFAULT_LINE_SIZE)
 		:lines_qount(lines_qount), lines_size(lines_size), Object(static_cast<int>(Types::Level))
 	{
 		for (int rows = 0; rows < lines_qount; rows++)
@@ -132,6 +134,6 @@ public:
 
 	// Унаследовано через Object
 	
-
+	BASE_SERIALIZATION
 };
 

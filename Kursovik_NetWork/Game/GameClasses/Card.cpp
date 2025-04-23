@@ -6,10 +6,8 @@ sf::Vector2f Card::basePosition = { 50.f, 50.f };
 int Card::cardCounter = 0;
 
 
-CEREAL_REGISTER_POLYMORPHIC_RELATION(Object, Card);
-
 Card::Card(const std::string& plantType)
-	: Object(static_cast<int>(Types::None)),
+	:Object(int(Types::Cart)),
 	clickTimer(2000),
 	plantType(plantType)
 {
@@ -29,16 +27,16 @@ Card::Card(const std::string& plantType)
 
 void Card::update() {
 	sf::Vector2i mousePixelPos = sf::Mouse::getPosition(Game::get().getWindow());
-	sf::Vector2f worldPos = Game::get().getWindow().mapPixelToCoords(mousePixelPos);
+	
 	//sprite.setTexture(R_Manager::get().access<sf::Texture>("shkibidiSanya.png"));
 	std::shared_ptr<Object> gologram(new Hologram(basePosition, plantType));
 
-	if (sprite.getGlobalBounds().contains(worldPos)) {
+	if (sprite.getGlobalBounds().contains(sf::Vector2f(mousePixelPos))) {
 		sprite.setColor(sf::Color::White);
 
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && clickTimer())
 		{
-			MSG_Manager::get().addMSG(std::shared_ptr<Engine::MSG>(new Engine::MSG_TYPE_CREATE(gologram, std::make_shared<Object>(this))));
+			MSG_Manager::get().addMSG(std::shared_ptr<Engine::MSG>(new Engine::MSG_TYPE_CREATE(gologram, std::make_shared<Object>(0))));
 			clickTimer.restart();
 
 			//MSG_Manager::get().addMSG(std::make_shared<MSG_TYPE_CREATE>(gologram, this));
@@ -84,4 +82,5 @@ void Card::sendMsg(Engine::MSG* msg)
 }
 
 
-//CEREAL_REGISTER_TYPE(Card);
+CEREAL_REGISTER_TYPE(Card);
+CEREAL_REGISTER_POLYMORPHIC_RELATION(Object, Card);

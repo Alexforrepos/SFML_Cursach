@@ -162,6 +162,7 @@
     <ClCompile Include="Game\Interfaces\InterfaceWindow.cpp" />
     <ClCompile Include="Game\Utils\Config.cpp" />
     <ClCompile Include="Game\Utils\ProgressBar.cpp" />
+    <ClCompile Include="Game\Utils\SpriteWrapper.cpp" />
     <ClCompile Include="Game\Utils\Timer.cpp" />
     <ClCompile Include="Interfaces\I_Identifiable.cpp" />
     <ClCompile Include="Interfaces\I_Serialize.cpp" />
@@ -195,6 +196,7 @@
     <ClInclude Include="Game\Interfaces\InterfaceWindow.h" />
     <ClInclude Include="Game\Utils\Config.h" />
     <ClInclude Include="Game\Utils\ProgressBar.h" />
+    <ClInclude Include="Game\Utils\SpriteWrapper.h" />
     <ClInclude Include="Game\Utils\Timer.h" />
     <ClInclude Include="Interfaces\I_Identifiable.h" />
     <ClInclude Include="Interfaces\I_Pacatable.h" />

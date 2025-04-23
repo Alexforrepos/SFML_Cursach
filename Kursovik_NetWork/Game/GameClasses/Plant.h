@@ -5,8 +5,7 @@ class Plant
 	: public Object
 {
 public:
-	
-	~Plant() = default;
+
 private:
 	uint8_t line, col;
 	uint16_t HP;
@@ -19,4 +18,12 @@ public:
 		:Object(int(Types::BasePlantType)), line(line), col(col), HP(HP)
 	{
 	}
+
+	template <class Archive>
+	void serialize(Archive& ar) {
+		ar& cereal::base_class<Object>(this);  // Сериализация Object
+		ar(line,col,HP);  // Сериализация полей Plant
+	}
+
+	virtual ~Plant() = default;	
 };

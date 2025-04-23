@@ -5,18 +5,11 @@
 void GameProcess::start(int levelNumber)
 {
     O_Manager::get().clear();
-    Card::resetCounter();
 
     auto& config = Config::getInstance();
     auto& levelConfig = config["Level"]["Levels"][levelNumber - 1];
 
-    for (auto& plant : levelConfig["Avaliable_Plant"]) {
-        std::string plantName = plant.get<std::string>();
-        O_Manager::get().addObject(std::make_shared<Object>(plantName));
-    }
-
-    O_Manager::get().addObject(std::make_shared<Object>(levelConfig["Line_Q"]));
-    m_isActive = true;
+    O_Manager::get().addObject(std::make_shared<Surface>(config["Level"]["Levels"][levelNumber - 1]));
 }
 
 void GameProcess::run()

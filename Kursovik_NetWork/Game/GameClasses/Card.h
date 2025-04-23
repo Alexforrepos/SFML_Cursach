@@ -18,6 +18,7 @@ class Card :
     std::string plantType;
 
 public:
+    Card() = default;
     Card(const std::string& plantType);
 
     void update() override;
@@ -28,4 +29,5 @@ public:
     void setPos(sf::Vector2f other) override;
     static void resetCounter() { cardCounter = 0; }
     
+    BASE_SERIALIZATION
 };

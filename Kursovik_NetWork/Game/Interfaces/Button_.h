@@ -43,6 +43,7 @@ public:
                 }
             }
         }
+        return 0;
     }
 
     void update(float dt) override

@@ -45,7 +45,7 @@ namespace Engine
 		std::shared_ptr<Object> victim, killer;
 
 		MSG_TYPE_KILL(std::shared_ptr<Object> victim, std::shared_ptr<Object> killer)
-			: MSG(int(MSG_TYPE::MSG_TYPE_KILL)), victim(std::move(victim)), killer(std::move(killer))
+			: MSG(int(MSG_TYPE::MSG_TYPE_KILL)), victim(victim), killer(killer)
 		{
 		}
 

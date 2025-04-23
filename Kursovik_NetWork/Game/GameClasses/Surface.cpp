@@ -60,3 +60,7 @@ void Surface::Place::deletePLant()
 			std::unique_ptr<Object>(nullptr)  // Создаем новый Object как копию текущего
 		)));
 }
+
+
+CEREAL_REGISTER_TYPE(Surface);
+CEREAL_REGISTER_POLYMORPHIC_RELATION(Object, Surface);
