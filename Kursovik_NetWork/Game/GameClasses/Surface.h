@@ -95,7 +95,7 @@ public:
 			}
 		}
 		for (int row = 0; row < lines_qount; row++) {
-			float y = START_SURFACE_POSITION_Y + row * (PLANT_SIZE_H + PLANT_DISTANCE);
+			float y = static_cast<float>(START_SURFACE_POSITION_Y + row * (PLANT_SIZE_H + PLANT_DISTANCE));
 			zombie_places.emplace_back(
 				sf::Vector2f(START_ZOMBIE_POSITION_X, y)
 			);

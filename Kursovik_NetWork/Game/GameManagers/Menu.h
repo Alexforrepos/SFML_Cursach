@@ -44,7 +44,7 @@ public:
     void start();
     void run();
     void close();
-    void handleEvent(const sf::Event& event);
+    void handleEvent(const sf::Event& event) { m_currentWindow->handleEvent(event); };
     void changeState(const State& newState);
 
     bool isRunning() const { return m_isRunning; }

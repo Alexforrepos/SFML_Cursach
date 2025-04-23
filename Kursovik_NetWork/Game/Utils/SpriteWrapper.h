@@ -10,26 +10,22 @@ private:
 
 public:
     template <class Archive>
-    void serialize(Archive& ar)
-    {
+    void serialize(Archive& ar) {
         sf::Vector2f pos = getPosition();
         sf::Vector2f scale = getScale();
         float rotation = getRotation();
         sf::IntRect textureRect = getTextureRect();
-        sf::Color currentColor = getColor(); // Используем текущий цвет спрайта
+        sf::Color currentColor = getColor();
 
         ar(textureId, pos, scale, rotation, textureRect, currentColor);
 
-        if constexpr (Archive::is_loading::value)
-        {
+        if constexpr (Archive::is_loading::value) {
             setPosition(pos);
             setScale(scale);
             setRotation(rotation);
             setTextureRect(textureRect);
-            setColor(currentColor); // Устанавливаем цвет из архива
-            if (!textureId.empty()) {
-                setTexture(R_Manager::get().access<sf::Texture>(textureId));
-            }
+            setColor(currentColor);
+            // Текстура будет загружена позже через setTextureById()
         }
     }
 

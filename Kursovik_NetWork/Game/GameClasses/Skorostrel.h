@@ -31,7 +31,6 @@ public:
         ar(cereal::base_class<Plant>(this));
         ar(plantType);
 
-        // Сериализация спрайта
         sf::Vector2f position = sprite.getPosition();
         sf::Vector2f scale = sprite.getScale();
         float rotation = sprite.getRotation();
@@ -41,9 +40,6 @@ public:
 
         ar(position, scale, rotation, textureRect, color, textureId);
 
-        // Сериализация таймера
-        ar(clickTimer);
-
         if constexpr (Archive::is_loading::value) {
             sprite.setPosition(position);
             sprite.setScale(scale);
@@ -51,8 +47,6 @@ public:
             sprite.setTextureRect(textureRect);
             sprite.setColor(color);
             sprite.setTexture(R_Manager::get().access<sf::Texture>(textureId));
-
-            // Таймер автоматически восстановится благодаря своей сериализации
         }
     }
 };

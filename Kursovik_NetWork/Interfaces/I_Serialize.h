@@ -26,6 +26,26 @@ template <class Archive>
 void serialize(Archive& ar, sf::Color& color) {
     ar(color.r, color.g, color.b, color.a);
 }
+
+namespace cereal {
+    // Сериализация sf::Vector2f
+    template <class Archive>
+    void serialize(Archive& ar, sf::Vector2f& vec) {
+        ar(vec.x, vec.y);
+    }
+
+    // Сериализация sf::IntRect
+    template <class Archive>
+    void serialize(Archive& ar, sf::IntRect& rect) {
+        ar(rect.left, rect.top, rect.width, rect.height);
+    }
+
+    // Сериализация sf::Color
+    template <class Archive>
+    void serialize(Archive& ar, sf::Color& color) {
+        ar(color.r, color.g, color.b, color.a);
+    }
+}
 #pragma endregion
 
 class I_Serialize : public std::enable_shared_from_this<I_Serialize>
