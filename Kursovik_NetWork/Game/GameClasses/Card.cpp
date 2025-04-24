@@ -1,5 +1,3 @@
-#include "./../GameClasses/Skorostrel.h"
-#include "./../Game.h"
 #include "Card.h"
 
 sf::Vector2f Card::basePosition = { 50.f, 50.f };
