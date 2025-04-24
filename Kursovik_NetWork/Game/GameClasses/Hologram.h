@@ -30,5 +30,8 @@ public:
     sf::Vector2f getPos() override;
     void changePos(const sf::Vector2f& other) override;
     void setPos(sf::Vector2f other) override;
-   
+    ~Hologram()
+    {
+        std::cout << "ÑÀÍß ×ÈÍÈ" << std::endl;
+    };
 };

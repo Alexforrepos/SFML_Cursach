@@ -4,11 +4,8 @@
 Hologram::Hologram(const sf::Vector2f& startPos, const std::string& type)
     : Object(static_cast<int>(Types::None)), plantType(type), Clicktime(200),position(startPos)
 {
-    //sprite.setTexture(R_Manager::get().access<sf::Texture>("shkibidiSanya.png"));
-    //sprite.setPosition(50,50);
-    //sprite.setColor(sf::Color(255, 255, 255, 150));
     Clicktime.restart();
-    std::cout << "fff" << std::endl;
+    
 }
 
 
@@ -16,6 +13,7 @@ Hologram::Hologram(const sf::Vector2f& startPos, const std::string& type)
 
 void Hologram::update()
 {
+    position = sf::Vector2f(sf::Mouse::getPosition());
 
 }
 
@@ -26,7 +24,7 @@ void Hologram::sendMsg(Engine::MSG* msg)
 
 void Hologram::draw(sf::RenderWindow& win)
 {
-
+    std::cout << "x=" << position.x << "\n y=" << position.y << std::endl;
 }
 
 sf::Vector2f Hologram::getPos()
