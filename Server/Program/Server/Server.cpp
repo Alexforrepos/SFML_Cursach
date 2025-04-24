@@ -3,7 +3,7 @@
 
 bool Server::start(unsigned short port) 
 {
-    
+    return true;
 }
 
 void Server::clientReadHandler() 

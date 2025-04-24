@@ -1,6 +1,6 @@
 #pragma once
 #include "./Server/Server.h"
-#include "./../../Kursovik_NetWork/Game/Utils/Config.h"
+//#include "Game/Utils/Config.h"
 
 class Program
 {
@@ -10,12 +10,12 @@ public:
 	Program()
 		:isrun(true), server()
 	{
-		Config::getInstance().load("config.json");
+//		Config::getInstance().load("config.json");
 	}
 
 	bool isRun() { return isrun; }
 	void run()
 	{
-
+		return;
 	};
 };

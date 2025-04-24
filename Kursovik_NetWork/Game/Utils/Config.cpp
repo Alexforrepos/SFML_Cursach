@@ -12,7 +12,7 @@ void Config::load(const std::string& filename) {
 		config = nlohmann::json::parse(file);
 		currentFilePath = filename;
 	}
-	catch (const nlohmann::json::parse_error& e) {
+	catch (const nlohmann::json::parse_error& e) {	
 		throw std::runtime_error("Failed to parse JSON config: " + std::string(e.what()));
 	}
 }
