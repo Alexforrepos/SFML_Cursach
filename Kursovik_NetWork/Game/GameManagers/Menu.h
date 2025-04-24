@@ -37,8 +37,8 @@ public:
 
     static Menu& get()
     {
-        static Menu instance;
-        return instance;
+        static Menu* instance = new Menu;
+        return *instance;
     }
 
     void start();

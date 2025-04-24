@@ -11,90 +11,92 @@
 class Game
 {
 public:
-    enum class State : uint8_t
-    {
-        None,
-        Menu,
-        NetWait,
-        Prepare,
-        GameProcess
-    };
+	enum class State : uint8_t
+	{
+		None,
+		Menu,
+		NetWait,
+		Prepare,
+		GameProcess
+	};
 
-    struct GameData
-    {
-        std::string profileName;
-        int levelUnlock = 0;
+	struct GameData
+	{
+		std::string profileName;
+		int levelUnlock = 0;
 
-        template<class Archive>
-        void serialize(Archive& ar) {
-            ar(profileName, levelUnlock);
-        }
-    };
+		template<class Archive>
+		void serialize(Archive& ar) {
+			ar(profileName, levelUnlock);
+		}
+	};
 
 private:
-    sf::RenderWindow m_window;
-    O_Manager& m_objectManager;
-    R_Manager& m_resourceManager;
-    Config& m_config;
-    bool m_isRunning;
-    State m_currentState;
-    std::unique_ptr<Menu> m_menu;
-    GameProcess m_gameProcess;
-    GameData m_gameData;
+	sf::RenderWindow m_window;
+	O_Manager& m_objectManager;
+	R_Manager& m_resourceManager;
+	Config& m_config;
+	bool m_isRunning;
+	State m_currentState;
+	std::unique_ptr<Menu> m_menu;
+	GameProcess m_gameProcess;
+	GameData m_gameData;
 
-    Game() :
-        m_objectManager(O_Manager::get()),
-        m_resourceManager(R_Manager::get()),
-        m_window(sf::VideoMode(1000, 1000), "PVZ", sf::Style::Fullscreen),
-        m_config(Config::getInstance()),
-        m_isRunning(true),
-        m_currentState(State::Prepare)
-    {
-        try {
-            m_config.load("./Res/Config/Config.json");
-            m_resourceManager.pushFromFile(m_window, m_config["FileSystem"]["Resource"]);
-            setState(State::Menu);
-            m_menu = std::make_unique<Menu>();
-        }
-        catch (const std::exception& e) {
-            std::cerr << "Game initialization error: " << e.what() << std::endl;
-            m_isRunning = false;
-        }
-    }
+	Game() :
+		m_objectManager(O_Manager::get()),
+		m_resourceManager(R_Manager::get()),
+		m_window(sf::VideoMode(1000, 1000), "PVZ", sf::Style::Fullscreen),
+		m_config(Config::getInstance()),
+		m_isRunning(true),
+		m_currentState(State::Prepare)
+
+	{
+		try {
+			m_config.load("./Res/Config/Config.json");
+			m_resourceManager.pushFromFile(m_window, m_config["FileSystem"]["Resource"]);
+			m_menu.reset(&Menu::get());
+			setState(State::Menu);
+
+		}
+		catch (const std::exception& e) {
+			std::cerr << "Game initialization error: " << e.what() << std::endl;
+			m_isRunning = false;
+		}
+	}
 
 public:
-    ~Game() = default;
+	~Game() = default;
 
-    static Game& get() {
-        static Game instance;
-        return instance;
-    }
+	static Game& get() {
+		static Game instance;
+		return instance;
+	}
 
-    void run();
-    void handleEvents();
+	void run();
+	void handleEvents();
 
-    bool isRunning() const { return m_isRunning; }
-    void close()
-    {
-        m_isRunning = false;
-        saveGameData();
-    }
+	bool isRunning() const { return m_isRunning; }
+	void close()
+	{
+		m_isRunning = false;
+		saveGameData();
+	}
 
-    State getState() const { return m_currentState; }
-    void setState(State state) { m_currentState = state; }
+	State getState() const { return m_currentState; }
+	void setState(State state) { m_currentState = state; }
 
-    void closeMenu() {
-        if (m_menu) {
-            m_menu->close();
-        }
-    }
+	void closeMenu() {
+		if (m_menu) {
+			m_menu->close();
+		}
+	}
 
-    sf::RenderWindow& getWindow() { return m_window; }
-    GameProcess& getGameProcess() { return m_gameProcess; }
+	sf::RenderWindow& getWindow() { return m_window; }
+	GameProcess& getGameProcess() { return m_gameProcess; }
 
-    void saveGameData() {
-        m_config["GameData"]["profileName"] = m_gameData.profileName;
-        m_config["GameData"]["levelUnlock"] = m_gameData.levelUnlock;
-        m_config.save("./Res/Config/Config.json");
-    }
+	void saveGameData() {
+		m_config["GameData"]["profileName"] = m_gameData.profileName;
+		m_config["GameData"]["levelUnlock"] = m_gameData.levelUnlock;
+		m_config.save("./Res/Config/Config.json");
+	}
 };

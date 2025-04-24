@@ -195,6 +195,7 @@ void Menu::createStartMenu()
 	m_currentWindow->centerElementsVertically();
 	m_currentWindow->centerElementsHorizontally();
 }
+
 void Menu::start() {
 	m_isRunning = false;
 	if (m_music.getStatus() != sf::Music::Playing) m_music.play();
@@ -219,7 +220,8 @@ void Menu::start() {
 void Menu::run() {
 	static Timer escapeDelay(500);
 
-	if (m_change) {
+	if (m_change)
+	{
 		m_change = false;
 		start();
 	}

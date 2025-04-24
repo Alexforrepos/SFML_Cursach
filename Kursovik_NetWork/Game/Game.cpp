@@ -46,7 +46,8 @@ void Game::run()
     switch (m_currentState)
     {
     case State::Menu:
-        if (m_menu) m_menu->run();
+        if (m_menu)
+            m_menu->run();
         break;
 
     case State::GameProcess:

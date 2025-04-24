@@ -9,12 +9,12 @@ void GameProcess::start(int levelNumber)
     auto& config = Config::getInstance();
     auto& levelConfig = config["Level"]["Levels"][levelNumber - 1];
 
-    O_Manager::get().addObject(std::make_shared<Surface>(config["Level"]["Levels"][levelNumber - 1]));
+    O_Manager::get().addObject(std::make_shared<Surface>(config["Level"]["Levels"][levelNumber - 1]["Line_Q"]));
 }
 
 void GameProcess::run()
 {
-    static Timer escapeDelay(200);
+   // static Timer escapeDelay(200);
     // Game logic here
 }
 
