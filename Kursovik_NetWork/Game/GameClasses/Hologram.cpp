@@ -25,6 +25,7 @@ void Hologram::sendMsg(Engine::MSG* msg)
 void Hologram::draw(sf::RenderWindow& win)
 {
     std::cout << "x=" << position.x << "\n y=" << position.y << std::endl;
+
 }
 
 sf::Vector2f Hologram::getPos()
