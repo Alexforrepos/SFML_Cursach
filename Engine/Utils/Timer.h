@@ -1,5 +1,5 @@
 #pragma once
-#include "./../../Interfaces/I_Serialize.h"
+#include "Interfaces/I_Serialize.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
 

@@ -1,5 +1,5 @@
 #pragma once
-#include "./../Engine/MSG.h"
+#include "Engine/MSG.h"
 #include <string>
 #include <SFML/Network.hpp>
 

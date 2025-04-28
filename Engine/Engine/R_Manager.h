@@ -9,7 +9,7 @@
 #include <filesystem>
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
-#include "./../Game/Utils/ProgressBar.h"
+#include "Utils/ProgressBar.h"
 
 
 class R_Manager

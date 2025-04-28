@@ -1,11 +1,11 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <memory>
-#include "../Interfaces/Button_.h"
-#include "../Interfaces/InterfaceIntputText.h"
-#include "./../../Engine/R_Manager.h"
-#include "./../Utils/Timer.h"
-#include "./../Interfaces/InterfaceWindow.h"
+#include "UI/Button_.h"
+#include "UI/InterfaceIntputText.h"
+#include "UI/InterfaceWindow.h"
+#include "Engine/R_Manager.h"
+#include "Utils/Timer.h"
 
 class Menu
 {

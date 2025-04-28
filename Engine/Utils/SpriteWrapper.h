@@ -1,5 +1,5 @@
 #pragma once
-#include "./../../Interfaces/I_Serialize.h"
+#include "Interfaces/I_Serialize.h"
 
 
 class SpriteWrapper : public sf::Sprite, public I_Serialize

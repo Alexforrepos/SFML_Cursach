@@ -1,9 +1,9 @@
 #pragma once
-#include "./Utils/Config.h"
-#include "./../Interfaces/I_Serialize.h"
-#include "./GameManagers/GameProcess.h"
-#include "./../Engine/R_Manager.h"
-#include "./../Engine/O_Manager.h"
+#include "Utils/Config.h"
+#include "Interfaces/I_Serialize.h"
+#include "GameManagers/GameProcess.h"
+#include "Engine/R_Manager.h"
+#include "Engine/O_Manager.h"
 #include "./GameManagers/Menu.h"
 #include <SFML/Graphics.hpp>
 #include <memory>

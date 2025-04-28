@@ -1,8 +1,8 @@
 #pragma once
-#include "./../../Engine/R_Manager.h"
-#include "./../Utils/Config.h"
-#include "./../../Engine/Object.h"
-#include "./../../Engine/MSG_Manager.h"
+#include "Engine/R_Manager.h"
+#include "Utils/Config.h"
+#include "Engine/Object.h"
+#include "Engine/MSG_Manager.h"
 #define DEFAULT_LINE_QOUNT 5
 #define DEFAULT_LINE_SIZE 9
 #define START_SURFACE_POSITION_X 300

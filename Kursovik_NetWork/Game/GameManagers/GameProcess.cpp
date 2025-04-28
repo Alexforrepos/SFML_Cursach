@@ -1,6 +1,6 @@
 #include "GameProcess.h"
 #include "./../Game.h"
-#include "./../GameClasses/Card.h"
+#include "GameClasses/Card.h"
 
 void GameProcess::start(int levelNumber)
 {

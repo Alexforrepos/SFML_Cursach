@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <ItemsProjectGuid>{a9ce1ff5-2926-4e0e-9a71-b8109eb9eafe}</ItemsProjectGuid>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(MSBuildThisFileDirectory)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ProjectCapability Include="SourceItemsFromImports" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Engine\MSG.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Engine\MSG_Manager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Engine\Object.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Engine\O_Manager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Engine\R_Manager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Button.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Card.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Hologram.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Plant.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Skorostrel.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Surface.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Interfaces\I_Identifiable.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Interfaces\I_Serialize.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Interfaces\I_Type.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)UI\Button_.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)UI\InterfaceBase.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)UI\InterfaceIntputText.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)UI\InterfaceWindow.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Utils\Config.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Utils\ProgressBar.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Utils\SpriteWrapper.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Utils\Timer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Engine\MSG.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Engine\MSG_Manager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Engine\Object.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Engine\O_Manager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Engine\R_Manager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Button.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Card.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Hologram.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Plant.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Projectile.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Skorostrel.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Surface.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Zombie.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Interfaces\I_Identifiable.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Interfaces\I_Pacatable.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Interfaces\I_Pos.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Interfaces\I_Serialize.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Interfaces\I_Type.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)UI\Button_.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)UI\InterfaceBase.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)UI\InterfaceIntputText.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)UI\InterfaceWindow.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Utils\Config.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Utils\ProgressBar.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Utils\SpriteWrapper.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Utils\Timer.h" />
+  </ItemGroup>
+</Project>

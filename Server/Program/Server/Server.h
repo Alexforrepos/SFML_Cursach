@@ -1,6 +1,6 @@
 #pragma once
 #include <memory>
-#include "./../../../Kursovik_NetWork/Engine/MSG.h"
+#include "Engine/MSG.h"
 #include "./../Room/Room.h"
 #include <vector>
 #include <SFML/Network.hpp>

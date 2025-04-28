@@ -1,7 +1,7 @@
 #pragma once
-#include "./../../Engine/O_Manager.h"
-#include "./../GameClasses/Surface.h"
-#include "./../Utils/Timer.h"
+#include "Engine/O_Manager.h"
+#include "GameClasses/Surface.h"
+#include "Utils/Timer.h"
 #include <SFML/Window/Event.hpp>
 
 class GameProcess

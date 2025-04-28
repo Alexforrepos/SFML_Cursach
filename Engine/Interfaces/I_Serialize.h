@@ -4,7 +4,7 @@
 #include <cereal/archives/binary.hpp>
 #include <cereal/types/polymorphic.hpp>
 #include <cereal/types/memory.hpp>
-#include "./../Engine/R_Manager.h"
+#include "Engine/R_Manager.h"
 #include <SFML/Graphics.hpp>
 
 #define BASE_SERIALIZATION template <class Archive> void serialize(Archive& ar) {};

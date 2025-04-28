@@ -24,7 +24,7 @@ Card::Card(const std::string& plantType)
 }
 
 void Card::update() {
-	sf::Vector2i mousePixelPos = sf::Mouse::getPosition(Game::get().getWindow());
+	sf::Vector2i mousePixelPos = sf::Mouse::getPosition();
 	
 	//sprite.setTexture(R_Manager::get().access<sf::Texture>("shkibidiSanya.png"));
 	std::shared_ptr<Object> gologram(new Hologram(basePosition, plantType));

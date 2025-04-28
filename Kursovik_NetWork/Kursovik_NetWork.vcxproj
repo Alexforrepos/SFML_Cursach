@@ -56,6 +56,7 @@
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
   <ImportGroup Label="Shared">
+    <Import Project="..\Engine\Engine.vcxitems" Label="Shared" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -143,31 +144,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Engine\MSG.cpp" />
-    <ClCompile Include="Engine\MSG_Manager.cpp" />
-    <ClCompile Include="Engine\Object.cpp" />
-    <ClCompile Include="Engine\O_Manager.cpp" />
-    <ClCompile Include="Engine\R_Manager.cpp" />
     <ClCompile Include="Game\Game.cpp" />
-    <ClCompile Include="Game\GameClasses\Button.cpp" />
-    <ClCompile Include="Game\GameClasses\Card.cpp" />
-    <ClCompile Include="Game\GameClasses\Hologram.cpp" />
-    <ClCompile Include="Game\GameClasses\Plant.cpp" />
-    <ClCompile Include="Game\GameClasses\Skorostrel.cpp" />
-    <ClCompile Include="Game\GameClasses\Surface.cpp" />
     <ClCompile Include="Game\GameManagers\GameProcess.cpp" />
     <ClCompile Include="Game\GameManagers\Menu.cpp" />
-    <ClCompile Include="Game\Interfaces\Button_.cpp" />
-    <ClCompile Include="Game\Interfaces\InterfaceBase.cpp" />
-    <ClCompile Include="Game\Interfaces\InterfaceIntputText.cpp" />
-    <ClCompile Include="Game\Interfaces\InterfaceWindow.cpp" />
-    <ClCompile Include="Game\Utils\Config.cpp" />
-    <ClCompile Include="Game\Utils\ProgressBar.cpp" />
-    <ClCompile Include="Game\Utils\SpriteWrapper.cpp" />
-    <ClCompile Include="Game\Utils\Timer.cpp" />
-    <ClCompile Include="Interfaces\I_Identifiable.cpp" />
-    <ClCompile Include="Interfaces\I_Serialize.cpp" />
-    <ClCompile Include="Interfaces\I_Type.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Net\Client.cpp" />
   </ItemGroup>
@@ -175,35 +154,9 @@
     <Text Include="Res\ResDistr.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Engine\MSG.h" />
-    <ClInclude Include="Engine\MSG_Manager.h" />
-    <ClInclude Include="Engine\Object.h" />
-    <ClInclude Include="Engine\O_Manager.h" />
-    <ClInclude Include="Engine\R_Manager.h" />
     <ClInclude Include="Game\Game.h" />
-    <ClInclude Include="Game\GameClasses\Button.h" />
-    <ClInclude Include="Game\GameClasses\Card.h" />
-    <ClInclude Include="Game\GameClasses\Hologram.h" />
-    <ClInclude Include="Game\GameClasses\Plant.h" />
-    <ClInclude Include="Game\GameClasses\Projectile.h" />
-    <ClInclude Include="Game\GameClasses\Skorostrel.h" />
-    <ClInclude Include="Game\GameClasses\Surface.h" />
-    <ClInclude Include="Game\GameClasses\Zombie.h" />
     <ClInclude Include="Game\GameManagers\GameProcess.h" />
     <ClInclude Include="Game\GameManagers\Menu.h" />
-    <ClInclude Include="Game\Interfaces\Button_.h" />
-    <ClInclude Include="Game\Interfaces\InterfaceBase.h" />
-    <ClInclude Include="Game\Interfaces\InterfaceIntputText.h" />
-    <ClInclude Include="Game\Interfaces\InterfaceWindow.h" />
-    <ClInclude Include="Game\Utils\Config.h" />
-    <ClInclude Include="Game\Utils\ProgressBar.h" />
-    <ClInclude Include="Game\Utils\SpriteWrapper.h" />
-    <ClInclude Include="Game\Utils\Timer.h" />
-    <ClInclude Include="Interfaces\I_Identifiable.h" />
-    <ClInclude Include="Interfaces\I_Pacatable.h" />
-    <ClInclude Include="Interfaces\I_Pos.h" />
-    <ClInclude Include="Interfaces\I_Serialize.h" />
-    <ClInclude Include="Interfaces\I_Type.h" />
     <ClInclude Include="Net\Client.h" />
   </ItemGroup>
   <ItemGroup>

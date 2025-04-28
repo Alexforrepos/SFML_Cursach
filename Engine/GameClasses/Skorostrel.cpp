@@ -1,7 +1,7 @@
 #include "Skorostrel.h"
-#include "./../../Engine/R_Manager.h"
-#include "./../../Engine/MSG_Manager.h"
-#include "./../Game.h"
+#include "Engine/R_Manager.h"
+#include "Engine/MSG_Manager.h"
+
 
 Skorostrel::Skorostrel(const std::string& plantType, uint8_t line, uint8_t col)
 	: Plant(line, col, 50),clickTimer(100)

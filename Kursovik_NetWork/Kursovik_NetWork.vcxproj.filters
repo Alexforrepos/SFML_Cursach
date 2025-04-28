@@ -12,62 +12,17 @@
     <Filter Include="Файлы ресурсов\Res">
       <UniqueIdentifier>{f8ecd06c-df01-4cc9-9633-5b949d1b1bf9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\Engine">
-      <UniqueIdentifier>{bfc3f943-e1d3-423d-90da-e4394a82ab61}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\Intefaces">
-      <UniqueIdentifier>{a549191a-9c96-4b72-a64b-3fa3ee8ac1e5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Исходные файлы\Game">
       <UniqueIdentifier>{017b0a93-6f70-4e3a-9104-075cc5431a32}</UniqueIdentifier>
     </Filter>
     <Filter Include="Исходные файлы\Game\GameManagers">
       <UniqueIdentifier>{13fb58fd-a48d-41d7-92a7-6b17b01d779b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\Game\GameClasses">
-      <UniqueIdentifier>{a1197448-f6d8-4679-9982-d302fd907d0b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Файлы ресурсов\Config">
       <UniqueIdentifier>{3013e031-d00d-4ed4-8762-0234349ec027}</UniqueIdentifier>
     </Filter>
     <Filter Include="Исходные файлы\Net">
       <UniqueIdentifier>{6eb39975-b2a9-4765-a697-6c9cf1ede2a8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\Game\GameClasses\Surface">
-      <UniqueIdentifier>{3304e9b9-fff0-40a8-b3b9-6020af360c87}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\Game\GameClasses\Projectile">
-      <UniqueIdentifier>{1e55a9de-62b2-4d73-b58d-02b6093122c0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\Game\GameClasses\Zombie">
-      <UniqueIdentifier>{25f56f39-7ebb-4eae-a4fd-d98e02d38a16}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\Game\GameClasses\Plant">
-      <UniqueIdentifier>{870831e4-2f0a-4f8f-9f04-67af45c0e6a0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\Game\GameClasses\Button">
-      <UniqueIdentifier>{a77721d6-a923-483c-a147-11c5b1dfa08b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\Game\Utils">
-      <UniqueIdentifier>{957797a2-549e-4229-aff4-99e0bf1fe205}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\Game\Interface">
-      <UniqueIdentifier>{a56706a7-c267-4f44-9224-c69418e645e8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\Game\Interface\InterfaceWindow">
-      <UniqueIdentifier>{f43a31cc-b517-4329-addc-413ee14732d7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\Game\Interface\Button">
-      <UniqueIdentifier>{412eb0a5-3a0e-4a30-a66a-a5084e83bd23}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\Game\Interface\InterfaceIntputText">
-      <UniqueIdentifier>{eff63684-cf4b-4f11-a06e-e6a556c78afd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\Game\GameClasses\SUn">
-      <UniqueIdentifier>{7c75219d-8745-48c7-b275-e8c00683e70e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\Game\GameClasses\Card">
-      <UniqueIdentifier>{63e2a52b-908a-4af0-9b49-cf572e9b30e9}</UniqueIdentifier>
     </Filter>
     <Filter Include="Файлы заголовков">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
@@ -78,21 +33,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\MSG.cpp">
-      <Filter>Исходные файлы\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\MSG_Manager.cpp">
-      <Filter>Исходные файлы\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\O_Manager.cpp">
-      <Filter>Исходные файлы\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Object.cpp">
-      <Filter>Исходные файлы\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\R_Manager.cpp">
-      <Filter>Исходные файлы\Engine</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Game.cpp">
       <Filter>Исходные файлы\Game</Filter>
     </ClCompile>
@@ -102,59 +42,8 @@
     <ClCompile Include="Game\GameManagers\Menu.cpp">
       <Filter>Исходные файлы\Game\GameManagers</Filter>
     </ClCompile>
-    <ClCompile Include="Interfaces\I_Identifiable.cpp">
-      <Filter>Исходные файлы\Intefaces</Filter>
-    </ClCompile>
     <ClCompile Include="Net\Client.cpp">
       <Filter>Исходные файлы\Net</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\GameClasses\Surface.cpp">
-      <Filter>Исходные файлы\Game\GameClasses\Surface</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\GameClasses\Button.cpp">
-      <Filter>Исходные файлы\Game\GameClasses\Button</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Utils\Timer.cpp">
-      <Filter>Исходные файлы\Game\Utils</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Utils\Config.cpp">
-      <Filter>Исходные файлы\Game\Utils</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Utils\ProgressBar.cpp">
-      <Filter>Исходные файлы\Game\Utils</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Interfaces\InterfaceBase.cpp">
-      <Filter>Исходные файлы\Game\Interface</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Interfaces\InterfaceWindow.cpp">
-      <Filter>Исходные файлы\Game\Interface\InterfaceWindow</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Interfaces\Button_.cpp">
-      <Filter>Исходные файлы\Game\Interface\Button</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Interfaces\InterfaceIntputText.cpp">
-      <Filter>Исходные файлы\Game\Interface\InterfaceIntputText</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\GameClasses\Card.cpp">
-      <Filter>Исходные файлы\Game\GameClasses\Card</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\GameClasses\Skorostrel.cpp">
-      <Filter>Исходные файлы\Game\GameClasses\Plant</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\GameClasses\Hologram.cpp">
-      <Filter>Исходные файлы\Game\GameClasses\Card</Filter>
-    </ClCompile>
-    <ClCompile Include="Interfaces\I_Type.cpp">
-      <Filter>Исходные файлы\Intefaces</Filter>
-    </ClCompile>
-    <ClCompile Include="Interfaces\I_Serialize.cpp">
-      <Filter>Исходные файлы\Intefaces</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\GameClasses\Plant.cpp">
-      <Filter>Исходные файлы\Game\GameClasses\Plant</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Utils\SpriteWrapper.cpp">
-      <Filter>Исходные файлы\Game\Utils</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -163,36 +52,6 @@
     </Text>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Engine\MSG.h">
-      <Filter>Исходные файлы\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\MSG_Manager.h">
-      <Filter>Исходные файлы\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\O_Manager.h">
-      <Filter>Исходные файлы\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Object.h">
-      <Filter>Исходные файлы\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\R_Manager.h">
-      <Filter>Исходные файлы\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Interfaces\I_Identifiable.h">
-      <Filter>Исходные файлы\Intefaces</Filter>
-    </ClInclude>
-    <ClInclude Include="Interfaces\I_Pacatable.h">
-      <Filter>Исходные файлы\Intefaces</Filter>
-    </ClInclude>
-    <ClInclude Include="Interfaces\I_Pos.h">
-      <Filter>Исходные файлы\Intefaces</Filter>
-    </ClInclude>
-    <ClInclude Include="Interfaces\I_Serialize.h">
-      <Filter>Исходные файлы\Intefaces</Filter>
-    </ClInclude>
-    <ClInclude Include="Interfaces\I_Type.h">
-      <Filter>Исходные файлы\Intefaces</Filter>
-    </ClInclude>
     <ClInclude Include="Game\Game.h">
       <Filter>Исходные файлы\Game</Filter>
     </ClInclude>
@@ -204,54 +63,6 @@
     </ClInclude>
     <ClInclude Include="Net\Client.h">
       <Filter>Исходные файлы\Net</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\GameClasses\Surface.h">
-      <Filter>Исходные файлы\Game\GameClasses\Surface</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\GameClasses\Button.h">
-      <Filter>Исходные файлы\Game\GameClasses\Button</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Utils\Timer.h">
-      <Filter>Исходные файлы\Game\Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\GameClasses\Projectile.h">
-      <Filter>Исходные файлы\Game\GameClasses\Projectile</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\GameClasses\Zombie.h">
-      <Filter>Исходные файлы\Game\GameClasses\Zombie</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\GameClasses\Plant.h">
-      <Filter>Исходные файлы\Game\GameClasses\Plant</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Utils\Config.h">
-      <Filter>Исходные файлы\Game\Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Utils\ProgressBar.h">
-      <Filter>Исходные файлы\Game\Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Interfaces\InterfaceBase.h">
-      <Filter>Исходные файлы\Game\Interface</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Interfaces\InterfaceWindow.h">
-      <Filter>Исходные файлы\Game\Interface\InterfaceWindow</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Interfaces\Button_.h">
-      <Filter>Исходные файлы\Game\Interface\Button</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Interfaces\InterfaceIntputText.h">
-      <Filter>Исходные файлы\Game\Interface\InterfaceIntputText</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\GameClasses\Card.h">
-      <Filter>Исходные файлы\Game\GameClasses\Card</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\GameClasses\Skorostrel.h">
-      <Filter>Исходные файлы\Game\GameClasses\Plant</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\GameClasses\Hologram.h">
-      <Filter>Исходные файлы\Game\GameClasses\Card</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Utils\SpriteWrapper.h">
-      <Filter>Исходные файлы\Game\Utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

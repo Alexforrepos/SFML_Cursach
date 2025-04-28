@@ -1,9 +1,9 @@
 #pragma once
-#include "./../Interfaces/I_Pos.h"
-#include "./../Interfaces/I_Type.h"
-#include "./../Interfaces/I_Identifiable.h"
-#include "./../Interfaces/I_Serialize.h"
-#include "./../Game/Utils/SpriteWrapper.h"
+#include "Interfaces/I_Pos.h"
+#include "Interfaces/I_Type.h"
+#include "Interfaces/I_Identifiable.h"
+#include "Interfaces/I_Serialize.h"
+#include "Utils/SpriteWrapper.h"
 #include <SFML/Graphics.hpp>
 #include <memory>
 #include "MSG.h"

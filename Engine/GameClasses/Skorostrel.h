@@ -1,8 +1,8 @@
 #pragma once
-#include "Plant.h"
-#include "./../../Engine/Object.h"
+#include "GameClasses/Plant.h"
+#include "Engine/Object.h"
 #include <SFML/Graphics.hpp>
-#include "./../Utils/Timer.h"
+#include "Utils/Timer.h"
 
 class Skorostrel :
     public Plant
