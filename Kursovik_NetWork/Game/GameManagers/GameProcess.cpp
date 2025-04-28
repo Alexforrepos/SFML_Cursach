@@ -5,11 +5,19 @@
 void GameProcess::start(int levelNumber)
 {
     O_Manager::get().clear();
-
+    
     auto& config = Config::getInstance();
     auto& levelConfig = config["Level"]["Levels"][levelNumber - 1];
 
     O_Manager::get().addObject(std::make_shared<Surface>(config["Level"]["Levels"][levelNumber - 1]["Line_Q"]));
+    Card::resetCounter();
+
+    // Создаем карточки для доступных растений
+    for (const auto& plant : (config["Level"]["Levels"][levelNumber - 1]["Avaliable_Plant"])) {
+        std::string plantType = plant.get<std::string>(); // Правильное преобразование
+        O_Manager::get().addObject(std::make_shared<Card>(plantType));
+    }
+    m_isActive = true;
 }
 
 void GameProcess::run()

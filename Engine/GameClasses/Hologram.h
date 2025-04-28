@@ -13,7 +13,7 @@ class Hologram :
     public Object
 {
 private:
-   //sf::Sprite sprite;
+   sf::Sprite sprite;
     std::string plantType; // Тип растения, который должен быть создан
     Timer Clicktime;
     sf::Vector2f position;
@@ -30,5 +30,8 @@ public:
     sf::Vector2f getPos() override;
     void changePos(const sf::Vector2f& other) override;
     void setPos(sf::Vector2f other) override;
-   
+    ~Hologram()
+    {
+        std::cout << "САНЯ ЧИНИ" << std::endl;
+    };
 };

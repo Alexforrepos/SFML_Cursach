@@ -12,7 +12,7 @@ Card::Card(const std::string& plantType)
 	if ((basePosition.y + cardCounter * 120.f) > 1000) {
 		cardCounter = 0;
 	}
-
+	std::cout << "ÀÀÀÀÀ" << std::endl;
 	sf::Vector2f position = basePosition + sf::Vector2f(0.f, cardCounter * 120.f);
 	cardCounter++;
 
@@ -27,14 +27,16 @@ void Card::update() {
 	sf::Vector2i mousePixelPos = sf::Mouse::getPosition();
 	
 	//sprite.setTexture(R_Manager::get().access<sf::Texture>("shkibidiSanya.png"));
-	std::shared_ptr<Object> gologram(new Hologram(basePosition, plantType));
 
 	if (sprite.getGlobalBounds().contains(sf::Vector2f(mousePixelPos))) {
 		sprite.setColor(sf::Color::White);
 
-		if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && clickTimer())
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Left) /*&& clickTimer()*/)
 		{
+	       std::shared_ptr<Object> gologram(new Hologram(basePosition, plantType));
+
 			MSG_Manager::get().addMSG(std::shared_ptr<Engine::MSG>(new Engine::MSG_TYPE_CREATE(gologram, std::make_shared<Object>(0))));
+			std::cout << "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF" << std::endl;
 			clickTimer.restart();
 
 			//MSG_Manager::get().addMSG(std::make_shared<MSG_TYPE_CREATE>(gologram, this));
