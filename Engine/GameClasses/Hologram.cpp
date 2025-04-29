@@ -37,14 +37,13 @@ void Hologram::update()
     }
 }
 
-void Hologram::sendMsg(Engine::MSG* msg)
+void Hologram::sendMsg(Engine::MSG* /*msg*/)
 {
-
+    // Голограмма не реагирует на входящие сообщения
 }
 
 void Hologram::draw(sf::RenderWindow& win)
 {
-    std::cout << "x=" << position.x << "\n y=" << position.y << std::endl;
     win.draw(sprite);
 }
 
@@ -53,14 +52,14 @@ sf::Vector2f Hologram::getPos()
     return position;
 }
 
-void Hologram::changePos(const sf::Vector2f& other)
+void Hologram::changePos(const sf::Vector2f& /*other*/)
 {
-
+    // не используется
 }
 
-void Hologram::setPos(sf::Vector2f other)
+void Hologram::setPos(sf::Vector2f /*other*/)
 {
-
+    // не используется
 }
 
 
