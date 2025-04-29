@@ -21,4 +21,3 @@ void Server::stop()
     isRunning = false;
     std::cout << "Server stopped" << std::endl;
 }
-
