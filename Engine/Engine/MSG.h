@@ -42,14 +42,17 @@ namespace Engine
 
 	class MSG_TYPE_KILL : public MSG {
 	public:
-		std::shared_ptr<Object> victim, killer;
+		Object* victim,* killer;
 
-		MSG_TYPE_KILL(std::shared_ptr<Object> victim, std::shared_ptr<Object> killer)
+		MSG_TYPE_KILL(Object* victim, Object* killer)
 			: MSG(int(MSG_TYPE::MSG_TYPE_KILL)), victim(victim), killer(killer)
 		{
 		}
 
-
+		~MSG_TYPE_KILL()
+		{
+			
+		}
 	};
 
 	class MSG_TYPE_CREATE : public MSG {

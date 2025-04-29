@@ -21,6 +21,11 @@ void Hologram::update()
     position = sf::Vector2f(sf::Mouse::getPosition());
     sprite.setPosition(position);
 
+    if (sf::Mouse::isButtonPressed(sf::Mouse::Right))
+    {
+        MSG_Manager::get().addMSG(std::shared_ptr<Engine::MSG_TYPE_KILL>(new Engine::MSG_TYPE_KILL(
+            this, this)));
+    }
 }
 
 void Hologram::sendMsg(Engine::MSG* msg)

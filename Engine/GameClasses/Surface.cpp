@@ -56,8 +56,8 @@ void Surface::Place::deletePLant()
 	isplanted = false;
 	MSG_Manager::get().addMSG(std::shared_ptr<Engine::MSG>(
 		new Engine::MSG_TYPE_KILL(
-			std::unique_ptr<Object>(plant_), // Преобразуем сырой указатель в unique_ptr
-			std::unique_ptr<Object>(nullptr)  // Создаем новый Object как копию текущего
+			plant_, // Преобразуем сырой указатель в unique_ptr
+			nullptr  // Создаем новый Object как копию текущего
 		)));
 }
 
