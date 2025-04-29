@@ -1,5 +1,5 @@
 #pragma once
-#include "./../../Engine/O_Manager.h"
+#include "Engine/O_Manager.h"
 
 
 class Zombie
