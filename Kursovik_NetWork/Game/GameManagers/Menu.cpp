@@ -117,7 +117,7 @@ void Menu::createBaseMenu()
 void Menu::createMultiplayerMenu()
 {
 	this->m_background.setTexture(&R_Manager::get().access<sf::Texture>("IvtClub.png"));
-	m_background.setScale(0.1,0.1);
+	m_background.setScale(0.1f,0.1f);
 	auto window = std::make_unique<InterfaceWindow>(sf::Vector2f(1000, 950), sf::Vector2f(100, 50));
 
 	auto backBtn = std::make_unique<Button>(
@@ -243,7 +243,7 @@ void Menu::run() {
 
 void Menu::close()
 {
-	cout << "Menu class closed" << endl;
+	//cout << "Menu class closed" << endl;
 	m_music.stop();
 	m_isRunning = false;
 	m_currentWindow.reset();

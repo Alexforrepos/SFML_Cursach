@@ -18,7 +18,7 @@ public:
 
     void clear() {
         ObjVector.clear();
-        std::cout << " ___________________________________________ " << std::endl;
+        //std::cout << " ___________________________________________ " << std::endl;
     }
 
     void addObject(std::shared_ptr<Object> obj);

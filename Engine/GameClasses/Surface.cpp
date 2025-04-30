@@ -75,18 +75,11 @@ void Surface::sendMsg(Engine::MSG* msg)
 	}
 }
 
-void Surface::Place::deletePLant()
-{
-	if (!isplanted)
-		return;
-	isplanted = false;
-	MSG_Manager::get().addMSG(std::shared_ptr<Engine::MSG>(
-		new Engine::MSG_TYPE_KILL(
-			plant_, // Преобразуем сырой указатель в unique_ptr
-			nullptr  // Создаем новый Object как копию текущего
-		)));
-}
+
 
 
 CEREAL_REGISTER_TYPE(Surface);
+CEREAL_REGISTER_TYPE(Place);
+CEREAL_REGISTER_TYPE(Zombie_StartPosition);
+
 CEREAL_REGISTER_POLYMORPHIC_RELATION(Object, Surface);

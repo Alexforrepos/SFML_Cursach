@@ -34,6 +34,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)UI\InterfaceWindow.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Utils\Config.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Utils\ProgressBar.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Utils\Serialization_Utils.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Utils\SpriteWrapper.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Utils\Timer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)xyeta.cpp" />
@@ -63,6 +64,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)UI\InterfaceWindow.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Utils\Config.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Utils\ProgressBar.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Utils\Serialization_Utils.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Utils\SpriteWrapper.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Utils\Timer.h" />
   </ItemGroup>

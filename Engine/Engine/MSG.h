@@ -11,7 +11,12 @@ namespace Engine
 {
 	enum class MSG_TYPE : uint8_t
 	{
-		MSG_NONE, MSG_TYPE_MOVE = 1, MSG_TYPE_KILL, MSG_TYPE_CREATE, MSG_TYPE_DAMAGE, MSG_NET_TYPE
+		MSG_NONE, MSG_TYPE_MOVE = 1,
+		MSG_TYPE_KILL,
+		MSG_TYPE_CREATE,
+		MSG_TYPE_DAMAGE,
+		MSG_NET_TYPE,
+		MSG_TYPE_KILL_BY_ID
 
 	};
 	class MSG
@@ -19,12 +24,13 @@ namespace Engine
 	{
 	protected:
 
-		
+
 		MSG(int index) : index(MSG_TYPE(index)) {}
 		MSG_TYPE index;
 
 	public:
-		MSG() = default;
+		MSG()
+			:index(MSG_TYPE::MSG_NONE) {};
 		virtual ~MSG() = default;
 		MSG_TYPE getIndex() const { return index; }
 	};
@@ -40,10 +46,10 @@ namespace Engine
 		}
 	};
 
-	class MSG_TYPE_KILL : public MSG 
+	class MSG_TYPE_KILL : public MSG
 	{
 	public:
-		Object* victim,* killer;
+		Object* victim, * killer;
 
 		MSG_TYPE_KILL(Object* victim, Object* killer)
 			: MSG(int(MSG_TYPE::MSG_TYPE_KILL)), victim(victim), killer(killer)
@@ -52,7 +58,7 @@ namespace Engine
 
 		~MSG_TYPE_KILL()
 		{
-			
+
 		}
 	};
 
@@ -76,6 +82,20 @@ namespace Engine
 			std::shared_ptr<Object> damager)
 			: MSG(int(MSG_TYPE::MSG_TYPE_DAMAGE)), damage(damage),
 			target(std::move(target)), damager(std::move(damager)) {
+		}
+	};
+
+	class MSG_TYPE_KILL_BY_ID
+		: public MSG
+	{
+	public:
+		unsigned long long victim, killer;
+
+		MSG_TYPE_KILL_BY_ID(unsigned long long& victim, unsigned long long killer)
+			: MSG(int(MSG_TYPE::MSG_TYPE_KILL_BY_ID)),
+			victim(victim), killer(killer)
+		{
+
 		}
 	};
 

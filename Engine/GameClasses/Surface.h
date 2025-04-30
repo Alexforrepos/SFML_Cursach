@@ -4,6 +4,7 @@
 #include "Engine/Object.h"
 #include "Engine/MSG_Manager.h"
 #include "Hologram.h"
+
 #define DEFAULT_LINE_QOUNT 5
 #define DEFAULT_LINE_SIZE 9
 #define START_SURFACE_POSITION_X 300
@@ -15,68 +16,102 @@
 #define ZOMBIE_SPAWN_SIZE 100 
 
 
+class Place
+{
+public:
+	using ull = unsigned long long;
+
+	bool isplanted;
+	ull plantid;
+	sf::RectangleShape shape_rect;
+
+	Place() = default;
+
+	Place(sf::Vector2f pos, sf::Vector2f size)
+		:shape_rect(size), isplanted(false), plantid(VOID_ID)
+	{
+		shape_rect.setPosition(pos);
+		shape_rect.setTexture(&R_Manager::get().access<sf::Texture>("Drag.png"));
+	}
+
+	void plant(Object* plant_)
+	{
+		if (isplanted)
+			return;
+		if (!plant_)
+		{
+			isplanted = true;
+			return;
+		}
+
+		this->isplanted = true;
+		plantid = plant_->getId();
+	}
+
+	void deletePLant()
+	{
+		if (!isplanted) return;
+		MSG_Manager::get().addMSG(std::shared_ptr<Engine::MSG>(new
+			Engine::MSG_TYPE_KILL_BY_ID(plantid, VOID_ID)));
+	};
+
+	bool isPlanted()
+	{
+		return isplanted;
+	}
+
+	void draw(sf::RenderWindow& win)
+	{
+		win.draw(shape_rect);
+	}
+
+	template<class Archive>
+	void serialize(Archive& ar)
+	{
+		ar(shape_rect, isplanted, plantid);
+	}
+
+	virtual ~Place() = default;
+};
+
+class Zombie_StartPosition
+{
+public:
+	sf::RectangleShape shape_rect;
+	bool isOccupied = false;
+
+	Zombie_StartPosition() = default;
+
+	Zombie_StartPosition(sf::Vector2f pos) {
+		shape_rect.setSize({ PLANT_SIZE_W, PLANT_SIZE_H });
+		shape_rect.setPosition(pos);
+		shape_rect.setTexture(&R_Manager::get().access<sf::Texture>("bozhepomogi.jpg"));
+	}
+
+
+	template <class Archive>
+	void serialize(Archive& ar)
+	{
+		ar(shape_rect, isOccupied);
+	}
+
+	virtual ~Zombie_StartPosition() = default;
+};
+
+
 
 /// <summary>
 /// класс линий и мест отвечает за рамещение расстений по местам
 /// </summary>
+/// 
 class Surface
 	: public Object
 {
-	int lines_qount, lines_size;
 
-
-	struct Place
-	{
-		bool isplanted;
-		Object* plant_;
-		sf::RectangleShape shape_rect;
-
-		Place(sf::Vector2f pos, sf::Vector2f size)
-			:shape_rect( size), isplanted(false), plant_(nullptr)
-		{
-			shape_rect.setPosition(pos);
-			shape_rect.setTexture(&R_Manager::get().access<sf::Texture>("Drag.png"));
-		}
-
-		void plant(Object* plant_)
-		{
-			if (isplanted)
-				return;
-			this->plant_ = plant_;
-			this->isplanted = true;
-		}
-	
-		void deletePLant();
-
-		bool isPlanted()
-		{
-			return isplanted;
-		}
-
-		void draw(sf::RenderWindow& win)
-		{
-
-			
-			win.draw(shape_rect);
-			
-		}
-	};
-
+private:
 	std::vector<std::vector<Place>> place_vector;
-
-	struct ZombiePlace {
-		sf::RectangleShape shape_rect;
-		bool isOccupied = false;
-
-		ZombiePlace(sf::Vector2f pos) {
-			shape_rect.setSize({ PLANT_SIZE_W, PLANT_SIZE_H });
-			shape_rect.setPosition(pos);
-			shape_rect.setTexture(&R_Manager::get().access<sf::Texture>("bozhepomogi.jpg"));
-		}
-	};
-
-	std::vector<ZombiePlace> zombie_places; 
-
+	std::vector<Zombie_StartPosition> zombie_places;
+	int lines_qount, lines_size;
 
 public:
 	Surface() = default;
@@ -134,7 +169,14 @@ public:
 	};
 
 	// Унаследовано через Object
-	
-	BASE_SERIALIZATION
+
+	//BASE_SERIALIZATION
+	template <class Archive>
+	void serialize(Archive& ar)
+	{
+		ar(cereal::base_class<Object>(this));
+		ar(lines_size, lines_qount);
+		ar(zombie_places, place_vector);
+	}
 };
 

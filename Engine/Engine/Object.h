@@ -22,7 +22,10 @@ protected:
 	int type_;
 
 public:
-	Object() = default;
+	Object()
+		: type_(int(Types::None)), id(I_Identifiable::generateID())
+	{
+	};
 
 	Object(int type)
 		: id(I_Identifiable::getId()),

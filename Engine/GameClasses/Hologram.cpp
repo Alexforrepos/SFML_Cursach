@@ -35,7 +35,7 @@ void Hologram::sendMsg(Engine::MSG* msg)
 
 void Hologram::draw(sf::RenderWindow& win)
 {
-    std::cout << "x=" << position.x << "\n y=" << position.y << std::endl;
+ // std::cout << "x=" << position.x << "\n y=" << position.y << std::endl;
     win.draw(sprite);
 }
 
