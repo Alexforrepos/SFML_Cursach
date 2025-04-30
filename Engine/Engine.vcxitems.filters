@@ -84,6 +84,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)UI\InterfaceWindow.cpp">
       <Filter>UI</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)xyeta.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Utils\Config.h">

@@ -40,7 +40,8 @@ namespace Engine
 		}
 	};
 
-	class MSG_TYPE_KILL : public MSG {
+	class MSG_TYPE_KILL : public MSG 
+	{
 	public:
 		Object* victim,* killer;
 
