@@ -40,7 +40,33 @@ void Surface::sendMsg(Engine::MSG* msg)
 	switch (msg->getIndex())
 	{
 	case Engine::MSG_TYPE::MSG_TYPE_KILL:
-		//TODO::сделать при убийстве голограмки проверку на границы и посадку
+		if (msg->getIndex() == Engine::MSG_TYPE::MSG_TYPE_KILL)
+		{
+			auto killMsg = static_cast<Engine::MSG_TYPE_KILL*>(msg);
+			// Проверяем, что убита именно голограмма
+			if (auto holo = dynamic_cast<Hologram*>(killMsg->victim))
+			{
+				sf::Vector2f pos = holo->getPos();
+				for (auto& row : place_vector)
+				{
+					for (auto& place : row)
+					{
+						
+						if (!place.isPlanted() &&
+							place.shape_rect.getGlobalBounds().contains(pos))
+						{
+							
+							place.plant(nullptr);      
+							place.shape_rect.setTexture(
+								&R_Manager::get().access<sf::Texture>("IvtClub.png"),
+								true  
+							);
+							return;  
+						}
+					}
+				}
+			}
+		}
 		break;
 	case Engine::MSG_TYPE::MSG_TYPE_MOVE:
 		//TODO::сделать проверку на объект типа зомби на пересечение границы зоны проигрыша
