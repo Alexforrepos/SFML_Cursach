@@ -30,6 +30,7 @@ public:
     sf::Vector2f getPos() override;
     void changePos(const sf::Vector2f& other) override;
     void setPos(sf::Vector2f other) override;
+    const std::string& getPlantType() const { return plantType; }
     ~Hologram()
     {
         //std::cout << "ÑÀÍß ×ÈÍÈ" << std::endl;
