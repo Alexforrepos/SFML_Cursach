@@ -42,30 +42,46 @@ void Surface::sendMsg(Engine::MSG* msg)
 	case Engine::MSG_TYPE::MSG_TYPE_KILL:
 		if (msg->getIndex() == Engine::MSG_TYPE::MSG_TYPE_KILL)
 		{
-			auto killMsg = static_cast<Engine::MSG_TYPE_KILL*>(msg);
-			// Проверяем, что убита именно голограмма
-			if (auto holo = dynamic_cast<Hologram*>(killMsg->victim))
-			{
-				sf::Vector2f pos = holo->getPos();
-				for (auto& row : place_vector)
-				{
-					for (auto& place : row)
-					{
-						
-						if (!place.isPlanted() &&
-							place.shape_rect.getGlobalBounds().contains(pos))
-						{
-							
-							place.plant(nullptr);      
-							place.shape_rect.setTexture(
-								&R_Manager::get().access<sf::Texture>("IvtClub.png"),
-								true  
-							);
-							return;  
-						}
-					}
-				}
-			}
+
+            auto killMsg = static_cast<Engine::MSG_TYPE_KILL*>(msg);
+            auto holo = dynamic_cast<Hologram*>(killMsg->victim);
+            if (!holo) return;
+
+            sf::Vector2f pos = holo->getPos();
+
+            for (auto& row : place_vector)
+            {
+                for (auto& place : row)
+                {
+                 
+                    if (place.shape_rect.getGlobalBounds().contains(pos))
+                    {
+                        if (holo->getPlantType() == "Shovel")
+                        {
+                           
+                            if (place.isPlanted())
+                            {
+                                place.deletePLant();
+                                place.shape_rect.setTexture(
+                                    &R_Manager::get().access<sf::Texture>("Drag.png"), true
+                                );
+                            }
+                        }
+                        else
+                        {
+                            
+                            if (!place.isPlanted())
+                            {
+                                place.plant(nullptr);
+                                place.shape_rect.setTexture(
+                                    &R_Manager::get().access<sf::Texture>("IvtClub.png"), true
+                                );
+                            }
+                        }
+                        return;  
+                    }
+                }
+            }
 		}
 		break;
 	case Engine::MSG_TYPE::MSG_TYPE_MOVE:

@@ -5,11 +5,14 @@ Hologram::Hologram(const sf::Vector2f& startPos, const std::string& type)
     : Object(static_cast<int>(Types::None)), plantType(type), Clicktime(200),position(startPos)
 {
     Clicktime.restart();
-    sprite.setTexture(R_Manager::get().access<sf::Texture>("ps.png"));
-
+    sprite.setTexture(
+        R_Manager::get().access<sf::Texture>(
+            plantType == "Shovel" ? "showel.png" : "ps.png"
+        )
+    );
     // Настройка внешнего вида голограммы
     sprite.setColor(sf::Color(255, 255, 255, 150)); // Полупрозрачный
-    sprite.setScale(0.3f, 0.3f); // Масштабирование
+    sprite.setScale(0.15f, 0.15f); // Масштабирование
     sprite.setOrigin(sprite.getLocalBounds().width / 2, sprite.getLocalBounds().height / 2); // Центрирование
 }
 
@@ -21,7 +24,7 @@ void Hologram::update()
     position = sf::Vector2f(sf::Mouse::getPosition());
     sprite.setPosition(position);
 
-    if (sf::Mouse::isButtonPressed(sf::Mouse::Right))
+    if (sf::Mouse::isButtonPressed(sf::Mouse::Right) )
     {
         MSG_Manager::get().addMSG(std::shared_ptr<Engine::MSG_TYPE_KILL>(new Engine::MSG_TYPE_KILL(
             this, this)));
