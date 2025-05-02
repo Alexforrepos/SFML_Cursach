@@ -53,6 +53,8 @@ public:
 		if (!isplanted) return;
 		MSG_Manager::get().addMSG(std::shared_ptr<Engine::MSG>(new
 			Engine::MSG_TYPE_KILL_BY_ID(plantid, VOID_ID)));
+		isplanted = false;
+		plantid = VOID_ID;
 	};
 
 	bool isPlanted()

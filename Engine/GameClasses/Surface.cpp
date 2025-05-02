@@ -69,7 +69,13 @@ void Surface::sendMsg(Engine::MSG* msg)
                         }
                         else
                         {
-                            
+                            if (holo->getPlantType() == "PeaShooter" && !place.isPlanted())
+                            {
+                                place.plant(nullptr);
+                                place.shape_rect.setTexture(
+                                    &R_Manager::get().access<sf::Texture>("PeaShooter.png"), true
+                                );
+                            }
                             if (!place.isPlanted())
                             {
                                 place.plant(nullptr);
