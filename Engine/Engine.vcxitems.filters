@@ -88,6 +88,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Utils\Serialization_Utils.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\PeaShooter.cpp">
+      <Filter>GameClasses</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Utils\Config.h">
@@ -170,6 +173,9 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)Utils\Serialization_Utils.h">
       <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\PeaShooter.h">
+      <Filter>GameClasses</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

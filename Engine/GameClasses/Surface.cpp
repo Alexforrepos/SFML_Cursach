@@ -1,4 +1,5 @@
 #include "Surface.h"
+#include "PeaShooter.h"
 
 sf::Vector2f Surface::getPos()
 {
@@ -71,9 +72,25 @@ void Surface::sendMsg(Engine::MSG* msg)
                         {
                             if (holo->getPlantType() == "PeaShooter" && !place.isPlanted())
                             {
-                                place.plant(nullptr);
+                                auto plant = std::make_shared<PeaShooter>(
+                                    holo->getPlantType(),
+                                    static_cast<uint8_t>(&row - &place_vector[0]),  // line
+                                    static_cast<uint8_t>(&place - &row[0])          // column
+                                );
+
+                                // Устанавливаем позицию растения в соответствии с местом
+                                plant->setPos(place.shape_rect.getPosition());
+
+                                // Отправляем сообщение о создании объекта
+                                MSG_Manager::get().addMSG(
+                                    std::make_shared<Engine::MSG_TYPE_CREATE>(plant, nullptr)
+                                );
+
+                                // Занимаем место
+                                place.plant(plant.get());
                                 place.shape_rect.setTexture(
-                                    &R_Manager::get().access<sf::Texture>("PeaShooter.png"), true
+                                    &R_Manager::get().access<sf::Texture>("PeaShooter.png"),
+                                    true
                                 );
                             }
                             if (!place.isPlanted())

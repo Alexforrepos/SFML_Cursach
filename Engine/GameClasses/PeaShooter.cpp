@@ -5,7 +5,7 @@ PeaShooter::PeaShooter(const std::string& plantType, uint8_t line, uint8_t col)
     : Plant(line, col, Config::getInstance()["PlantParams"]["Plants"]["PeaShooter"]["HP"]),
     plantType(plantType), shootTimer(Config::getInstance()["PlantParams"]["Plants"]["PeaShooter"]["CD"])
 {
-    sprite.setTexture(R_Manager::get().access<sf::Texture>("sun.png"));
+    sprite.setTexture(R_Manager::get().access<sf::Texture>("Sun.png"));
     sprite.setScale(0.15f, 0.15f);
     sprite.setColor(sf::Color::White);
     shootTimer.restart();
