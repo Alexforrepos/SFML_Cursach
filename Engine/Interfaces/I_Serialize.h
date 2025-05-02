@@ -6,10 +6,13 @@
 #include <sstream>
 #include <memory>
 
-class I_Serialize : public std::enable_shared_from_this<I_Serialize>
+class I_Serialize : 
+    public std::enable_shared_from_this<I_Serialize>
 {
 public:
     virtual ~I_Serialize() = default;
+
+    static std::shared_ptr<I_Serialize> create() = delete;
 
     // Виртуальный метод для сериализации
     template <class Archive>
@@ -18,24 +21,24 @@ public:
     };
 
     std::string serializeToStream() {
+        // Убедитесь, что объект создан через make_shared
+        //auto ptr = shared_from_this(); // Теперь безопасно
         std::stringstream ss;
         {
             cereal::BinaryOutputArchive archive(ss);
-            archive(cereal::make_nvp("object", shared_from_this()));
+            archive(this->shared_from_this());
         }
-        
         return ss.str();
     }
 
-    void deserializeFromStream(const std::string& data) {
+    template <typename T>
+    static std::shared_ptr<T> deserializeFromStream(const std::string& data) {
         std::stringstream ss(data);
+        std::shared_ptr<T> obj;
         {
             cereal::BinaryInputArchive archive(ss);
-            std::shared_ptr<I_Serialize> temp;
-            archive(cereal::make_nvp("object", temp));
-            if (temp) {
-                this->serialize(archive); // или другая логика копирования
-            }
+            archive(obj);
         }
+        return obj;
     }
 };

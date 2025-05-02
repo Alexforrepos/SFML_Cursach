@@ -1,5 +1,6 @@
 #include "Game.h"
 #include <iostream>
+#include "GameClasses/Surface.h"
 
 void Game::handleEvents()
 {
@@ -29,10 +30,13 @@ void Game::handleEvents()
             break;
         }
     }
+    
+
 }
 
 void Game::run()
 {
+   
     m_window.clear();
 
     handleEvents();
@@ -62,4 +66,6 @@ void Game::run()
     m_objectManager.draw(m_window);
 
     m_window.display();
+   
+    
 }

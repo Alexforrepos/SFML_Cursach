@@ -14,8 +14,9 @@ class Object
 	: public I_Pos,
 	public I_Type,
 	public I_Identifiable,
-	public I_Serialize,
-	std::enable_shared_from_this<Object>
+	public I_Serialize
+	
+	//,public std::enable_shared_from_this<Object>
 {
 protected:
 	unsigned long long id;
@@ -50,8 +51,8 @@ public:
 	template <class Archive>
 	void serialize(Archive& ar)
 	{
-		ar& cereal::base_class<I_Serialize>(this);
-		ar& id & type_;
+		ar(cereal::base_class<I_Serialize>(this));
+		ar(id,type_);
 	}
 
 	// Унаследовано через I_Pos

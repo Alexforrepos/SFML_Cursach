@@ -69,6 +69,12 @@ public:
 	void serialize(Archive& ar)
 	{
 		ar(shape_rect, isplanted, plantid);
+
+		if constexpr ((Archive::is_loading::value))
+		{
+			const auto& texture = R_Manager::get().access<sf::Texture>(!isplanted ? "Drag.png" : "IvtClub.png");
+			shape_rect.setTexture(&texture);
+		}
 	}
 
 	virtual ~Place() = default;
