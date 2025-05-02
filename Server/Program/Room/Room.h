@@ -10,8 +10,6 @@
 #define DEFAULT_PIPE_NAME "pipe_"
 #define MAXBUFSIZE 100
 
-
-
 class Room
 {
 	static unsigned lastPort;
@@ -24,7 +22,6 @@ class Room
 	{
 
 	}
-
 
 public:
 	Room()
