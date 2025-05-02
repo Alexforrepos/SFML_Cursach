@@ -28,7 +28,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Interfaces\I_Identifiable.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Interfaces\I_Serialize.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Interfaces\I_Type.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)TextureWrapper.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)UI\Button_.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)UI\InterfaceBase.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)UI\InterfaceIntputText.cpp" />
@@ -59,7 +58,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Interfaces\I_Pos.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Interfaces\I_Serialize.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Interfaces\I_Type.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)TextureWrapper.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)UI\Button_.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)UI\InterfaceBase.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)UI\InterfaceIntputText.h" />

@@ -88,7 +88,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Utils\Serialization_Utils.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)TextureWrapper.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Utils\Config.h">
@@ -172,6 +171,5 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Utils\Serialization_Utils.h">
       <Filter>Utils</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)TextureWrapper.h" />
   </ItemGroup>
 </Project>
