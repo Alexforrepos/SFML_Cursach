@@ -18,6 +18,7 @@
         "Levels": [
             {
                 "Avaliable_Plant": [
+                    "PeaShooter",
                     "Plant",
                     "Sunflower",
                     "Shovel"

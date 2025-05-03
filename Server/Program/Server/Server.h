@@ -8,7 +8,6 @@
 #include <thread>
 #include <atomic>
 
-
 #define PORT1 53000
 #define PORT2 53200 //ALTPORT
 #define MAXROOM 10
