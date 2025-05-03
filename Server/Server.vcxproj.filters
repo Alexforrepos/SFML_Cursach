@@ -39,6 +39,9 @@
     <ClCompile Include="Program\Room\Room.cpp">
       <Filter>Исходные файлы\Program\Room</Filter>
     </ClCompile>
+    <ClCompile Include="Program\Room\RoomManager.cpp">
+      <Filter>Исходные файлы\Program\Room</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Program\Program.h">
@@ -49,6 +52,9 @@
     </ClInclude>
     <ClInclude Include="Program\Server\Server.h">
       <Filter>Исходные файлы\Program\Server</Filter>
+    </ClInclude>
+    <ClInclude Include="Program\Room\RoomManager.h">
+      <Filter>Исходные файлы\Program\Room</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

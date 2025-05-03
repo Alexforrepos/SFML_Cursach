@@ -1,21 +1,33 @@
 #pragma once
 #include "./Server/Server.h"
-//#include "Game/Utils/Config.h"
+#include "./Room/RoomManager.h"
+#include "Utils/Config.h"
 
-class Program
+namespace ServerProgram
 {
-	bool isrun;
-	Server server;
-public:
-	Program()
-		:isrun(true), server()
+	class Program
 	{
-//		Config::getInstance().load("config.json");
-	}
+		bool isrun;
+		Server server;
+		RoomManager rm;
 
-	bool isRun() { return isrun; }
-	void run()
-	{
-		return;
+	public:
+		Program()
+			:isrun(true), server()
+		{
+			Config::getInstance().load("config.json");
+		}
+
+		bool isRun()
+		{
+			return isrun;
+		}
+
+		void run()
+		{
+			rm.GenrateNewRoom();
+			
+			return;
+		};
 	};
-};
+}

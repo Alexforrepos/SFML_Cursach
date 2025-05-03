@@ -16,62 +16,46 @@
 class Server
 {
 public:
-	enum
-	{
-		Waiting, Stopped
-	} Status;
-private:
-	std::vector<std::unique_ptr<Room>> rooms;
 
-	sf::TcpListener global_server_listener;
-	sf::TcpSocket global_listener_socket;
-	std::atomic<bool> isRunning;
-
-	void clientReadHandler();
-	void waitForClient(unsigned port)
+	enum class Status
+		: uint8_t
 	{
-		global_server_listener.listen(port);
+		STOPPED, WAIT_FOR_CONNECTION, NOT_READY_HANDLE
 	};
-	void send();
+
+
+	Server::Status getStatus() { return status_; }
+
+
+	
+public:
+
+	static void HandleClient(sf::TcpSocket& socket) {};
+
+private:
+
+	Status status_;
+
+	sf::TcpListener listener;
+	sf::TcpSocket s_socket;
+	
 public:
 
 	Server()
-		:Status(Stopped), global_server_listener(), global_listener_socket(), isRunning(true)
 	{
-		global_server_listener.accept(global_listener_socket);
-	}
-	
-	static Server& get()
-	{
-		static Server inst;
-		return inst;
+
 	}
 
-	bool isStarted() { return isRunning; }
-	bool start(unsigned short port);
-
-	void stop();
-
-	void run()
+	~Server()
 	{
-		switch (Status)
-		{
-		case Server::Waiting:
-			try
-			{
-				waitForClient(PORT1);
-			}
-			catch (const std::exception&)
-			{
-				waitForClient(PORT2);
-			}
-			break;
-		case Server::Stopped:
-			break;
-		default:
-			break;
-		}
-	};
-	
+		stop();
+	}
 
+	void start(const unsigned& port = PORT1) {};
+	void stop() {};
+
+	void HandleAClient(sf::TcpSocket& socket)
+	{
+		
+	}
 };

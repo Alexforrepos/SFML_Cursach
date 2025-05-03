@@ -1,5 +1,6 @@
 #pragma once
 //#include <sstream>
+#include <stdexcept>
 #include <thread>
 #include <string>
 #include <sys/stat.h>
@@ -11,66 +12,139 @@
 #define MAXBUFSIZE 100
 
 
+#define MAX_BUF_SIZE 4000
+
 
 class Room
+	:public std::enable_shared_from_this<Room>
 {
-	static unsigned lastPort;
-	unsigned port;
+	struct ProcessInfo
+	{
+	private:
+		static uint8_t nextId;
+		uint8_t id;
 
-	bool activeflag;
-	HANDLE room_Pipe;
-	
-	void startProcess()
+
+		//const LPSECURITY_ATTRIBUTES saProc{ sizeof(saProc), nullptr, TRUE }, saThread{ sizeof(saThread), nullptr, TRUE };
+
+		const wchar_t* pathRoomExe = L"C:\\Users\\tvink\\source\\repos\\SFML_Cursach\\x64\\Debug\\RoomProcess.exe";
+
+		STARTUPINFO si;
+		PROCESS_INFORMATION pi;
+
+	public:
+		bool exist;
+
+		ProcessInfo()
+			: id(nextId++), si({ sizeof(si) }), exist(true)
+		{
+
+			auto success = CreateProcessW(
+				pathRoomExe,
+				nullptr,
+				nullptr, nullptr,
+				FALSE,
+				CREATE_NEW_CONSOLE,
+				nullptr,
+				nullptr,
+				&si,
+				&pi
+			);
+
+			if (!success)
+			{
+
+				CloseHandle(pi.hProcess);
+				CloseHandle(pi.hThread);
+				throw std::runtime_error("Process creating err(" + std::to_string(GetLastError()) + ")\n");
+			}
+		}
+
+		~ProcessInfo()
+		{
+			closeProcess();
+		}
+
+		uint8_t getId() { return id; };
+
+		void closeProcess()
+		{
+			CloseHandle(pi.hProcess);
+			CloseHandle(pi.hThread);
+		};
+	};
+
+	struct Pipe
 	{
 
-	}
+	private:
+		HANDLE pipe;
+	public:
+		bool exist;
+		std::string pipeName;
+
+		Pipe(uint8_t id)
+			: pipeName(std::string("\\\\.\\pipe\\") + "pipe_" + std::to_string(id)), exist(true)
+		{
+			pipe = CreateNamedPipeW(LPCWSTR(pipeName.c_str()),
+				PIPE_ACCESS_DUPLEX,
+				PIPE_TYPE_MESSAGE | PIPE_READMODE_MESSAGE | PIPE_WAIT,
+				1,
+				4096, 4096,
+				0,
+				nullptr);
+			if (pipe == INVALID_HANDLE_VALUE)
+				throw std::runtime_error("Creating Pipe Err(" + std::to_string(GetLastError()) + ")\n");
+		}
+
+		void start();
+
+		void closePipe()
+		{
+			DisconnectNamedPipe(pipe);
+			CloseHandle(pipe);
+		};
+
+		void send(std::string& msg)
+		{
+			DWORD datav = msg.size();
+
+			if (!WriteFile(pipe, pipeName.c_str(), datav, nullptr, nullptr)) throw "PIPE MSG SEND ERR";
+
+		}
+	};
+
+
+private:
+
+	static uint8_t nextId;
+	uint8_t id;
+
+	ProcessInfo pci;
+	Pipe ppi;
+
+private:
 
 
 public:
+
+	void sendMsg(std::string& msg)
+	{
+		ppi.send(msg);
+	};
+
+	uint8_t getId() { return id; }
+
+	void close()
+	{
+		ppi.closePipe();
+		pci.closeProcess();
+	};
+
 	Room()
-		:activeflag(true),port(++lastPort)
+		:id(nextId), ppi(nextId), pci()
 	{
-		///на другой стороне пипа создается такая
-		/*room_Pipe = CreateFile(
-			LPWCH((std::string("./TMP/") + DEFAULT_PIPE_NAME + std::to_string(lastPort % 1000)).c_str()),
-			GENERIC_READ | GENERIC_WRITE,
-			0,
-			NULL,
-			OPEN_EXISTING,
-			0,
-			NULL
-		);*/ 
-		room_Pipe = NULL;
-		start();
+		nextId++;
 	}
-	void start()
-	{
-		if (room_Pipe != NULL)
-			throw "ROOM Pipe Exeption";
-		HANDLE hPipe = CreateNamedPipe(
-			LPWCH((std::string("./TMP/") + DEFAULT_PIPE_NAME + std::to_string(lastPort % 1000)).c_str()),          // Имя канала
-			PIPE_ACCESS_DUPLEX,             // Двунаправленный обмен
-			PIPE_TYPE_MESSAGE | PIPE_READMODE_MESSAGE | PIPE_WAIT,
-			1,                              // Макс. количество экземпляров
-			MAXBUFSIZE, MAXBUFSIZE,			// Размер входного/выходного буфера
-			0,                              // Таймаут по умолчанию
-			NULL                            // Атрибуты безопасности
-		);
 
-	};
-	void stop()
-	{
-
-	};
-	void sendCommand();
-
-	~Room()
-	{
-
-	}
-public:
-	enum class Command
-	{
-		STOP,EXIT,
-	};
 };

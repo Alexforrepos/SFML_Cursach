@@ -143,11 +143,13 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Program\Program.cpp" />
     <ClCompile Include="Program\Room\Room.cpp" />
+    <ClCompile Include="Program\Room\RoomManager.cpp" />
     <ClCompile Include="Program\Server\Server.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Program\Program.h" />
     <ClInclude Include="Program\Room\Room.h" />
+    <ClInclude Include="Program\Room\RoomManager.h" />
     <ClInclude Include="Program\Server\Server.h" />
   </ItemGroup>
   <ItemGroup>

@@ -3,7 +3,7 @@
 
 int main() 
 {
-    Program p;
+    ServerProgram::Program p;
 	while (p.isRun())
 	{
 		p.run();
