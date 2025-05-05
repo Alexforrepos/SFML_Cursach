@@ -5,17 +5,20 @@
 #include "Utils/Timer.h"
 #include "Engine/R_Manager.h"
 #include "Utils/Config.h"
-
+#include "Projectile.h"
 class PeaShooter : public Plant {
     sf::Sprite sprite;
     Timer shootTimer;
     std::string plantType;
-
+    uint8_t line;
 public:
     PeaShooter() = default;
 
     PeaShooter(const std::string& plantType, uint8_t line, uint8_t col);
-
+    ~PeaShooter()
+    {
+        std::cout << "dadadad";
+    }
     void update() override;
     void sendMsg(Engine::MSG* msg) override;
     void draw(sf::RenderWindow& win) override;
