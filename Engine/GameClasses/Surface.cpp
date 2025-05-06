@@ -57,51 +57,40 @@ void Surface::sendMsg(Engine::MSG* msg)
                  
                     if (place.shape_rect.getGlobalBounds().contains(pos))
                     {
-                        if (holo->getPlantType() == "Shovel")
+                        if (holo->getPlantType() == "Shovel" && place.isPlanted())
                         {
-                           
-                            if (place.isPlanted())
-                            {
                                 place.deletePLant();
                                 place.shape_rect.setTexture(
                                     &R_Manager::get().access<sf::Texture>("Drag.png"), true
                                 );
-                            }
                         }
-                        else
-                        {
-                            if (holo->getPlantType() == "PeaShooter" && !place.isPlanted())
+                     
+                        if (holo->getPlantType() == "PeaShooter" && !place.isPlanted())
                             {
-                                auto plant = std::make_shared<PeaShooter>(
-                                    holo->getPlantType(),
-                                    static_cast<uint8_t>(&row - &place_vector[0]),  // line
-                                    static_cast<uint8_t>(&place - &row[0])          // column
-                                );
+                            auto plant = std::make_shared<PeaShooter>(
+                                holo->getPlantType(),
+                                static_cast<uint8_t>(&row - &place_vector[0]),  // line
+                                static_cast<uint8_t>(&place - &row[0])          // column
+                            );
+                            // установим позицию
+                            plant->setPos(place.shape_rect.getPosition());
 
-                                // Устанавливаем позицию растения в соответствии с местом
-                                plant->setPos(place.shape_rect.getPosition());
+                            // сразу кладём в менеджер — и plant точно не умрёт
+                            O_Manager::get().addObject(plant);
 
-                                // Отправляем сообщение о создании объекта
-                                MSG_Manager::get().addMSG(
-                                    std::make_shared<Engine::MSG_TYPE_CREATE>(plant, nullptr)
-                                );
-
-                                // Занимаем место
-                                place.plant(plant.get());
-                                place.shape_rect.setTexture(
-                                    &R_Manager::get().access<sf::Texture>("PeaShooter.png"),
-                                    true
-                                );
+                            // отмечаем, что место теперь занято
+                            place.plant(plant.get());
+                               
                             }
-                            if (!place.isPlanted())
+                            /*if (!place.isPlanted())
                             {
                                 place.plant(nullptr);
                                 place.shape_rect.setTexture(
                                     &R_Manager::get().access<sf::Texture>("IvtClub.png"), true
                                 );
-                            }
-                        }
-                        return;  
+                            }*/
+                        
+                         
                     }
                 }
             }
