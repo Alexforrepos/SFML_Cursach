@@ -25,8 +25,7 @@ namespace ServerProgram
 
 		void run()
 		{
-			rm.GenrateNewRoom();
-			
+				
 			return;
 		};
 	};

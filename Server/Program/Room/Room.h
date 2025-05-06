@@ -27,7 +27,7 @@ class Room
 
 		//const LPSECURITY_ATTRIBUTES saProc{ sizeof(saProc), nullptr, TRUE }, saThread{ sizeof(saThread), nullptr, TRUE };
 
-		const wchar_t* pathRoomExe = L"C:\\Users\\tvink\\source\\repos\\SFML_Cursach\\x64\\Debug\\RoomProcess.exe";
+		const wchar_t* pathRoomExe = L"C:\\Users\\timak\\source\\repos\\SFML_Cursach\\x64\\Debug\\RoomProcess.exe";
 
 		STARTUPINFO si;
 		PROCESS_INFORMATION pi;
@@ -38,7 +38,6 @@ class Room
 		ProcessInfo()
 			: id(nextId++), si({ sizeof(si) }), exist(true)
 		{
-
 			auto success = CreateProcessW(
 				pathRoomExe,
 				nullptr,
@@ -50,10 +49,8 @@ class Room
 				&si,
 				&pi
 			);
-
 			if (!success)
 			{
-
 				CloseHandle(pi.hProcess);
 				CloseHandle(pi.hThread);
 				throw std::runtime_error("Process creating err(" + std::to_string(GetLastError()) + ")\n");
@@ -78,23 +75,26 @@ class Room
 	{
 
 	private:
+		std::wstring pipeName;  // Используем широкие символы
+		bool exist;
 		HANDLE pipe;
 	public:
-		bool exist;
-		std::string pipeName;
 
 		Pipe(uint8_t id)
-			: pipeName(std::string("\\\\.\\pipe\\") + "pipe_" + std::to_string(id)), exist(true)
+			: pipeName(L"\\\\.\\pipe\\pipe_" + std::to_wstring(id)), exist(true)
 		{
-			pipe = CreateNamedPipeW(LPCWSTR(pipeName.c_str()),
+			pipe = CreateNamedPipeW(
+				pipeName.c_str(),          // Уже LPCWSTR, преобразование не нужно
 				PIPE_ACCESS_DUPLEX,
 				PIPE_TYPE_MESSAGE | PIPE_READMODE_MESSAGE | PIPE_WAIT,
 				1,
 				4096, 4096,
 				0,
-				nullptr);
-			if (pipe == INVALID_HANDLE_VALUE)
+				nullptr
+			);
+			if (pipe == INVALID_HANDLE_VALUE) {
 				throw std::runtime_error("Creating Pipe Err(" + std::to_string(GetLastError()) + ")\n");
+			}
 		}
 
 		void start();

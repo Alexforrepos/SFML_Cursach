@@ -12,7 +12,6 @@ class RoomManager
 {
 	std::vector<std::shared_ptr<Room>> Rooms;
 
-
 public:
 
 	uint8_t GenrateNewRoom()
@@ -42,8 +41,6 @@ public:
 	{
 		if (Rooms.size() >= index)
 			throw std::out_of_range("index of room out of range");
-
 		return Rooms[index];
 	}
 };
-
