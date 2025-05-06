@@ -1,6 +1,5 @@
 #include "Room.h"
 
-
 uint8_t Room::nextId = 1;
 uint8_t Room::ProcessInfo::nextId = 1;
 

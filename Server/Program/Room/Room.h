@@ -24,7 +24,6 @@ class Room
 		static uint8_t nextId;
 		uint8_t id;
 
-
 		//const LPSECURITY_ATTRIBUTES saProc{ sizeof(saProc), nullptr, TRUE }, saThread{ sizeof(saThread), nullptr, TRUE };
 
 		const wchar_t* pathRoomExe = L"C:\\Users\\timak\\source\\repos\\SFML_Cursach\\x64\\Debug\\RoomProcess.exe";
@@ -79,7 +78,6 @@ class Room
 		bool exist;
 		HANDLE pipe;
 	public:
-
 		Pipe(uint8_t id)
 			: pipeName(L"\\\\.\\pipe\\pipe_" + std::to_wstring(id)), exist(true)
 		{
@@ -108,26 +106,19 @@ class Room
 		void send(std::string& msg)
 		{
 			DWORD datav = msg.size();
-
 			if (!WriteFile(pipe, pipeName.c_str(), datav, nullptr, nullptr)) throw "PIPE MSG SEND ERR";
-
 		}
 	};
 
 
 private:
-
 	static uint8_t nextId;
 	uint8_t id;
-
 	ProcessInfo pci;
 	Pipe ppi;
-
 private:
 
-
 public:
-
 	void sendMsg(std::string& msg)
 	{
 		ppi.send(msg);
@@ -146,5 +137,4 @@ public:
 	{
 		nextId++;
 	}
-
 };

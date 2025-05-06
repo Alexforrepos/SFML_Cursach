@@ -25,8 +25,14 @@ namespace ServerProgram
 
 		void run()
 		{
-				
-			return;
+			server.start();
+			while (isrun)
+			{
+				if (server.connectClient())
+				{
+					server.HandleAClient();
+				}
+			}
 		};
 	};
 }

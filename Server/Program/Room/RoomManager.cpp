@@ -9,15 +9,12 @@ void RoomManager::sendMsg(std::string msg, uint16_t roomId)
 		return;
 	}
 
-
 	auto tofind = std::find_if(Rooms.begin(), Rooms.end(), [&](std::shared_ptr<Room> a) {return a->getId() == roomId; });
-
 
 	if (tofind == Rooms.end())
 	{
 		throw std::out_of_range("cdnt find room with this id");
 	}
-
 	(*tofind)->sendMsg(msg);
 }
 
@@ -30,12 +27,9 @@ void RoomManager::close(uint8_t roomId)
 
 	auto tofind = std::find_if(Rooms.begin(), Rooms.end(), [&](std::shared_ptr<Room> a) {return a->getId() == roomId; });
 
-
 	if (tofind == Rooms.end())
 	{
 		throw std::out_of_range("cdnt find room with this id");
 	}
-
 	(*tofind)->close();
-
 }
