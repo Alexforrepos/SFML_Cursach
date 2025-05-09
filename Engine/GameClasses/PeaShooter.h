@@ -6,7 +6,9 @@
 #include "Engine/R_Manager.h"
 #include "Utils/Config.h"
 #include "Projectile.h"
-class PeaShooter : public Plant {
+
+class PeaShooter : public Plant
+{
     sf::Sprite sprite;
     Timer shootTimer;
     std::string plantType;

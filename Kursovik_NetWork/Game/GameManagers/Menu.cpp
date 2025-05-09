@@ -20,7 +20,6 @@ void EXIT()
 void MULT()
 {
 	Menu::get().changeState(Menu::State::Multiplayer);
-
 }
 
 void SETTINGS()
@@ -38,6 +37,11 @@ void LEVEL1()
 	Game::get().setState(Game::State::GameProcess);
 	Menu::get().close();
 	Game::get().getGameProcess().start(1);
+}
+
+void UPDATE()
+{
+	
 }
 
 void LEVEL2()

@@ -45,6 +45,9 @@
     <ClCompile Include="Net\Client.cpp">
       <Filter>Исходные файлы\Net</Filter>
     </ClCompile>
+    <ClCompile Include="Game\GameManagers\MultManager.cpp">
+      <Filter>Исходные файлы\Game\GameManagers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Res\ResDistr.txt">
@@ -63,6 +66,9 @@
     </ClInclude>
     <ClInclude Include="Net\Client.h">
       <Filter>Исходные файлы\Net</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameManagers\MultManager.h">
+      <Filter>Исходные файлы\Game\GameManagers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
