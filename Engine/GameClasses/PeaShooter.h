@@ -19,7 +19,11 @@ public:
     PeaShooter(const std::string& plantType, uint8_t line, uint8_t col);
     ~PeaShooter()
     {
-        std::cout << "dadadad";
+        //std::cout << "dadadad";
+        //TODO::перенеси общие части в родительский класс PLant пример MSG_TYPE из  MSG 
+        //TODO::если репитер это скорострел то нужно чтобы он наследовался от peashooter он не отличается ничем кроме выпуска пулек епта
+        //TODO::исправь свой трабл с сериализацией 
+        //TODO::также нахрена ты в конструктор уже известного типа ты передаешь его тип 
     }
     void update() override;
     void sendMsg(Engine::MSG* msg) override;

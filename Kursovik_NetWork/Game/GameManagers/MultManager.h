@@ -32,20 +32,29 @@ private:
 	sf::Music& m_music;
 
 public:
-	void Update()
-	{
-		
-	}
 
 	void connect(const sf::IpAddress& ip)
 	{
 		client.connectToServer(ip, 11111);
 	};
 
-	void start();
-	void run();
-	void close();
-	void handleEvent(const sf::Event& event);
+	void start()
+	{
+		//TODO::запуск кнопок
+	};
+	void run()
+	{
+		//TODO::первая инициализация вектора 
+		//переход на другие стэйты игры 
+	};
+	void close()
+	{
+		//TODO::закрытие клиента и комнаты
+	};
+	void handleEvent(const sf::Event& event)
+	{
+		//TODO::передача ивента к окну или другим объектам 
+	};
 
 	bool isRunning() const { return mlt_isRunning; }
 	MultManager::State getCurrentState() const { return mlt_state; }
