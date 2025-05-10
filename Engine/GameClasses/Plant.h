@@ -10,7 +10,6 @@ private:
 	uint8_t line, col;
 	uint16_t HP;
 
-
 public:
 	Plant() = default;
 
