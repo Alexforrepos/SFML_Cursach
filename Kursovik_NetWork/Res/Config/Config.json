@@ -19,6 +19,7 @@
             {
                 "Avaliable_Plant": [
                     "PeaShooter",
+                    "Apex",
                     "Plant",
                     "Sunflower",
                     "Shovel"
@@ -51,6 +52,12 @@
     },
     "PlantParams": {
         "Plants": {
+            "Apex": {
+                "CD": 1,
+                "Damage": 0,
+                "HP": 1500,
+                "cost": 50
+            },
             "PeaShooter": {
                 "CD": 1,
                 "Damage": 34,

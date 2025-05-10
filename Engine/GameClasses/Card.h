@@ -15,7 +15,7 @@ class Card :
     static sf::Vector2f basePosition; 
     static int cardCounter; 
     std::string plantType;
-
+    bool wasLeftPressed = false;
 public:
     Card() = default;
     Card(const std::string& plantType);

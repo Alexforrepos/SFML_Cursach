@@ -1,59 +1,45 @@
 #pragma once
-#include "Engine/Object.h"
-#include "Engine/MSG_Manager.h"
 #include "GameClasses/Plant.h"
+#include "Engine/Object.h"
 #include <SFML/Graphics.hpp>
 #include "Utils/Timer.h"
 #include "Engine/R_Manager.h"
-#include "Engine/O_Manager.h"
-#include "PeaShooter.h"
-#include "Apex.h"
-
-class Hologram :
-    public Object
+#include "Utils/Config.h"
+class Apex :public Plant 
 {
-private:
-   sf::Sprite sprite;
-    std::string plantType; // Тип растения, который должен быть создан
-    Timer Clicktime;
-    sf::Vector2f position;
-    bool wasRightPressed = false;
-public:	
-    Hologram()
-        :Clicktime(200)
-    {
-    };
+    sf::Sprite sprite;
+    std::string plantType;
+    uint8_t line;
+public:
+    Apex() = default;
 
-    Hologram(const sf::Vector2f& startPos, const std::string& type);
+   Apex(const std::string& plantType, uint8_t line, uint8_t col);
+    ~Apex()
+    {
+        std::cout << "Apex";
+    }
     void update() override;
     void sendMsg(Engine::MSG* msg) override;
     void draw(sf::RenderWindow& win) override;
     sf::Vector2f getPos() override;
     void changePos(const sf::Vector2f& other) override;
     void setPos(sf::Vector2f other) override;
-    const std::string& getPlantType() const { return plantType; }
-    ~Hologram()
-    {
-        //std::cout << "САНЯ ЧИНИ" << std::endl;
-    };
-    template<class Archive>
-    void serialize(Archive& ar)
-    {
-        ar(cereal::base_class<Object>(this));
-        ar(plantType, Clicktime, position);
 
+    template <class Archive>
+    void serialize(Archive& ar) {
+        ar(cereal::base_class<Plant>(this));
+        ar(plantType);
 
         sf::Vector2f position = sprite.getPosition();
         sf::Vector2f scale = sprite.getScale();
         float rotation = sprite.getRotation();
         sf::IntRect textureRect = sprite.getTextureRect();
         sf::Color color = sprite.getColor();
-        std::string textureId = "ps.png";
+        std::string textureId = "Apex.png";
 
         ar(position, scale, rotation, textureRect, color, textureId);
-        
-        if constexpr (Archive::is_loading::value)
-        {
+
+        if constexpr (Archive::is_loading::value) {
             sprite.setPosition(position);
             sprite.setScale(scale);
             sprite.setRotation(rotation);
@@ -61,5 +47,6 @@ public:
             sprite.setColor(color);
             sprite.setTexture(R_Manager::get().access<sf::Texture>(textureId));
         }
-    };
+    }
 };
+
