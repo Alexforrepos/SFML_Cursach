@@ -14,12 +14,12 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="$(MSBuildThisFileDirectory)Apex.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Engine\MSG.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Engine\MSG_Manager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Engine\Object.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Engine\O_Manager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Engine\R_Manager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Apex.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Button.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Card.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Hologram.cpp" />
@@ -42,12 +42,12 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)xyeta.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="$(MSBuildThisFileDirectory)Apex.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Engine\MSG.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Engine\MSG_Manager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Engine\Object.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Engine\O_Manager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Engine\R_Manager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Apex.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Button.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Card.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Hologram.h" />

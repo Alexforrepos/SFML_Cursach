@@ -91,7 +91,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\PeaShooter.cpp">
       <Filter>GameClasses</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)Apex.cpp">
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Apex.cpp">
       <Filter>GameClasses</Filter>
     </ClCompile>
   </ItemGroup>
@@ -180,7 +180,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\PeaShooter.h">
       <Filter>GameClasses</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)Apex.h">
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Apex.h">
       <Filter>GameClasses</Filter>
     </ClInclude>
   </ItemGroup>
