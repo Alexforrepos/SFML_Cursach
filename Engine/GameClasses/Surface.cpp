@@ -1,5 +1,6 @@
 #include "Surface.h"
 #include "PeaShooter.h"
+#include "Skorostrel.h"
 
 sf::Vector2f Surface::getPos()
 {
@@ -65,9 +66,9 @@ void Surface::sendMsg(Engine::MSG* msg)
                                 );
                         }
                      
-                        if (holo->getPlantType() == "PeaShooter" && !place.isPlanted())
+                        if (holo->getPlantType() == "Skorostrel" && !place.isPlanted())
                             {
-                            auto plant = std::make_shared<PeaShooter>(
+                            auto plant = std::make_shared<Skorostrel>(
                                 holo->getPlantType(),
                                 static_cast<uint8_t>(&row - &place_vector[0]),  // line
                                 static_cast<uint8_t>(&place - &row[0])          // column

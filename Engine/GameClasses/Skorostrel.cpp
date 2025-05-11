@@ -1,46 +1,26 @@
+// Skorostrel.cpp
 #include "Skorostrel.h"
-#include "Engine/R_Manager.h"
-#include "Engine/MSG_Manager.h"
-
 
 Skorostrel::Skorostrel(const std::string& plantType, uint8_t line, uint8_t col)
-	: Plant(line, col, 50),clickTimer(100)
+// вызываем PeaShooter::PeaShooter, чтобы унаследовать всю логику стрельбы
+    : PeaShooter(
+        plantType,
+        line,
+        col
+    )
 {
-	sprite.setTexture(R_Manager::get().access<sf::Texture>("shkibidiSanya.png"));
-	sprite.setColor(sf::Color(255, 255, 255, 150));
-	clickTimer.restart();
+    // 1) Перекрываем textureId (защищённое поле Plant) на свою
+    this->textureId = "shkibidiSanya.png";
+
+    // 2) Перезагружаем текстуру спрайта
+    sprite.setTexture(R_Manager::get().access<sf::Texture>(textureId));
+
+    // 3) Можно при желании подправить масштаб/цвет, если нужно
+    sprite.setScale(2.f, 2.f);
+    sprite.setColor(sf::Color(255, 255, 255, 200));
+
+    // 4) Таймаут у PeaShooter по умолчанию 300 мс, но вы можете подправить его,
+    //    например, быстрее:
+    shootTimer = Timer(150);  // или shootTimer, если вы его так назвали
+    shootTimer.restart();
 }
-
-// Реализация всех методов
-void Skorostrel::update()
-{
-
-}
-
-void Skorostrel::sendMsg(Engine::MSG* msg)
-{
-
-}
-
-void Skorostrel::draw(sf::RenderWindow& win)
-{
-
-}
-
-sf::Vector2f Skorostrel::getPos()
-{
-	return sprite.getPosition();
-}
-
-void Skorostrel::changePos(const sf::Vector2f& other)
-{
-
-}
-
-void Skorostrel::setPos(sf::Vector2f other)
-{
-	this->sprite.setPosition(other);
-}
-
-CEREAL_REGISTER_TYPE(Skorostrel);
-CEREAL_REGISTER_POLYMORPHIC_RELATION(Plant, Skorostrel);
