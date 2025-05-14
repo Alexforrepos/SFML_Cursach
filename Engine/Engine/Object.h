@@ -41,7 +41,7 @@ public:
 	// Чисто виртуальные методы
 	virtual void update() {};
 	virtual void draw(sf::RenderWindow& win) {};
-	virtual void sendMsg(Engine::MSG* msg) {};
+	virtual void sendMsg(const std::shared_ptr<Engine::MSG>& msg) {};
 
 	// Реализация интерфейсов
 	unsigned long long getId() override { return id; }

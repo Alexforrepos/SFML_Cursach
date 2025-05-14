@@ -63,7 +63,7 @@ public:
 
     // Реализация методов Object
     virtual void update() override;
-    virtual void sendMsg(Engine::MSG* msg) override;
+    virtual void sendMsg(const std::shared_ptr<Engine::MSG>& msg) override;
     virtual void draw(sf::RenderWindow& win) override;
 
     // Унаследовано через Object

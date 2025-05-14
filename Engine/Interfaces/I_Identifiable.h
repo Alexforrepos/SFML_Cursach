@@ -15,8 +15,7 @@ public:
 	/// <returns></returns>
 	static unsigned long long generateID() 
 	{
-		last_id += 1;
-		return last_id; 
+		return ++last_id; 
 	}
 	virtual unsigned long long getId() { return 0; };
 	

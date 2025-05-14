@@ -10,9 +10,10 @@ class Projectile
 		damage;
 	sf::Sprite spr;
 public:
-	Projectile(uint16_t velocity, uint16_t line, uint16_t damage,sf::Texture& texture)
-		:Object(int(Types::BaseProjectileType)), velocity(velocity), line(line), damage(damage), spr(texture)
-	{
+    Projectile(uint16_t velocity, uint16_t line, uint16_t damage, sf::Texture& texture, sf::Vector2f pos)
+        :Object(int(Types::BaseProjectileType)), velocity(velocity), line(line), damage(damage), spr(texture)
+    {
+        setPos(pos);
         spr.setScale(0.1f, 0.1f);
 	}
     void update() override {

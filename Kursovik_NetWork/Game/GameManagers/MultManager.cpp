@@ -2,5 +2,5 @@
 
 void MultManager::start()
 {
-	Update();
+	//Update();
 }

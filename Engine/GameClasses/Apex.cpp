@@ -15,7 +15,7 @@ Apex::Apex(const std::string& plantType, uint8_t line, uint8_t col)
 
 void Apex::update()
 { }
-void Apex ::sendMsg(Engine::MSG* msg)
+void Apex::sendMsg(const std::shared_ptr<Engine::MSG>& msg)
 { }
 CEREAL_REGISTER_TYPE(Apex);
 CEREAL_REGISTER_POLYMORPHIC_RELATION(Plant, Apex);

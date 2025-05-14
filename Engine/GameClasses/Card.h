@@ -7,26 +7,30 @@
 #include "Engine/R_Manager.h"
 #include "Engine/O_Manager.h"
 #include "GameClasses/Hologram.h"
-class Card : 
+
+class Card :
     public Object
 {
     sf::Sprite sprite;
     Timer clickTimer;
-    static sf::Vector2f basePosition; 
-    static int cardCounter; 
+    static sf::Vector2f basePosition;
+    static int cardCounter;
     std::string plantType;
     bool wasLeftPressed = false;
+
+    static std::shared_ptr<Hologram> holo; // Сделать holo статическим
+
 public:
     Card() = default;
     Card(const std::string& plantType);
 
     void update() override;
-    void sendMsg(Engine::MSG* msg) override;
+    void sendMsg(const std::shared_ptr<Engine::MSG>& msg) override;
     void draw(sf::RenderWindow& win) override;
     sf::Vector2f getPos() override;
     void changePos(const sf::Vector2f& other) override;
     void setPos(sf::Vector2f other) override;
     static void resetCounter() { cardCounter = 0; }
-    
+
     BASE_SERIALIZATION
 };

@@ -9,7 +9,7 @@ PeaShooter::PeaShooter(const std::string& plantType, uint8_t line, uint8_t col)
 		col,
 		Config::getInstance()["PlantParams"]["Plants"]["PeaShooter"]["HP"]
 	)
-	, shootTimer(300)
+	, shootTimer(1000)
 {
 	sprite.setScale(2.f, 2.f);
 	sprite.setColor(sf::Color(255, 255, 255, 200));
@@ -27,18 +27,21 @@ void PeaShooter::update()
 		// 2. Создаём shared_ptr на Projectile
 		//    Конструктор: Projectile(uint16_t velocity, uint16_t line, uint16_t damage, sf::Texture& texture)
 		auto& tex = R_Manager::get().access<sf::Texture>("pea.jpg");
-		auto proj = std::make_shared<Projectile>(
+
+
+		// 3. Устанавливаем стартовую позицию снаряда в точку PeaShooter
+
+		auto pos = getPos();
+		// 4. Кидаем сообщение о создании нового объекта
+		MSG_Manager::get().addMSG(std::make_shared<Engine::MSG_TYPE_CREATE>(std::make_shared<Projectile>(
 			static_cast<uint16_t>(velocity),
 			line,                     // можно передавать реальную линию, если храните её в PeaShooter
 			static_cast<uint16_t>(damage),
-			tex
-		);
-
-		// 3. Устанавливаем стартовую позицию снаряда в точку PeaShooter
-		proj->setPos(this->getPos());
-
-		// 4. Кидаем сообщение о создании нового объекта
-		O_Manager::get().addObject(proj);
+			tex,
+			pos
+		),
+			(Object*)this
+		));
 
 		shootTimer.restart();
 	}
@@ -46,7 +49,7 @@ void PeaShooter::update()
 		;
 }
 
-void PeaShooter::sendMsg(Engine::MSG* msg)
+void PeaShooter::sendMsg(const std::shared_ptr<Engine::MSG>& msg)
 {
 
 }

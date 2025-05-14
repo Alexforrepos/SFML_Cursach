@@ -38,10 +38,7 @@ public:
 		client.connectToServer(ip, 11111);
 	};
 
-	void start()
-	{
-		//TODO::запуск кнопок
-	};
+	void start();
 	void run()
 	{
 		//TODO::первая инициализация вектора 

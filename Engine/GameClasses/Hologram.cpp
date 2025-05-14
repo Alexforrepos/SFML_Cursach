@@ -9,7 +9,9 @@ Hologram::Hologram(const sf::Vector2f& startPos, const std::string& type)
         R_Manager::get().access<sf::Texture>(
             plantType == "Shovel" ? "showel.png" : "ps.png"
         )
+        
     );
+    ObjectType = Types::BasePlantType;
     // Настройка внешнего вида голограммы
     sprite.setColor(sf::Color(255, 255, 255, 150)); // Полупрозрачный
     sprite.setScale(0.15f, 0.15f); // Масштабирование
@@ -24,19 +26,22 @@ void Hologram::update()
     position = sf::Vector2f(sf::Mouse::getPosition());
     sprite.setPosition(position);
     bool isPressed = sf::Mouse::isButtonPressed(sf::Mouse::Right);
-    if (isPressed && Clicktime() )
+    auto bf = Clicktime();
+
+    if (isPressed && bf && !wasRightPressed)
     {
+        std::cout << "MSG Send" << std::endl;
         MSG_Manager::get().addMSG(std::shared_ptr<Engine::MSG_TYPE_KILL>(new Engine::MSG_TYPE_KILL(
             this, this)));
-        isPressed = true;
+        wasRightPressed = true; // Устанавливаем флаг, что сообщение уже отправлено
     }
-    else 
-    { 
-        isPressed = false; 
+    else if (!isPressed)
+    {
+        wasRightPressed = false; // Сбрасываем флаг, когда кнопка отпущена
     }
 }
 
-void Hologram::sendMsg(Engine::MSG* msg)
+void Hologram::sendMsg(const std::shared_ptr<Engine::MSG>& msg)
 {
 
 }

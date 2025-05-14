@@ -30,7 +30,8 @@ namespace Engine
 
 	public:
 		MSG()
-			:index(MSG_TYPE::MSG_NONE) {};
+			:index(MSG_TYPE::MSG_NONE) {
+		};
 		virtual ~MSG() = default;
 		MSG_TYPE getIndex() const { return index; }
 	};
@@ -64,10 +65,11 @@ namespace Engine
 
 	class MSG_TYPE_CREATE : public MSG {
 	public:
-		std::shared_ptr<Object> creature, creator;
+		std::shared_ptr<Object> creature;
+		std::shared_ptr<Object>& creator;
 
-		MSG_TYPE_CREATE(std::shared_ptr<Object> creature, std::shared_ptr<Object> creator)
-			: MSG(int(MSG_TYPE::MSG_TYPE_CREATE)), creature(std::move(creature)), creator(std::move(creator))
+		MSG_TYPE_CREATE(std::shared_ptr<Object> creature, Object*)
+			: MSG(int(MSG_TYPE::MSG_TYPE_CREATE)), creature(std::move(creature)), creator(creator)
 		{
 		}
 

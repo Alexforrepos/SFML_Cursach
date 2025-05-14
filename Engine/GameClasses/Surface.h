@@ -9,7 +9,7 @@
 #define DEFAULT_LINE_SIZE 9
 #define START_SURFACE_POSITION_X 300
 #define START_SURFACE_POSITION_Y 100
-#define PLANT_DISTANCE 0
+#define PLANT_DISTANCE 10
 #define PLANT_SIZE_W 100
 #define PLANT_SIZE_H 100
 #define START_ZOMBIE_POSITION_X 1550  
@@ -31,6 +31,7 @@ public:
 		:shape_rect(size), isplanted(false), plantid(VOID_ID)
 	{
 		shape_rect.setPosition(pos);
+		std::cout << "Place(" << pos.x << "," << pos.y << ") \n";
 		shape_rect.setTexture(&R_Manager::get().access<sf::Texture>("Drag.png"));
 	}
 
@@ -132,12 +133,18 @@ public:
 			place_vector.push_back(std::vector<Place>());
 			for (int cols = 0; cols < lines_size; cols++)
 			{
-				place_vector[rows].push_back(Place({
-			   static_cast<float>(START_SURFACE_POSITION_X + cols * (PLANT_SIZE_W + PLANT_DISTANCE)),
-					static_cast<float>(START_SURFACE_POSITION_Y + rows * (PLANT_SIZE_H + PLANT_DISTANCE)) },
-					{ PLANT_SIZE_W,PLANT_SIZE_H }));
+				auto x = static_cast<float>(START_SURFACE_POSITION_X + cols * (PLANT_SIZE_W + PLANT_DISTANCE));
+				auto y = static_cast<float>(START_SURFACE_POSITION_Y + rows * (PLANT_SIZE_H + PLANT_DISTANCE));
+				place_vector[rows].push_back(Place(
+					{
+						x,
+						y
+					},
+					{ PLANT_SIZE_W, PLANT_SIZE_H }
+				));
 			}
 		}
+
 		for (int row = 0; row < lines_qount; row++) {
 			float y = static_cast<float>(START_SURFACE_POSITION_Y + row * (PLANT_SIZE_H + PLANT_DISTANCE));
 			zombie_places.emplace_back(
@@ -145,6 +152,8 @@ public:
 			);
 		}
 	}
+
+	Surface(const Surface& other) = default;
 
 	// Унаследовано через Object
 	sf::Vector2f getPos() override;
@@ -157,7 +166,7 @@ public:
 
 	void draw(sf::RenderWindow& win) override;
 
-	void sendMsg(Engine::MSG* msg) override;
+	void sendMsg(const std::shared_ptr<Engine::MSG>& msg) override;
 
 	sf::RectangleShape line(std::vector<Place> places)
 	{
