@@ -58,28 +58,33 @@
                 "CD": 1,
                 "Damage": 0,
                 "HP": 1500,
-                "cost": 50
+                "cost": 50,
+                "textureId": "Apex.png"
             },
             "Firelog": {
                 "CD": 0,
                 "HP": 34,
-                "cost": 50
+                "cost": 50,
+                "textureId": "Firelog.jpg"
             },
             "PeaShooter": {
                 "CD": 1,
                 "Damage": 34,
                 "HP": 150,
-                "cost": 50
+                "cost": 50,
+                "textureId": "PeaShooter.png"
             },
-            "Pumkin": {
+            "Pumpkin": {
                 "HP": 1000,
-                "cost": 50
+                "cost": 50,
+                "textureId": "shkibidiSanya.png"
             },
             "Sunflower": {
                 "CD": 15,
                 "DeathGainSun": false,
                 "HP": 100,
-                "cost": 50
+                "cost": 50,
+                "textureId": "Sunfloweer.png"
             }
         }
     },

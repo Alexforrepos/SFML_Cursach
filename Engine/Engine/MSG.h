@@ -16,7 +16,8 @@ namespace Engine
 		MSG_TYPE_CREATE,
 		MSG_TYPE_DAMAGE,
 		MSG_NET_TYPE,
-		MSG_TYPE_KILL_BY_ID
+		MSG_TYPE_KILL_BY_ID,
+		MSG_TYPE_SET_INVINCIBILITY
 
 	};
 	class MSG
@@ -96,6 +97,21 @@ namespace Engine
 		MSG_TYPE_KILL_BY_ID(unsigned long long& victim, unsigned long long killer)
 			: MSG(int(MSG_TYPE::MSG_TYPE_KILL_BY_ID)),
 			victim(victim), killer(killer)
+		{
+
+		}
+	};
+
+	class MSG_TYPE_SET_INVINCIBILITY
+		: public MSG
+	{
+	public:
+		unsigned long long id;
+		bool set;
+
+		MSG_TYPE_SET_INVINCIBILITY(unsigned long long id, bool set)
+			: MSG(int(MSG_TYPE::MSG_TYPE_SET_INVINCIBILITY)),
+			id(id), set(set)
 		{
 
 		}

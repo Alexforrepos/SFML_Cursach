@@ -3,6 +3,7 @@
 #include "PeaShooter.h"
 #include "Skorostrel.h"
 #include "FireLog.h"
+#include "Pumpkin.h"
 
 using namespace std;
 
@@ -53,66 +54,118 @@ void Surface::sendMsg(const std::shared_ptr<Engine::MSG>& msg)
 
 			auto killMsg = dynamic_cast<Engine::MSG_TYPE_KILL*>(msg.get());
 			if (!killMsg->victim) return;
-
-			Hologram* holo;
+			Object* obj;
 			try
 			{
-				holo = dynamic_cast<Hologram*>(killMsg->victim);
-				if (!holo) return;
+				obj = dynamic_cast<Object*>(killMsg->victim);
+				if (!obj) return;
 			}
 			catch (...)
 			{
 				return;
 			}
-
-			sf::Vector2f pos = holo->getPos();
-
-			for (auto& row : place_vector)
+			int type = obj->type();
+			if (type == int(Types::Hologram))
 			{
-				for (auto& place : row)
+				Hologram* holo;
+				try
 				{
+					holo = dynamic_cast<Hologram*>(killMsg->victim);
+					if (!holo) return;
+				}
+				catch (...)
+				{
+					return;
+				}
 
-					auto place_rect = sf::Rect{ place.shape_rect.getPosition().x,place.shape_rect.getPosition().y, place.shape_rect.getSize().x,place.shape_rect.getSize().y };
-					auto holorect = holo->getRect();
-					if (place_rect.intersects(holorect))
+				sf::Vector2f pos = holo->getPos();
+
+				for (auto& row : place_vector)
+				{
+					for (auto& place : row)
 					{
-						if (holo->getPlantType() == "Shovel" && place.isPlanted())
+
+						auto place_rect = sf::Rect{ place.shape_rect.getPosition().x,place.shape_rect.getPosition().y, place.shape_rect.getSize().x,place.shape_rect.getSize().y };
+						auto holorect = holo->getRect();
+						if (place_rect.intersects(holorect))
 						{
-							place.deletePLant();
-							place.shape_rect.setTexture(
-								&R_Manager::get().access<sf::Texture>("Drag.png"), true
-							);
+							if (holo->getPlantType() == "Shovel" && place.isPlanted())
+							{
+								place.deletePLant();
+								place.shape_rect.setTexture(
+									&R_Manager::get().access<sf::Texture>("Drag.png"), true
+								);
+								return;
+							}
+
+							if (holo->getPlantType() == "Pumpkin" && place.isPlanted() && place.plantobj->getType() != "Pumpkin")
+							{
+								uint8_t line = static_cast<uint8_t>(&row - &place_vector[0]);
+								uint8_t col = static_cast<uint8_t>(&place - &row[0]);
+
+								auto pumpkin = make_shared<Pumpkin>(line, col);
+								pumpkin->setPlant(place.plantobj);
+
+								place.plantobj = pumpkin;
+								pumpkin->setPos(place.shape_rect.getPosition());
+
+								place.shape_rect.setTexture(
+									&R_Manager::get().access<sf::Texture>("IvtClub.png"), true
+								);
+							}
+
+							if (!place.isPlanted() && isInRange(holo->ObjectType, RANGE_PLANT))
+							{
+								auto plant = toPlant(
+									holo->getPlantType(),
+									static_cast<uint8_t>(&row - &place_vector[0]),  // line
+									static_cast<uint8_t>(&place - &row[0])          // column
+								);
+								// установим позицию
+								plant->setPos(place.shape_rect.getPosition());
+
+
+								MSG_Manager::get().addMSG(make_shared<Engine::MSG_TYPE_CREATE>(plant, this));
+
+								// отмечаем, что место теперь зан€то
+								place.plant(plant);
+
+							}
+							/*if (!place.isPlanted())
+							{
+								place.plant(nullptr);
+								place.shape_rect.setTexture(
+									&R_Manager::get().access<sf::Texture>("IvtClub.png"), true
+								);
+							}*/
 						}
-
-						if (!place.isPlanted() && isInRange(holo->ObjectType, RANGE_PLANT))
-						{
-							auto plant = toPlant(
-								holo->getPlantType(),
-								static_cast<uint8_t>(&row - &place_vector[0]),  // line
-								static_cast<uint8_t>(&place - &row[0])          // column
-							);
-							// установим позицию
-							plant->setPos(place.shape_rect.getPosition());
-
-
-							MSG_Manager::get().addMSG(make_shared<Engine::MSG_TYPE_CREATE>(plant, this));
-
-							// отмечаем, что место теперь зан€то
-							place.plant(plant.get());
-
-						}
-						/*if (!place.isPlanted())
-						{
-							place.plant(nullptr);
-							place.shape_rect.setTexture(
-								&R_Manager::get().access<sf::Texture>("IvtClub.png"), true
-							);
-						}*/
-
-
 					}
 				}
 			}
+
+			if (killMsg->victim->type() == int(Types::BasePlantType) && dynamic_cast<Plant*>(killMsg->victim)->getType() == "Pumpkin")
+			{
+				auto pumpkin = dynamic_cast<Pumpkin*>(killMsg->victim);
+				auto& place = this->place_vector[pumpkin->line][pumpkin->col];
+
+				// ≈сли есть растение под тыквой - возвращаем его на место
+				if (auto original_plant = pumpkin->getOriginalPlant()) {
+					place.plantobj = original_plant;
+					original_plant->setPos(place.shape_rect.getPosition());
+				}
+				else {
+					place.plantobj.reset();
+					place.isplanted = false;
+					place.plantid = VOID_ID;
+				}
+
+				// ќбновл€ем текстуру клетки
+				place.shape_rect.setTexture(
+					&R_Manager::get().access<sf::Texture>(place.isplanted ? "IvtClub.png" : "Drag.png"), true
+				);
+				return;
+			}
+
 		}
 		break;
 	case Engine::MSG_TYPE::MSG_TYPE_MOVE:
@@ -128,13 +181,18 @@ std::shared_ptr<Object> Surface::toPlant(std::string plantType, uint8_t line, ui
 	{
 		return make_shared<PeaShooter>(line, col);
 	}
-	else if(plantType == "Apex")
-	{ 
+	else if (plantType == "Apex")
+	{
 		return make_shared<Apex>(line, col);
 	}
 	else if (plantType == "FireLog")
 	{
 		return make_shared<FireLog>(line, col);
+	}
+	else if (plantType == "Pumpkin")
+	{
+		return make_shared<Pumpkin>(line, col);
+
 	}
 	return std::shared_ptr<Object>();
 }

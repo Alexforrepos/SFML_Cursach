@@ -25,6 +25,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Hologram.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\PeaShooter.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Plant.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Pumpkin.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Skorostrel.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Surface.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Interfaces\I_Identifiable.cpp" />
@@ -54,6 +55,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\PeaShooter.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Plant.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Projectile.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Pumpkin.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Skorostrel.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Surface.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Zombie.h" />

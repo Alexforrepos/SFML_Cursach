@@ -2,7 +2,7 @@
 
 
 Hologram::Hologram(const sf::Vector2f& startPos, const std::string& type)
-    : Object(static_cast<int>(Types::None)), plantType(type), Clicktime(200),position(startPos)
+    : Object(static_cast<int>(Types::Hologram)), plantType(type), Clicktime(200),position(startPos)
 {
     Clicktime.restart();
     sprite.setTexture(

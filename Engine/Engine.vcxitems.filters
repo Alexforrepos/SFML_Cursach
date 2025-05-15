@@ -94,6 +94,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Apex.cpp">
       <Filter>GameClasses</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Pumpkin.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Utils\Config.h">
@@ -183,5 +184,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Apex.h">
       <Filter>GameClasses</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Pumpkin.h" />
   </ItemGroup>
 </Project>

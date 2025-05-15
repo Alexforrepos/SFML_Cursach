@@ -25,6 +25,8 @@ public:
 	ull plantid;
 	sf::RectangleShape shape_rect;
 
+	std::shared_ptr<Plant> plantobj;
+
 	Place() = default;
 
 	Place(sf::Vector2f pos, sf::Vector2f size)
@@ -35,18 +37,16 @@ public:
 		shape_rect.setTexture(&R_Manager::get().access<sf::Texture>("Drag.png"));
 	}
 
-	void plant(Object* plant_)
-	{
-		if (isplanted)
+	void plant(std::shared_ptr<Object> pl) {
+		if (isplanted && plantobj)
 			return;
-		if (!plant_)
-		{
-			isplanted = true;
-			return;
-		}
 
-		this->isplanted = true;
-		plantid = plant_->getId();
+		if (auto plant = dynamic_pointer_cast<Plant>(pl))
+		{
+			plantobj = plant;
+			this->isplanted = true;
+			plantid = pl->getId();
+		}
 	}
 
 	void deletePLant()
@@ -55,6 +55,7 @@ public:
 		MSG_Manager::get().addMSG(std::shared_ptr<Engine::MSG>(new
 			Engine::MSG_TYPE_KILL_BY_ID(plantid, VOID_ID)));
 		isplanted = false;
+		plantobj.reset();
 		plantid = VOID_ID;
 	};
 
