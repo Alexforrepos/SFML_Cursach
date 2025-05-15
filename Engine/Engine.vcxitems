@@ -23,6 +23,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Button.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Card.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Hologram.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\IceP.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\PeaShooter.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Plant.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Skorostrel.cpp" />
@@ -51,6 +52,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Button.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Card.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Hologram.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\IceP.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\PeaShooter.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Plant.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Projectile.h" />
