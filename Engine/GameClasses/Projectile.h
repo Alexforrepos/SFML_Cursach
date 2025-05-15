@@ -6,7 +6,7 @@ class Projectile
 
 {
 
-
+protected:
 	uint16_t
 		velocity,
 		line,
