@@ -5,8 +5,7 @@
         //TODO::также нахрена ты в конструктор уже известного типа ты передаешь его тип 
 #pragma once
 #include "GameClasses/Plant.h"
-#include "Projectile.h"
-#include "IceProjectile.h"
+
 class PeaShooter : public Plant
 {
 protected:

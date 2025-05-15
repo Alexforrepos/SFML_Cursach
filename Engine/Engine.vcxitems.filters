@@ -94,9 +94,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Apex.cpp">
       <Filter>GameClasses</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\IceProjectile.cpp">
-      <Filter>GameClasses</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Utils\Config.h">
@@ -184,9 +181,6 @@
       <Filter>GameClasses</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Apex.h">
-      <Filter>GameClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\IceProjectile.h">
       <Filter>GameClasses</Filter>
     </ClInclude>
   </ItemGroup>
