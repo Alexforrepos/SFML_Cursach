@@ -11,13 +11,20 @@ class Zombie
 		damage,
 		line;
 	sf::Sprite spr;
+    bool isFrozen;
 public:
-	Zombie(const uint16_t& HP, const uint16_t& velocity, const uint16_t& damage, const uint16_t& line, const sf::Sprite& spr)
-		:Object(int(Types::BaseZombieType)), HP(HP), velocity(velocity), damage(damage), line(line), spr(spr)
-	{
-		
-	sf::Vector2f getPos() { return pos; }
-	sf::Vector2f setPos(const sf::Vector2f& pos) { this->pos = pos; }
+    Zombie(const uint16_t& HP, const uint16_t& velocity, const uint16_t& damage, const uint16_t& line, const sf::Sprite& spr)
+        :Object(int(Types::BaseZombieType)), HP(HP), velocity(velocity), damage(damage), line(line), spr(spr)
+    {
+    }
+    sf::Vector2f getPos() { return pos; }
+    sf::Vector2f setPos(const sf::Vector2f& pos) { this->pos = pos; }
+    void changePos(sf::Vector2f& pos) 
+    {
+        this->pos.x -= velocity;
+    }
+    void update() override {}
+    void sendMsg(const std::shared_ptr<Engine::MSG>& msg) override {}
 };
 
 /*#include "Zombie.h"

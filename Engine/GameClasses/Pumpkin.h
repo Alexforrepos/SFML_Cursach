@@ -16,7 +16,7 @@ public:
 			Config::getInstance()["PlantParams"]["Plants"]["Pumpkin"]["HP"])
 	{
 		sprite.setScale(0.1f, 0.1f);
-		sprite.setColor(sf::Color(255, 255, 255, 200));
+		sprite.setColor(sf::Color(255, 255, 255, 200)); 
 	}
 
 	void setPlant(std::shared_ptr<Plant> pl) {
