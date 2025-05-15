@@ -29,38 +29,106 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Utils\SpriteWrapper.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Utils\Timer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)xyeta.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Utils\Serialization_Utils.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\PeaShooter.cpp">
+      <Filter>GameClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Apex.cpp">
+      <Filter>GameClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)ZombieNormis.cpp">
+      <Filter>GameClasses</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="$(MSBuildThisFileDirectory)Engine\MSG.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Engine\MSG_Manager.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Engine\Object.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Engine\O_Manager.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Engine\R_Manager.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Apex.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Button.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Card.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Hologram.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\IceP.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\PeaShooter.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Plant.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Projectile.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Pumpkin.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Skorostrel.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Surface.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Zombie.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Interfaces\I_Identifiable.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Interfaces\I_Pacatable.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Interfaces\I_Pos.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Interfaces\I_Serialize.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Interfaces\I_Type.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)UI\Button_.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)UI\InterfaceBase.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)UI\InterfaceIntputText.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)UI\InterfaceWindow.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Utils\Config.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Utils\ProgressBar.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Utils\Serialization_Utils.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Utils\SpriteWrapper.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Utils\Timer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Utils\Config.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Utils\ProgressBar.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Utils\SpriteWrapper.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Utils\Timer.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Engine\MSG.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Engine\MSG_Manager.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Engine\O_Manager.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Engine\Object.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Engine\R_Manager.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Interfaces\I_Identifiable.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Interfaces\I_Pacatable.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Interfaces\I_Pos.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Interfaces\I_Serialize.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Interfaces\I_Type.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Button.h">
+      <Filter>GameClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Card.h">
+      <Filter>GameClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Hologram.h">
+      <Filter>GameClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Plant.h">
+      <Filter>GameClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Projectile.h">
+      <Filter>GameClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Skorostrel.h">
+      <Filter>GameClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Surface.h">
+      <Filter>GameClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Zombie.h">
+      <Filter>GameClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)UI\Button_.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)UI\InterfaceBase.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)UI\InterfaceIntputText.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)UI\InterfaceWindow.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Utils\Serialization_Utils.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\PeaShooter.h">
+      <Filter>GameClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Apex.h">
+      <Filter>GameClasses</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

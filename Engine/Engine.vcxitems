@@ -42,6 +42,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Utils\SpriteWrapper.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Utils\Timer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)xyeta.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)ZombieNormis.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Engine\MSG.h" />
@@ -75,5 +76,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Utils\Serialization_Utils.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Utils\SpriteWrapper.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Utils\Timer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)ZombieNormis.h" />
   </ItemGroup>
 </Project>
