@@ -20,6 +20,8 @@
                 "Avaliable_Plant": [
                     "PeaShooter",
                     "Apex",
+                    "FireLog",
+                    "Pumpkin",
                     "Skorostrel",
                     "Sunflower",
                     "Shovel"
@@ -48,7 +50,7 @@
     },
     "Multiplayer": {
         "ClientMayRun": 0,
-        "ServerIP": "192.168.1.1"
+        "ServerIP": "localhost"
     },
     "PlantParams": {
         "Plants": {
@@ -58,10 +60,19 @@
                 "HP": 1500,
                 "cost": 50
             },
+            "Firelog": {
+                "CD": 0,
+                "HP": 34,
+                "cost": 50
+            },
             "PeaShooter": {
                 "CD": 1,
                 "Damage": 34,
                 "HP": 150,
+                "cost": 50
+            },
+            "Pumkin": {
+                "HP": 1000,
                 "cost": 50
             },
             "Sunflower": {

@@ -13,7 +13,8 @@ void GameProcess::start(int levelNumber)
     Card::resetCounter();
 
     // Создаем карточки для доступных растений
-    for (const auto& plant : (config["Level"]["Levels"][levelNumber - 1]["Avaliable_Plant"])) {
+    for (const auto& plant : (config["Level"]["Levels"][levelNumber - 1]["Avaliable_Plant"])) 
+    {
         std::string plantType = plant.get<std::string>(); // Правильное преобразование
         O_Manager::get().addObject(std::make_shared<Card>(plantType));
     }

@@ -12,7 +12,7 @@ protected:
     Timer shootTimer;
 public:
     PeaShooter() = default;
-    PeaShooter(const std::string& plantType, uint8_t line, uint8_t col);
+    PeaShooter(uint8_t line, uint8_t col);
     void update() override;
     void sendMsg(const std::shared_ptr<Engine::MSG>& msg) override;
 

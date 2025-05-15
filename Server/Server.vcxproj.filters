@@ -42,6 +42,9 @@
     <ClCompile Include="Program\Room\RoomManager.cpp">
       <Filter>Исходные файлы\Program\Room</Filter>
     </ClCompile>
+    <ClCompile Include="..\Engine\GameClasses\FireLog.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Program\Program.h">
@@ -55,6 +58,9 @@
     </ClInclude>
     <ClInclude Include="Program\Room\RoomManager.h">
       <Filter>Исходные файлы\Program\Room</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Engine\GameClasses\FireLog.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

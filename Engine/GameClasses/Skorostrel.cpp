@@ -1,14 +1,13 @@
 // Skorostrel.cpp
 #include "Skorostrel.h"
 
-Skorostrel::Skorostrel(const std::string& plantType, uint8_t line, uint8_t col)
-// вызываем PeaShooter::PeaShooter, чтобы унаследовать всю логику стрельбы
+Skorostrel::Skorostrel(uint8_t line, uint8_t col)
     : PeaShooter(
-        plantType,
         line,
         col
     )
 {
+    this->plantType = "Skorostrel";
     // 1) Перекрываем textureId (защищённое поле Plant) на свою
     this->textureId = "shkibidiSanya.png";
 

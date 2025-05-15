@@ -1,9 +1,9 @@
 #include "PeaShooter.h"
 #include "Projectile.h"
 
-PeaShooter::PeaShooter(const std::string& plantType, uint8_t line, uint8_t col)
+PeaShooter::PeaShooter( uint8_t line, uint8_t col)
 	: Plant(
-		plantType,
+		"PeaShooter",
 		"PeaShooter.png",  // textureId
 		line,
 		col,

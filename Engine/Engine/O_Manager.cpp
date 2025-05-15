@@ -24,7 +24,6 @@ void O_Manager::update() {
 
 	for (const auto& msg : msgs) {
 
-
 		switch (msg->getIndex()) {
 		case Engine::MSG_TYPE::MSG_TYPE_KILL: {
 			auto killMsg = static_cast<Engine::MSG_TYPE_KILL*>(msg.get());

@@ -5,7 +5,8 @@
 #include "Engine/R_Manager.h"
 #include "Utils/Timer.h"
 #include "Utils/Config.h"
-class Plant : public Object {
+class Plant : public Object
+{
 protected:
     sf::Sprite sprite;
     std::string plantType;

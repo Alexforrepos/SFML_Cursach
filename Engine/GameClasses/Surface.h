@@ -168,6 +168,8 @@ public:
 
 	void sendMsg(const std::shared_ptr<Engine::MSG>& msg) override;
 
+	std::shared_ptr<Object> toPlant(std::string plantType, uint8_t line, uint8_t col);
+
 	sf::RectangleShape line(std::vector<Place> places)
 	{
 		sf::RectangleShape line_;

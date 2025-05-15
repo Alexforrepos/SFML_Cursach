@@ -7,7 +7,7 @@ public:
     Skorostrel() = default; // для сериализации
 
     // конструктор, который вы наверняка зовёте при «посадке»
-    Skorostrel(const std::string& plantType, uint8_t line, uint8_t col);
+    Skorostrel(uint8_t line, uint8_t col);
 
     // остальное наследуется от PeaShooter (update, draw, getPos и т.д.)
 

@@ -1,7 +1,7 @@
 #include "Apex.h"
-Apex::Apex(const std::string& plantType, uint8_t line, uint8_t col)
+Apex::Apex(uint8_t line, uint8_t col)
     : Plant(
-        plantType,
+        "Apex",
         "Apex.png",   // textureId теперь здесь
         line,
         col,
@@ -9,7 +9,7 @@ Apex::Apex(const std::string& plantType, uint8_t line, uint8_t col)
     )
 {
     // дополнительные настройки масштаба/прозрачности
-    sprite.setScale(0.2f, 0.2f);
+    sprite.setScale(0.1f, 0.1f);
     sprite.setColor(sf::Color(255, 255, 255, 200));
 }
 

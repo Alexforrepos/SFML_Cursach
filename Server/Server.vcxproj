@@ -140,6 +140,7 @@
     <Text Include="About.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\Engine\GameClasses\FireLog.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Program\Program.cpp" />
     <ClCompile Include="Program\Room\Room.cpp" />
@@ -147,6 +148,7 @@
     <ClCompile Include="Program\Server\Server.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Engine\GameClasses\FireLog.h" />
     <ClInclude Include="Program\Program.h" />
     <ClInclude Include="Program\Room\Room.h" />
     <ClInclude Include="Program\Room\RoomManager.h" />

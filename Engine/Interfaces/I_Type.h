@@ -22,6 +22,8 @@ extern std::pair<uint8_t, uint8_t> RANGE_PLANT;
 
 static bool isInRange(Types type, std::pair<uint8_t, uint8_t> range)
 { return uint8_t(type) >= range.first && uint8_t(type) <= range.second; };
+static bool isInRange(int type, std::pair<uint8_t, uint8_t> range)
+{ return uint8_t(type) >= range.first && uint8_t(type) <= range.second; };
 
 
 class I_Type
