@@ -16,6 +16,9 @@ protected:
 
 	friend class FireLog;
 public:
+
+	Projectile() = default;
+
 	Projectile(uint16_t velocity, uint16_t line, uint16_t damage, sf::Texture& texture, sf::Vector2f pos)
 		:Object(int(Types::BaseProjectileType)), velocity(velocity), line(line), damage(damage), spr(texture)
 	{
