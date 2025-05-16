@@ -31,6 +31,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Pumpkin.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Skorostrel.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Surface.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\ZombieNormis.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Interfaces\I_Identifiable.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Interfaces\I_Serialize.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Interfaces\I_Type.cpp" />
@@ -44,7 +45,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Utils\SpriteWrapper.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Utils\Timer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)xyeta.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)ZombieNormis.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Engine\MSG.h" />
@@ -65,6 +65,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Skorostrel.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Surface.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Zombie.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\ZombieNormis.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Interfaces\I_Identifiable.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Interfaces\I_Pacatable.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Interfaces\I_Pos.h" />
@@ -79,6 +80,5 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Utils\Serialization_Utils.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Utils\SpriteWrapper.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Utils\Timer.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)ZombieNormis.h" />
   </ItemGroup>
 </Project>

@@ -29,6 +29,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Utils\SpriteWrapper.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Utils\Timer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)xyeta.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\ZombieNormis.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Utils\Serialization_Utils.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
