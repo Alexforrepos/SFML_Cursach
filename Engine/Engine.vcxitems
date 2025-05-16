@@ -31,7 +31,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Pumpkin.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Skorostrel.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Surface.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\ZombieNormis.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Interfaces\I_Identifiable.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Interfaces\I_Serialize.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Interfaces\I_Type.cpp" />
@@ -65,7 +64,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Skorostrel.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Surface.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Zombie.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\ZombieNormis.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Interfaces\I_Identifiable.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Interfaces\I_Pacatable.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Interfaces\I_Pos.h" />
