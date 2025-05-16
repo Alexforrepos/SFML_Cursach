@@ -50,7 +50,7 @@ public:
         {
             if (this->time())
             {
-                //MSG_Manager::get().addMSG(std::make_shared<Engine::MSG_TYPE_KILL>(this, damage_msg->damager.get());
+                //MSG_Manager::get().addMSG(std::make_shared<Engine::MSG_TYPE_KILL>(this, damage_msg->damager.get()); //он ждёт лучших времён
                 std::cout << "PALITIKAA!!!" << std::endl;
             }
         }
