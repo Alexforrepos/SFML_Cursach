@@ -2,6 +2,7 @@
 #include "Engine/O_Manager.h"
 #include "GameClasses/Effect.h"
 #include "Utils/Config.h"
+#include "Utils/Timer.h"
 
 class Zombie
     : public Object
@@ -13,11 +14,13 @@ class Zombie
         damage,
         line;
     sf::Sprite spr;
+    bool isAttack;
     std::vector<EffectPtr> effects;
+    Timer time;
 public:
     Zombie() = default;
     Zombie(const uint16_t& HP, const uint16_t& velocity, const uint16_t& damage, const uint16_t& line, std::string textureId)
-        :Object(int(Types::BaseZombieType)), HP(HP), velocity(velocity), damage(damage), line(line), isFrozen(false), isEating(false)
+        :Object(int(Types::BaseZombieType)), HP(HP), velocity(velocity), damage(damage), line(line), isAttack(false)
     {
         spr.setTexture(R_Manager::get().access<sf::Texture>(textureId));
     }
@@ -30,6 +33,10 @@ public:
     {
         spr.setScale(0.1f, 0.1f);
     }
+    void draw(sf::RenderWindow& win)
+    {
+        win.draw(spr);
+    }
     sf::Vector2f getPos() { return pos; }
     sf::Vector2f setPos(const sf::Vector2f& pos) { spr.setPosition(pos); }
     void changePos(sf::Vector2f& pos) 
@@ -39,6 +46,18 @@ public:
     }
     void update() override
     {
+        if (isAttack)
+        {
+            if (this->time())
+            {
+                //MSG_Manager::get().addMSG(std::make_shared<Engine::MSG_TYPE_KILL>(this, damage_msg->damager.get());
+                std::cout << "PALITIKAA!!!" << std::endl;
+            }
+        }
+        if (time() && !isAttack)
+        {
+            changePos(pos);
+        }
         for (auto effect = effects.begin(); effect != effects.end(); )
         {
             if ((*effect)->tick(*this))
@@ -50,6 +69,7 @@ public:
                 effect = effects.erase(effect);
             }
         }
+        return;
     }
     void sendMsg(const std::shared_ptr<Engine::MSG>& msg) override
     {
@@ -70,38 +90,4 @@ public:
             effects.erase(std::remove(effects.begin(), effects.end(), eff), effects.end());
         }
     }
-};
-
-/*#include "Zombie.h"
-#include "Plant.h"
-
-void Zombie::Update()
-{
-    if (is_attack)
-    {
-        if (this->timer())
-        {
-            MSG_Manager::getmger()->add(new MSG(MSG_TYPE_DEAL_DAMAGE(target, this, 1)));
-            timer.restart();
-        }
-        return;
-    }
-     
-    if (timer() && !is_attack)
-    void draw(sf::RenderWindow& win) 
-    {
-        win.draw(spr);
-    }
-    void update() override 
-    {
-        if (!isEating)
-        {
-            changePos(pos);
-        }
-        if (isEating)
-        {
-            std::cout << "PALITIKAA!!!" << std::endl;
-        }
-    }
-    void sendMsg(const std::shared_ptr<Engine::MSG>& msg) override {}
 };
