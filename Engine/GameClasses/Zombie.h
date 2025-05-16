@@ -1,138 +1,93 @@
 #pragma once
 #include "Engine/O_Manager.h"
-
+#include "GameClasses/Effect.h"
+#include "Utils/Config.h"
+#include "Utils/Timer.h"
 
 class Zombie
-	: public Object
+    : public Object
 {
-	sf::Vector2f pos;
-	uint16_t HP,
-		velocity, // =speed 
-		damage,
-		line;
-	sf::Sprite spr;
-    bool isFrozen;
+    friend class Effect;
+    sf::Vector2f pos;
+    uint16_t HP,
+        velocity, // =speed 
+        damage,
+        line;
+    sf::Sprite spr;
+    bool isAttack;
+    std::vector<EffectPtr> effects;
+    Timer time;
 public:
-    Zombie(const uint16_t& HP, const uint16_t& velocity, const uint16_t& damage, const uint16_t& line, const sf::Sprite& spr)
-        :Object(int(Types::BaseZombieType)), HP(HP), velocity(velocity), damage(damage), line(line), spr(spr)
+    Zombie() = default;
+    Zombie(const uint16_t& HP, const uint16_t& velocity, const uint16_t& damage, const uint16_t& line, std::string textureId)
+        :Object(int(Types::BaseZombieType)), HP(HP), velocity(velocity), damage(damage), line(line), isAttack(false)
     {
+        spr.setTexture(R_Manager::get().access<sf::Texture>(textureId));
+    }
+    Zombie(const uint16_t& line)
+        :Zombie(
+            Config::getInstance()["ZombieParams"]["Zombies"]["Zombie"]["HP"],
+            Config::getInstance()["ZombieParams"]["Zombies"]["Zombie"]["Speed"],
+            Config::getInstance()["ZombieParams"]["Zombies"]["Zombie"]["Damage"],
+            line, "bullet.png")
+    {
+        spr.setScale(0.1f, 0.1f);
+    }
+    void draw(sf::RenderWindow& win)
+    {
+        win.draw(spr);
     }
     sf::Vector2f getPos() { return pos; }
-    sf::Vector2f setPos(const sf::Vector2f& pos) { this->pos = pos; }
+    sf::Vector2f setPos(const sf::Vector2f& pos) { spr.setPosition(pos); }
     void changePos(sf::Vector2f& pos) 
     {
         this->pos.x -= velocity;
+        spr.setPosition(pos);
     }
-    void update() override {}
-    void sendMsg(const std::shared_ptr<Engine::MSG>& msg) override {}
-};
-
-/*#include "Zombie.h"
-#include "Plant.h"
-
-void Zombie::Update()
-{
-    if (is_attack)
+    void update() override
     {
-        if (this->timer())
+        if (isAttack)
         {
-            MSG_Manager::getmger()->add(new MSG(MSG_TYPE_DEAL_DAMAGE(target, this, 1)));
-            timer.restart();
+            if (this->time())
+            {
+                //MSG_Manager::get().addMSG(std::make_shared<Engine::MSG_TYPE_KILL>(this, damage_msg->damager.get()); //он ждёт лучших времён
+                std::cout << "PALITIKAA!!!" << std::endl;
+            }
+        }
+        if (time() && !isAttack)
+        {
+            changePos(pos);
+        }
+        for (auto effect = effects.begin(); effect != effects.end(); )
+        {
+            if ((*effect)->tick(*this))
+            {
+                effect++;
+            }
+            else
+            {
+                effect = effects.erase(effect);
+            }
         }
         return;
     }
-     
-    if (timer() && !is_attack)
+    void sendMsg(const std::shared_ptr<Engine::MSG>& msg) override
     {
-        timer.restart();
 
-        sf::Vector2f Move(-5.0, 0.0);
-        MSG_Manager::getmger()->add(new MSG(MSG_TYPE_MOVE(Move, this)));
-        this->Position += Move;
-        sprite.move(Move);
     }
-
-    for (auto ef : eff) ef;
-}
-
-void Zombie::SendMSG(MSG* msg)
-{
-    if (msg->MSG_TYPE.index() == (int)MSG_TYPE::MSG_TYPE_MOVE)
+    void addEffect(const EffectPtr& eff)
     {
-        if (MSG_TYPE_MOVE(*msg).obj->Serialize() == (int)Serialize_Enum::Pea)
+        effects.push_back(eff);
+    }
+    void removeEffect(const EffectPtr& eff = nullptr)
+    {
+        if (!eff)
         {
-
-            pea* p = static_cast<pea*>(MSG_TYPE_MOVE(*msg).obj);
-          
-            if (p->GetBound().intersects(this->getBounds()))
-            {
-              
-                HP -= p->getDamage();
-
-
-                MSG_Manager::getmger()->add(new MSG(MSG_TYPE_KILL(p, p)));
-
-
-                if (HP <= 0)
-                {
-                    HP = 0;
-                    MSG_Manager::getmger()->add(new MSG(MSG_TYPE_KILL(this, this)));
-                }
-            }
+            effects.clear();
+        }
+        else
+        {
+            effects.erase(std::remove(effects.begin(), effects.end(), eff), effects.end());
         }
     }
-
-    if (msg->MSG_TYPE.index() == (int)MSG_TYPE::MSG_TYPE_DEAL_DAMAGE)
-    {
-        if (MSG_TYPE_DEAL_DAMAGE(*msg).target == this)
-        {
-            HP -= MSG_TYPE_DEAL_DAMAGE(*msg).damage;
-            if (HP <= 0)
-            {
-                HP = 0;
-                MSG_Manager::getmger()->add(new MSG(MSG_TYPE_KILL(this, this)));
-            }
-        }
-    }
-
-    if (msg->MSG_TYPE.index() == (int)MSG_TYPE::MSG_TYPE_KILL)
-    {
-        if (MSG_TYPE_KILL(*msg).victim == this->target)
-        {
-            this->StopAttack();
-        }
-        if (MSG_TYPE_KILL(*msg).victim->Serialize() == int(Serialize_Enum::Effect))
-        {
-            for (auto it = eff.begin(); it != eff.end(); it++)
-            {
-                if (*it == MSG_TYPE_KILL(*msg).victim)
-                {
-                    eff.erase(it);
-                    break;
-                }
-            }
-        }
-    }
-}
-
-
-void Zombie::StartAttack(Plant * plant)
-{
-    target = plant;
-    is_attack = true;
-}
-
-void Zombie::StopAttack()
-{
-    is_attack = false;
-    target = nullptr;
-}
-
-void Zombie::Draw(sf::RenderWindow& win)
-{
-    win.draw(sprite);
-    sf::RectangleShape r(Size);
-    r.setPosition(Position);
-    win.draw(r);
-}
-*/
+};

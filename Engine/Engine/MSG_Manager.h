@@ -28,7 +28,6 @@ public:
 		if (msg->getIndex() == Engine::MSG_TYPE::MSG_TYPE_KILL)
 			msg->getIndex();
 		Buff.emplace_back(std::move(msg));
-		
 	}
 
 	void clear() 

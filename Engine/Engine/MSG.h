@@ -17,6 +17,8 @@ namespace Engine
 		MSG_TYPE_DAMAGE,
 		MSG_NET_TYPE,
 		MSG_TYPE_KILL_BY_ID,
+		MSG_TYPE_ADD_EFFECT,
+		MSG_TYPE_REMOVE_EFFECT,
 		MSG_TYPE_SET_INVINCIBILITY
 
 	};
@@ -116,6 +118,35 @@ namespace Engine
 
 		}
 	};
+	class MSG_TYPE_ADD_EFFECT
+		: public MSG
+	{
+	public:
+		std::shared_ptr<class Effect> effect;
+		std::shared_ptr<Object> target;
+
+		MSG_TYPE_ADD_EFFECT(std::shared_ptr<Effect> eff, std::shared_ptr<Object> tgt)
+			: MSG(int(MSG_TYPE::MSG_TYPE_ADD_EFFECT))
+			, effect(std::move(eff)), target(std::move(tgt))
+		{
+
+		}
+	};
+
+	class MSG_TYPE_REMOVE_EFFECT
+		: public MSG
+	{
+	public:
+		uint64_t targetId;
+		uint32_t effectId;
+
+		MSG_TYPE_REMOVE_EFFECT(uint64_t tgtId, uint32_t effId)
+			: MSG(int(MSG_TYPE::MSG_TYPE_REMOVE_EFFECT))
+			, targetId(tgtId), effectId(effId)
+		{
+
+		}
+	};
 
 	class MSG_NET_TYPE
 		:public MSG
@@ -125,5 +156,4 @@ namespace Engine
 
 	};
 }
-
 
