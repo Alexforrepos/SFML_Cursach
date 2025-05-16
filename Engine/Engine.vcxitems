@@ -22,6 +22,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Apex.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Button.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Card.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Effect.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Hologram.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\IceP.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\PeaShooter.cpp" />
@@ -29,6 +30,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Projectile.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Pumpkin.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Skorostrel.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\SlowEffect.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Surface.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Interfaces\I_Identifiable.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Interfaces\I_Serialize.cpp" />
@@ -54,6 +56,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Apex.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Button.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Card.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Effect.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Hologram.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\IceP.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\PeaShooter.h" />
@@ -61,6 +64,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Projectile.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Pumpkin.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Skorostrel.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\SlowEffect.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Surface.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Zombie.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Interfaces\I_Identifiable.h" />
