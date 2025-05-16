@@ -1,17 +1,18 @@
 #pragma once
 #include "Engine/O_Manager.h"
-
+#include "GameClasses/Effect.h"
 
 class Zombie
-	: public Object
+    : public Object
 {
-	sf::Vector2f pos;
-	uint16_t HP,
-		velocity, // =speed 
-		damage,
-		line;
-	sf::Sprite spr;
-    bool isFrozen;
+    friend class Effect;
+    sf::Vector2f pos;
+    uint16_t HP,
+        velocity, // =speed 
+        damage,
+        line;
+    sf::Sprite spr;
+    std::vector<EffectPtr> effects;
 public:
     Zombie(const uint16_t& HP, const uint16_t& velocity, const uint16_t& damage, const uint16_t& line, const sf::Sprite& spr)
         :Object(int(Types::BaseZombieType)), HP(HP), velocity(velocity), damage(damage), line(line), spr(spr)
@@ -19,12 +20,43 @@ public:
     }
     sf::Vector2f getPos() { return pos; }
     sf::Vector2f setPos(const sf::Vector2f& pos) { this->pos = pos; }
-    void changePos(sf::Vector2f& pos) 
+    void changePos(sf::Vector2f& pos)
     {
         this->pos.x -= velocity;
     }
-    void update() override {}
-    void sendMsg(const std::shared_ptr<Engine::MSG>& msg) override {}
+    void update() override
+    {
+        for (auto effect = effects.begin(); effect != effects.end(); )
+        {
+            if ((*effect)->tick(*this))
+            {
+                effect++;
+            }
+            else
+            {
+                effect = effects.erase(effect);
+            }
+        }
+    }
+    void sendMsg(const std::shared_ptr<Engine::MSG>& msg) override
+    {
+
+    }
+    void addEffect(const EffectPtr& eff)
+    {
+        effects.push_back(eff);
+    }
+    void removeEffect(const EffectPtr& eff = nullptr)
+    {
+        if (!eff)
+        {
+            effects.clear();
+        }
+        else
+        {
+            effects.erase(std::remove(effects.begin(), effects.end(), eff), effects.end());
+        }
+    }
 };
 
 /*#include "Zombie.h"

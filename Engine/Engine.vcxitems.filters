@@ -40,6 +40,7 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)ZombieNormis.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Projectile.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Effect.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Engine\MSG.h" />
@@ -74,5 +75,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Utils\SpriteWrapper.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Utils\Timer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)ZombieNormis.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Effect.h" />
   </ItemGroup>
 </Project>

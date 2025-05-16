@@ -22,6 +22,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Apex.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Button.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Card.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Effect.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Hologram.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\IceP.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\PeaShooter.cpp" />
@@ -54,6 +55,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Apex.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Button.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Card.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Effect.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Hologram.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\IceP.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\PeaShooter.h" />
