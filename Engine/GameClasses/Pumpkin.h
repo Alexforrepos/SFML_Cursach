@@ -6,11 +6,12 @@ class Pumpkin : public Plant
 	friend class Surface;
 
 
-	std::shared_ptr<Plant> original_plant; // Изменяем тип на shared_ptr<Plant>
+	std::shared_ptr<Plant> original_plant; 
 
 public:
 	Pumpkin(uint8_t line, uint8_t col)
-		: Plant("Pumpkin",
+		: Plant(
+			"Pumpkin",
 			Config::getInstance()["PlantParams"]["Plants"]["Pumpkin"]["textureId"],
 			line, col,
 			Config::getInstance()["PlantParams"]["Plants"]["Pumpkin"]["HP"])
