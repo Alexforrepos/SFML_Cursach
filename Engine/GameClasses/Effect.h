@@ -7,6 +7,8 @@ class Effect {
 protected:
     Timer cooldown;
 public:
+    friend class Zombie;
+
 
     Effect(int period)
         : cooldown(period)
