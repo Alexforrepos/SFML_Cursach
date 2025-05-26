@@ -4,18 +4,21 @@
 #include "Utils/Config.h"
 #include "Utils/Timer.h"
 #include <SFML/Graphics.hpp>
+#include <memory>
+#include <vector>
+#include <algorithm>
 
 class Zombie : public Object
 {
     friend class Effect;
     sf::Vector2f pos;
     uint16_t HP;
-    uint16_t velocity; // = speed
+    uint16_t velocity;
     uint16_t damage;
     uint16_t line;
     sf::Sprite spr;
     bool isAttack;
-    std::shared_ptr<Object> attackTarget; // Stores attack target
+    std::shared_ptr<Object> attackTarget;
     std::vector<EffectPtr> effects;
     Timer time;
 
@@ -37,6 +40,11 @@ public:
             "bullet.png")
     {
         spr.setScale(0.1f, 0.1f);
+    }
+
+    uint16_t getLine()
+    {
+        return this->line;
     }
 
     void draw(sf::RenderWindow& win) override
@@ -61,6 +69,11 @@ public:
         spr.setPosition(this->pos);
     }
 
+    sf::FloatRect getBounds() const
+    {
+        return spr.getGlobalBounds();
+    }
+
     void setAttackTarget(std::shared_ptr<Object> target)
     {
         attackTarget = target;
@@ -73,7 +86,6 @@ public:
         {
             if (this->time())
             {
-                // Attack the stored target
                 MSG_Manager::get().addMSG(
                     std::make_shared<Engine::MSG_TYPE_DAMAGE>(
                         damage,
@@ -125,7 +137,7 @@ public:
                         std::make_shared<Engine::MSG_TYPE_KILL>(this, damageMsg->damager.get())
                     );
                     HP = 0;
-                    attackTarget = nullptr; // Clear target when dead
+                    attackTarget = nullptr;
                     isAttack = false;
                 }
                 else
@@ -140,8 +152,8 @@ public:
             auto killMsg = std::static_pointer_cast<Engine::MSG_TYPE_KILL>(msg);
             if (killMsg->victim == this)
             {
-                HP = 0; // Mark as dead
-                attackTarget = nullptr; // Clear target
+                HP = 0;
+                attackTarget = nullptr;
                 isAttack = false;
             }
             break;
@@ -175,7 +187,7 @@ public:
             break;
         }
         default:
-            break; // Ignore unhandled message types
+            break;
         }
     }
 
