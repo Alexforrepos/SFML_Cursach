@@ -53,13 +53,24 @@ public:
 
 	void deletePLant()
 	{
-		if (!isplanted) return;
-		MSG_Manager::get().addMSG(std::shared_ptr<Engine::MSG>(new
-			Engine::MSG_TYPE_KILL_BY_ID(plantid, VOID_ID)));
+		if (!isplanted || !plantobj)
+			return;
+
+		// 1) ”казатель на жертву Ч это само растение
+		Object* victim = plantobj.get();
+
+		// 2) ќтправл€ем сообщение MSG_TYPE_KILL(victim, nullptr)
+		MSG_Manager::get().addMSG(
+			std::make_shared<Engine::MSG_TYPE_KILL>(
+				victim,       // кто погибает
+				/* killer */  nullptr
+			)
+		);
+
+		// 3) ќчищаем состо€ние клетки
 		isplanted = false;
 		plantobj.reset();
-		plantid = VOID_ID;
-	};
+	}
 
 	bool isPlanted()
 	{
