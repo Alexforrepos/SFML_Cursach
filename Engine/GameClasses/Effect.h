@@ -8,7 +8,10 @@ class Zombie;
 class Effect {
 protected:
     Timer cooldown;
-    uint32_t id;
+public:
+    friend class Zombie;
+
+    uint32_t id; // For MSG_TYPE_REMOVE_EFFECT
 
 public:
     Effect(int period, uint32_t effectId)

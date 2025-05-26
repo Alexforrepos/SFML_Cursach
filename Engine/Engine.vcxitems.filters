@@ -31,6 +31,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Utils\SpriteWrapper.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Utils\Timer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)xyeta.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\ZombieNormis.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Utils\Serialization_Utils.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
@@ -44,8 +45,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Effect.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\ScoreManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Sun.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\FreezeEffect.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\FreezeProjectile.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Engine\MSG.h" />
@@ -83,7 +82,5 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Effect.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\ScoreManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Sun.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\FreezeEffect.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\FreezeProjectile.h" />
   </ItemGroup>
 </Project>
