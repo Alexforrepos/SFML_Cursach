@@ -177,7 +177,6 @@ void Surface::sendMsg(const std::shared_ptr<Engine::MSG>& msg)
 					}
 				}
 			}
-
 			if (killMsg->victim->type() == int(Types::BasePlantType) && dynamic_cast<Plant*>(killMsg->victim)->getType() == "Pumpkin")
 			{
 				auto pumpkin = dynamic_cast<Pumpkin*>(killMsg->victim);
