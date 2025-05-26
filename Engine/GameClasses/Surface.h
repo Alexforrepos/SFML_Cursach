@@ -4,7 +4,9 @@
 #include "Engine/Object.h"
 #include "Engine/MSG_Manager.h"
 #include "Hologram.h"
-
+#include "GameClasses/Sun.h"
+#include <random>   // для генератора случайных чисел
+#include "ScoreManager.h"
 #define DEFAULT_LINE_QOUNT 5
 #define DEFAULT_LINE_SIZE 9
 #define START_SURFACE_POSITION_X 300
@@ -122,6 +124,7 @@ private:
 	std::vector<std::vector<Place>> place_vector;
 	std::vector<Zombie_StartPosition> zombie_places;
 	int lines_qount, lines_size;
+	Timer sunSpawnTimer{ 5000 }; // 5 сек
 
 public:
 	Surface() = default;

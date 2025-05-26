@@ -25,7 +25,42 @@ void Surface::setPos(sf::Vector2f other)
 
 void Surface::update()
 {
+	if (sunSpawnTimer())
+	{
+		// 1) определ€ем размеры сетки
+		const int rows = static_cast<int>(place_vector.size());
+		const int cols = rows > 0 ? static_cast<int>(place_vector[0].size()) : 0;
+		if (rows > 0 && cols > 0)
+		{
+			// 2) один раз инициализируем генератор и распределени€
+			static std::random_device rd;
+			static std::mt19937 gen(rd());
+			std::uniform_int_distribution<> distRow(0, rows - 1);
+			std::uniform_int_distribution<> distCol(0, cols - 1);
 
+			// 3) выбираем случайную €чейку
+			int r = distRow(gen);
+			int c = distCol(gen);
+			auto& cell = place_vector[r][c];
+
+			// 4) вычисл€ем позицию в центре этой €чейки
+			sf::Vector2f cellPos = cell.shape_rect.getPosition();
+			sf::Vector2f cellSize = cell.shape_rect.getSize();
+			sf::Vector2f sunPos{
+				cellPos.x + cellSize.x / 2.f,
+				cellPos.y + cellSize.y / 2.f
+			};
+
+			// 5) создаЄм и спавним Sun
+			auto& tex = R_Manager::get().access<sf::Texture>("Sun.png");
+			auto sun = std::make_shared<Sun>(sunPos, tex);
+			MSG_Manager::get().addMSG(
+				std::make_shared<Engine::MSG_TYPE_CREATE>(sun, this)
+			);
+		}
+
+		sunSpawnTimer.restart();
+	}
 }
 
 void Surface::draw(sf::RenderWindow& win)

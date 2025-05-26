@@ -20,10 +20,8 @@
                 "Avaliable_Plant": [
                     "PeaShooter",
                     "Apex",
-                    "FireLog",
                     "Pumpkin",
                     "Skorostrel",
-                    "Sunflower",
                     "Shovel"
                 ],
                 "Avaliavle_Zombie": [
@@ -76,6 +74,16 @@
             },
             "Pumpkin": {
                 "HP": 1000,
+                "cost": 50,
+                "textureId": "shkibidiSanya.png"
+            },
+            "Shovel": {
+                "cost": 0
+            },
+            "Skorostrel": {
+                "CD": 1,
+                "Damage": 34,
+                "HP": 150,
                 "cost": 50,
                 "textureId": "shkibidiSanya.png"
             },

@@ -7,7 +7,7 @@
 #include "Engine/R_Manager.h"
 #include "Engine/O_Manager.h"
 #include "GameClasses/Hologram.h"
-
+#include "ScoreManager.h"
 class Card :
     public Object
 {

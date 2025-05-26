@@ -23,19 +23,24 @@ Card::Card(const std::string& plantType)
 
 void Card::update() {
     sf::Vector2i mousePixelPos = sf::Mouse::getPosition();
-
     if (sprite.getGlobalBounds().contains(sf::Vector2f(mousePixelPos))) {
         sprite.setColor(sf::Color::White);
-
-        if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && holo == nullptr) 
-        {
-            holo = std::make_shared<Hologram>(basePosition, plantType);
-            MSG_Manager::get().addMSG(std::shared_ptr<Engine::MSG>(new Engine::MSG_TYPE_CREATE(holo, this)));
-            clickTimer.restart();
+        if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && holo == nullptr) {
+            // стоимость из config
+            int cost = Config::getInstance()["PlantParams"]
+                ["Plants"][plantType]["cost"].get<int>();
+            if (ScoreManager::get().spend(cost)) {
+                holo = std::make_shared<Hologram>(basePosition, plantType);
+                MSG_Manager::get().addMSG(
+                    std::make_shared<Engine::MSG_TYPE_CREATE>(holo, this));
+                clickTimer.restart();
+            }
+            else {
+                // можно проиграть звук отказа или визуал
+            }
         }
     }
-    else
-    {
+    else {
         sprite.setColor(sf::Color(255, 255, 255, 200));
     }
 }
