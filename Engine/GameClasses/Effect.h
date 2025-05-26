@@ -1,6 +1,8 @@
 #pragma once
 #include <memory>
-#include "Utils/Timer.h"     
+#include <cstdint>
+#include "Utils/Timer.h"
+
 class Zombie;
 
 class Effect {
@@ -9,20 +11,23 @@ protected:
 public:
     friend class Zombie;
 
+    uint32_t id; // For MSG_TYPE_REMOVE_EFFECT
 
-    Effect(int period)
-        : cooldown(period)
+public:
+    Effect(int period, uint32_t effectId)
+        : cooldown(period), id(effectId)
     {
         cooldown.restart();
     }
 
     virtual ~Effect() = default;
 
+    uint32_t getId() const { return id; }
+
     virtual void influence(Zombie& target) = 0;
 
     bool tick(Zombie& target)
     {
-
         if (!cooldown())
         {
             influence(target);
@@ -30,7 +35,6 @@ public:
         }
         return false;
     }
-
-
 };
+
 using EffectPtr = std::shared_ptr<Effect>;
