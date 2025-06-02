@@ -146,7 +146,7 @@ public:
             }
             break;
         }
-        case Engine::MSG_TYPE::MSG_TYPE_ADD_EFFECT:
+        /*case Engine::MSG_TYPE::MSG_TYPE_ADD_EFFECT:
         {
             auto effectMsg = std::static_pointer_cast<Engine::MSG_TYPE_ADD_EFFECT>(msg);
             if (effectMsg->target.get() == this)
@@ -154,7 +154,7 @@ public:
                 addEffect(effectMsg->effect);
             }
             break;
-        }
+        }*/
         case Engine::MSG_TYPE::MSG_TYPE_REMOVE_EFFECT:
         {
             auto removeEffectMsg = std::static_pointer_cast<Engine::MSG_TYPE_REMOVE_EFFECT>(msg);

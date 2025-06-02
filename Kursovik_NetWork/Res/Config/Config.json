@@ -19,6 +19,7 @@
             {
                 "Avaliable_Plant": [
                     "PeaShooter",
+                    "IceP",
                     "Apex",
                     "Pumpkin",
                     "Skorostrel",
@@ -64,6 +65,11 @@
                 "HP": 34,
                 "cost": 50,
                 "textureId": "Firelog.jpg"
+            },
+            "IceP": {
+                "Damage": 20,
+                "HP": 100,
+                "cost": 100
             },
             "PeaShooter": {
                 "CD": 1,

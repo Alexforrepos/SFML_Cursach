@@ -4,7 +4,7 @@
 #include "Skorostrel.h"
 #include "FireLog.h"
 #include "Pumpkin.h"
-
+#include "IceP.h"
 using namespace std;
 
 sf::Vector2f Surface::getPos()
@@ -226,6 +226,11 @@ std::shared_ptr<Object> Surface::toPlant(std::string plantType, uint8_t line, ui
 	else if (plantType == "Pumpkin")
 	{
 		return make_shared<Pumpkin>(line, col);
+
+	}
+	else if (plantType == "IceP")
+	{
+		return make_shared<IceP>(line, col);
 
 	}
 	return std::shared_ptr<Object>();
