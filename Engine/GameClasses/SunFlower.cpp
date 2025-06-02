@@ -9,7 +9,7 @@ SunFlower::SunFlower(uint8_t line, uint8_t col)
     ),
     sunTimer(Config::getInstance()["PlantParams"]["Plants"]["SunFlower"]["CD"].get<int>() * 1000) 
 {
-    sprite.setScale(0.3f, 0.3f);
+    sprite.setScale(0.2f, 0.2f);
     sprite.setColor(sf::Color(255, 255, 150, 255));
     sunTimer.restart();
 }
