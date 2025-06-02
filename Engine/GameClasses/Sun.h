@@ -3,6 +3,7 @@
 #include "Utils/Timer.h"
 #include <SFML/Graphics.hpp>
 #include "GameClasses/ScoreManager.h"
+#include "Engine/MSG_Manager.h"
 class Sun : public Object {
     sf::Sprite sprite;
     Timer lifetime{ 15000 };      // 15 сек

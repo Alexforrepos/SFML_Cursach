@@ -34,7 +34,7 @@
             {
                 "Avaliable_Plant": [
                     "Plant",
-                    "Sunflower",
+                    "SunFlower",
                     "Ice Shooter"
                 ],
                 "Avaliavle_Zombie": [
@@ -93,9 +93,8 @@
                 "cost": 50,
                 "textureId": "shkibidiSanya.png"
             },
-            "Sunflower": {
+            "SunFlower": {
                 "CD": 15,
-                "DeathGainSun": false,
                 "HP": 100,
                 "cost": 50,
                 "textureId": "Sunfloweer.png"

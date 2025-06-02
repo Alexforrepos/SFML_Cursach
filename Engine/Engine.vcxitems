@@ -34,6 +34,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\ScoreManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Skorostrel.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Sun.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\SunFlower.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Surface.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Interfaces\I_Identifiable.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Interfaces\I_Serialize.cpp" />
@@ -70,6 +71,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\ScoreManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Skorostrel.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Sun.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\SunFlower.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Surface.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Zombie.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Interfaces\I_Identifiable.h" />
