@@ -2,10 +2,10 @@
 
 sf::Vector2f Card::basePosition = { 50.f, 50.f };
 int Card::cardCounter = 0;
-std::shared_ptr<Hologram> Card::holo = nullptr; 
+std::shared_ptr<Hologram> Card::holo = nullptr;
 
 Card::Card(const std::string& plantType)
-    :Object(int(Types::Cart)),
+    : Object(int(Types::Cart)),
     clickTimer(2000),
     plantType(plantType)
 {
@@ -15,12 +15,20 @@ Card::Card(const std::string& plantType)
     sf::Vector2f position = basePosition + sf::Vector2f(0.f, cardCounter * 120.f);
     cardCounter++;
 
-    sprite.setTexture(R_Manager::get().access<sf::Texture>("ps.png"));
+    std::string textureId = Config::getInstance()["PlantParams"]["Plants"][plantType]["textureId"].get<std::string>();
+    sf::Texture& texture = R_Manager::get().access<sf::Texture>(textureId);
+
+    sprite.setTexture(texture);
+
+    sf::Vector2f cardSize(100.f, 100.f);
+    sf::Vector2u textureSize = texture.getSize();
+    float scaleX = cardSize.x / textureSize.x;
+    float scaleY = cardSize.y / textureSize.y;
+    sprite.setScale(scaleX, scaleY);
+
     sprite.setPosition(position);
-    sprite.setScale(0.2f, 0.2f);
     sprite.setColor(sf::Color(255, 255, 255, 200));
 }
-
 void Card::update() {
     sf::Vector2i mousePixelPos = sf::Mouse::getPosition();
     if (sprite.getGlobalBounds().contains(sf::Vector2f(mousePixelPos))) {

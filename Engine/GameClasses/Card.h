@@ -8,8 +8,8 @@
 #include "Engine/O_Manager.h"
 #include "GameClasses/Hologram.h"
 #include "ScoreManager.h"
-class Card :
-    public Object
+#include "Utils/Config.h"
+class Card : public Object
 {
     sf::Sprite sprite;
     Timer clickTimer;
@@ -17,8 +17,7 @@ class Card :
     static int cardCounter;
     std::string plantType;
     bool wasLeftPressed = false;
-
-    static std::shared_ptr<Hologram> holo; // Сделать holo статическим
+    static std::shared_ptr<Hologram> holo;
 
 public:
     Card() = default;
