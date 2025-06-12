@@ -1,6 +1,7 @@
 #pragma once
 #include "Engine/O_Manager.h"
 static constexpr float MAX_X = 2000.f;
+
 class Projectile
 	:public Object
 

@@ -5,6 +5,7 @@
 #include "Engine/R_Manager.h"
 #include "Utils/Timer.h"
 #include "Utils/Config.h"
+#include "Zombie.h"
 class Plant : public Object
 {
 	friend class Surface;
@@ -86,6 +87,37 @@ public:
 			sprite.setRotation(rotation);
 			sprite.setTextureRect(textureRect);
 			sprite.setColor(color);
+		}
+	}
+
+	void sendMsg(const std::shared_ptr<Engine::MSG>& msg)
+	{
+		switch (msg->getIndex())
+		{
+		case Engine::MSG_TYPE::MSG_TYPE_MOVE:
+		{
+			auto msgmove = dynamic_cast<Engine::MSG_TYPE_MOVE*>(msg.get());
+
+			if (!msgmove)
+				return;
+
+			switch (msgmove->target->type())
+			{
+				case int(Types::BaseZombieType) :
+				{
+					auto dr = dynamic_cast<Zombie*>(msgmove->target.get());
+					if (!dr)return;
+					//TODO::логику коллизийй для столкновения зомби и растения 
+				}
+				break;
+
+				default:
+					break;
+			}
+		}
+		break;
+		default:
+			break;
 		}
 	}
 };

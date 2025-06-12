@@ -36,6 +36,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Sun.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\SunFlower.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Surface.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Zombie.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Interfaces\I_Identifiable.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Interfaces\I_Serialize.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Interfaces\I_Type.cpp" />

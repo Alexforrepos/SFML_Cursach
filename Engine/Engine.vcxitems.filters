@@ -5,12 +5,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Utils\Serialization_Utils.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\PeaShooter.cpp">
-      <Filter>GameClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Apex.cpp">
-      <Filter>GameClasses</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Projectile.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Effect.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Interfaces\I_Identifiable.cpp">
@@ -114,6 +108,11 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)Utils\Timer.cpp">
       <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Apex.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\PeaShooter.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Zombie.cpp">
+      <Filter>GameObject</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
