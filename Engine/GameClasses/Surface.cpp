@@ -8,6 +8,17 @@
 #include "SunFlower.h"
 using namespace std;
 
+void Surface::setZombie(std::shared_ptr<Object> zombie)
+{
+	auto zmb = dynamic_cast<Zombie*>(zombie.get());
+	if (!zmb)
+	{
+		std::cout << "ist not zombie its vibladok\n";
+		return;
+	}
+	zmb->setPos(this->zombie_places[zmb->getLine()].shape_rect.getPosition());
+}
+
 sf::Vector2f Surface::getPos()
 {
 	//NULL
@@ -205,6 +216,16 @@ void Surface::sendMsg(const std::shared_ptr<Engine::MSG>& msg)
 		break;
 	case Engine::MSG_TYPE::MSG_TYPE_MOVE:
 		//TODO::сделать проверку на объект типа зомби на пересечение границы зоны проигрыша
+		break;
+	case Engine::MSG_TYPE::MSG_TYPE_CREATE:
+	{
+		auto msg_create = dynamic_cast<Engine::MSG_TYPE_CREATE*>(msg.get());
+		if (!msg_create || msg_create->creature->type() != int(Types::BaseZombieType))
+			return;
+		this->setZombie(msg_create->creature);
+
+	}
+	break;
 	default:
 		break;
 	}

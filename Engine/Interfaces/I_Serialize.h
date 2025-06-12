@@ -14,15 +14,14 @@ public:
 
     static std::shared_ptr<I_Serialize> create() = delete;
 
-    // Виртуальный метод для сериализации
+    
     template <class Archive>
     void serialize(Archive& ar)
-    {// Базовая реализация (может быть пустой)
+    {
     };
 
     std::string serializeToStream() {
-        // Убедитесь, что объект создан через make_shared
-        //auto ptr = shared_from_this(); // Теперь безопасно
+       
         std::stringstream ss;
         {
             cereal::BinaryOutputArchive archive(ss);

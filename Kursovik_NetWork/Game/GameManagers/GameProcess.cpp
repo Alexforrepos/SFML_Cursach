@@ -25,6 +25,11 @@ void GameProcess::run()
 {
    // static Timer escapeDelay(200);
     // Game logic here
+
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
+    {
+        MSG_Manager::get().addMSG(std::make_shared<Engine::MSG_TYPE_CREATE>(std::make_shared<Zombie>(rand() % 3), nullptr));
+    }
 }
 
 void GameProcess::close()

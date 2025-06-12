@@ -39,6 +39,8 @@ public:
         spr.setScale(0.1f, 0.1f);
     }
 
+    unsigned getLine() { return line; };
+
     void draw(sf::RenderWindow& win) override
     {
         win.draw(spr);

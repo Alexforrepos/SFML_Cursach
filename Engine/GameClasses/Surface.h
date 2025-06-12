@@ -7,6 +7,7 @@
 #include "GameClasses/Sun.h"
 #include <random>   // для генератора случайных чисел
 #include "ScoreManager.h"
+#include <GameClasses/Zombie.h>
 #define DEFAULT_LINE_QOUNT 5
 #define DEFAULT_LINE_SIZE 9
 #define START_SURFACE_POSITION_X 300
@@ -167,6 +168,9 @@ public:
 			);
 		}
 	}
+
+	void setZombie(std::shared_ptr<Object> zombie);
+
 
 	Surface(const Surface& other) = default;
 
