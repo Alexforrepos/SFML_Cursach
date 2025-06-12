@@ -7,16 +7,26 @@
 #include <SFML/Graphics.hpp>
 #include <memory>
 #include "MSG.h"
+#include <iostream>
+#include <mutex>
 
+//std::mutex logmutex;
+
+static void logMessage(std::string msg)
+{
+
+	std::cout << msg << std::endl;
+//	logmutex.unlock();
+}
 
 
 class Object
 	: public I_Pos,
 	public I_Type,
 	public I_Identifiable,
-	public I_Serialize
-	
-	//,public std::enable_shared_from_this<Object>
+	//public I_Serialize
+
+	public std::enable_shared_from_this<Object>
 {
 protected:
 	unsigned long long id;
@@ -38,21 +48,21 @@ public:
 
 	virtual ~Object() = default;
 
-	// Чисто виртуальные методы
+	
 	virtual void update() {};
 	virtual void draw(sf::RenderWindow& win) {};
 	virtual void sendMsg(const std::shared_ptr<Engine::MSG>& msg) {};
 
-	// Реализация интерфейсов
+	
 	unsigned long long getId() override { return id; }
 	int type() override { return type_; }
 
-	// Сериализация через CRTP
+	
 	template <class Archive>
 	void serialize(Archive& ar)
 	{
 		ar(cereal::base_class<I_Serialize>(this));
-		ar(id,type_);
+		ar(id, type_);
 	}
 
 	// Унаследовано через I_Pos

@@ -1,6 +1,6 @@
 #include "Object.h"
-CEREAL_REGISTER_TYPE(Object);
-CEREAL_REGISTER_POLYMORPHIC_RELATION(I_Serialize, Object);
+//CEREAL_REGISTER_TYPE(Object);
+//CEREAL_REGISTER_POLYMORPHIC_RELATION(I_Serialize, Object);
 
 
 sf::Vector2f Object::getPos()

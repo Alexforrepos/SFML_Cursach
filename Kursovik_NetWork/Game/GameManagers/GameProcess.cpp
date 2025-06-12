@@ -23,11 +23,12 @@ void GameProcess::start(int levelNumber)
 
 void GameProcess::run()
 {
-   // static Timer escapeDelay(200);
+    static Timer escapeDelay(500);
     // Game logic here
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z) && escapeDelay())
     {
+        escapeDelay.restart();
         MSG_Manager::get().addMSG(std::make_shared<Engine::MSG_TYPE_CREATE>(std::make_shared<Zombie>(rand() % 3), nullptr));
     }
 }

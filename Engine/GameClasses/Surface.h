@@ -5,7 +5,7 @@
 #include "Engine/MSG_Manager.h"
 #include "Hologram.h"
 #include "GameClasses/Sun.h"
-#include <random>   // дл€ генератора случайных чисел
+#include <random>   
 #include "ScoreManager.h"
 #include <GameClasses/Zombie.h>
 #define DEFAULT_LINE_QOUNT 5
@@ -36,7 +36,7 @@ public:
 		:shape_rect(size), isplanted(false), plantid(VOID_ID)
 	{
 		shape_rect.setPosition(pos);
-		std::cout << "Place(" << pos.x << "," << pos.y << ") \n";
+		//std::cout << "Place(" << pos.x << "," << pos.y << ") \n";
 		shape_rect.setTexture(&R_Manager::get().access<sf::Texture>("Drag.png"));
 	}
 
@@ -57,18 +57,16 @@ public:
 		if (!isplanted || !plantobj)
 			return;
 
-		// 1) ”казатель на жертву Ч это само растение
 		Object* victim = plantobj.get();
 
-		// 2) ќтправл€ем сообщение MSG_TYPE_KILL(victim, nullptr)
 		MSG_Manager::get().addMSG(
 			std::make_shared<Engine::MSG_TYPE_KILL>(
-				victim,       // кто погибает
+				victim,      
 				/* killer */  nullptr
 			)
 		);
 
-		// 3) ќчищаем состо€ние клетки
+		
 		isplanted = false;
 		plantobj.reset();
 	}
@@ -123,11 +121,6 @@ public:
 };
 
 
-
-/// <summary>
-/// класс линий и мест отвечает за рамещение расстений по местам
-/// </summary>
-/// 
 class Surface
 	: public Object
 {
@@ -136,7 +129,7 @@ private:
 	std::vector<std::vector<Place>> place_vector;
 	std::vector<Zombie_StartPosition> zombie_places;
 	int lines_qount, lines_size;
-	Timer sunSpawnTimer{ 5000 }; // 5 сек
+	Timer sunSpawnTimer{ 5000 }; 
 
 public:
 	Surface() = default;
@@ -174,7 +167,7 @@ public:
 
 	Surface(const Surface& other) = default;
 
-	// ”наследовано через Object
+	
 	sf::Vector2f getPos() override;
 
 	void changePos(const sf::Vector2f& other) override;
@@ -206,9 +199,7 @@ public:
 		return line_;
 	};
 
-	// ”наследовано через Object
-
-	//BASE_SERIALIZATION
+	
 	template <class Archive>
 	void serialize(Archive& ar)
 	{

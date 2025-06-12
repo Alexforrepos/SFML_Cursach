@@ -67,6 +67,6 @@ void Hologram::setPos(sf::Vector2f other)
 
 }
 
-
-CEREAL_REGISTER_TYPE(Hologram);
-CEREAL_REGISTER_POLYMORPHIC_RELATION(Object, Hologram);
+//
+//CEREAL_REGISTER_TYPE(Hologram);
+//CEREAL_REGISTER_POLYMORPHIC_RELATION(Object, Hologram);

@@ -35,11 +35,11 @@ public:
 		MSGVector.clear();
 		for (auto msgs : Buff)
 		{
-			std::cout << "moved" << std::endl;
+			/*std::cout << "moved" << std::endl;*/
 			MSGVector.emplace_back(std::move(msgs));
 		}
 
-		std::cout << "__________________________________" << std::endl;
+		/*std::cout << "__________________________________" << std::endl;*/
 		if (Buff.size() > 0)
 		{
 			Buff.clear();

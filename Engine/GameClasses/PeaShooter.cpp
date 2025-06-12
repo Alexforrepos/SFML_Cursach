@@ -56,6 +56,6 @@ void PeaShooter::sendMsg(const std::shared_ptr<Engine::MSG>& msg)
 
 
 
-
-CEREAL_REGISTER_TYPE(PeaShooter);
-CEREAL_REGISTER_POLYMORPHIC_RELATION(Plant, PeaShooter);
+//
+//CEREAL_REGISTER_TYPE(PeaShooter);
+//CEREAL_REGISTER_POLYMORPHIC_RELATION(Plant, PeaShooter);

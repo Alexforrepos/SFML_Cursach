@@ -72,6 +72,6 @@ void Card::sendMsg(const std::shared_ptr<Engine::MSG>& msg)
         holo.reset(); // Освободить голограмму при её уничтожении
     }
 }
-
-CEREAL_REGISTER_TYPE(Card);
-CEREAL_REGISTER_POLYMORPHIC_RELATION(Object, Card);
+//
+//CEREAL_REGISTER_TYPE(Card);
+//CEREAL_REGISTER_POLYMORPHIC_RELATION(Object, Card);

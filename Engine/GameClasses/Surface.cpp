@@ -39,23 +39,19 @@ void Surface::update()
 {
 	if (sunSpawnTimer())
 	{
-		// 1) определ€ем размеры сетки
 		const int rows = static_cast<int>(place_vector.size());
 		const int cols = rows > 0 ? static_cast<int>(place_vector[0].size()) : 0;
 		if (rows > 0 && cols > 0)
-		{
-			// 2) один раз инициализируем генератор и распределени€
-			static std::random_device rd;
+		{			static std::random_device rd;
 			static std::mt19937 gen(rd());
 			std::uniform_int_distribution<> distRow(0, rows - 1);
 			std::uniform_int_distribution<> distCol(0, cols - 1);
 
-			// 3) выбираем случайную €чейку
+			
 			int r = distRow(gen);
 			int c = distCol(gen);
 			auto& cell = place_vector[r][c];
 
-			// 4) вычисл€ем позицию в центре этой €чейки
 			sf::Vector2f cellPos = cell.shape_rect.getPosition();
 			sf::Vector2f cellSize = cell.shape_rect.getSize();
 			sf::Vector2f sunPos{
@@ -63,7 +59,6 @@ void Surface::update()
 				cellPos.y + cellSize.y / 2.f
 			};
 
-			// 5) создаЄм и спавним Sun
 			auto& tex = R_Manager::get().access<sf::Texture>("Sun.png");
 			auto sun = std::make_shared<Sun>(sunPos, tex);
 			MSG_Manager::get().addMSG(
@@ -168,23 +163,17 @@ void Surface::sendMsg(const std::shared_ptr<Engine::MSG>& msg)
 									static_cast<uint8_t>(&row - &place_vector[0]),  // line
 									static_cast<uint8_t>(&place - &row[0])          // column
 								);
-								// установим позицию
+								
 								plant->setPos(place.shape_rect.getPosition());
 
 
 								MSG_Manager::get().addMSG(make_shared<Engine::MSG_TYPE_CREATE>(plant, this));
 
-								// отмечаем, что место теперь зан€то
+								
 								place.plant(plant);
 
 							}
-							/*if (!place.isPlanted())
-							{
-								place.plant(nullptr);
-								place.shape_rect.setTexture(
-									&R_Manager::get().access<sf::Texture>("IvtClub.png"), true
-								);
-							}*/
+						
 						}
 					}
 				}
@@ -194,7 +183,7 @@ void Surface::sendMsg(const std::shared_ptr<Engine::MSG>& msg)
 				auto pumpkin = dynamic_cast<Pumpkin*>(killMsg->victim);
 				auto& place = this->place_vector[pumpkin->line][pumpkin->col];
 
-				// ≈сли есть растение под тыквой - возвращаем его на место
+				
 				if (auto original_plant = pumpkin->getOriginalPlant()) {
 					place.plantobj = original_plant;
 					original_plant->setPos(place.shape_rect.getPosition());
@@ -205,7 +194,7 @@ void Surface::sendMsg(const std::shared_ptr<Engine::MSG>& msg)
 					place.plantid = VOID_ID;
 				}
 
-				// ќбновл€ем текстуру клетки
+		
 				place.shape_rect.setTexture(
 					&R_Manager::get().access<sf::Texture>(place.isplanted ? "IvtClub.png" : "Drag.png"), true
 				);
@@ -215,8 +204,23 @@ void Surface::sendMsg(const std::shared_ptr<Engine::MSG>& msg)
 		}
 		break;
 	case Engine::MSG_TYPE::MSG_TYPE_MOVE:
-		//TODO::сделать проверку на объект типа зомби на пересечение границы зоны проигрыша
-		break;
+	{
+		auto mvmsg = dynamic_cast<Engine::MSG_TYPE_MOVE*>(msg.get());
+		if (!mvmsg) return;
+	
+		if (mvmsg->target->type() == int(Types::BaseZombieType))
+		{
+			if (mvmsg->target->getPos().x < this->place_vector[0][0].shape_rect.getPosition().x)
+			{
+				std::cout << "position of zombie:" << mvmsg->target->getPos().x << "," << mvmsg->target->getPos().y << std::endl;
+				std::cout << "position of shell:" << this->place_vector[0][0].shape_rect.getPosition().x << "," << this->place_vector[0][0].shape_rect.getPosition().y << std::endl;
+
+				logMessage("msg send");
+				MSG_Manager::get().addMSG(std::make_shared<Engine::MSG_TYPE_KILL>(mvmsg->target.get(), nullptr));
+			}
+		}
+	}
+	break;
 	case Engine::MSG_TYPE::MSG_TYPE_CREATE:
 	{
 		auto msg_create = dynamic_cast<Engine::MSG_TYPE_CREATE*>(msg.get());
@@ -262,10 +266,4 @@ std::shared_ptr<Object> Surface::toPlant(std::string plantType, uint8_t line, ui
 }
 
 
-
-
-CEREAL_REGISTER_TYPE(Surface);
-CEREAL_REGISTER_TYPE(Place);
-CEREAL_REGISTER_TYPE(Zombie_StartPosition);
-
-CEREAL_REGISTER_POLYMORPHIC_RELATION(Object, Surface);
+ 

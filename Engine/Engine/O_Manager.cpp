@@ -17,6 +17,7 @@ void O_Manager::update() {
 
 	auto& mgr = MSG_Manager::get();
 
+	//std::cout << "Obj in vector:" << ObjVector.size() << std::endl;
 	for (const auto& obj : ObjVector)
 		obj->update();
 
@@ -26,12 +27,12 @@ void O_Manager::update() {
 
 		switch (msg->getIndex())
 		{
-		case Engine::MSG_TYPE::MSG_TYPE_KILL: 
+		case Engine::MSG_TYPE::MSG_TYPE_KILL:
 		{
 			auto killMsg = static_cast<Engine::MSG_TYPE_KILL*>(msg.get());
 			auto it = std::find_if(ObjVector.begin(), ObjVector.end(),
 				[&killMsg](const auto& obj) { return obj.get() == killMsg->victim; });
-			if (it != ObjVector.end()) 
+			if (it != ObjVector.end())
 			{
 				gulag.push_back(*it);
 			}
@@ -49,6 +50,7 @@ void O_Manager::update() {
 			obj->sendMsg(msg);
 	}
 
+	//std::cout << "deleted: " << gulag.size() << std::endl;
 	for (const auto& obj : gulag) {
 		auto it = std::find(ObjVector.begin(), ObjVector.end(), obj);
 		if (it != ObjVector.end()) {

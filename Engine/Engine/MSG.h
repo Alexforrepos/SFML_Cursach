@@ -41,7 +41,7 @@ namespace Engine
 		public Engine::MSG {
 	public:
 		sf::Vector2f dir;
-		std::shared_ptr<Object> target;  // Используем shared_ptr и шаблонный Object
+		std::shared_ptr<Object> target; 
 
 		MSG_TYPE_MOVE(sf::Vector2f dir, std::shared_ptr<Object> target)
 			: MSG(int(MSG_TYPE::MSG_TYPE_MOVE)), target(std::move(target)), dir(dir) {
