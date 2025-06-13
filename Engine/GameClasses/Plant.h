@@ -107,6 +107,8 @@ public:
 				{
 					auto dr = dynamic_cast<Zombie*>(msgmove->target.get());
 					if (!dr)return;
+
+					
 					//TODO::логику коллизийй для столкновения зомби и растения 
 				}
 				break;

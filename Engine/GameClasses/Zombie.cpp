@@ -15,11 +15,15 @@ void Zombie::sendMsg(const std::shared_ptr<Engine::MSG>& msg)
 		}
 
 		if (moveMsg->target->type() == int(Types::BaseProjectileType))
-		{ 
+		{
 			auto prj = dynamic_cast<Projectile*>(moveMsg->target.get());
 			if (!prj)
 				return;
-			//TODO::логику столкновения c проджектайлом[e[
+			if (spr.getLocalBounds().contains(prj->getPos()))
+			{
+				std::cout << "intersect!" << std::endl;
+			}
+				//TODO::логику столкновения c проджектайлом[e[
 		}
 		break;
 	}
