@@ -36,7 +36,10 @@ public:
 		MSG_Manager::get().addMSG(make_shared<Engine::MSG_TYPE_MOVE>(sf::Vector2f(static_cast<float>(velocity), 0.f), std::static_pointer_cast<Object>(this->shared_from_this())));
 		spr.move(static_cast<float>(velocity), 0.f);
 	}
-
+	uint16_t getLine() const 
+	{ 
+		return line; 
+	}
 	uint16_t getDamage()
 	{
 		return damage;

@@ -1,31 +1,30 @@
 #include "Zombie.h"
 #include "Projectile.h"
 
-void Zombie::sendMsg(const std::shared_ptr<Engine::MSG>& msg)
-{
-	switch (msg->getIndex())
-	{
-	case Engine::MSG_TYPE::MSG_TYPE_MOVE:
-	{
+void Zombie::sendMsg(const std::shared_ptr<Engine::MSG>& msg) {
+	switch (msg->getIndex()) {
+	case Engine::MSG_TYPE::MSG_TYPE_MOVE: {
 		auto moveMsg = std::static_pointer_cast<Engine::MSG_TYPE_MOVE>(msg);
-		if (moveMsg->target.get() == this)
-		{
+		// Стандартное смещение самого зомби
+		if (moveMsg->target.get() == this) {
 			sf::Vector2f newPos = pos + moveMsg->dir;
 			setPos(newPos);
 		}
-
-		if (moveMsg->target->type() == int(Types::BaseProjectileType))
-		{
+		// Обработка перемещения снаряда
+		if (moveMsg->target->type() == int(Types::BaseProjectileType)) {
 			auto prj = dynamic_cast<Projectile*>(moveMsg->target.get());
-			if (!prj)
-				return;
-			if (spr.getLocalBounds().contains(prj->getPos()))
-			{
-				std::cout << "intersect!" << std::endl;
+			if (!prj) return;
+			// Проверяем не только позиционное пересечение, но и совпадение линии
+			if (prj->getLine() == this->getLine()
+				&& spr.getGlobalBounds().contains(prj->getPos())) {
+				// Попадание по зомби на этой же линии
 				this->HP -= prj->getDamage();
-				MSG_Manager::get().addMSG(std::make_shared<Engine::MSG_TYPE_KILL>(prj, this));
+				std::cout << " ___________________________________________ " << std::endl;
+				// Уничтожаем снаряд
+				MSG_Manager::get().addMSG(
+					std::make_shared<Engine::MSG_TYPE_KILL>(prj, this)
+				);
 			}
-				//TODO
 		}
 		break;
 	}
