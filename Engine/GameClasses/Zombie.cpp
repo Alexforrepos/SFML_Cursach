@@ -22,8 +22,10 @@ void Zombie::sendMsg(const std::shared_ptr<Engine::MSG>& msg)
 			if (spr.getLocalBounds().contains(prj->getPos()))
 			{
 				std::cout << "intersect!" << std::endl;
+				this->HP -= prj->getDamage();
+				MSG_Manager::get().addMSG(std::make_shared<Engine::MSG_TYPE_KILL>(prj, this));
 			}
-				//TODO::логику столкновения c проджектайлом[e[
+				//TODO
 		}
 		break;
 	}

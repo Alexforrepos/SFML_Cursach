@@ -37,12 +37,15 @@ public:
 		spr.move(static_cast<float>(velocity), 0.f);
 	}
 
-	// 2) Рисуем
+	uint16_t getDamage()
+	{
+		return damage;
+	}
+
 	void draw(sf::RenderWindow& win) override {
 		win.draw(spr);
 	}
 
-	// 3) Позиционирование
 	sf::Vector2f getPos() override {
 		return spr.getPosition();
 	}

@@ -41,7 +41,7 @@ public:
 			line,
 			"bullet.png")
 	{
-		spr.setScale(0.1f, 0.1f);
+		spr.setScale(0.2f, 0.2f);
 	}
 
 	unsigned getLine() { return line; };
