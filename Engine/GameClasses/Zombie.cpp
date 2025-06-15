@@ -13,14 +13,10 @@ void Zombie::sendMsg(const std::shared_ptr<Engine::MSG>& msg) {
 		// Обработка перемещения снаряда
 		if (moveMsg->target->type() == int(Types::BaseProjectileType)) {
 			auto prj = dynamic_cast<Projectile*>(moveMsg->target.get());
-			if (!prj) return;
-			// Проверяем не только позиционное пересечение, но и совпадение линии
-			if (prj->getLine() == this->getLine()
-				&& spr.getGlobalBounds().contains(prj->getPos())) {
-				// Попадание по зомби на этой же линии
+			if (prj && !prj->hasHit && prj->getLine() == this->getLine() && spr.getGlobalBounds().contains(prj->getPos())) {
+				prj->hasHit = true;
 				this->HP -= prj->getDamage();
-				std::cout << " ___________________________________________ " << std::endl;
-				// Уничтожаем снаряд
+				std::cout << "  GOL" << std::endl;
 				MSG_Manager::get().addMSG(
 					std::make_shared<Engine::MSG_TYPE_KILL>(prj, this)
 				);

@@ -14,9 +14,9 @@ protected:
 		damage;
 	sf::Sprite spr;
 	bool isUpg = false;
-
 	friend class FireLog;
 public:
+	bool hasHit = false;
 
 	Projectile() = default;
 
