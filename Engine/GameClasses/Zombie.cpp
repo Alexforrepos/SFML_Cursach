@@ -1,6 +1,5 @@
 #include "Zombie.h"
 #include "Projectile.h"
-#include "Plant.h"
 
 void Zombie::sendMsg(const std::shared_ptr<Engine::MSG>& msg) {
 	switch (msg->getIndex()) {
@@ -12,11 +11,9 @@ void Zombie::sendMsg(const std::shared_ptr<Engine::MSG>& msg) {
 			setPos(newPos);
 		}
 		// Обработка перемещения снаряда
-		if (moveMsg->target->type() == int(Types::BaseProjectileType)) 
-		{
+		if (moveMsg->target->type() == int(Types::BaseProjectileType)) {
 			auto prj = dynamic_cast<Projectile*>(moveMsg->target.get());
-			if (prj && !prj->hasHit && prj->getLine() == this->getLine() && spr.getGlobalBounds().contains(prj->getPos())) 
-			{
+			if (prj && !prj->hasHit && prj->getLine() == this->getLine() && spr.getGlobalBounds().contains(prj->getPos())) {
 				prj->hasHit = true;
 				this->HP -= prj->getDamage();
 				std::cout << "  GOL" << std::endl;
@@ -26,7 +23,8 @@ void Zombie::sendMsg(const std::shared_ptr<Engine::MSG>& msg) {
 				if (this->HP <= 0)
 				{
 					MSG_Manager::get().addMSG(
-						std::make_shared<Engine::MSG_TYPE_KILL>(this, prj));
+						std::make_shared<Engine::MSG_TYPE_KILL>(this, prj)
+					);
 				}
 			}
 		}
@@ -34,33 +32,22 @@ void Zombie::sendMsg(const std::shared_ptr<Engine::MSG>& msg) {
 	}
 	case Engine::MSG_TYPE::MSG_TYPE_DAMAGE:
 	{
-		Timer timeToEat = this->CD * 1000;
 		auto damageMsg = std::static_pointer_cast<Engine::MSG_TYPE_DAMAGE>(msg);
-		auto plnt = dynamic_cast<Plant*>(damageMsg->target.get());
-		if (plnt && plnt->getLine() == this->getLine() && spr.getGlobalBounds().contains(plnt->getPos()))
+		if (damageMsg->target.get() == this)
 		{
-			std::cout << "BRAIIIINSSSSSS" << std::endl;
-			uint16_t iWasLikeThis = this->velocity;
-			this->velocity = 0;
-			this->isAttack = true;
-			while (this->isAttack)
+			if (HP <= damageMsg->damage)
 			{
-				if (timeToEat())
-				{
-					std::cout << "kykish" << std::endl;
-					plnt->minusHP(this->damage);
-				}
-				if (plnt->getHP() <= 0)
-				{
-					std::cout << "kakish" << std::endl;
-					MSG_Manager::get().addMSG(
-						std::make_shared<Engine::MSG_TYPE_KILL>(plnt, this));
-					this->isAttack = false;
-					this->velocity = iWasLikeThis;
-				}
+				MSG_Manager::get().addMSG(
+					std::make_shared<Engine::MSG_TYPE_KILL>(this, damageMsg->damager.get())
+				);
+				HP = 0;
+				attackTarget = nullptr; // Clear target when dead
+				isAttack = false;
 			}
-		/*	MSG_Manager::get().addMSG(
-				std::make_shared<Engine::MSG_TYPE_KILL>(this, damageMsg->damager.get()));*/
+			else
+			{
+				HP -= damageMsg->damage;
+			}
 		}
 		break;
 	}

@@ -4,7 +4,6 @@
 #include "Utils/Config.h"
 #include "Utils/Timer.h"
 #include <SFML/Graphics.hpp>
-#include "Plant.h"
 
 class Zombie : public Object
 {
@@ -15,7 +14,6 @@ class Zombie : public Object
 	uint16_t velocity; // = speed
 	uint16_t damage;
 	uint16_t line;
-	uint16_t CD;
 	sf::Sprite spr;
 	bool isAttack;
 	std::shared_ptr<Object> attackTarget; // Stores attack target
@@ -25,8 +23,8 @@ class Zombie : public Object
 public:
 	Zombie() = default;
 
-	Zombie(const int16_t& HP, const uint16_t& velocity, const uint16_t& damage, const uint16_t& line, uint16_t CD, std::string textureId)
-		: Object(int(Types::BaseZombieType)), HP(HP), velocity(velocity), damage(damage), line(line), CD(CD), isAttack(false), attackTarget(nullptr), moveTime(200)
+	Zombie(const int16_t& HP, const uint16_t& velocity, const uint16_t& damage, const uint16_t& line, std::string textureId)
+		: Object(int(Types::BaseZombieType)), HP(HP), velocity(velocity), damage(damage), line(line), isAttack(false), attackTarget(nullptr), moveTime(200)
 	{
 		spr.setTexture(R_Manager::get().access<sf::Texture>(textureId));
 	}
@@ -41,7 +39,6 @@ public:
 			Config::getInstance()["ZombieParams"]["Zombies"]["Zombie"]["Speed"],
 			Config::getInstance()["ZombieParams"]["Zombies"]["Zombie"]["Damage"],
 			line,
-			Config::getInstance()["ZombieParams"]["Zombies"]["Zombie"]["CD"],
 			"bullet.png")
 	{
 		spr.setScale(0.2f, 0.2f);

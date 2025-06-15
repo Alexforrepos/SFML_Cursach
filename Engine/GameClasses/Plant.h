@@ -26,7 +26,7 @@ public:
 		const std::string& textureId,
 		uint8_t line,
 		uint8_t col,
-		int16_t HP)
+		uint16_t HP)
 		: Object(int(Types::BasePlantType))
 		, plantType(plantType)
 		, textureId(textureId)
@@ -48,21 +48,6 @@ public:
 	sf::Vector2f getPos() override
 	{
 		return sprite.getPosition();
-	}
-
-	void minusHP(uint16_t damage)
-	{
-		this->HP -= damage;
-	}
-
-	int16_t getHP()
-	{
-		return this->HP;
-	}
-
-	uint8_t getLine()
-	{
-		return this->line;
 	}
 
 	void changePos(const sf::Vector2f& other) override {
@@ -120,8 +105,8 @@ public:
 			{
 				case int(Types::BaseZombieType) :
 				{
-					//auto dr = dynamic_cast<Zombie*>(msgmove->target.get());
-					//if (!dr)return;
+					auto dr = dynamic_cast<Zombie*>(msgmove->target.get());
+					if (!dr)return;
 
 					
 					//TODO::логику коллизийй для столкновения зомби и растения 
