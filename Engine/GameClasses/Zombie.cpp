@@ -20,6 +20,12 @@ void Zombie::sendMsg(const std::shared_ptr<Engine::MSG>& msg) {
 				MSG_Manager::get().addMSG(
 					std::make_shared<Engine::MSG_TYPE_KILL>(prj, this)
 				);
+				if (this->HP <= 0)
+				{
+					MSG_Manager::get().addMSG(
+						std::make_shared<Engine::MSG_TYPE_KILL>(this, prj)
+					);
+				}
 			}
 		}
 		break;

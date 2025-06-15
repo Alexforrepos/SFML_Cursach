@@ -10,7 +10,7 @@ class Zombie : public Object
 	friend class Effect;
 	friend class Projectile;
 	sf::Vector2f pos;
-	uint16_t HP;
+	int16_t HP;
 	uint16_t velocity; // = speed
 	uint16_t damage;
 	uint16_t line;
@@ -23,7 +23,7 @@ class Zombie : public Object
 public:
 	Zombie() = default;
 
-	Zombie(const uint16_t& HP, const uint16_t& velocity, const uint16_t& damage, const uint16_t& line, std::string textureId)
+	Zombie(const int16_t& HP, const uint16_t& velocity, const uint16_t& damage, const uint16_t& line, std::string textureId)
 		: Object(int(Types::BaseZombieType)), HP(HP), velocity(velocity), damage(damage), line(line), isAttack(false), attackTarget(nullptr), moveTime(200)
 	{
 		spr.setTexture(R_Manager::get().access<sf::Texture>(textureId));
