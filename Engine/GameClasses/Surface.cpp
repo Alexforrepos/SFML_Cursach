@@ -203,24 +203,37 @@ void Surface::sendMsg(const std::shared_ptr<Engine::MSG>& msg)
 
 		}
 		break;
-	case Engine::MSG_TYPE::MSG_TYPE_MOVE:
-	{
-		auto mvmsg = dynamic_cast<Engine::MSG_TYPE_MOVE*>(msg.get());
-		if (!mvmsg) return;
-	
-		if (mvmsg->target->type() == int(Types::BaseZombieType))
-		{
-			if (mvmsg->target->getPos().x < this->place_vector[0][0].shape_rect.getPosition().x)
-			{
-				std::cout << "position of zombie:" << mvmsg->target->getPos().x << "," << mvmsg->target->getPos().y << std::endl;
-				std::cout << "position of shell:" << this->place_vector[0][0].shape_rect.getPosition().x << "," << this->place_vector[0][0].shape_rect.getPosition().y << std::endl;
+	case Engine::MSG_TYPE::MSG_TYPE_MOVE: {
+		auto mv = std::dynamic_pointer_cast<Engine::MSG_TYPE_MOVE>(msg);
+		if (!mv) return;
 
-				logMessage("msg send");
-				MSG_Manager::get().addMSG(std::make_shared<Engine::MSG_TYPE_KILL>(mvmsg->target.get(), nullptr));
+		// трогаем только зомби
+		if (mv->target->type() != int(Types::BaseZombieType))
+			return;
+
+		auto zmb = dynamic_cast<Zombie*>(mv->target.get());
+		if (!zmb) return;
+
+		unsigned row = zmb->getLine();
+		float zx = zmb->getPos().x;
+
+		// ищем первую клетку в этом р€ду с посаженным растением
+		for (auto& place : place_vector[row]) {
+			if (place.isPlanted()) {
+				float px = place.shape_rect.getPosition().x;
+				float pw = place.shape_rect.getSize().x;
+				// если зомби ЂзашЄлї в границу клетки
+				if (zx <= px + pw && zx > px) {
+					// назначаем цель и выходим
+					zmb->setAttackTarget(place.plantobj);
+					return;
+				}
 			}
 		}
-	}
-	break;
+
+		// если ни с кем не столкнулись Ч сбрасываем цель (на случай, если растение сгнило)
+		zmb->setAttackTarget(nullptr);
+	} break;
 	case Engine::MSG_TYPE::MSG_TYPE_CREATE:
 	{
 		auto msg_create = dynamic_cast<Engine::MSG_TYPE_CREATE*>(msg.get());
