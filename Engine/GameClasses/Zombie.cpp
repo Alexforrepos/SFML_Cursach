@@ -54,14 +54,23 @@ void Zombie::sendMsg(const std::shared_ptr<Engine::MSG>& msg) {
 	case Engine::MSG_TYPE::MSG_TYPE_KILL:
 	{
 		auto killMsg = std::static_pointer_cast<Engine::MSG_TYPE_KILL>(msg);
+
+		// 1) если убили именно этого зомби Ч стандартна€ логика
 		if (killMsg->victim == this)
 		{
-			HP = 0; // Mark as dead
-			attackTarget = nullptr; // Clear target
+			HP = 0;
+			attackTarget = nullptr;
 			isAttack = false;
 		}
-		break;
+		// 2) если убили его цель атаки Ч сбросить цель и переключитьс€ на движение
+		else if (attackTarget && killMsg->victim == attackTarget.get())
+		{
+			attackTarget = nullptr;
+			isAttack = false;
+		}
 	}
+	break;
+
 	/*case Engine::MSG_TYPE::MSG_TYPE_ADD_EFFECT:
 	{
 	auto effectMsg = std::static_pointer_cast<Engine::MSG_TYPE_ADD_EFFECT>(msg);
