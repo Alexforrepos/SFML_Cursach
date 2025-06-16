@@ -88,8 +88,10 @@ public:
 		if (moveTime())
 			std::cout << "pos: x:" << this->pos.x << " y: " << pos.y << std::endl;*/
 			
-		if (isAttack && attackTarget) {
-			if (attackTimer()) {
+		if (isAttack && attackTarget)
+		{
+			if (attackTimer())
+			{
 				
 				MSG_Manager::get().addMSG(
 					std::make_shared<Engine::MSG_TYPE_DAMAGE>(
@@ -102,9 +104,10 @@ public:
 				attackTimer.restart();  
 			}
 		}
-		
-		else {
-			if (moveTime()) {
+		else
+		{
+			if (moveTime())
+			{
 				
 				this->pos.x -= velocity;
 				MSG_Manager::get().addMSG(
