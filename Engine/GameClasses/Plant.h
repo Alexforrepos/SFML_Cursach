@@ -117,6 +117,14 @@ public:
 					break;
 			}
 		}
+		case Engine::MSG_TYPE::MSG_TYPE_DAMAGE:
+		{
+
+		}
+		case Engine::MSG_TYPE::MSG_TYPE_KILL:
+		{
+
+		}
 		break;
 		default:
 			break;
