@@ -1,5 +1,6 @@
 #include "Zombie.h"
 #include "Projectile.h"
+#include "Plant.h"
 
 void Zombie::sendMsg(const std::shared_ptr<Engine::MSG>& msg) {
 	switch (msg->getIndex()) {
@@ -33,20 +34,22 @@ void Zombie::sendMsg(const std::shared_ptr<Engine::MSG>& msg) {
 	case Engine::MSG_TYPE::MSG_TYPE_DAMAGE:
 	{
 		auto damageMsg = std::static_pointer_cast<Engine::MSG_TYPE_DAMAGE>(msg);
-		if (damageMsg->target.get() == this)
+		auto plnt = dynamic_cast<Plant*>(damageMsg.get()->target.get());
+		if (plnt == nullptr)
 		{
-			if (HP <= damageMsg->damage)
+			return;
+		}
+		if (this->isAttack)
+		{
+			std::cout << "nu3du/li oTnpaB/leHbl" << std::endl;
+			plnt->dealDamageToMyself(this->damage);
+			if (plnt->getHp() <= 0)
 			{
 				MSG_Manager::get().addMSG(
-					std::make_shared<Engine::MSG_TYPE_KILL>(this, damageMsg->damager.get())
+					std::make_shared<Engine::MSG_TYPE_KILL>(plnt, this)
 				);
-				HP = 0;
-				attackTarget = nullptr; // Clear target when dead
-				isAttack = false;
-			}
-			else
-			{
-				HP -= damageMsg->damage;
+				this->attackTarget = nullptr; // Clear target when dead
+				this->isAttack = false;
 			}
 		}
 		break;

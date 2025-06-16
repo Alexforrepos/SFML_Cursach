@@ -218,12 +218,14 @@ void Surface::sendMsg(const std::shared_ptr<Engine::MSG>& msg)
 		float zx = zmb->getPos().x;
 
 		// ищем первую клетку в этом ряду с посаженным растением
-		for (auto& place : place_vector[row]) {
+		for (auto& place : place_vector[row]) 
+		{
 			if (place.isPlanted()) {
 				float px = place.shape_rect.getPosition().x;
 				float pw = place.shape_rect.getSize().x;
 				// если зомби «зашёл» в границу клетки
-				if (zx <= px + pw && zx > px) {
+				if (zx <= px + pw && zx > px) 
+				{
 					// назначаем цель и выходим
 					zmb->setAttackTarget(place.plantobj);
 					return;
