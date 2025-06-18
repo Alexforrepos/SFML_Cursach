@@ -3,7 +3,7 @@
 
 class ScoreManager {
 private:
-    int score = 0;
+    int score = 200;
     ScoreManager() = default;
 public:
     static ScoreManager& get() {

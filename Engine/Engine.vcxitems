@@ -32,6 +32,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Plant.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Projectile.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Pumpkin.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Runner.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\ScoreManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Skorostrel.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Sun.cpp" />
@@ -72,6 +73,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Plant.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Projectile.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Pumpkin.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Runner.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\ScoreManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Skorostrel.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Sun.h" />

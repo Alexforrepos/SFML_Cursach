@@ -124,6 +124,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\FootBall.cpp">
       <Filter>GameObject</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Runner.cpp">
+      <Filter>GameObject</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Interfaces\I_Identifiable.h">
@@ -244,6 +247,9 @@
       <Filter>GameObject</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\FootBall.h">
+      <Filter>GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Runner.h">
       <Filter>GameObject</Filter>
     </ClInclude>
   </ItemGroup>
