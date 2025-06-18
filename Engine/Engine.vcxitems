@@ -23,6 +23,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Button.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Card.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Effect.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\FootBall.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\FreezeEffect.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\FreezeProjectile.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Hologram.cpp" />
@@ -37,6 +38,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\SunFlower.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Surface.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Zombie.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\ZombieBucket.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Interfaces\I_Identifiable.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Interfaces\I_Serialize.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Interfaces\I_Type.cpp" />
@@ -61,6 +63,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Button.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Card.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Effect.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\FootBall.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\FreezeEffect.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\FreezeProjectile.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Hologram.h" />
@@ -75,6 +78,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\SunFlower.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Surface.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Zombie.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\ZombieBucket.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Interfaces\I_Identifiable.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Interfaces\I_Pacatable.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Interfaces\I_Pos.h" />

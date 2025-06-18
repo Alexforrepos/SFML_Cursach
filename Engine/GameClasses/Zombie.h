@@ -8,6 +8,7 @@
 
 class Zombie : public Object
 {
+protected:
 	friend class Effect;
 	friend class Projectile;
 	sf::Vector2f pos;

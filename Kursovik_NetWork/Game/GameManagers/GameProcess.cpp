@@ -1,6 +1,8 @@
 #include "GameProcess.h"
 #include "./../Game.h"
 #include "GameClasses/Card.h"
+#include "GameClasses/ZombieBucket.h"
+#include "GameClasses/FootBall.h"
 
 void GameProcess::start(int levelNumber)
 {
@@ -30,6 +32,11 @@ void GameProcess::run()
     {
         escapeDelay.restart();
         MSG_Manager::get().addMSG(std::make_shared<Engine::MSG_TYPE_CREATE>(std::make_shared<Zombie>(rand() % 3), nullptr));
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::X) && escapeDelay())
+    {
+        escapeDelay.restart();
+        MSG_Manager::get().addMSG(std::make_shared<Engine::MSG_TYPE_CREATE>(std::make_shared<HeavyRunner>(rand() % 3), nullptr));
     }
 }
 

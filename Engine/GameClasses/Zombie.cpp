@@ -6,12 +6,10 @@ void Zombie::sendMsg(const std::shared_ptr<Engine::MSG>& msg) {
 	switch (msg->getIndex()) {
 	case Engine::MSG_TYPE::MSG_TYPE_MOVE: {
 		auto moveMsg = std::static_pointer_cast<Engine::MSG_TYPE_MOVE>(msg);
-		// —тандартное смещение самого зомби
 		if (moveMsg->target.get() == this) {
 			sf::Vector2f newPos = pos + moveMsg->dir;
 			setPos(newPos);
 		}
-		// ќбработка перемещени€ снар€да
 		if (moveMsg->target->type() == int(Types::BaseProjectileType)) {
 			auto prj = dynamic_cast<Projectile*>(moveMsg->target.get());
 			if (prj && !prj->hasHit && prj->getLine() == this->getLine() && spr.getGlobalBounds().contains(prj->getPos())) {
@@ -58,14 +56,12 @@ void Zombie::sendMsg(const std::shared_ptr<Engine::MSG>& msg) {
 	{
 		auto killMsg = std::static_pointer_cast<Engine::MSG_TYPE_KILL>(msg);
 
-		// 1) если убили именно этого зомби Ч стандартна€ логика
 		if (killMsg->victim == this)
 		{
 			HP = 0;
 			attackTarget = nullptr;
 			isAttack = false;
 		}
-		// 2) если убили его цель атаки Ч сбросить цель и переключитьс€ на движение
 		else if (attackTarget && killMsg->victim == attackTarget.get())
 		{
 			attackTarget = nullptr;

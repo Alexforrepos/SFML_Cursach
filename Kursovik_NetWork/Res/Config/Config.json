@@ -105,12 +105,36 @@
     },
     "ZombieParams": {
         "Zombies": {
+            "BasketballNogoy": {
+                "CD": 1,
+                "Damage": 30,
+                "HP": 300,
+                "Speed": 8.0
+            },
             "Zombie": {
                 "CD": 1,
                 "Damage": 30,
                 "HP": 100,
                 "Speed": 4.0
-            }
+            },
+          "ZombieBucket": {
+            "CD": 1,
+            "Damage": 30,
+            "HP": 300,
+            "Speed": 4.0
+          },
+          "Garantiryu": {
+            "CD": 2,
+            "Damage": 1488,
+            "HP": 1000,
+            "Speed": 2.0
+          },
+          "Prigyn": {
+            "CD": 1,
+            "Damage": 30,
+            "HP": 100,
+            "Speed": 6.5
+          }
         }
     }
 }
