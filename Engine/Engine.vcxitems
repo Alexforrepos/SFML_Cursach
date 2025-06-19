@@ -28,6 +28,8 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\FreezeProjectile.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Hologram.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\IceP.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Karapuz.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Newspaper.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\PeaShooter.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Plant.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Projectile.cpp" />
@@ -38,6 +40,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Sun.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\SunFlower.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Surface.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Zimin.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Zombie.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\ZombieBucket.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Interfaces\I_Identifiable.cpp" />
@@ -69,6 +72,8 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\FreezeProjectile.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Hologram.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\IceP.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Karapuz.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Newspaper.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\PeaShooter.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Plant.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Projectile.h" />
@@ -79,6 +84,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Sun.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\SunFlower.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Surface.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Zimin.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Zombie.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\ZombieBucket.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Interfaces\I_Identifiable.h" />

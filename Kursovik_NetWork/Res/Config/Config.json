@@ -115,7 +115,19 @@
                 "CD": 2,
                 "Damage": 1488,
                 "HP": 1000,
-                "Speed": 2.0
+                "Speed": 3.0
+            },
+            "Lilpampysya": {
+                "CD": 1,
+                "Damage": 30,
+                "HP": 75,
+                "Speed": 5.0
+            },
+            "Newspaper": {
+                "CD": 1,
+                "Damage": 30,
+                "HP": 150,
+                "Speed": 4.0
             },
             "Prigyn": {
                 "CD": 1,
@@ -129,18 +141,12 @@
                 "HP": 100,
                 "Speed": 4.0
             },
-          "ZombieBucket": {
-            "CD": 1,
-            "Damage": 30,
-            "HP": 300,
-            "Speed": 4.0
-          },
-          "Lilpampysya": {
-            "CD": 1,
-            "Damage": 30,
-            "HP": 50,
-            "Speed": 5.0
-          }
+            "ZombieBucket": {
+                "CD": 1,
+                "Damage": 30,
+                "HP": 300,
+                "Speed": 4.0
+            }
         }
     }
 }
