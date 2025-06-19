@@ -5,7 +5,7 @@
 class Child : public Zombie {
 public:
     bool rodi = true;
-    Child(uint16_t line)
+    Child(uint16_t line, std::shared_ptr<Object> creator)
         : Zombie(
             Config::getInstance()["ZombieParams"]["Zombies"]["Lilpampysya"]["HP"].get<int16_t>(),
             Config::getInstance()["ZombieParams"]["Zombies"]["Lilpampysya"]["Speed"].get<uint16_t>(),
@@ -14,13 +14,13 @@ public:
             "pea.gif"
         ) {
         spr.setScale(0.5f, 0.5f);
+        spr.setPosition(creator.get()->getPos());
     }
 
     void iWasBornByBigDudeWithBat()
     {
         if (rodi)
         {
-
             this->pos.x -= 250;
             this->rodi = false;
         }

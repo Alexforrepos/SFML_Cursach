@@ -20,9 +20,7 @@ public:
     {
         if (this->HP <= 250 && iCantBreath)
         {
-            auto child = std::make_shared<Child>(rand() % 3);
-            MSG_Manager::get().addMSG(std::make_shared<Engine::MSG_TYPE_CREATE>(child, nullptr));
-            child.get()->setPos(this->getPos());
+            MSG_Manager::get().addMSG(std::make_shared<Engine::MSG_TYPE_CREATE>(std::make_shared<Child>(rand() % 3, shared_from_this()), nullptr));
             iCantBreath = false;
         }
     }
