@@ -11,7 +11,7 @@ public:
             line,
             "FootBall.png"
         ) {
-        spr.setScale(0.2f, 0.2f);
+        spr.setScale(0.1f, 0.1f);
     }
 
     void update() override {

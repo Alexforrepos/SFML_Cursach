@@ -1,9 +1,9 @@
 #pragma once
 #include "Zombie.h"
-#include "Zimin.h"
 
 class Child : public Zombie {
 public:
+    std::shared_ptr<Object> cool;
     bool rodi = true;
     Child(uint16_t line, std::shared_ptr<Object> creator)
         : Zombie(
@@ -11,16 +11,17 @@ public:
             Config::getInstance()["ZombieParams"]["Zombies"]["Lilpampysya"]["Speed"].get<uint16_t>(),
             Config::getInstance()["ZombieParams"]["Zombies"]["Lilpampysya"]["Damage"].get<uint16_t>(),
             line,
-            "pea.gif"
+            "child.png"
         ) {
-        spr.setScale(0.5f, 0.5f);
-        spr.setPosition(creator.get()->getPos());
+        spr.setScale(0.1f, 0.1f);
+        cool = creator;
     }
 
     void iWasBornByBigDudeWithBat()
     {
         if (rodi)
         {
+            setPos(cool.get()->getPos());
             this->pos.x -= 250;
             this->rodi = false;
         }

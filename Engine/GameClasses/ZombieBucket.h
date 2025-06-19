@@ -11,7 +11,7 @@ public:
             line,
             "Bucket.png" 
         ) {
-        spr.setScale(0.2f, 0.2f); 
+        spr.setScale(0.09f, 0.09f); 
     }
 
     void textureChangeAfterRape() {

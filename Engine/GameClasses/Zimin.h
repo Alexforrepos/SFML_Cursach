@@ -13,7 +13,7 @@ public:
             line,
             "firestarter.png"
         ) {
-        spr.setScale(0.04f, 0.04f);
+        spr.setScale(0.1f, 0.1f);
     }
 
     void imabatocama()

@@ -6,6 +6,7 @@
 #include "GameClasses/Runner.h"
 #include "GameClasses/Karapuz.h"
 #include "GameClasses/Zimin.h"
+#include "GameClasses/Newspaper.h"
 
 
 void GameProcess::start(int levelNumber)
@@ -35,12 +36,12 @@ void GameProcess::run()
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z) && escapeDelay())
     {
         escapeDelay.restart();
-        MSG_Manager::get().addMSG(std::make_shared<Engine::MSG_TYPE_CREATE>(std::make_shared<Zombie>(rand() % 3), nullptr));
+        MSG_Manager::get().addMSG(std::make_shared<Engine::MSG_TYPE_CREATE>(std::make_shared<ZombieBucket>(rand() % 3), nullptr));
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::X) && escapeDelay())
     {
         escapeDelay.restart();
-        MSG_Manager::get().addMSG(std::make_shared<Engine::MSG_TYPE_CREATE>(std::make_shared<Garg>(rand() % 3), nullptr));
+        MSG_Manager::get().addMSG(std::make_shared<Engine::MSG_TYPE_CREATE>(std::make_shared<HeavyRunner>(rand() % 3), nullptr));
     }
 }
 

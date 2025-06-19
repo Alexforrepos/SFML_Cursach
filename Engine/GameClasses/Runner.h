@@ -12,7 +12,7 @@ public:
             line,
             "runner.png"
         ) {
-        spr.setScale(0.5f, 0.5f);
+        spr.setScale(0.25f, 0.25f);
     }
 
     void jumpRightOnThePlantsDicks()

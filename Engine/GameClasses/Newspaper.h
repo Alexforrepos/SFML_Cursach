@@ -9,19 +9,19 @@ public:
             Config::getInstance()["ZombieParams"]["Zombies"]["Newspaper"]["Speed"].get<uint16_t>(),
             Config::getInstance()["ZombieParams"]["Zombies"]["Newspaper"]["Damage"].get<uint16_t>(),
             line,
-            "igotsomebadnews.jpg"
+            "igotsomebadnews.png"
         ) {
-        spr.setScale(0.5f, 0.5f);
+        spr.setScale(0.056f, 0.056f);
     }
 
     void didIlostMyShield()
     {
-        if (this->HP <= 0)
+        if (this->HP <= 100)
         {
             this->velocity = 7;
             this->moveTime = 1000 / velocity;
             spr.setTexture(R_Manager::get().access<sf::Texture>("rambo.png"));
-            spr.setScale(0.8f, 0.8f);
+            spr.setScale(0.056f, 0.056f);
         }
     }
 
