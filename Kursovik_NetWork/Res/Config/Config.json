@@ -23,18 +23,23 @@
                     "Apex",
                     "Pumpkin",
                     "Skorostrel",
+                    "SunFlower",
                     "Shovel"
                 ],
                 "Avaliavle_Zombie": [
                     "Zombie",
                     "Armored Zombie"
                 ],
-                "Line_Q": 4
+                "Line_Q": 5
             },
             {
                 "Avaliable_Plant": [
-                    "SunFlower",
+                    "PeaShooter",
                     "IceP",
+                    "Apex",
+                    "Pumpkin",
+                    "Skorostrel",
+                    "SunFlower",
                     "Shovel"
                 ],
                 "Avaliavle_Zombie": [
@@ -42,7 +47,7 @@
                     "Armored Zombie",
                     "Mini Zombie"
                 ],
-                "Line_Q": 3
+                "Line_Q": 5
             }
         ],
         "count": 2
@@ -64,25 +69,25 @@
                 "CD": 0,
                 "HP": 34,
                 "cost": 50,
-                "textureId": "Firelog.jpg"
+                "textureId": "Firelog.png"
             },
             "IceP": {
                 "Damage": 20,
                 "HP": 100,
-                "cost": 100,
-                "textureId": "jojo-dan.png"
+                "cost": 150,
+                "textureId": "IceP.png"
             },
             "PeaShooter": {
                 "CD": 1,
                 "Damage": 34,
                 "HP": 150,
-                "cost": 50,
+                "cost": 100,
                 "textureId": "PeaShooter.png"
             },
             "Pumpkin": {
                 "HP": 1000,
                 "cost": 50,
-                "textureId": "shkibidiSanya.png"
+                "textureId": "pumpkin.png"
             },
             "Shovel": {
                 "cost": 0,
@@ -92,8 +97,8 @@
                 "CD": 1,
                 "Damage": 34,
                 "HP": 150,
-                "cost": 50,
-                "textureId": "shkibidiSanya.png"
+                "cost": 200,
+                "textureId": "Skorostrel.png"
             },
             "SunFlower": {
                 "CD": 15,
@@ -105,10 +110,46 @@
     },
     "ZombieParams": {
         "Zombies": {
+            "BasketballNogoy": {
+                "CD": 1,
+                "Damage": 30,
+                "HP": 300,
+                "Speed": 8.0
+            },
+            "Garantiryu": {
+                "CD": 2,
+                "Damage": 1488,
+                "HP": 1000,
+                "Speed": 3.0
+            },
+            "Lilpampysya": {
+                "CD": 1,
+                "Damage": 30,
+                "HP": 75,
+                "Speed": 5.0
+            },
+            "Newspaper": {
+                "CD": 1,
+                "Damage": 30,
+                "HP": 150,
+                "Speed": 4.0
+            },
+            "Prigyn": {
+                "CD": 1,
+                "Damage": 30,
+                "HP": 100,
+                "Speed": 6.5
+            },
             "Zombie": {
                 "CD": 1,
                 "Damage": 30,
                 "HP": 100,
+                "Speed": 4.0
+            },
+            "ZombieBucket": {
+                "CD": 1,
+                "Damage": 30,
+                "HP": 300,
                 "Speed": 4.0
             }
         }

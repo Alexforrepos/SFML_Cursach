@@ -11,7 +11,7 @@ PeaShooter::PeaShooter( uint8_t line, uint8_t col)
 	)
 	, shootTimer(1000)
 {
-	sprite.setScale(2.f, 2.f);
+	sprite.setScale(0.1,0.1);
 	sprite.setColor(sf::Color(255, 255, 255, 200));
 	shootTimer.restart();
 }
@@ -22,11 +22,11 @@ void PeaShooter::update()
 		// 1. Достаём из конфига параметры пули
 		auto& cfg = Config::getInstance();
 		unsigned damage = cfg["PlantParams"]["Plants"]["PeaShooter"]["Damage"].get<unsigned>();
-		unsigned velocity = 5; // либо тоже из конфига, если нужно
+		unsigned velocity = 2; // либо тоже из конфига, если нужно
 
 		// 2. Создаём shared_ptr на Projectile
 		//    Конструктор: Projectile(uint16_t velocity, uint16_t line, uint16_t damage, sf::Texture& texture)
-		auto& tex = R_Manager::get().access<sf::Texture>("pea.jpg");
+		auto& tex = R_Manager::get().access<sf::Texture>("pea.png");
 
 
 		// 3. Устанавливаем стартовую позицию снаряда в точку PeaShooter

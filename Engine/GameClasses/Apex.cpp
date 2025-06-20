@@ -9,7 +9,7 @@ Apex::Apex(uint8_t line, uint8_t col)
     )
 {
     // дополнительные настройки масштаба/прозрачности
-    sprite.setScale(0.1f, 0.1f);
+    sprite.setScale(0.2, 0.2);
     sprite.setColor(sf::Color(255, 255, 255, 200));
 }
 

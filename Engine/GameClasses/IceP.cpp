@@ -1,4 +1,1 @@
 #include "IceP.h"
-//
-//CEREAL_REGISTER_TYPE(IceP);
-//CEREAL_REGISTER_POLYMORPHIC_RELATION(Object, IceP);

@@ -15,7 +15,7 @@ protected:
 	std::string plantType;
 	std::string textureId;
 	uint8_t line, col;
-	uint16_t HP;
+	int16_t HP;
 	bool isTakingDamage = true;
 
 public:
@@ -26,7 +26,7 @@ public:
 		const std::string& textureId,
 		uint8_t line,
 		uint8_t col,
-		uint16_t HP)
+		int16_t HP)
 		: Object(int(Types::BasePlantType))
 		, plantType(plantType)
 		, textureId(textureId)
@@ -56,6 +56,16 @@ public:
 
 	void setPos(sf::Vector2f other) override {
 		sprite.setPosition(other);
+	}
+
+	void dealDamageToMyself(uint16_t damag1)
+	{
+		HP -= damag1;
+	}
+
+	int16_t getHp()
+	{
+		return HP;
 	}
 
 	std::string getType() { return plantType; }
@@ -105,8 +115,8 @@ public:
 			{
 				case int(Types::BaseZombieType) :
 				{
-					auto dr = dynamic_cast<Zombie*>(msgmove->target.get());
-					if (!dr)return;
+					//auto dr = dynamic_cast<Zombie*>(msgmove->target.get());
+					//if (!dr)return;
 
 					
 					//TODO::логику коллизийй для столкновения зомби и растения 
@@ -116,6 +126,14 @@ public:
 				default:
 					break;
 			}
+		}
+		case Engine::MSG_TYPE::MSG_TYPE_DAMAGE:
+		{
+
+		}
+		case Engine::MSG_TYPE::MSG_TYPE_KILL:
+		{
+
 		}
 		break;
 		default:

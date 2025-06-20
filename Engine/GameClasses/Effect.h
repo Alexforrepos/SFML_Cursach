@@ -26,7 +26,7 @@ public:
 
     virtual void influence(Zombie& target) = 0;
 
-    bool tick(Zombie& target)
+   virtual bool tick(Zombie& target)
     {
         if (!cooldown())
         {

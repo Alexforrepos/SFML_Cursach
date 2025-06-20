@@ -4,13 +4,15 @@
 #include "Utils/Config.h"
 #include "Utils/Timer.h"
 #include <SFML/Graphics.hpp>
-
+#include "Plant.h"
+#include "FreezeEffect.h"
 class Zombie : public Object
 {
+protected:
 	friend class Effect;
 	friend class Projectile;
 	sf::Vector2f pos;
-	uint16_t HP;
+	int16_t HP;
 	uint16_t velocity; // = speed
 	uint16_t damage;
 	uint16_t line;
@@ -18,13 +20,16 @@ class Zombie : public Object
 	bool isAttack;
 	std::shared_ptr<Object> attackTarget; // Stores attack target
 	std::vector<EffectPtr> effects;
-	Timer time, moveTime;
+	Timer attackTimer, moveTime;
 
 public:
 	Zombie() = default;
 
-	Zombie(const uint16_t& HP, const uint16_t& velocity, const uint16_t& damage, const uint16_t& line, std::string textureId)
-		: Object(int(Types::BaseZombieType)), HP(HP), velocity(velocity), damage(damage), line(line), isAttack(false), attackTarget(nullptr), moveTime(200)
+	Zombie(const int16_t& HP, const uint16_t& velocity, const uint16_t& damage, const uint16_t& line, std::string textureId)
+		: Object(int(Types::BaseZombieType)), HP(HP), velocity(velocity), damage(damage), line(line), isAttack(false), attackTarget(nullptr),attackTimer(Config::getInstance()
+			["ZombieParams"]["Zombies"]["Zombie"]["CD"]
+			.get<int>() * 1000)  
+		, moveTime(1000 / velocity)  
 	{
 		spr.setTexture(R_Manager::get().access<sf::Texture>(textureId));
 	}
@@ -41,7 +46,7 @@ public:
 			line,
 			"bullet.png")
 	{
-		spr.setScale(0.1f, 0.1f);
+		spr.setScale(0.09f, 0.09f);
 	}
 
 	unsigned getLine() { return line; };
@@ -80,27 +85,47 @@ public:
 		isAttack = (target != nullptr);
 	}
 
+	std::shared_ptr<Object> getTarget()
+	{
+		return attackTarget;
+	}
+
 	void update() override
 	{/*
 		if (moveTime())
 			std::cout << "pos: x:" << this->pos.x << " y: " << pos.y << std::endl;*/
+			
 		if (isAttack && attackTarget)
 		{
-			if (this->time())
+			if (attackTimer())
 			{
-				// Attack the stored target
+				
 				MSG_Manager::get().addMSG(
 					std::make_shared<Engine::MSG_TYPE_DAMAGE>(
 						damage,
 						attackTarget,
-						std::shared_ptr<Object>(this, [](Object*) {})
+						shared_from_this()
 					)
 				);
+				std::cout << "ATTACK" << std::endl;
+				attackTimer.restart();  
 			}
 		}
-		if (time() && !isAttack)
+		else
 		{
-			changePos(pos);
+			if (moveTime())
+			{
+				
+				this->pos.x -= velocity;
+				MSG_Manager::get().addMSG(
+					std::make_shared<Engine::MSG_TYPE_MOVE>(
+						sf::Vector2f{ -float(velocity), 0 },
+						shared_from_this()
+					)
+				);
+				spr.setPosition(pos);
+				moveTime.restart();
+			}
 		}
 		for (auto effect = effects.begin(); effect != effects.end(); )
 		{
@@ -132,5 +157,14 @@ public:
 		{
 			effects.erase(std::remove(effects.begin(), effects.end(), eff), effects.end());
 		}
+	}
+	float getSpeed() const 
+	{ 
+		return static_cast<float>(velocity); 
+	}
+	
+	void setSpeed(float s)
+	{
+		velocity = static_cast<uint16_t>(s); 
 	}
 };

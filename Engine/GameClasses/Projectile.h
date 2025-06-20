@@ -14,9 +14,9 @@ protected:
 		damage;
 	sf::Sprite spr;
 	bool isUpg = false;
-
 	friend class FireLog;
 public:
+	bool hasHit = false;
 
 	Projectile() = default;
 
@@ -36,13 +36,19 @@ public:
 		MSG_Manager::get().addMSG(make_shared<Engine::MSG_TYPE_MOVE>(sf::Vector2f(static_cast<float>(velocity), 0.f), std::static_pointer_cast<Object>(this->shared_from_this())));
 		spr.move(static_cast<float>(velocity), 0.f);
 	}
+	uint16_t getLine() const 
+	{ 
+		return line; 
+	}
+	uint16_t getDamage()
+	{
+		return damage;
+	}
 
-	// 2) Рисуем
 	void draw(sf::RenderWindow& win) override {
 		win.draw(spr);
 	}
 
-	// 3) Позиционирование
 	sf::Vector2f getPos() override {
 		return spr.getPosition();
 	}
