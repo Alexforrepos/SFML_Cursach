@@ -277,6 +277,11 @@ std::shared_ptr<Object> Surface::toPlant(std::string plantType, uint8_t line, ui
 	else if (plantType == "SunFlower") {
 		return make_shared<SunFlower>(line, col);
 	}
+	else if (plantType == "Skorostrel")
+	{
+		return make_shared<Skorostrel>(line, col);
+
+	}
 	return shared_ptr<Object>();
 }
 

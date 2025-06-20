@@ -92,7 +92,7 @@
                 "CD": 1,
                 "Damage": 34,
                 "HP": 150,
-                "cost": 50,
+                "cost": 200,
                 "textureId": "Skorostrel.png"
             },
             "SunFlower": {
