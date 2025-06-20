@@ -28,6 +28,7 @@ public:
     void update() override
     {
         imabatocama();
+        loos();
         if (isAttack && attackTarget) {
             if (attackTimer()) {
                 MSG_Manager::get().addMSG(

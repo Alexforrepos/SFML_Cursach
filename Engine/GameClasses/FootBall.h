@@ -15,6 +15,7 @@ public:
     }
 
     void update() override {
+        loos();
         if (isAttack && attackTarget) {
             if (attackTimer()) {
                 MSG_Manager::get().addMSG(

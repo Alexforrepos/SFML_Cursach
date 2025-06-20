@@ -22,6 +22,7 @@ public:
 
     void update() override {
         textureChangeAfterRape();
+        loos();
         if (isAttack && attackTarget) {
             if (attackTimer()) {
                 MSG_Manager::get().addMSG(

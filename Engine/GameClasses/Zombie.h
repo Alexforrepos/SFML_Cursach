@@ -17,6 +17,7 @@ protected:
 	uint16_t damage;
 	uint16_t line;
 	sf::Sprite spr;
+	sf::Sprite tgfy;
 	bool isAttack;
 	std::shared_ptr<Object> attackTarget; // Stores attack target
 	std::vector<EffectPtr> effects;
@@ -54,6 +55,7 @@ public:
 	void draw(sf::RenderWindow& win) override
 	{
 		win.draw(spr);
+		win.draw(tgfy);
 	}
 
 	sf::Vector2f getPos() override
@@ -85,6 +87,16 @@ public:
 		isAttack = (target != nullptr);
 	}
 
+	void loos()
+	{
+		if (pos.x <= 250)
+		{
+			tgfy.setTexture(R_Manager::get().access<sf::Texture>(
+				"gamover.png"));
+			tgfy.setPosition(400, 200);
+		}
+	}
+
 	std::shared_ptr<Object> getTarget()
 	{
 		return attackTarget;
@@ -94,7 +106,7 @@ public:
 	{/*
 		if (moveTime())
 			std::cout << "pos: x:" << this->pos.x << " y: " << pos.y << std::endl;*/
-			
+		loos();
 		if (isAttack && attackTarget)
 		{
 			if (attackTimer())
@@ -108,7 +120,7 @@ public:
 					)
 				);
 				std::cout << "ATTACK" << std::endl;
-				attackTimer.restart();  
+				attackTimer.restart();
 			}
 		}
 		else

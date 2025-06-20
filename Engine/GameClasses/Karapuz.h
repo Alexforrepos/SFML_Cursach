@@ -30,6 +30,7 @@ public:
     void update() override
     {
         iWasBornByBigDudeWithBat();
+        loos();
         if (isAttack && attackTarget) {
             if (attackTimer()) {
                 MSG_Manager::get().addMSG(
