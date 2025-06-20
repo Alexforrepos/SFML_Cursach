@@ -2,4 +2,3 @@ d t ./Res/ResFiles/Textures
 d f ./Res/ResFiles/Fonts
 d m ./Res/ResFiles/Music
 d s ./Res/ResFiles/SoundEffect
-t ./Res/ResFiles/Testures/bullet.png
