@@ -11,7 +11,7 @@ PeaShooter::PeaShooter( uint8_t line, uint8_t col)
 	)
 	, shootTimer(1000)
 {
-	sprite.setScale(0.15,0.15);
+	sprite.setScale(0.1,0.1);
 	sprite.setColor(sf::Color(255, 255, 255, 200));
 	shootTimer.restart();
 }

@@ -23,6 +23,7 @@
                     "Apex",
                     "Pumpkin",
                     "Skorostrel",
+                    "SunFlower",
                     "Shovel"
                 ],
                 "Avaliavle_Zombie": [
@@ -33,8 +34,12 @@
             },
             {
                 "Avaliable_Plant": [
-                    "SunFlower",
+                    "PeaShooter",
                     "IceP",
+                    "Apex",
+                    "Pumpkin",
+                    "Skorostrel",
+                    "SunFlower",
                     "Shovel"
                 ],
                 "Avaliavle_Zombie": [
