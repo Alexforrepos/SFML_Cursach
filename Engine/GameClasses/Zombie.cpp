@@ -39,8 +39,6 @@ void Zombie::sendMsg(const std::shared_ptr<Engine::MSG>& msg) {
 			else if (prj && !prj->hasHit && prj->getLine() == line && spr.getGlobalBounds().contains(prj->getPos())) {
 				prj->hasHit = true;
 				this->HP -= prj->getDamage();
-				auto freeze = std::make_shared<FreezeEffect>(42);
-				addEffect(freeze);
 				std::cout << "  GOL" << std::endl;
 				MSG_Manager::get().addMSG(
 					std::make_shared<Engine::MSG_TYPE_KILL>(moveMsg->target.get(), this)
