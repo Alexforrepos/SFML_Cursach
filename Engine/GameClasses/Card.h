@@ -9,6 +9,7 @@
 #include "GameClasses/Hologram.h"
 #include "ScoreManager.h"
 #include "Utils/Config.h"
+
 class Card : public Object
 {
     sf::Sprite sprite;
@@ -18,6 +19,11 @@ class Card : public Object
     std::string plantType;
     bool wasLeftPressed = false;
     static std::shared_ptr<Hologram> holo;
+
+    // New: Sun counter text
+    static sf::Font sunFont;
+    static sf::Text sunText;
+    static bool sunTextInitialized;
 
 public:
     Card() = default;
