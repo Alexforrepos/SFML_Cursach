@@ -4,15 +4,15 @@
 void WaveManager::populateWave(uint16_t wave) {
     waveZombies.clear();
 
-    if (wave <= 5) {
-        // Waves 1-5: 4 Zombie, 3 ZombieBucket
+    if (wave <= 2) {
+        // Waves 1-2: 4 Zombie, 3 ZombieBucket
         for (int i = 0; i < 4; ++i)
             waveZombies.push_back(std::make_shared<Zombie>(rand() % 5));
         for (int i = 0; i < 3; ++i)
             waveZombies.push_back(std::make_shared<ZombieBucket>(rand() % 5));
     }
-    else if (wave <= 10) {
-        // Waves 6-10: 3 ZombieBucket, 2 Newspaper, 2 Runner
+    else if (wave <= 4) {
+        // Waves 3-4: 3 ZombieBucket, 2 Newspaper, 2 Runner
         for (int i = 0; i < 3; ++i)
             waveZombies.push_back(std::make_shared<ZombieBucket>(rand() % 5));
         for (int i = 0; i < 2; ++i)
@@ -20,8 +20,8 @@ void WaveManager::populateWave(uint16_t wave) {
         for (int i = 0; i < 2; ++i)
             waveZombies.push_back(std::make_shared<Runner>(rand() % 5));
     }
-    else if (wave <= 15) {
-        // Waves 10-15: 3 Runner, 1 Newspaper, 2 HeavyRunner, 2 ZombieBucket, 2 Zombie
+    else if (wave <= 6) {
+        // Waves 5-6: 3 Runner, 1 Newspaper, 2 FootBall, 2 ZombieBucket, 2 Zombie
         for (int i = 0; i < 3; ++i)
             waveZombies.push_back(std::make_shared<Runner>(rand() % 5));
         waveZombies.push_back(std::make_shared<Newsguy>(rand() % 5));
@@ -32,8 +32,8 @@ void WaveManager::populateWave(uint16_t wave) {
         for (int i = 0; i < 2; ++i)
             waveZombies.push_back(std::make_shared<Zombie>(rand() % 5));
     }
-    else if (wave <= 20) {
-        // Waves 15-20: 4 Zombie, 3 HeavyRunner, 3 Runner, 2 ZombieBucket
+    else if (wave <= 8) {
+        // Waves 7-8: 4 Zombie, 3 FootBall, 3 Runner, 2 ZombieBucket
         for (int i = 0; i < 4; ++i)
             waveZombies.push_back(std::make_shared<Zombie>(rand() % 5));
         for (int i = 0; i < 3; ++i)
@@ -43,8 +43,8 @@ void WaveManager::populateWave(uint16_t wave) {
         for (int i = 0; i < 2; ++i)
             waveZombies.push_back(std::make_shared<ZombieBucket>(rand() % 5));
     }
-    else {
-        // Waves 20-25: 1 Zimin, 2 HeavyRunner, 5 Zombie, 2 ZombieBucket
+    else if (wave <= 10) {
+        // Waves 9-10: 1 Zimin, 2 FootBall, 5 Zombie, 2 ZombieBucket, 2 Runner
         waveZombies.push_back(std::make_shared<Garg>(rand() % 5));
         for (int i = 0; i < 2; ++i)
             waveZombies.push_back(std::make_shared<HeavyRunner>(rand() % 5));
@@ -52,6 +52,12 @@ void WaveManager::populateWave(uint16_t wave) {
             waveZombies.push_back(std::make_shared<Zombie>(rand() % 5));
         for (int i = 0; i < 2; ++i)
             waveZombies.push_back(std::make_shared<ZombieBucket>(rand() % 5));
+        for (int i = 0; i < 2; ++i)
+            waveZombies.push_back(std::make_shared<Runner>(rand() % 5));
+    }
+    else if (wave == 11) {
+        // Wave 11: No zombies, trigger win condition
+        waveZombies.clear();
     }
 }
 
