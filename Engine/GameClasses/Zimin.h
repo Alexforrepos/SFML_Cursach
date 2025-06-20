@@ -20,7 +20,12 @@ public:
     {
         if (this->HP <= 250 && iCantBreath)
         {
-            MSG_Manager::get().addMSG(std::make_shared<Engine::MSG_TYPE_CREATE>(std::make_shared<Child>(rand() % 3, shared_from_this()), nullptr));
+            MSG_Manager::get().addMSG(
+                std::make_shared<Engine::MSG_TYPE_CREATE>(
+                    std::make_shared<Child>(getLine(), shared_from_this()),
+                    nullptr
+                )
+            );
             iCantBreath = false;
         }
     }
@@ -28,7 +33,6 @@ public:
     void update() override
     {
         imabatocama();
-        loos();
         if (isAttack && attackTarget) {
             if (attackTimer()) {
                 MSG_Manager::get().addMSG(
