@@ -1,30 +1,53 @@
 #include "Zombie.h"
 #include "Projectile.h"
 #include "Plant.h"
-
+#include "FreezeProjectile.h"
 void Zombie::sendMsg(const std::shared_ptr<Engine::MSG>& msg) {
 	switch (msg->getIndex()) {
 	case Engine::MSG_TYPE::MSG_TYPE_MOVE: {
 		auto moveMsg = std::static_pointer_cast<Engine::MSG_TYPE_MOVE>(msg);
 		if (moveMsg->target.get() == this) {
+			
 			sf::Vector2f newPos = pos + moveMsg->dir;
 			setPos(newPos);
 		}
-		if (moveMsg->target->type() == int(Types::BaseProjectileType)) {
-			auto prj = dynamic_cast<Projectile*>(moveMsg->target.get());
-			if (prj && !prj->hasHit && prj->getLine() == this->getLine() && spr.getGlobalBounds().contains(prj->getPos())) {
+		else if (moveMsg->target->type() == int(Types::BaseProjectileType)) {
+			
+			auto fprj = dynamic_cast<FreezeProjectile*>(moveMsg->target.get());
+			auto prj = dynamic_cast<Projectile*>      (moveMsg->target.get());
+
+			if (fprj && !fprj->hasHit && fprj->getLine() == line && spr.getGlobalBounds().contains(fprj->getPos())) {
+				fprj->hasHit = true;
+				HP -= fprj->getDamage();
+
+			
+				auto freezeEff = std::make_shared<FreezeEffect>( 1);
+				addEffect(freezeEff);
+				std::cout << "Holodno" << std::endl;
+
+				
+				MSG_Manager::get().addMSG(
+					std::make_shared<Engine::MSG_TYPE_KILL>(moveMsg->target.get(), this)
+				);
+				if (HP <= 0) {
+					MSG_Manager::get().addMSG(
+						std::make_shared<Engine::MSG_TYPE_KILL>(this, moveMsg->target.get())
+					);
+				}
+			}
+			
+			else if (prj && !prj->hasHit && prj->getLine() == line && spr.getGlobalBounds().contains(prj->getPos())) {
 				prj->hasHit = true;
 				this->HP -= prj->getDamage();
 				auto freeze = std::make_shared<FreezeEffect>(42);
 				addEffect(freeze);
 				std::cout << "  GOL" << std::endl;
 				MSG_Manager::get().addMSG(
-					std::make_shared<Engine::MSG_TYPE_KILL>(prj, this)
+					std::make_shared<Engine::MSG_TYPE_KILL>(moveMsg->target.get(), this)
 				);
-				if (this->HP <= 0)
-				{
+				if (HP <= 0) {
 					MSG_Manager::get().addMSG(
-						std::make_shared<Engine::MSG_TYPE_KILL>(this, prj)
+						std::make_shared<Engine::MSG_TYPE_KILL>(this, moveMsg->target.get())
 					);
 				}
 			}

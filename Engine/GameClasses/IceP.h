@@ -22,7 +22,7 @@ public:
         if (shootTimer()) {
             auto& cfg = Config::getInstance();
             unsigned damage = cfg["PlantParams"]["Plants"]["IceP"]["Damage"].get<unsigned>();
-            unsigned velocity = 5;
+            unsigned velocity = 2;
 
             auto& tex = R_Manager::get().access<sf::Texture>("Seed.png");
             auto pos = getPos();
