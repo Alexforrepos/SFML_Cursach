@@ -29,7 +29,7 @@
                     "Zombie",
                     "Armored Zombie"
                 ],
-                "Line_Q": 4
+                "Line_Q": 5
             },
             {
                 "Avaliable_Plant": [
@@ -42,7 +42,7 @@
                     "Armored Zombie",
                     "Mini Zombie"
                 ],
-                "Line_Q": 3
+                "Line_Q": 5
             }
         ],
         "count": 2
@@ -64,25 +64,25 @@
                 "CD": 0,
                 "HP": 34,
                 "cost": 50,
-                "textureId": "Firelog.jpg"
+                "textureId": "Firelog.png"
             },
             "IceP": {
                 "Damage": 20,
                 "HP": 100,
-                "cost": 100,
-                "textureId": "jojo-dan.png"
+                "cost": 150,
+                "textureId": "IceP.png"
             },
             "PeaShooter": {
                 "CD": 1,
                 "Damage": 34,
                 "HP": 150,
-                "cost": 50,
+                "cost": 100,
                 "textureId": "PeaShooter.png"
             },
             "Pumpkin": {
                 "HP": 1000,
                 "cost": 50,
-                "textureId": "shkibidiSanya.png"
+                "textureId": "pumpkin.png"
             },
             "Shovel": {
                 "cost": 0,
@@ -93,7 +93,7 @@
                 "Damage": 34,
                 "HP": 150,
                 "cost": 50,
-                "textureId": "shkibidiSanya.png"
+                "textureId": "Skorostrel.png"
             },
             "SunFlower": {
                 "CD": 15,

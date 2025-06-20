@@ -5,7 +5,7 @@
 #include "Utils/Timer.h"
 #include <SFML/Graphics.hpp>
 #include "Plant.h"
-
+#include "FreezeEffect.h"
 class Zombie : public Object
 {
 protected:
@@ -157,5 +157,14 @@ public:
 		{
 			effects.erase(std::remove(effects.begin(), effects.end(), eff), effects.end());
 		}
+	}
+	float getSpeed() const 
+	{ 
+		return static_cast<float>(velocity); 
+	}
+	
+	void setSpeed(float s)
+	{
+		velocity = static_cast<uint16_t>(s); 
 	}
 };

@@ -1,14 +1,18 @@
+#pragma once
 #include "Effect.h"
-#include "GameClasses/Zombie.h"
+#include <cstdint>
+
+class Zombie;   // forward
 
 class FreezeEffect : public Effect {
-public:
-    FreezeEffect()
-        : Effect(200, 1)  // Период и ID эффекта
-    {
-    }
+private:
+    bool applied = false;
+    float origSpeed = 0.f;
 
-    //void influence(Zombie& target) override {
-    //    target.velocity = std::max(0.0f, target.velocity - 2.0f);  // Замедление на 2.0
-    //}
+public:
+    explicit FreezeEffect(uint32_t effectId);
+
+    // переопределяем tick
+    bool tick(Zombie& target) override;
+    void influence(Zombie& target) override;  // всё равно пустая
 };

@@ -11,10 +11,10 @@ public:
 
     // остальное наследуется от PeaShooter (update, draw, getPos и т.д.)
 
-    template <class Archive>
-    void serialize(Archive& ar) {
-        // сериализуем ВСЁ, что делает PeaShooter + Plant
-        ar(cereal::base_class<PeaShooter>(this));
-        // никаких своих полей нет
-    }
+    //template <class Archive>
+    //void serialize(Archive& ar) {
+    //    // сериализуем ВСЁ, что делает PeaShooter + Plant
+    //    ar(cereal::base_class<PeaShooter>(this));
+    //    // никаких своих полей нет
+    //}
 };
