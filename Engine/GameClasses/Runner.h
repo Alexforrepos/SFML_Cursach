@@ -19,8 +19,8 @@ public:
     {
         if (canJump && isAttack && attackTarget)
         {
-            this->pos.x -= 180;
             this->canJump = false;
+            this->pos.x -= 180;
             this->isAttack = false;
             this->attackTarget = nullptr;
             this->velocity = 4;
@@ -30,8 +30,8 @@ public:
 
     void update() override 
     {
+        jumpRightOnThePlantsDicks();
         if (isAttack && attackTarget) {
-            jumpRightOnThePlantsDicks();
             if (attackTimer()) {
                 MSG_Manager::get().addMSG(
                     std::make_shared<Engine::MSG_TYPE_DAMAGE>(
