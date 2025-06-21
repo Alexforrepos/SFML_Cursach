@@ -8,7 +8,8 @@ public:
     FreezeProjectile(uint16_t velocity, uint16_t line, uint16_t damage, sf::Texture& texture, sf::Vector2f pos)
         : Projectile(velocity, line, damage, texture, pos)
     {
-        spr.setColor(sf::Color(0, 0, 255, 200));  
+        spr.setColor(sf::Color(0, 0, 255, 200));
+        spr.setScale(0.05, 0.05);
     }
 
     void update() override {

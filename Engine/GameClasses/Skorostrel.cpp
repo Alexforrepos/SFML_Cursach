@@ -1,25 +1,61 @@
-// Skorostrel.cpp
 #include "Skorostrel.h"
 
 Skorostrel::Skorostrel(uint8_t line, uint8_t col)
-    : PeaShooter(
-        line,
-        col
-    )
+    : PeaShooter(line, col)
+    , secondShotTimer(100) // задержка между двумя выстрелами (например, 100 мс)
+    , pendingSecondShot(false)
 {
-    this->plantType = "Skorostrel";
-    // 1) Перекрываем textureId (защищённое поле Plant) на свою
-    this->textureId = "Skorostrel.png";
-
-    // 2) Перезагружаем текстуру спрайта
+    plantType = "Skorostrel";
+    textureId = "Skorostrel.png";
     sprite.setTexture(R_Manager::get().access<sf::Texture>(textureId));
-
-    // 3) Можно при желании подправить масштаб/цвет, если нужно
-    sprite.setScale(0.15, 0.15);
+    sprite.setScale(0.15f, 0.15f);
     sprite.setColor(sf::Color(255, 255, 255, 200));
-
-    // 4) Таймаут у PeaShooter по умолчанию 300 мс, но вы можете подправить его,
-    //    например, быстрее:
-    shootTimer = Timer(450);  // или shootTimer, если вы его так назвали
+    // основная перезарядка оставляем такой же, как у обычного PeaShooter
+    shootTimer = Timer(1000);
     shootTimer.restart();
+}
+
+void Skorostrel::update() {
+    // Если ещё не был сделан второй выстрел
+    if (!pendingSecondShot) {
+        // Ждём основной таймер
+        if (shootTimer()) {
+            // Первый выстрел
+            auto& cfg = Config::getInstance();
+            unsigned damage = cfg["PlantParams"]["Plants"]["PeaShooter"]["Damage"].get<unsigned>();
+            unsigned velocity = 2;
+            auto& tex = R_Manager::get().access<sf::Texture>("pea.png");
+            auto pos = getPos();
+            MSG_Manager::get().addMSG(
+                std::make_shared<Engine::MSG_TYPE_CREATE>(
+                    std::make_shared<Projectile>(velocity, line, damage, tex, pos),
+                    (Object*)this
+                )
+            );
+            // Готовимся ко второму выстрелу
+            pendingSecondShot = true;
+            secondShotTimer.restart();
+            // Перезапускаем основной таймер, чтобы не быстрее обычного стрелять
+            shootTimer.restart();
+        }
+    }
+    else {
+        // Ждём задержку перед вторым выстрелом
+        if (secondShotTimer()) {
+            // Второй выстрел
+            auto& cfg = Config::getInstance();
+            unsigned damage = cfg["PlantParams"]["Plants"]["PeaShooter"]["Damage"].get<unsigned>();
+            unsigned velocity = 2;
+            auto& tex = R_Manager::get().access<sf::Texture>("pea.png");
+            auto pos = getPos();
+            MSG_Manager::get().addMSG(
+                std::make_shared<Engine::MSG_TYPE_CREATE>(
+                    std::make_shared<Projectile>(velocity, line, damage, tex, pos),
+                    (Object*)this
+                )
+            );
+            // Сброс состояния
+            pendingSecondShot = false;
+        }
+    }
 }

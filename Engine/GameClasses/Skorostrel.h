@@ -1,20 +1,21 @@
-// Skorostrel.h
 #pragma once
 #include "GameClasses/PeaShooter.h"
-
+#include "GameClasses/Projectile.h"
 class Skorostrel : public PeaShooter {
+protected:
+    Timer secondShotTimer;
+    bool pendingSecondShot = false;
 public:
     Skorostrel() = default; // для сериализации
 
     // конструктор, который вы наверняка зовёте при «посадке»
     Skorostrel(uint8_t line, uint8_t col);
 
-    // остальное наследуется от PeaShooter (update, draw, getPos и т.д.)
+    void update() override;
 
-    //template <class Archive>
-    //void serialize(Archive& ar) {
-    //    // сериализуем ВСЁ, что делает PeaShooter + Plant
-    //    ar(cereal::base_class<PeaShooter>(this));
-    //    // никаких своих полей нет
-    //}
+//    template <class Archive>
+//    void serialize(Archive& ar) {
+//        ar(cereal::base_class<PeaShooter>(this));
+//        ar(secondShotTimer, pendingSecondShot);
+//    }
 };
