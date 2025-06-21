@@ -24,6 +24,7 @@
                     "Pumpkin",
                     "Skorostrel",
                     "SunFlower",
+                    "ThreeShooter",
                     "Shovel"
                 ],
                 "Avaliavle_Zombie": [
@@ -105,6 +106,13 @@
                 "HP": 100,
                 "cost": 50,
                 "textureId": "Sunfloweer.png"
+            },
+            "ThreeShooter": {
+                "CD": 1,
+                "Damage": 34,
+                "HP": 150,
+                "cost": 200,
+                "textureId": "ThreeShooter.png"
             }
         }
     },

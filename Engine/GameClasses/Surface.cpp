@@ -6,6 +6,7 @@
 #include "Pumpkin.h"
 #include "IceP.h"
 #include "SunFlower.h"
+#include "ThreeShooter.h"
 using namespace std;
 
 void Surface::setZombie(std::shared_ptr<Object> zombie)
@@ -279,6 +280,11 @@ std::shared_ptr<Object> Surface::toPlant(std::string plantType, uint8_t line, ui
 	else if (plantType == "Skorostrel")
 	{
 		return make_shared<Skorostrel>(line, col);
+
+	}
+	else if (plantType == "ThreeShooter")
+	{
+		return make_shared<ThreeShooter>(line, col);
 
 	}
 	return shared_ptr<Object>();

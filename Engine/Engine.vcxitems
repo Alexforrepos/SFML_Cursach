@@ -40,6 +40,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Sun.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\SunFlower.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Surface.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\ThreeShooter.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Waves.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Zimin.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Zombie.cpp" />
@@ -85,6 +86,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Sun.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\SunFlower.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Surface.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\ThreeShooter.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Waves.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Zimin.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Zombie.h" />

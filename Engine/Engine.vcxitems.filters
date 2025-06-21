@@ -139,6 +139,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Waves.cpp">
       <Filter>GameObject</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\ThreeShooter.cpp">
+      <Filter>GameObject</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Interfaces\I_Identifiable.h">
@@ -274,6 +277,9 @@
       <Filter>GameObject</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Waves.h">
+      <Filter>GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\ThreeShooter.h">
       <Filter>GameObject</Filter>
     </ClInclude>
   </ItemGroup>
