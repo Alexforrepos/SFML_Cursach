@@ -6,7 +6,7 @@ Hologram::Hologram(const sf::Vector2f& startPos, const std::string& type)
 {
     Clicktime.restart();
     sprite.setTexture(
-        R_Manager::get().access<sf::Texture>(plantType == "Shovel" ? "showel.png" : "Hand.png")
+        R_Manager::get().access<sf::Texture>(plantType == "Shovel" ? "Showel.png" : "Hand.png")
         
     );
     ObjectType = Types::BasePlantType;
