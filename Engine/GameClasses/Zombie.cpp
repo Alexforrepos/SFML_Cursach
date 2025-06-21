@@ -21,8 +21,20 @@ void Zombie::sendMsg(const std::shared_ptr<Engine::MSG>& msg) {
 				HP -= fprj->getDamage();
 
 			
-				auto freezeEff = std::make_shared<FreezeEffect>( 1);
-				addEffect(freezeEff);
+				bool didRefresh = false;
+				for (auto& eff : effects) {
+					if (auto f = dynamic_cast<FreezeEffect*>(eff.get())) {
+						f->refresh();
+						didRefresh = true;
+						break;
+					}
+				}
+				if (!didRefresh) {
+					
+					auto newId = 1;
+					auto freezeEff = std::make_shared<FreezeEffect>(newId);
+					addEffect(freezeEff);
+				}
 				std::cout << "Holodno" << std::endl;
 
 				

@@ -14,7 +14,7 @@ bool FreezeEffect::tick(Zombie& target) {
     // при первом тике сохраняем оригинальную скорость и снижаем
     if (!applied) {
         origSpeed = target.getSpeed();
-        target.setSpeed(std::max(0.f, origSpeed - 1.0f));
+        target.setSpeed(std::max(0.f, origSpeed - 0.5f));
         applied = true;
     }
 
