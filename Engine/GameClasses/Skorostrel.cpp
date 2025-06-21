@@ -20,6 +20,6 @@ Skorostrel::Skorostrel(uint8_t line, uint8_t col)
 
     // 4) “аймаут у PeaShooter по умолчанию 300 мс, но вы можете подправить его,
     //    например, быстрее:
-    shootTimer = Timer(250);  // или shootTimer, если вы его так назвали
+    shootTimer = Timer(450);  // или shootTimer, если вы его так назвали
     shootTimer.restart();
 }

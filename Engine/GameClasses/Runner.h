@@ -31,6 +31,7 @@ public:
     void update() override 
     {
         jumpRightOnThePlantsDicks();
+        loos();
         if (isAttack && attackTarget) {
             if (attackTimer()) {
                 MSG_Manager::get().addMSG(

@@ -152,7 +152,7 @@ void Surface::sendMsg(const std::shared_ptr<Engine::MSG>& msg)
 								pumpkin->setPos(place.shape_rect.getPosition());
 
 								place.shape_rect.setTexture(
-									&R_Manager::get().access<sf::Texture>("IvtClub.png"), true
+									&R_Manager::get().access<sf::Texture>("pumpkin.png"), true
 								);
 							}
 
