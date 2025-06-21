@@ -19,8 +19,8 @@ class Card : public Object
     static std::shared_ptr<Hologram> holo;
 
     static sf::Font counterFont;
-    static sf::Text  counterText;
-    static bool     counterInitialized;
+    static sf::Text counterText;
+    static bool counterInitialized;
 
     static void initCounter();
 

@@ -150,7 +150,7 @@ void Surface::sendMsg(const std::shared_ptr<Engine::MSG>& msg)
 						}
 
 						// 3) Посадка нового растения
-						if (!place.isPlanted() && isInRange(holo->ObjectType, RANGE_PLANT))
+						if (!place.isPlanted() && isInRange(holo->ObjectType, RANGE_PLANT) && holo->getPlantType() != "Shovel")
 						{
 							auto plant = toPlant(
 								holo->getPlantType(),
@@ -158,7 +158,7 @@ void Surface::sendMsg(const std::shared_ptr<Engine::MSG>& msg)
 								static_cast<uint8_t>(&place - &row[0])          // column
 							);
 
-							plant->setPos(place.shape_rect.getPosition());
+                            plant->setPos(place.shape_rect.getPosition());
 
 							MSG_Manager::get().addMSG(
 								std::make_shared<Engine::MSG_TYPE_CREATE>(plant, this)

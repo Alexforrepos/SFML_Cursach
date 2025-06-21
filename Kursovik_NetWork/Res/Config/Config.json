@@ -87,11 +87,11 @@
             "Pumpkin": {
                 "HP": 1000,
                 "cost": 50,
-                "textureId": "pumpkin.png"
+                "textureId": "Pumpkin.png"
             },
             "Shovel": {
                 "cost": 0,
-                "textureId": "showel.png"
+                "textureId": "Showel.png"
             },
             "Skorostrel": {
                 "CD": 1,

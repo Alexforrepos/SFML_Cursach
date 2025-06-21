@@ -35,7 +35,7 @@ void PeaShooter::update()
 		// 4. Кидаем сообщение о создании нового объекта
 		MSG_Manager::get().addMSG(std::make_shared<Engine::MSG_TYPE_CREATE>(std::make_shared<Projectile>(
 			static_cast<uint16_t>(velocity),
-			line,                     // можно передавать реальную линию, если храните её в PeaShooter
+			line,                    
 			static_cast<uint16_t>(damage),
 			tex,
 			pos

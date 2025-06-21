@@ -2,13 +2,13 @@
 Apex::Apex(uint8_t line, uint8_t col)
     : Plant(
         "Apex",
-        "Apex.png",   // textureId теперь здесь
+        "Apex.png",   
         line,
         col,
         Config::getInstance()["PlantParams"]["Plants"]["Apex"]["HP"]
     )
 {
-    // дополнительные настройки масштаба/прозрачности
+    
     sprite.setScale(0.2, 0.2);
     sprite.setColor(sf::Color(255, 255, 255, 200));
 }

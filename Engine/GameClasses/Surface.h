@@ -107,7 +107,7 @@
 		Zombie_StartPosition(sf::Vector2f pos) {
 			shape_rect.setSize({ PLANT_SIZE_W, PLANT_SIZE_H });
 			shape_rect.setPosition(pos);
-			shape_rect.setTexture(&R_Manager::get().access<sf::Texture>("bozhepomogi.jpg"));
+			shape_rect.setTexture(&R_Manager::get().access<sf::Texture>("Tyman.png"));
 		}
 
 

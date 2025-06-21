@@ -81,9 +81,18 @@ void Card::draw(sf::RenderWindow& win)
     win.draw(counterText);
 }
 
-sf::Vector2f Card::getPos() { return sprite.getPosition(); }
-void Card::changePos(const sf::Vector2f& d) { setPos(getPos() + d); }
-void Card::setPos(sf::Vector2f p) { sprite.setPosition(p); }
+sf::Vector2f Card::getPos()
+{ 
+    return sprite.getPosition();
+}
+void Card::changePos(const sf::Vector2f& d) 
+{ 
+    setPos(getPos() + d); 
+}
+void Card::setPos(sf::Vector2f p)
+{ 
+    sprite.setPosition(p); 
+}
 
 void Card::sendMsg(const std::shared_ptr<Engine::MSG>& msg)
 {

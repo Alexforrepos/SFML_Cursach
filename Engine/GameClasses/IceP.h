@@ -7,15 +7,12 @@
 
 class IceP : public PeaShooter {
 public:
-    // Конструктор по умолчанию
-    IceP() : PeaShooter(0, 0) {
-       sprite.setTexture(R_Manager::get().access<sf::Texture>("IceP.png"));
-    }
-
+  
     // Конструктор с параметрами
     IceP(uint8_t line, uint8_t col)
         : PeaShooter(line, col) {
        sprite.setTexture(R_Manager::get().access<sf::Texture>("IceP.png"));
+       sprite.setScale(0.2, 0.2);
     }
 
     void update() override {
