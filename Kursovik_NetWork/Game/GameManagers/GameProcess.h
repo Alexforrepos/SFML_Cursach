@@ -9,7 +9,7 @@ class GameProcess
 {
     bool m_isActive;
     uint16_t m_sunQuantity;
-    Timer m_winTimer{ 260000 }; // 2 минуты
+    Timer m_winTimer{ 260000 }; 
     bool m_hasWon = false;
 public:
     GameProcess() : m_isActive(false), m_sunQuantity(0) {}

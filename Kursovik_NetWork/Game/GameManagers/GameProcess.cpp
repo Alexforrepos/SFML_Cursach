@@ -26,7 +26,7 @@ void GameProcess::start(int levelNumber)
     m_isActive = true;
     m_winTimer.restart();
     m_hasWon = false;
-    ScoreManager::get().reset(); // <-- сброс солнышек
+    ScoreManager::get().reset(); 
     WaveManager::get().start(); // Start wave system
 }
 
@@ -38,12 +38,11 @@ void GameProcess::run()
     if (!m_hasWon && m_winTimer()) {
         m_hasWon = true;
         sf::Sprite winSprite;
-        winSprite.setTexture(R_Manager::get().access<sf::Texture>("winner.png"));
-        winSprite.setPosition(500,500); // или по центру
-        winSprite.setScale(5000, 500);
+        winSprite.setTexture(R_Manager::get().access<sf::Texture>("winner.jpg"));
+        winSprite.setPosition(50,50); 
         Game::get().getWindow().draw(winSprite);
         Game::get().getWindow().display();
-        sf::sleep(sf::seconds(3)); // Показать победу 3 секунды
+        sf::sleep(sf::seconds(3)); 
         GameProcess::get().close();
         Game::get().setState(Game::State::Menu);
         return;
