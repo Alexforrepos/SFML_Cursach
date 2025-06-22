@@ -103,9 +103,7 @@ public:
 	}
 
 	void update() override
-	{/*
-		if (moveTime())
-			std::cout << "pos: x:" << this->pos.x << " y: " << pos.y << std::endl;*/
+	{	
 		loos();
 		if (isAttack && attackTarget)
 		{

@@ -97,7 +97,7 @@ void Surface::sendMsg(const std::shared_ptr<Engine::MSG>& msg)
 		if (!killMsg || !killMsg->victim)
 			return;
 
-		// Обрабатываем попадание Hologram-а (шаблон для посадки/лопаты/тыквы)
+		
 		if (killMsg->victim->type() == int(Types::Hologram))
 		{
 			auto holo = dynamic_cast<Hologram*>(killMsg->victim);
@@ -120,7 +120,6 @@ void Surface::sendMsg(const std::shared_ptr<Engine::MSG>& msg)
 
 					if (place_rect.intersects(holoRect))
 					{
-						// 1) Лопата: удаляем растение
 						if (holo->getPlantType() == "Shovel" && place.isPlanted())
 						{
 							place.deletePLant();
@@ -130,7 +129,6 @@ void Surface::sendMsg(const std::shared_ptr<Engine::MSG>& msg)
 							return;
 						}
 
-						// 2) Тыква: оборачиваем растение в Pumpkin
 						if (holo->getPlantType() == "Pumpkin"
 							&& place.isPlanted()
 							&& place.plantobj->getType() != "Pumpkin")
@@ -150,7 +148,6 @@ void Surface::sendMsg(const std::shared_ptr<Engine::MSG>& msg)
 							return;
 						}
 
-						// 3) Посадка нового растения
 						if (!place.isPlanted() && isInRange(holo->ObjectType, RANGE_PLANT) && holo->getPlantType() != "Shovel")
 						{
 							auto plant = toPlant(
@@ -167,8 +164,7 @@ void Surface::sendMsg(const std::shared_ptr<Engine::MSG>& msg)
 
 							place.plant(plant);
 
-							// <-- Вот здесь: сразу выходим из метода,
-							// чтобы не посадить растение в соседнюю клетку
+
 							return;
 						}
 					}
@@ -176,7 +172,7 @@ void Surface::sendMsg(const std::shared_ptr<Engine::MSG>& msg)
 			}
 		}
 
-		// Обработка уничтожения Pumpkin — восстанавливаем оригинал или очищаем клетку
+		
 		if (killMsg->victim->type() == int(Types::BasePlantType)
 			&& dynamic_cast<Plant*>(killMsg->victim)->getType() == "Pumpkin")
 		{
@@ -207,7 +203,6 @@ void Surface::sendMsg(const std::shared_ptr<Engine::MSG>& msg)
 		auto mv = std::dynamic_pointer_cast<Engine::MSG_TYPE_MOVE>(msg);
 		if (!mv) return;
 
-		// трогаем только зомби
 		if (mv->target->type() != int(Types::BaseZombieType))
 			return;
 
@@ -217,23 +212,21 @@ void Surface::sendMsg(const std::shared_ptr<Engine::MSG>& msg)
 		unsigned row = zmb->getLine();
 		float zx = zmb->getPos().x;
 
-		// ищем первую клетку в этом ряду с посаженным растением
 		for (auto& place : place_vector[row]) 
 		{
 			if (place.isPlanted()) {
 				float px = place.shape_rect.getPosition().x;
 				float pw = place.shape_rect.getSize().x;
-				// если зомби «зашёл» в границу клетки
+				
 				if (zx <= px + pw && zx > px) 
 				{
-					// назначаем цель и выходим
+
 					zmb->setAttackTarget(place.plantobj);
 					return;
 				}
 			}
 		}
 
-		// если ни с кем не столкнулись — сбрасываем цель (на случай, если растение сгнило)
 		zmb->setAttackTarget(nullptr);
 	} break;
 	case Engine::MSG_TYPE::MSG_TYPE_CREATE:

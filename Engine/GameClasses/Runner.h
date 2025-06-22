@@ -15,7 +15,7 @@ public:
         spr.setScale(0.25f, 0.25f);
     }
 
-    void jumpRightOnThePlantsDicks()
+    void jumpOver()
     {
         if (canJump && isAttack && attackTarget)
         {
@@ -30,7 +30,7 @@ public:
 
     void update() override 
     {
-        jumpRightOnThePlantsDicks();
+        jumpOver();
         loos();
         if (isAttack && attackTarget) {
             if (attackTimer()) {

@@ -74,7 +74,6 @@ void Zombie::sendMsg(const std::shared_ptr<Engine::MSG>& msg) {
 		}
 		if (this->isAttack)
 		{
-			std::cout << "nu3du/li oTnpaB/leHbl" << std::endl;
 			plnt->dealDamageToMyself(this->damage);
 			if (plnt->getHp() <= 0)
 			{

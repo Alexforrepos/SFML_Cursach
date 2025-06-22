@@ -17,7 +17,7 @@ public:
         cool = creator;
     }
 
-    void iWasBornByBigDudeWithBat()
+    void throwMyself()
     {
         if (rodi)
         {
@@ -29,7 +29,7 @@ public:
 
     void update() override
     {
-        iWasBornByBigDudeWithBat();
+        throwMyself();
         loos();
         if (isAttack && attackTarget) {
             if (attackTimer()) {
