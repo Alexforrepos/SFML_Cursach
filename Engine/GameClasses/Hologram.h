@@ -14,7 +14,7 @@ class Hologram :
 {
 private:
    sf::Sprite sprite;
-    std::string plantType; // Тип растения, который должен быть создан
+    std::string plantType; 
     Timer Clicktime;
     sf::Vector2f position;
     bool wasRightPressed = false;
@@ -40,7 +40,7 @@ public:
     {
         //std::cout << "САНЯ ЧИНИ" << std::endl;
     };
-    template<class Archive>
+   /* template<class Archive>
     void serialize(Archive& ar)
     {
         ar(cereal::base_class<Object>(this));
@@ -65,5 +65,5 @@ public:
             sprite.setColor(color);
             sprite.setTexture(R_Manager::get().access<sf::Texture>(textureId));
         }
-    };
+    };*/
 };

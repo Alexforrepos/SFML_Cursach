@@ -14,14 +14,15 @@ public:
         spr.setScale(0.09f, 0.09f); 
     }
 
-    void textureChangeAfterRape() {
+    void textureChange() {
         if (HP <= 100) {
             spr.setTexture(R_Manager::get().access<sf::Texture>("bullet.png"));
         }
     }
 
     void update() override {
-        textureChangeAfterRape();
+        textureChange();
+        loos();
         if (isAttack && attackTarget) {
             if (attackTimer()) {
                 MSG_Manager::get().addMSG(

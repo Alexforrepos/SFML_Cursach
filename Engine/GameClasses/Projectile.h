@@ -24,7 +24,7 @@ public:
 		:Object(int(Types::BaseProjectileType)), velocity(velocity), line(line), damage(damage), spr(texture)
 	{
 		setPos(pos);
-		spr.setScale(0.1f, 0.1f);
+		spr.setScale(0.05, 0.05);
 	}
 	void update() override {
 		if (spr.getPosition().x > MAX_X) {

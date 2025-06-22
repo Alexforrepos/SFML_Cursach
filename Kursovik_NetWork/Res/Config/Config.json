@@ -12,7 +12,7 @@
     },
     "GameData": {
         "levelUnlock": 0,
-        "profileName": "fine"
+        "profileName": ""
     },
     "Level": {
         "Levels": [
@@ -22,8 +22,9 @@
                     "IceP",
                     "Apex",
                     "Pumpkin",
-                    "Skorostrel",
+                    "Repeater",
                     "SunFlower",
+                    "ThreeShooter",
                     "Shovel"
                 ],
                 "Avaliavle_Zombie": [
@@ -38,7 +39,7 @@
                     "IceP",
                     "Apex",
                     "Pumpkin",
-                    "Skorostrel",
+                    "Repeater",
                     "SunFlower",
                     "Shovel"
                 ],
@@ -87,24 +88,31 @@
             "Pumpkin": {
                 "HP": 1000,
                 "cost": 50,
-                "textureId": "pumpkin.png"
+                "textureId": "Pumpkin.png"
             },
-            "Shovel": {
-                "cost": 0,
-                "textureId": "showel.png"
-            },
-            "Skorostrel": {
+            "Repeater": {
                 "CD": 1,
                 "Damage": 34,
                 "HP": 150,
                 "cost": 200,
-                "textureId": "Skorostrel.png"
+                "textureId": "Repeater.png"
+            },
+            "Shovel": {
+                "cost": 0,
+                "textureId": "Showel.png"
             },
             "SunFlower": {
                 "CD": 15,
                 "HP": 100,
                 "cost": 50,
                 "textureId": "Sunfloweer.png"
+            },
+            "ThreeShooter": {
+                "CD": 1,
+                "Damage": 34,
+                "HP": 150,
+                "cost": 200,
+                "textureId": "ThreeShooter.png"
             }
         }
     },

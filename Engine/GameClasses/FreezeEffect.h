@@ -11,7 +11,10 @@ private:
 
 public:
     explicit FreezeEffect(uint32_t effectId);
-
+    void refresh() {
+        cooldown.restart();
+        applied = true;
+    }
     // переопределяем tick
     bool tick(Zombie& target) override;
     void influence(Zombie& target) override;  // всё равно пустая

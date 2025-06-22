@@ -1,11 +1,12 @@
 #include "Surface.h"
 #include "Apex.h"
 #include "PeaShooter.h"
-#include "Skorostrel.h"
+#include "Repeater.h"
 #include "FireLog.h"
 #include "Pumpkin.h"
 #include "IceP.h"
 #include "SunFlower.h"
+#include "ThreeShooter.h"
 using namespace std;
 
 void Surface::setZombie(std::shared_ptr<Object> zombie)
@@ -91,123 +92,117 @@ void Surface::sendMsg(const std::shared_ptr<Engine::MSG>& msg)
 	switch (msg->getIndex())
 	{
 	case Engine::MSG_TYPE::MSG_TYPE_KILL:
-		if (msg->getIndex() == Engine::MSG_TYPE::MSG_TYPE_KILL)
+	{
+		auto killMsg = dynamic_cast<Engine::MSG_TYPE_KILL*>(msg.get());
+		if (!killMsg || !killMsg->victim)
+			return;
+
+		
+		if (killMsg->victim->type() == int(Types::Hologram))
 		{
-
-			auto killMsg = dynamic_cast<Engine::MSG_TYPE_KILL*>(msg.get());
-			if (!killMsg->victim) return;
-			Object* obj;
-			try
-			{
-				obj = dynamic_cast<Object*>(killMsg->victim);
-				if (!obj) return;
-			}
-			catch (...)
-			{
+			auto holo = dynamic_cast<Hologram*>(killMsg->victim);
+			if (!holo)
 				return;
-			}
-			int type = obj->type();
-			if (type == int(Types::Hologram))
+
+			sf::Vector2f pos = holo->getPos();
+
+			for (auto& row : place_vector)
 			{
-				Hologram* holo;
-				try
+				for (auto& place : row)
 				{
-					holo = dynamic_cast<Hologram*>(killMsg->victim);
-					if (!holo) return;
-				}
-				catch (...)
-				{
-					return;
-				}
+					sf::FloatRect place_rect{
+						place.shape_rect.getPosition().x,
+						place.shape_rect.getPosition().y,
+						place.shape_rect.getSize().x,
+						place.shape_rect.getSize().y
+					};
+					sf::FloatRect holoRect = holo->getRect();
 
-				sf::Vector2f pos = holo->getPos();
-
-				for (auto& row : place_vector)
-				{
-					for (auto& place : row)
+					if (place_rect.intersects(holoRect))
 					{
-
-						auto place_rect = sf::Rect{ place.shape_rect.getPosition().x,place.shape_rect.getPosition().y, place.shape_rect.getSize().x,place.shape_rect.getSize().y };
-						auto holorect = holo->getRect();
-						if (place_rect.intersects(holorect))
+						if (holo->getPlantType() == "Shovel" && place.isPlanted())
 						{
-							if (holo->getPlantType() == "Shovel" && place.isPlanted())
-							{
-								place.deletePLant();
-								place.shape_rect.setTexture(
-									&R_Manager::get().access<sf::Texture>("Drag.png"), true
-								);
-								return;
-							}
+							place.deletePLant();
+							place.shape_rect.setTexture(
+								&R_Manager::get().access<sf::Texture>("Drag.png"), true
+							);
+							return;
+						}
 
-							if (holo->getPlantType() == "Pumpkin" && place.isPlanted() && place.plantobj->getType() != "Pumpkin")
-							{
-								uint8_t line = static_cast<uint8_t>(&row - &place_vector[0]);
-								uint8_t col = static_cast<uint8_t>(&place - &row[0]);
+						if (holo->getPlantType() == "Pumpkin"
+							&& place.isPlanted()
+							&& place.plantobj->getType() != "Pumpkin")
+						{
+							uint8_t line = static_cast<uint8_t>(&row - &place_vector[0]);
+							uint8_t col = static_cast<uint8_t>(&place - &row[0]);
 
-								auto pumpkin = make_shared<Pumpkin>(line, col);
-								pumpkin->setPlant(place.plantobj);
+							auto pumpkin = std::make_shared<Pumpkin>(line, col);
+							pumpkin->setPlant(place.plantobj);
 
-								place.plantobj = pumpkin;
-								pumpkin->setPos(place.shape_rect.getPosition());
+							place.plantobj = pumpkin;
+							pumpkin->setPos(place.shape_rect.getPosition());
 
-								place.shape_rect.setTexture(
-									&R_Manager::get().access<sf::Texture>("IvtClub.png"), true
-								);
-							}
+							place.shape_rect.setTexture(
+								&R_Manager::get().access<sf::Texture>("pumpkin.png"), true
+							);
+							return;
+						}
 
-							if (!place.isPlanted() && isInRange(holo->ObjectType, RANGE_PLANT))
-							{
-								auto plant = toPlant(
-									holo->getPlantType(),
-									static_cast<uint8_t>(&row - &place_vector[0]),  // line
-									static_cast<uint8_t>(&place - &row[0])          // column
-								);
-								
-								plant->setPos(place.shape_rect.getPosition());
+						if (!place.isPlanted() && isInRange(holo->ObjectType, RANGE_PLANT) && holo->getPlantType() != "Shovel")
+						{
+							auto plant = toPlant(
+								holo->getPlantType(),
+								static_cast<uint8_t>(&row - &place_vector[0]),  // line
+								static_cast<uint8_t>(&place - &row[0])          // column
+							);
+
+                            plant->setPos(place.shape_rect.getPosition());
+
+							MSG_Manager::get().addMSG(
+								std::make_shared<Engine::MSG_TYPE_CREATE>(plant, this)
+							);
+
+							place.plant(plant);
 
 
-								MSG_Manager::get().addMSG(make_shared<Engine::MSG_TYPE_CREATE>(plant, this));
-
-								
-								place.plant(plant);
-
-							}
-						
+							return;
 						}
 					}
 				}
 			}
-			if (killMsg->victim->type() == int(Types::BasePlantType) && dynamic_cast<Plant*>(killMsg->victim)->getType() == "Pumpkin")
-			{
-				auto pumpkin = dynamic_cast<Pumpkin*>(killMsg->victim);
-				auto& place = this->place_vector[pumpkin->line][pumpkin->col];
-
-				
-				if (auto original_plant = pumpkin->getOriginalPlant()) {
-					place.plantobj = original_plant;
-					original_plant->setPos(place.shape_rect.getPosition());
-				}
-				else {
-					place.plantobj.reset();
-					place.isplanted = false;
-					place.plantid = VOID_ID;
-				}
+		}
 
 		
-				place.shape_rect.setTexture(
-					&R_Manager::get().access<sf::Texture>(place.isplanted ? "IvtClub.png" : "Drag.png"), true
-				);
-				return;
+		if (killMsg->victim->type() == int(Types::BasePlantType)
+			&& dynamic_cast<Plant*>(killMsg->victim)->getType() == "Pumpkin")
+		{
+			auto pumpkin = dynamic_cast<Pumpkin*>(killMsg->victim);
+			auto& place = this->place_vector[pumpkin->line][pumpkin->col];
+
+			if (auto original_plant = pumpkin->getOriginalPlant()) {
+				place.plantobj = original_plant;
+				original_plant->setPos(place.shape_rect.getPosition());
+			}
+			else {
+				place.plantobj.reset();
+				place.isplanted = false;
+				place.plantid = VOID_ID;
 			}
 
+			place.shape_rect.setTexture(
+				&R_Manager::get().access<sf::Texture>(
+					place.isplanted ? "IvtClub.png" : "Drag.png"
+				),
+				true
+			);
+			return;
 		}
-		break;
+	}
+	break;
 	case Engine::MSG_TYPE::MSG_TYPE_MOVE: {
 		auto mv = std::dynamic_pointer_cast<Engine::MSG_TYPE_MOVE>(msg);
 		if (!mv) return;
 
-		// трогаем только зомби
 		if (mv->target->type() != int(Types::BaseZombieType))
 			return;
 
@@ -217,23 +212,21 @@ void Surface::sendMsg(const std::shared_ptr<Engine::MSG>& msg)
 		unsigned row = zmb->getLine();
 		float zx = zmb->getPos().x;
 
-		// ищем первую клетку в этом р€ду с посаженным растением
 		for (auto& place : place_vector[row]) 
 		{
 			if (place.isPlanted()) {
 				float px = place.shape_rect.getPosition().x;
 				float pw = place.shape_rect.getSize().x;
-				// если зомби ЂзашЄлї в границу клетки
+				
 				if (zx <= px + pw && zx > px) 
 				{
-					// назначаем цель и выходим
+
 					zmb->setAttackTarget(place.plantobj);
 					return;
 				}
 			}
 		}
 
-		// если ни с кем не столкнулись Ч сбрасываем цель (на случай, если растение сгнило)
 		zmb->setAttackTarget(nullptr);
 	} break;
 	case Engine::MSG_TYPE::MSG_TYPE_CREATE:
@@ -277,9 +270,14 @@ std::shared_ptr<Object> Surface::toPlant(std::string plantType, uint8_t line, ui
 	else if (plantType == "SunFlower") {
 		return make_shared<SunFlower>(line, col);
 	}
-	else if (plantType == "Skorostrel")
+	else if (plantType == "Repeater")
 	{
-		return make_shared<Skorostrel>(line, col);
+		return make_shared<Repeater>(line, col);
+
+	}
+	else if (plantType == "ThreeShooter")
+	{
+		return make_shared<ThreeShooter>(line, col);
 
 	}
 	return shared_ptr<Object>();

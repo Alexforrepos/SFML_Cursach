@@ -7,22 +7,19 @@
 
 class IceP : public PeaShooter {
 public:
-    // Конструктор по умолчанию
-    IceP() : PeaShooter(0, 0) {
-       sprite.setTexture(R_Manager::get().access<sf::Texture>("IceP.png"));
-    }
-
+  
     // Конструктор с параметрами
     IceP(uint8_t line, uint8_t col)
         : PeaShooter(line, col) {
        sprite.setTexture(R_Manager::get().access<sf::Texture>("IceP.png"));
+       sprite.setScale(0.2, 0.2);
     }
 
     void update() override {
         if (shootTimer()) {
             auto& cfg = Config::getInstance();
             unsigned damage = cfg["PlantParams"]["Plants"]["IceP"]["Damage"].get<unsigned>();
-            unsigned velocity = 5;
+            unsigned velocity = 2;
 
             auto& tex = R_Manager::get().access<sf::Texture>("Seed.png");
             auto pos = getPos();

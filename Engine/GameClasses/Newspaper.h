@@ -27,6 +27,7 @@ public:
 
     void update() override
     {
+        loos();
         didIlostMyShield();
         if (isAttack && attackTarget) {
             if (attackTimer()) {

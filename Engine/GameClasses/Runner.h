@@ -15,12 +15,12 @@ public:
         spr.setScale(0.25f, 0.25f);
     }
 
-    void jumpRightOnThePlantsDicks()
+    void jumpOver()
     {
         if (canJump && isAttack && attackTarget)
         {
-            this->pos.x -= 180;
             this->canJump = false;
+            this->pos.x -= 180;
             this->isAttack = false;
             this->attackTarget = nullptr;
             this->velocity = 4;
@@ -30,8 +30,9 @@ public:
 
     void update() override 
     {
+        jumpOver();
+        loos();
         if (isAttack && attackTarget) {
-            jumpRightOnThePlantsDicks();
             if (attackTimer()) {
                 MSG_Manager::get().addMSG(
                     std::make_shared<Engine::MSG_TYPE_DAMAGE>(

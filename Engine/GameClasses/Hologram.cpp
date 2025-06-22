@@ -6,16 +6,13 @@ Hologram::Hologram(const sf::Vector2f& startPos, const std::string& type)
 {
     Clicktime.restart();
     sprite.setTexture(
-        R_Manager::get().access<sf::Texture>(
-            plantType == "Shovel" ? "showel.png" : "ps.png"
-        )
+        R_Manager::get().access<sf::Texture>(plantType == "Shovel" ? "Showel.png" : "Hand.png")
         
     );
     ObjectType = Types::BasePlantType;
-    // Настройка внешнего вида голограммы
-    sprite.setColor(sf::Color(255, 255, 255, 150)); // Полупрозрачный
-    sprite.setScale(0.15f, 0.15f); // Масштабирование
-    sprite.setOrigin(sprite.getLocalBounds().width / 2, sprite.getLocalBounds().height / 2); // Центрирование
+    sprite.setColor(sf::Color(255, 255, 255, 150)); 
+    sprite.setScale(0.15f, 0.15f); 
+    sprite.setOrigin(sprite.getLocalBounds().width / 2, sprite.getLocalBounds().height / 2); 
 }
 
 
@@ -33,11 +30,11 @@ void Hologram::update()
         std::cout << "MSG Send" << std::endl;
         MSG_Manager::get().addMSG(std::shared_ptr<Engine::MSG_TYPE_KILL>(new Engine::MSG_TYPE_KILL(
             this, this)));
-        wasRightPressed = true; // Устанавливаем флаг, что сообщение уже отправлено
+        wasRightPressed = true; 
     }
     else if (!isPressed)
     {
-        wasRightPressed = false; // Сбрасываем флаг, когда кнопка отпущена
+        wasRightPressed = false; 
     }
 }
 

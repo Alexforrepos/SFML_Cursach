@@ -12,14 +12,16 @@ FreezeEffect::FreezeEffect(uint32_t effectId)
 
 bool FreezeEffect::tick(Zombie& target) {
     // при первом тике сохран€ем оригинальную скорость и снижаем
-    if (!applied) {
+    if (!applied) 
+    {
         origSpeed = target.getSpeed();
-        target.setSpeed(std::max(0.f, origSpeed - 1.0f));
+        target.setSpeed(std::max(0.f, origSpeed - 0.5f));
         applied = true;
     }
 
-    // если врем€ ещЄ не вышло Ч держим эффект
-    if (!cooldown()) {
+   
+    if (!cooldown()) 
+    {
         return true;
     }
 
@@ -33,6 +35,7 @@ bool FreezeEffect::tick(Zombie& target) {
     return false;  // говорим, что эффект завершаетс€
 }
 
-void FreezeEffect::influence(Zombie& /*target*/) {
-    // не используетс€
+void FreezeEffect::influence(Zombie&) 
+{
+   
 }

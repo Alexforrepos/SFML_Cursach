@@ -4,7 +4,7 @@
 
 class Garg : public Zombie {
 public:
-    bool iCantBreath = true;
+    bool hasChild = true;
     Garg(uint16_t line)
         : Zombie(
             Config::getInstance()["ZombieParams"]["Zombies"]["Garantiryu"]["HP"].get<int16_t>(),
@@ -16,18 +16,24 @@ public:
         spr.setScale(0.1f, 0.1f);
     }
 
-    void imabatocama()
+    void throwChild()
     {
-        if (this->HP <= 250 && iCantBreath)
+        if (this->HP <= 250 && hasChild)
         {
-            MSG_Manager::get().addMSG(std::make_shared<Engine::MSG_TYPE_CREATE>(std::make_shared<Child>(rand() % 3, shared_from_this()), nullptr));
-            iCantBreath = false;
+            MSG_Manager::get().addMSG(
+                std::make_shared<Engine::MSG_TYPE_CREATE>(
+                    std::make_shared<Child>(getLine(), shared_from_this()),
+                    nullptr
+                )
+            );
+            hasChild = false;
         }
     }
 
     void update() override
     {
-        imabatocama();
+        throwChild();
+        loos();
         if (isAttack && attackTarget) {
             if (attackTimer()) {
                 MSG_Manager::get().addMSG(
