@@ -68,36 +68,9 @@ public:
 		return HP;
 	}
 
-	std::string getType() { return plantType; }
-
-	template <class Archive>
-	void serialize(Archive& ar) {
-		ar(cereal::base_class<Object>(this),
-			plantType,
-			textureId,      // ← сериализуем
-			line,
-			col,
-			HP);
-
-		// сохраняем текущее состояние спрайта
-		sf::Vector2f position = sprite.getPosition();
-		sf::Vector2f scale = sprite.getScale();
-		float        rotation = sprite.getRotation();
-		sf::IntRect  textureRect = sprite.getTextureRect();
-		sf::Color    color = sprite.getColor();
-
-		ar(position, scale, rotation, textureRect, color, isTakingDamage);
-
-		if constexpr (Archive::is_loading::value) {
-			// при загрузке сначала назначаем текстуру
-			sprite.setTexture(R_Manager::get().access<sf::Texture>(textureId));
-			// а потом восстанавливаем остальные параметры
-			sprite.setPosition(position);
-			sprite.setScale(scale);
-			sprite.setRotation(rotation);
-			sprite.setTextureRect(textureRect);
-			sprite.setColor(color);
-		}
+	std::string getType() 
+	{ 
+		return plantType; 
 	}
 
 	void sendMsg(const std::shared_ptr<Engine::MSG>& msg)
@@ -111,30 +84,9 @@ public:
 			if (!msgmove)
 				return;
 
-			switch (msgmove->target->type())
-			{
-				case int(Types::BaseZombieType) :
-				{
-					//auto dr = dynamic_cast<Zombie*>(msgmove->target.get());
-					//if (!dr)return;
-
-					
-					//TODO::логику коллизийй для столкновения зомби и растения 
-				}
-				break;
-
-				default:
-					break;
-			}
+			
 		}
-		case Engine::MSG_TYPE::MSG_TYPE_DAMAGE:
-		{
-
-		}
-		case Engine::MSG_TYPE::MSG_TYPE_KILL:
-		{
-
-		}
+		
 		break;
 		default:
 			break;

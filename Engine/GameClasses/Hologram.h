@@ -38,32 +38,7 @@ public:
     sf::FloatRect getRect() { return { position.x,position.y,30,30 }; }
     ~Hologram()
     {
-        //std::cout << "ÑÀÍß ×ÈÍÈ" << std::endl;
+    
     };
-   /* template<class Archive>
-    void serialize(Archive& ar)
-    {
-        ar(cereal::base_class<Object>(this));
-        ar(plantType, Clicktime, position);
-
-
-        sf::Vector2f position = sprite.getPosition();
-        sf::Vector2f scale = sprite.getScale();
-        float rotation = sprite.getRotation();
-        sf::IntRect textureRect = sprite.getTextureRect();
-        sf::Color color = sprite.getColor();
-        std::string textureId = "ps.png";
-
-        ar(position, scale, rotation, textureRect, color, textureId);
-        
-        if constexpr (Archive::is_loading::value)
-        {
-            sprite.setPosition(position);
-            sprite.setScale(scale);
-            sprite.setRotation(rotation);
-            sprite.setTextureRect(textureRect);
-            sprite.setColor(color);
-            sprite.setTexture(R_Manager::get().access<sf::Texture>(textureId));
-        }
-    };*/
+   
 };

@@ -13,10 +13,4 @@ public:
     void update() override;
     void sendMsg(const std::shared_ptr<Engine::MSG>& msg) override;
 
-    template <class Archive>
-    void serialize(Archive& ar) 
-    {
-        ar(cereal::base_class<Plant>(this));
-        ar(shootTimer);  // если нужен таймер
-    }
 };

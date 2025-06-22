@@ -6,7 +6,7 @@
 #include "Projectile.h"
 class ThreeShooter : public PeaShooter {
 public:
-    ThreeShooter() = default; // для сериализации
+    ThreeShooter() = default; 
     ThreeShooter(uint8_t line, uint8_t col);
     void update() override;
 

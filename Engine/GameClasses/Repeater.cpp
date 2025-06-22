@@ -2,7 +2,7 @@
 
 Repeater::Repeater(uint8_t line, uint8_t col)
     : PeaShooter(line, col)
-    , secondShotTimer(100) // задержка между двумя выстрелами (например, 100 мс)
+    , secondShotTimer(100) 
     , pendingSecondShot(false)
 {
     plantType = "Repeater";
@@ -10,17 +10,13 @@ Repeater::Repeater(uint8_t line, uint8_t col)
     sprite.setTexture(R_Manager::get().access<sf::Texture>(textureId));
     sprite.setScale(0.15f, 0.15f);
     sprite.setColor(sf::Color(255, 255, 255, 200));
-    // основная перезарядка оставляем такой же, как у обычного PeaShooter
     shootTimer = Timer(1000);
     shootTimer.restart();
 }
 
 void Repeater::update() {
-    // Если ещё не был сделан второй выстрел
     if (!pendingSecondShot) {
-        // Ждём основной таймер
         if (shootTimer()) {
-            // Первый выстрел
             auto& cfg = Config::getInstance();
             unsigned damage = cfg["PlantParams"]["Plants"]["PeaShooter"]["Damage"].get<unsigned>();
             unsigned velocity = 2;
@@ -32,17 +28,13 @@ void Repeater::update() {
                     (Object*)this
                 )
             );
-            // Готовимся ко второму выстрелу
             pendingSecondShot = true;
             secondShotTimer.restart();
-            // Перезапускаем основной таймер, чтобы не быстрее обычного стрелять
             shootTimer.restart();
         }
     }
     else {
-        // Ждём задержку перед вторым выстрелом
         if (secondShotTimer()) {
-            // Второй выстрел
             auto& cfg = Config::getInstance();
             unsigned damage = cfg["PlantParams"]["Plants"]["PeaShooter"]["Damage"].get<unsigned>();
             unsigned velocity = 2;
@@ -54,7 +46,6 @@ void Repeater::update() {
                     (Object*)this
                 )
             );
-            // Сброс состояния
             pendingSecondShot = false;
         }
     }

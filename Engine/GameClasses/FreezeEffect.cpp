@@ -11,7 +11,7 @@ FreezeEffect::FreezeEffect(uint32_t effectId)
 }
 
 bool FreezeEffect::tick(Zombie& target) {
-    // при первом тике сохран€ем оригинальную скорость и снижаем
+   
     if (!applied) 
     {
         origSpeed = target.getSpeed();
@@ -25,14 +25,13 @@ bool FreezeEffect::tick(Zombie& target) {
         return true;
     }
 
-    // врем€ вышло Ч возвращаем скорость и шлЄм MSG_REMOVE
     target.setSpeed(origSpeed);
     MSG_Manager::get().addMSG(
         std::make_shared<Engine::MSG_TYPE_REMOVE_EFFECT>(
             target.getId(), getId()
         )
     );
-    return false;  // говорим, что эффект завершаетс€
+    return false;  
 }
 
 void FreezeEffect::influence(Zombie&) 

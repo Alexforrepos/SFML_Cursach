@@ -2,8 +2,7 @@
 #include "Effect.h"
 #include <cstdint>
 
-class Zombie;   // forward
-
+class Zombie;   
 class FreezeEffect : public Effect {
 private:
     bool applied = false;
@@ -15,7 +14,6 @@ public:
         cooldown.restart();
         applied = true;
     }
-    // переопределяем tick
     bool tick(Zombie& target) override;
-    void influence(Zombie& target) override;  // всё равно пустая
+    void influence(Zombie& target) override;  
 };

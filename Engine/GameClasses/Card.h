@@ -35,7 +35,10 @@ public:
     void changePos(const sf::Vector2f& other) override;
     void setPos(sf::Vector2f other) override;
 
-    static void resetCounter() { cardCounter = 0; }
+    static void resetCounter() 
+    { 
+        cardCounter = 0; 
+    }
 
     BASE_SERIALIZATION
 };
