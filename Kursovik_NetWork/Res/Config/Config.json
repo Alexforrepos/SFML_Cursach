@@ -22,7 +22,7 @@
                     "IceP",
                     "Apex",
                     "Pumpkin",
-                    "Skorostrel",
+                    "Repeater",
                     "SunFlower",
                     "ThreeShooter",
                     "Shovel"
@@ -39,7 +39,7 @@
                     "IceP",
                     "Apex",
                     "Pumpkin",
-                    "Skorostrel",
+                    "Repeater",
                     "SunFlower",
                     "Shovel"
                 ],
@@ -90,16 +90,16 @@
                 "cost": 50,
                 "textureId": "Pumpkin.png"
             },
-            "Shovel": {
-                "cost": 0,
-                "textureId": "Showel.png"
-            },
-            "Skorostrel": {
+            "Repeater": {
                 "CD": 1,
                 "Damage": 34,
                 "HP": 150,
                 "cost": 200,
-                "textureId": "Skorostrel.png"
+                "textureId": "Repeater.png"
+            },
+            "Shovel": {
+                "cost": 0,
+                "textureId": "Showel.png"
             },
             "SunFlower": {
                 "CD": 15,

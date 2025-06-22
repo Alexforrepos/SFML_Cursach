@@ -89,7 +89,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Utils\Serialization_Utils.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Skorostrel.cpp">
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Repeater.cpp">
       <Filter>GameObject</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)Utils\SpriteWrapper.cpp">
@@ -234,7 +234,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Utils\Serialization_Utils.h">
       <Filter>Utils</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Skorostrel.h">
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Repeater.h">
       <Filter>GameObject</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)Utils\SpriteWrapper.h">

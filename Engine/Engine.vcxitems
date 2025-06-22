@@ -36,7 +36,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Pumpkin.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Runner.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\ScoreManager.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Skorostrel.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Repeater.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Sun.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\SunFlower.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameClasses\Surface.cpp" />
@@ -82,7 +82,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Pumpkin.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Runner.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\ScoreManager.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Skorostrel.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Repeater.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Sun.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\SunFlower.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameClasses\Surface.h" />

@@ -1,7 +1,7 @@
 #include "Surface.h"
 #include "Apex.h"
 #include "PeaShooter.h"
-#include "Skorostrel.h"
+#include "Repeater.h"
 #include "FireLog.h"
 #include "Pumpkin.h"
 #include "IceP.h"
@@ -277,9 +277,9 @@ std::shared_ptr<Object> Surface::toPlant(std::string plantType, uint8_t line, ui
 	else if (plantType == "SunFlower") {
 		return make_shared<SunFlower>(line, col);
 	}
-	else if (plantType == "Skorostrel")
+	else if (plantType == "Repeater")
 	{
-		return make_shared<Skorostrel>(line, col);
+		return make_shared<Repeater>(line, col);
 
 	}
 	else if (plantType == "ThreeShooter")

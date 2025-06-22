@@ -1,12 +1,12 @@
-#include "Skorostrel.h"
+#include "Repeater.h"
 
-Skorostrel::Skorostrel(uint8_t line, uint8_t col)
+Repeater::Repeater(uint8_t line, uint8_t col)
     : PeaShooter(line, col)
     , secondShotTimer(100) // задержка между двумя выстрелами (например, 100 мс)
     , pendingSecondShot(false)
 {
-    plantType = "Skorostrel";
-    textureId = "Skorostrel.png";
+    plantType = "Repeater";
+    textureId = "Repeater.png";
     sprite.setTexture(R_Manager::get().access<sf::Texture>(textureId));
     sprite.setScale(0.15f, 0.15f);
     sprite.setColor(sf::Color(255, 255, 255, 200));
@@ -15,7 +15,7 @@ Skorostrel::Skorostrel(uint8_t line, uint8_t col)
     shootTimer.restart();
 }
 
-void Skorostrel::update() {
+void Repeater::update() {
     // Если ещё не был сделан второй выстрел
     if (!pendingSecondShot) {
         // Ждём основной таймер
