@@ -22,18 +22,18 @@ void Surface::setZombie(std::shared_ptr<Object> zombie)
 
 sf::Vector2f Surface::getPos()
 {
-	
+	//NULL
 	return sf::Vector2f();
 }
 
 void Surface::changePos(const sf::Vector2f& other)
 {
-	
+	//NULL
 }
 
 void Surface::setPos(sf::Vector2f other)
 {
-	
+	//NULL
 }
 
 void Surface::update()
@@ -120,7 +120,6 @@ void Surface::sendMsg(const std::shared_ptr<Engine::MSG>& msg)
 
 					if (place_rect.intersects(holoRect))
 					{
-						
 						if (holo->getPlantType() == "Shovel" && place.isPlanted())
 						{
 							place.deletePLant();
@@ -130,7 +129,6 @@ void Surface::sendMsg(const std::shared_ptr<Engine::MSG>& msg)
 							return;
 						}
 
-						
 						if (holo->getPlantType() == "Pumpkin"
 							&& place.isPlanted()
 							&& place.plantobj->getType() != "Pumpkin")
@@ -150,7 +148,6 @@ void Surface::sendMsg(const std::shared_ptr<Engine::MSG>& msg)
 							return;
 						}
 
-						
 						if (!place.isPlanted() && isInRange(holo->ObjectType, RANGE_PLANT) && holo->getPlantType() != "Shovel")
 						{
 							auto plant = toPlant(
@@ -167,7 +164,7 @@ void Surface::sendMsg(const std::shared_ptr<Engine::MSG>& msg)
 
 							place.plant(plant);
 
-							
+
 							return;
 						}
 					}

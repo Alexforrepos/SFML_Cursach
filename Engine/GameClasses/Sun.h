@@ -6,11 +6,12 @@
 #include "Engine/MSG_Manager.h"
 class Sun : public Object {
     sf::Sprite sprite;
-    Timer lifetime{ 15000 };      
-    Timer clickDelay{ 200 };      
+    Timer lifetime{ 15000 };      // 15 сек
+    Timer clickDelay{ 200 };      // антидребезг
     bool wasClicked = false;
 
 public:
+    // Конструктор по умолчанию — нужен для cereal и полиморфного создания
     Sun()
         : Object(int(Types::None))
         , sprite()
@@ -18,8 +19,10 @@ public:
         , clickDelay(200)
         , wasClicked(false)
     {
+        // Текстуру и позицию установим позже в функции init()
     }
 
+    // Основной конструктор для ручного создания
     Sun(const sf::Vector2f& pos, sf::Texture& tex)
         : Object(int(Types::None))
         , sprite(tex)
@@ -34,6 +37,7 @@ public:
     }
 
     void init(const sf::Vector2f& pos, sf::Texture& tex) {
+        // Вызывается сразу после Sun() для установки спрайта
         sprite.setTexture(tex);
         sprite.setPosition(pos);
         sprite.setScale(0.1f, 0.1f);
@@ -67,6 +71,14 @@ public:
     void changePos(const sf::Vector2f&) override {}
     void setPos(sf::Vector2f) override {}
 
-    
+    // cereal-сериализация
+    template<class Archive>
+    void serialize(Archive& ar) {
+        ar(cereal::base_class<Object>(this),
+            sprite,
+            lifetime,
+            clickDelay,
+            wasClicked);
+    }
 };
 

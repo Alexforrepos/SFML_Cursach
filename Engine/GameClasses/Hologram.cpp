@@ -16,6 +16,8 @@ Hologram::Hologram(const sf::Vector2f& startPos, const std::string& type)
 }
 
 
+
+
 void Hologram::update()
 {
     position = sf::Vector2f(sf::Mouse::getPosition());

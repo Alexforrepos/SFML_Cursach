@@ -3,18 +3,23 @@
 #include <cstdint>
 #include "Utils/Timer.h"
 
+class Zombie;
+
 class Effect {
 protected:
     Timer cooldown;
+public:
+    friend class Zombie;
+
+    uint32_t id; 
+
 public:
     Effect(int period, uint32_t effectId)
         : cooldown(period), id(effectId)
     {
         cooldown.restart();
     }
-    friend class Zombie;
 
-    uint32_t id; 
     virtual ~Effect() = default;
 
     uint32_t getId() const { return id; }

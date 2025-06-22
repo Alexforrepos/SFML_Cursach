@@ -21,7 +21,7 @@ public:
 	}
 
 	void setPlant(std::shared_ptr<Plant> pl) {
-		original_plant = pl; 
+		original_plant = pl; // Просто сохраняем shared_ptr
 	}
 
 	void update() override {
@@ -38,7 +38,7 @@ public:
 			{
 				this->HP -= damage_msg->damage;
 				if (this->HP <= 0) {
-				
+					// Убиваем тыкву
 					MSG_Manager::get().addMSG(
 						std::make_shared<Engine::MSG_TYPE_KILL>(this, damage_msg->damager.get())
 					);

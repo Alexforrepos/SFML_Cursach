@@ -6,8 +6,9 @@ protected:
     Timer secondShotTimer;
     bool pendingSecondShot = false;
 public:
-    Repeater() = default; 
+    Repeater() = default; // для сериализации
 
+    // конструктор, который вы наверняка зовёте при «посадке»
     Repeater(uint8_t line, uint8_t col);
 
     void update() override;
